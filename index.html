@@ -7,33 +7,37 @@
             --bg: #0d1117; --p0: #3b82f6; --p1: #22d3ee; --fin: #10b981;
             --card: #161b22; --tp: #f0f6fc; --ts: #8b949e; --bd: #30363d;
         }
-        /* 배경을 꽉 채우기 위해 margin을 0으로 하고 너비를 100%로 설정 */
-        html, body { background: var(--bg); margin: 0; padding: 0; width: 100%; height: 100%; overflow-x: hidden; }
-        body { color: var(--tp); font-family: 'Pretendard', sans-serif; line-height: 1.5; }
-        
-        /* [수정] max-width를 지우고 여백만 설정하여 창 전체를 꽉 채움 */
-        .container { width: 95%; margin: 0 auto; padding: 40px 0; box-sizing: border-box; }
-        
-        .header { border-left: 4px solid var(--p1); padding-left: 20px; margin-bottom: 30px; }
-        .header h1 { margin: 0; font-size: 2.2rem; letter-spacing: -1px; }
-        .total { color: var(--p1); font-weight: 800; font-size: 0.9rem; margin-bottom: 5px; display: block; }
-        
-        .p-title { font-size: 1.2rem; font-weight: 800; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; text-transform: uppercase; }
-        .p0-t { color: var(--p0); } .p1-t { color: var(--p1); margin-top: 20px; }
-        
+        /* 노션 임베드 전체 화면 최적화 */
+        html, body { 
+            background: var(--bg); margin: 0; padding: 0; width: 100%; height: 100vh; 
+            overflow-x: hidden; color: var(--tp); font-family: 'Pretendard', sans-serif;
+        }
+        .container { width: 100%; max-width: none; margin: 0; padding: 30px 5%; box-sizing: border-box; }
+
+        .header { border-left: 4px solid var(--p1); padding-left: 15px; margin-bottom: 25px; }
+        .header h1 { margin: 0; font-size: 2rem; letter-spacing: -1px; }
+        .total { color: var(--p1); font-weight: 800; font-size: 0.9rem; display: block; margin-bottom: 5px; }
+
+        .p-title { font-size: 1.25rem; font-weight: 800; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; text-transform: uppercase; }
+        .p0-t { color: var(--p0); } .p1-t { color: var(--p1); margin-top: 15px; }
+
+        /* PHASE 0: 상자 간격 최소화 최적화 */
         .grid-p0 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; align-items: start; }
         .card-p0 { 
             background: var(--card); border: 1px solid var(--bd); border-radius: 12px; 
-            padding: 20px; min-height: 180px; cursor: pointer; display: flex; flex-direction: column; transition: 0.3s;
+            padding: 18px 22px; min-height: 180px; cursor: pointer; display: flex; flex-direction: column; transition: 0.3s;
         }
         .card-p0:hover { border-color: var(--p0); transform: translateY(-3px); }
-        .c-header { display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 800; font-size: 1.1rem; }
-        .tag { font-size: 0.75rem; background: #21262d; padding: 3px 8px; border-radius: 4px; color: var(--ts); font-weight: normal; }
+        .c-header { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 800; font-size: 1.1rem; }
+        .tag { font-size: 0.75rem; background: #21262d; padding: 2px 8px; border-radius: 4px; color: var(--ts); font-weight: 400; }
+        
         .card-p0 ul { margin: 0; padding: 0; list-style: none; font-size: 0.9rem; color: var(--ts); }
         .card-p0 li { margin-bottom: 3px; }
-        .sp-li { margin-bottom: 12px !important; }
+        .sp-li { margin-bottom: 10px !important; } /* 간격 타이트 조정 */
+
         .rem-p0 { margin-top: auto; padding-top: 10px; border-top: 1px solid var(--bd); font-size: 0.85rem; font-weight: 600; color: var(--p0); }
-        
+
+        /* PHASE 1: 6단계 전 공정 및 고속 반응 */
         .roadmap-p1 { position: relative; padding-left: 40px; margin-top: 20px; }
         .roadmap-p1::before { content: ''; position: absolute; left: 15px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--p1), var(--fin)); }
         .roadmap-item { position: relative; margin-bottom: 12px; }
@@ -41,24 +45,25 @@
             position: absolute; left: -34px; top: 18px; width: 14px; height: 14px; 
             background: var(--bg); border: 3px solid var(--p1); border-radius: 50%; z-index: 2; transition: 0.25s;
         }
-        .roadmap-item.active .node { background: var(--p1); box-shadow: 0 0 12px var(--p1); }
+        .roadmap-item.active .node { background: var(--p1); box-shadow: 0 0 10px var(--p1); }
+
         .r-content { 
             background: var(--card); border: 1px solid var(--bd); border-radius: 12px; 
-            padding: 20px 25px; cursor: pointer; transition: 0.25s ease-out; 
+            padding: 18px 25px; cursor: pointer; transition: 0.25s ease-out; 
         }
         .r-content:hover { border-color: var(--p1); transform: translateX(10px); }
         .f-main { display: flex; justify-content: space-between; align-items: center; }
-        .f-text h3 { margin: 0; font-size: 1.05rem; }
-        .f-text p { margin: 0; font-size: 0.9rem; color: var(--ts); }
+        .f-text h3 { margin: 0 0 4px 0; font-size: 1.05rem; }
+        .f-text p { margin: 0; font-size: 0.88rem; color: var(--ts); }
         .f-rem { font-size: 0.85rem; font-weight: 600; color: var(--p1); text-align: right; }
-        
+
         .details { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-in-out; width: 100%; }
         .d-inner { padding: 30px; background: rgba(0,0,0,0.3); border-radius: 10px; margin-top: 15px; border: 1px dashed var(--bd); text-align: center; font-size: 1rem; color: var(--ts); font-weight: 700; }
-        .active .details { max-height: 800px; }
+        .active .details { max-height: 1200px; }
         
         .final .node { border-color: var(--fin); }
-        .final.active .node { background: var(--fin); box-shadow: 0 0 12px var(--fin); }
-        .final h3 { color: var(--fin); } .final .f-rem { color: var(--fin); }
+        .final.active .node { background: var(--fin); box-shadow: 0 0 10px var(--fin); }
+        .final h3 { color: var(--fin); }
         
         @media (max-width: 768px) { .grid-p0 { grid-template-columns: 1fr; } .f-main { flex-direction: column; align-items: flex-start; gap: 8px; } }
     </style>
@@ -66,6 +71,7 @@
 <body>
 <div class="container">
     <header class="header"><span class="total">6 WEEKS / 30 WORKING DAYS</span><h1>3D Visualization Workflow</h1></header>
+    
     <section>
         <div class="p-title p0-t">PHASE 0: PRE-PRODUCTION</div>
         <div class="grid-p0">
@@ -76,8 +82,8 @@
                     <li>• 라이팅 무드 및 밤낮 블루프린트 검증</li>
                     <li class="sp-li">• 전용 쉐이더 및 재질 머티리얼 선제작</li>
                 </ul>
-                <div class="details"><div class="d-inner">기술 데이터 이미지 영역</div></div>
-                <div class="rem-p0">기초 수립 및 리스크 해소</div>
+                <div class="details"><div class="d-inner">상세 기술 테스트 데이터 영역</div></div>
+                <div class="rem-p0">기술적 기초 수립 및 리스크 해소</div>
             </div>
             <div class="card-p0" onclick="tg0(this)">
                 <div class="c-header"><span>디자인 기획</span><span class="tag">3~5일</span></div>
@@ -85,22 +91,23 @@
                     <li>• 통합 UI 스타일 가이드 수립</li>
                     <li class="sp-li">• 최적 레이아웃 리서치</li>
                 </ul>
-                <div class="details"><div class="d-inner">디자인 가이드 이미지 영역</div></div>
-                <div class="rem-p0">비주얼 아이덴티티 구축</div>
+                <div class="details"><div class="d-inner">디자인 전략 가이드 이미지 영역</div></div>
+                <div class="rem-p0">독자적 비주얼 아이덴티티 구축</div>
             </div>
         </div>
     </section>
+
     <section>
         <div class="p-title p1-t">PHASE 1: MAIN-PRODUCTION</div>
         <div class="roadmap-p1">
             <div class="roadmap-item" onclick="tg1(this)">
                 <div class="node"></div><div class="r-content"><div class="f-main">
                 <div class="f-text"><h3>준비 (GIS) <span class="tag">1~2일</span></h3><p>QGIS 데이터 추출 및 좌표 정합</p></div>
-                <span class="f-rem">무결성 확보</span></div><div class="details"><div class="d-inner">GIS 데이터 시각화 자료</div></div></div>
+                <span class="f-rem">무결성 확보</span></div><div class="details"><div class="d-inner">준비 단계 시각화 자료</div></div></div>
             </div>
             <div class="roadmap-item" onclick="tg1(this)">
                 <div class="node"></div><div class="r-content"><div class="f-main">
-                <div class="f-text"><h3>모델링 (Blender) <span class="tag">5~7일</span></h3><p>주요 건물 블로킹 및 스케일 체크</p></div>
+                <div class="f-text"><h3>모델링 (Blender) <span class="tag">5~7일</span></h3><p>건물 블로킹 및 스케일 체크</p></div>
                 <span class="f-rem">최적화 중심</span></div><div class="details"><div class="d-inner">모델링 스크린샷 영역</div></div></div>
             </div>
             <div class="roadmap-item" onclick="tg1(this)">
@@ -120,7 +127,7 @@
             </div>
             <div class="roadmap-item final" onclick="tg1(this)">
                 <div class="node"></div><div class="r-content"><div class="f-main">
-                <div class="f-text"><h3>최종 출력 (Export) <span class="tag">2~3일</span></h3><p>렌더링 및 2D 인포그래픽 합성</p></div>
+                <div class="f-text"><h3>최종 출력 (Export) <span class="tag">2~3일</span></h3><p>렌더링 및 인포그래픽 합성</p></div>
                 <span class="f-rem">결과물 패키징</span></div><div class="details"><div class="d-inner">최종 패키징 체크리스트</div></div></div>
             </div>
         </div>
