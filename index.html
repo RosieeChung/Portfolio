@@ -210,7 +210,9 @@
                 <div class="card-p0-top">
                     <div class="card-header">
                         <span class="step-name">
-                            <svg class="icon-svg icon-fill" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                            <svg class="icon-svg icon-fill" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+                            </svg>
                             테스트 기간
                         </span>
                         <div style="display:flex; align-items:center; gap:10px;"><span class="tag">0~5일</span><span class="arrow-icon">▼</span></div>
@@ -234,7 +236,12 @@
                 <div class="card-p0-top">
                     <div class="card-header">
                         <span class="step-name">
-                            <svg class="icon-svg icon-fill" viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3zM18 13l-1.5-1.5L4 23l3 3 11-13z"/></svg>
+                            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                                <path d="M2 2l7.5 8.6L8 12l-1 5"></path>
+                                <path d="M9 4.4L11.5 7"></path>
+                            </svg>
                             디자인 기획
                         </span>
                         <div style="display:flex; align-items:center; gap:10px;"><span class="tag">3~5일</span><span class="arrow-icon">▼</span></div>
@@ -307,10 +314,44 @@
                 </div>
             </div>
 
-            <div class="roadmap-item" onclick="togglePhase1(this)">
+            <div class="roadmap-item final-step" onclick="togglePhase1(this)">
                 <div class="node"></div>
                 <div class="roadmap-content">
                     <div class="flow-main">
                         <div class="flow-text">
                             <h3>
-                                <svg class="icon-svg icon-fill" viewBox="0
+                                <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="3" y1="9" x2="21" y2="9"></line>
+                                    <path d="M9 16l2 2 4-4"></path>
+                                </svg>
+                                최종 출력 및 검수 <span class="tag">3~5일</span>
+                            </h3>
+                            <p>최종 렌더링 및 클라이언트 딜리버리</p>
+                        </div>
+                        <div class="flow-meta"><div class="flow-remark">마일스톤 종료</div><span class="arrow-icon">▼</span></div>
+                    </div>
+                    <div class="details">
+                        <div class="details-inner">
+                            <img src="https://via.placeholder.com/800x350/21262d/8b949e?text=Final+Output+Delivery" alt="최종 산출물" class="content-image">
+                            <p style="color:var(--text-s); margin:0;">최종 렌더링 및 검수 완료 데이터</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>
+
+<script>
+    function togglePhase0(element) {
+        element.classList.toggle('active');
+    }
+    function togglePhase1(element) {
+        element.classList.toggle('active');
+    }
+</script>
+
+</body>
+</html>
