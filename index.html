@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>3D 시각화 제작 파이프라인 (Perfect Alignment & Independent)</title>
+    <title>3D 시각화 제작 파이프라인 (Perfect Pixel Alignment)</title>
     <style>
         :root {
             --bg: #0d1117;
@@ -48,17 +48,20 @@
 
         .icon-svg { width: 22px; height: 22px; flex-shrink: 0; display: inline-block; fill: currentColor; } 
 
-        /* [Phase 0 Grid] 독립 작동을 위해 start 복구, 상자 크기는 고정 높이로 맞춤 */
+        /* [Phase 0 Grid] 독립 작동을 위한 start 적용 */
         .grid-p0 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; margin: 0 0 40px 42px; align-items: start; }
         
+        /* [Common Card Structure] */
         .card-p0, .roadmap-content { 
             background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; 
             padding: 24px 26px; cursor: pointer; transition: 0.3s ease;
             display: flex; flex-direction: column; box-sizing: border-box;
         }
         
-        /* 닫혀 있을 때 동일한 높이(같은 라인 선)를 유지하도록 강제 고정 */
-        .card-p0 { min-height: 195px; } 
+        /* ★ Phase 0 상자 크기 100% 동일하게 고정 ★ */
+        .card-p0 { height: 220px; overflow: hidden; } 
+        .card-p0.active { height: auto; min-height: 220px; }
+
         .card-p0:hover, .roadmap-content:hover { border-color: var(--p1-accent); transform: translateY(-2px); }
         
         .header-row { display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 5px; }
@@ -67,16 +70,16 @@
         .tag { font-size: 0.75rem; background: #21262d; padding: 3px 10px; border-radius: 4px; color: var(--p0-accent); font-weight: 700; }
         .p1-item .tag { color: var(--p1-accent); }
 
-        /* ★ [텍스트 정렬] 아이콘을 건너뛰고 '제목 글자'와 완벽히 열을 맞추기 위한 32px 여백 ★ */
-        .sub-desc, .phase-0-text { 
-            margin: 10px 0 12px 32px; /* 아이콘 폭(22px) + 간격(10px) = 32px */
-            font-size: 0.88rem; color: var(--text-dim) !important; 
+        /* ★ [텍스트 칼정렬] 아이콘(22px) + 간격(10px) = 32px로 제목 글씨와 완벽한 열 맞춤 ★ */
+        .phase-0-text, .sub-desc { 
+            margin: 10px 0 12px 32px; 
+            font-size: 0.88rem; color: var(--text-s); 
             line-height: 1.7; display: flex; flex-direction: column; gap: 4px;
         } 
-        /* Phase 0 불렛 점 제거 및 텍스트만 표시 */
         .phase-0-text span { display: block; }
+        .sub-desc { margin-top: 4px; font-size: 0.82rem; color: var(--text-dim) !important; }
 
-        /* [Details Area] */
+        /* [Details Area] 상세 내용 및 이미지 슬롯 */
         .details { max-height: 0; opacity: 0; overflow: hidden; transition: all 0.4s ease-in-out; width: 100%; }
         .active .details { max-height: 1500px; opacity: 1; padding: 20px 0 0 0; margin-bottom: 10px; }
         .details-inner { 
@@ -85,9 +88,9 @@
         }
         .content-image { width: 100%; max-width: 700px; height: auto; border-radius: 6px; margin-bottom: 15px; border: 1px solid var(--border); background: #21262d; }
 
-        /* [Remark Area] 하단 요약 */
+        /* [Remark Area] 하단 요약 문구 */
         .remark-area { 
-            padding-top: 18px; border-top: 1px solid var(--border); 
+            padding-top: 15px; border-top: 1px solid var(--border); 
             font-size: 0.85rem; font-weight: 700; color: var(--p0-accent);
             margin-top: auto; 
         }
@@ -112,7 +115,7 @@
         .step-5 .node { border-color: #10ebae; } 
         .step-5.active .node { color: #10ebae; } 
 
-        /* ★ 최종 출력 (Step 6) 강조 스타일 완벽 고정 ★ */
+        /* ★ 최종 출력 (Step 6) 점선 테두리 및 초록색 강조 (서브 텍스트 제외) ★ */
         .final-step .step-name { color: var(--final-accent) !important; }
         .final-step .icon-svg { fill: var(--final-accent) !important; }
         .final-step .node { border-color: var(--final-accent); }
@@ -120,9 +123,9 @@
         .final-step .tag { color: var(--final-accent) !important; }
         .final-step .remark-area { color: var(--final-accent) !important; border-top-color: var(--border); }
         .final-step .arrow-icon { color: var(--final-accent) !important; }
-        /* 점선 테두리 강조 */
         .final-step .roadmap-content { border: 2px dashed var(--final-accent) !important; }
 
+        /* 화살표 모션 */
         .arrow-icon { transition: transform 0.3s; color: var(--text-dim); font-size: 0.75rem; display: inline-block; }
         .active .arrow-icon { transform: rotate(180deg); color: var(--p1-accent); }
 
@@ -133,12 +136,12 @@
         @media (max-width: 768px) {
             .container { width: 90%; padding: 30px 0; }
             .grid-p0 { grid-template-columns: 1fr; margin-left: 35px; gap: 15px; }
-            .card-p0 { min-height: auto; } /* 모바일 세로 배치 시 높이 자동화 */
+            .card-p0 { height: auto; min-height: auto; } /* 모바일에서는 자동 높이 */
             .roadmap-item { padding-left: 45px; margin-right: 8px; margin-bottom: 15px; }
             .header, .phase-title { padding-left: 35px; }
             .header::before, .phase-title::before, .roadmap-p1::before { left: 15px; }
             .node { left: 16px; top: 26px; }
-            .sub-desc, .phase-0-text { margin-left: 0; margin-top: 8px; }
+            /* 모바일에서도 칼정렬 유지 */
         }
     </style>
 </head>
@@ -270,7 +273,7 @@
                 <div class="roadmap-content">
                     <div class="header-row">
                         <span class="step-name">
-                            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" stroke="currentColor" stroke-width="2" fill="none" ry="2"/></svg>
                             연출 (Sequencing)
                         </span>
                         <div class="tag-area"><span class="tag">2~3일</span><span class="arrow-icon">▼</span></div>
@@ -301,7 +304,7 @@
 </div>
 
 <script>
-    // Phase 1은 아코디언 방식 (하나 열리면 다른 것은 닫힘)
+    // Phase 1은 아코디언 방식 (하나만 열림)
     function togglePhase1(element) {
         const isActive = element.classList.contains('active');
         document.querySelectorAll('.roadmap-item').forEach(el => el.classList.remove('active'));
