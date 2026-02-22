@@ -39,7 +39,7 @@
             box-sizing: border-box; 
         }
 
-        /* [Header] 정렬 기준점 */
+        /* [Header] 왼쪽 라인 정렬의 기준 */
         .header { 
             text-align: left; 
             margin-bottom: 45px; 
@@ -51,15 +51,15 @@
         .header h1 { margin: 0; font-size: clamp(1.4rem, 5vw, 2rem); letter-spacing: -1px; }
         .total-time { color: var(--p1-accent); font-weight: 800; font-size: 0.85rem; margin-bottom: 8px; display: block; }
 
-        /* [Phase Titles] 라인 정렬 통일 */
+        /* [Phase Titles] 텍스트 크기 축소 및 라인 정렬 */
         .phase-title { 
-            font-size: clamp(1rem, 4vw, 1.25rem); 
+            font-size: clamp(0.95rem, 4vw, 1.2rem); 
             font-weight: 800; 
             margin-bottom: 20px; 
             display: flex; 
             align-items: center; 
             text-transform: uppercase; 
-            padding-left: 20px; /* 헤더와 동일한 패딩 */
+            padding-left: 20px; /* 헤더 바와 동일한 위치 */
         }
         .p0-title { color: var(--p0-accent); border-left: 4px solid var(--p0-accent); }
         .p1-title { color: var(--p1-accent); border-left: 4px solid var(--p1-accent); }
@@ -92,25 +92,23 @@
         .remark-p0 { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--border); font-size: 0.8rem; font-weight: 700; color: var(--p0-accent); }
 
         /* ================= Divider ================= */
-        .phase-divider {
-            display: flex; align-items: center; justify-content: center; margin: 40px 0; color: var(--border);
-        }
+        .phase-divider { display: flex; align-items: center; justify-content: center; margin: 40px 0; color: var(--border); }
         .phase-divider::before, .phase-divider::after { content: ''; flex: 1; border-bottom: 1px dashed var(--border); }
         .phase-divider span { padding: 0 15px; color: var(--text-dim); font-size: 0.75rem; letter-spacing: 2px; font-weight: 600; }
 
-        /* ================= PHASE 1 ================= */
-        .roadmap-p1 { position: relative; padding-left: 24px; margin-top: 10px; } /* 왼쪽 라인 정렬을 위한 패딩 조정 */
-        /* 수직 라인을 Phase 타이틀 라인과 일치시킴 */
+        /* ================= PHASE 1 (로드맵 라인 정렬 최적화) ================= */
+        .roadmap-p1 { position: relative; padding-left: 24px; margin-top: 10px; } 
+        /* 수직 라인을 상단 타이틀 바 위치와 일치시킴 */
         .roadmap-p1::before { 
             content: ''; position: absolute; left: 0px; top: 0; bottom: 0; width: 4px; 
             background: linear-gradient(to bottom, var(--p1-accent), var(--final-accent)); 
         }
 
         .roadmap-item { position: relative; margin-bottom: 12px; }
-        /* 노드 위치 조정 */
+        /* 노드를 라인 중앙에 정확히 배치 */
         .node { 
-            position: absolute; left: -5px; top: 18px; width: 6px; height: 6px; 
-            background: var(--bg); border: 4px solid var(--p1-accent); border-radius: 50%; z-index: 2; 
+            position: absolute; left: -6px; top: 18px; width: 8px; height: 8px; 
+            background: var(--bg); border: 4px solid var(--p1-accent); border-radius: 50%; z-index: 2; transition: 0.25s;
         }
         .roadmap-item.active .node { background-color: var(--p1-accent); box-shadow: 0 0 10px var(--p1-accent); }
 
@@ -126,7 +124,7 @@
         .flow-meta { display: flex; align-items: center; gap: 15px; }
         .flow-remark { font-size: 0.8rem; font-weight: 700; color: var(--p1-accent); text-align: right; }
 
-        /* [상세 영역] 잘림 방지 최적화 */
+        /* [상세 영역] */
         .details { max-height: 0; opacity: 0; overflow: hidden; transition: 0.4s ease-in-out; }
         .active .details { max-height: 1000px; opacity: 1; margin-top: 15px; }
         .details-inner { 
@@ -140,22 +138,21 @@
 
         .final-step h3 { color: var(--final-accent) !important; }
 
-        /* ================= 모바일 반응형 최적화 ================= */
+        /* ================= 모바일 반응형 폰트 및 간격 최적화 ================= */
         @media (max-width: 768px) {
-            .container { padding: 25px 0; width: 90%; }
+            .container { padding: 25px 0; width: 92%; }
             .header { padding-left: 15px; margin-bottom: 30px; }
-            .phase-title { padding-left: 15px; margin-bottom: 15px; font-size: 0.95rem; }
+            .phase-title { padding-left: 15px; margin-bottom: 15px; font-size: 0.9rem; }
             
             .grid-p0 { grid-template-columns: 1fr; gap: 12px; }
             .card-p0 { min-height: auto; padding: 18px; }
             
-            .roadmap-p1 { padding-left: 20px; }
+            .roadmap-p1 { padding-left: 15px; }
             .roadmap-p1::before { width: 3px; }
-            .node { left: -3.5px; width: 4px; height: 4px; border-width: 3px; }
+            .node { left: -4.5px; width: 6px; height: 6px; border-width: 3px; }
             
             .flow-main { flex-direction: column; align-items: flex-start; gap: 8px; }
             .flow-meta { width: 100%; justify-content: space-between; border-top: 1px dashed var(--border); padding-top: 8px; }
-            .flow-remark { text-align: left; font-size: 0.75rem; }
         }
     </style>
 </head>
@@ -226,12 +223,12 @@
                 <div class="roadmap-content">
                     <div class="flow-main">
                         <div class="flow-text">
-                            <h3><svg class="icon-svg icon-fill" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-3.13-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg> 준비 (GIS) <span class="tag">1~2일</span></h3>
+                            <h3><svg class="icon-svg icon-fill" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 준비 (GIS) <span class="tag">1~2일</span></h3>
                             <p>QGIS 데이터 추출 및 좌표/고도 정합</p>
                         </div>
                         <div class="flow-meta"><div class="flow-remark">데이터 무결성 확보</div><span class="arrow-icon">▼</span></div>
                     </div>
-                    <div class="details"><div class="details-inner"><img src="https://via.placeholder.com/800x350/21262d/8b949e?text=GIS+Data" class="content-image"><p style="color:var(--text-s); font-size:0.85rem; font-weight:700;">시각화 자료 영역</p></div></div>
+                    <div class="details"><div class="details-inner"><p style="color:var(--text-s); font-size:0.85rem; font-weight:700;">시각화 자료 영역</p></div></div>
                 </div>
             </div>
 
@@ -245,7 +242,7 @@
                         </div>
                         <div class="flow-meta"><div class="flow-remark">최적화 중심 모델링</div><span class="arrow-icon">▼</span></div>
                     </div>
-                    <div class="details"><div class="details-inner"><img src="https://via.placeholder.com/800x350/21262d/8b949e?text=Modeling" class="content-image"><p style="color:var(--text-s); font-size:0.85rem; font-weight:700;">모델링 데이터 영역</p></div></div>
+                    <div class="details"><div class="details-inner"><p style="color:var(--text-s); font-size:0.85rem; font-weight:700;">모델링 데이터 영역</p></div></div>
                 </div>
             </div>
 
@@ -259,7 +256,7 @@
                         </div>
                         <div class="flow-meta"><div class="flow-remark">톤앤매너 결정</div><span class="arrow-icon">▼</span></div>
                     </div>
-                    <div class="details"><div class="details-inner"><img src="https://via.placeholder.com/800x350/21262d/8b949e?text=UE5+Environment" class="content-image"><p style="color:var(--text-s); font-size:0.85rem; font-weight:700;">환경 세팅 레퍼런스</p></div></div>
+                    <div class="details"><div class="details-inner"><p style="color:var(--text-s); font-size:0.85rem; font-weight:700;">환경 세팅 레퍼런스</p></div></div>
                 </div>
             </div>
 
@@ -273,7 +270,7 @@
                         </div>
                         <div class="flow-meta"><div class="flow-remark">실사 퀄리티 완성</div><span class="arrow-icon">▼</span></div>
                     </div>
-                    <div class="details"><div class="details-inner"><img src="https://via.placeholder.com/800x350/21262d/8b949e?text=Polishing" class="content-image"><p style="color:var(--text-s); font-size:0.85rem; font-weight:700;">비주얼 폴리싱 상세</p></div></div>
+                    <div class="details"><div class="details-inner"><p style="color:var(--text-s); font-size:0.85rem; font-weight:700;">비주얼 폴리싱 상세</p></div></div>
                 </div>
             </div>
 
@@ -287,7 +284,7 @@
                         </div>
                         <div class="flow-meta"><div class="flow-remark">시네마틱 흐름 설계</div><span class="arrow-icon">▼</span></div>
                     </div>
-                    <div class="details"><div class="details-inner"><img src="https://via.placeholder.com/800x350/21262d/8b949e?text=Sequencing" class="content-image"><p style="color:var(--text-s); font-size:0.85rem; font-weight:700;">스토리보드 자료</p></div></div>
+                    <div class="details"><div class="details-inner"><p style="color:var(--text-s); font-size:0.85rem; font-weight:700;">스토리보드 자료</p></div></div>
                 </div>
             </div>
 
@@ -301,7 +298,7 @@
                         </div>
                         <div class="flow-meta"><div class="flow-remark">완료 및 패키징</div><span class="arrow-icon">▼</span></div>
                     </div>
-                    <div class="details"><div class="details-inner"><img src="https://via.placeholder.com/800x350/21262d/8b949e?text=Final+Package" class="content-image"><p style="color:var(--text-s); font-size:0.85rem; font-weight:700;">최종 결과물 리포트</p></div></div>
+                    <div class="details"><div class="details-inner"><p style="color:var(--text-s); font-size:0.85rem; font-weight:700;">최종 결과물 리포트</p></div></div>
                 </div>
             </div>
         </div>
@@ -311,11 +308,9 @@
 <script>
     function toggleAccordion(element) {
         const isActive = element.classList.contains('active');
-        // 모든 아코디언 초기화
         document.querySelectorAll('.card-p0, .roadmap-item').forEach(el => {
             el.classList.remove('active');
         });
-        // 현재 요소 토글
         if (!isActive) {
             element.classList.add('active');
         }
