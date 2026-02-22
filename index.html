@@ -3,35 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>3D Visualization Workflow (Clean Horizontal Gradient)</title>
+    <title>3D Visualization Workflow (Icon Size Matched)</title>
     <style>
-        /* [전역 변수: 선명하고 깨끗한 라이트 모드 정의] */
+        /* [전역 변수: 차분하고 고급스러운 딥 블루/인디고 톤 정의] */
         :root {
-            --bg-light: #f8f9fa; 
-            --point-blue: #3b82f6; 
-            --point-purple: #8b5cf6; 
-            /* 수정: 그라데이션 방향을 왼쪽에서 오른쪽(to right)으로 변경 */
+            --bg-light: #f9fafb;
+            --point-blue: #3b82f6;
+            --point-purple: #6366f1;
+            
+            /* 그라데이션: 왼쪽에서 오른쪽 */
             --grad-point: linear-gradient(to right, var(--point-blue), var(--point-purple));
 
+            /* Phase별 Accent */
             --p0-accent: var(--point-purple);    
             --grad-start: var(--point-blue);     
-            --grad-mid: #6366f1;                 
+            --grad-mid: #4f46e5;                 
             --grad-end: var(--point-purple);     
 
+            /* 단계별 컬러 */
             --step1-color: var(--grad-start); 
             --step2-color: #0ea5e9; 
             --step3-color: var(--grad-mid);
-            --step4-color: #d946ef; 
-            --step5-color: #a855f7; 
+            --step4-color: #7c3aed; 
+            --step5-color: #9333ea; 
             --step6-color: var(--grad-end);
 
+            /* 카드 스타일 */
             --card-bg: #ffffff; 
             --card-border: #e5e7eb; 
-            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
-            /* 수정: 활성화 그림자를 더 깔끔하고 정돈되게 조정 (퍼짐 감소) */
-            --card-active-shadow: 0 4px 12px rgba(59, 130, 246, 0.15), 0 2px 4px rgba(59, 130, 246, 0.1);
+            --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --card-active-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.15), 0 4px 6px -2px rgba(99, 102, 241, 0.1);
+            
+            /* 활성화 시 적용할 그라데이션 배경 및 테두리 변수 */
+            --card-active-bg-grad: linear-gradient(to bottom right, #ffffff, #f5f7ff);
+            --card-active-border-grad: var(--grad-point);
 
-            --text-p: #1f2937; 
+            /* 텍스트 컬러 */
+            --text-p: #111827; 
             --text-s: #4b5563; 
             --text-dim: #9ca3af; 
             --border: #e5e7eb; 
@@ -53,7 +61,7 @@
             content: ''; position: absolute; left: 20px; top: 0; bottom: 20px;
             width: 4px; background: var(--grad-point); border-radius: 2px;
         }
-        .header h1 { margin: 0; font-size: 2rem; letter-spacing: -1px; color: var(--text-p); padding-left: 15px; }
+        .header h1 { margin: 0; font-size: 2rem; letter-spacing: -1px; color: var(--text-p); padding-left: 15px; font-weight: 800; }
         .total-time { color: var(--point-blue); font-weight: 800; font-size: 0.9rem; margin-bottom: 8px; display: block; letter-spacing: 0.5px; padding-left: 15px; }
 
         /* [Phase Titles] */
@@ -69,27 +77,42 @@
         .p0-title { color: var(--p0-accent); }
         .p1-title { color: var(--grad-start); }
 
+        /* 아이콘 공통 스타일 */
         .icon-svg { width: 22px; height: 22px; flex-shrink: 0; display: inline-block; fill: currentColor; } 
 
         /* [Grid & Card] */
         .grid-p0 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; margin: 0 0 40px 42px; align-items: start; }
         .card-p0, .roadmap-content { 
             background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; 
-            padding: 24px 26px; cursor: pointer; transition: all 0.2s ease-in-out;
+            padding: 24px 26px; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
             display: flex; flex-direction: column; box-sizing: border-box; position: relative;
             box-shadow: var(--card-shadow);
         }
         .card-p0 { height: 220px; overflow: hidden; } 
 
-        .card-p0.active, .roadmap-item.active .roadmap-content { border-color: var(--point-blue); box-shadow: var(--card-active-shadow); background: var(--card-bg); }
+        /* 활성화 상태 시 그라데이션 배경 및 테두리 적용 */
+        .card-p0.active, .roadmap-item.active .roadmap-content { 
+            border: 2px solid transparent; 
+            background-image: var(--card-active-bg-grad), var(--card-active-border-grad);
+            background-origin: padding-box, border-box;
+            background-clip: padding-box, border-box;
+            box-shadow: var(--card-active-shadow);
+            padding: 23px 25px;
+        }
         .card-p0.active { height: auto; min-height: 220px; }
-        .card-p0:hover, .roadmap-content:hover { border-color: var(--point-blue); transform: translateY(-2px); box-shadow: var(--card-active-shadow); }
+        
+        /* 호버 상태 */
+        .card-p0:hover, .roadmap-content:hover { 
+            border-color: rgba(99, 102, 241, 0.5); 
+            transform: translateY(-3px); 
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(99, 102, 241, 0.5) inset; 
+        }
         
         .header-row { display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 5px; }
         .step-name { font-weight: 800; font-size: 1.05rem; display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; color: var(--text-p); }
         .title-txt { white-space: nowrap; }
-        .tag { font-size: 0.75rem; background: #f3f4f6; padding: 3px 10px; border-radius: 6px; color: var(--p0-accent); font-weight: 700; margin-left: 5px; flex-shrink: 0; border: 1px solid #e5e7eb; }
-        .card-p0.active .tag, .roadmap-item.active .tag { background: var(--grad-point); color: white; border: none; }
+        .tag { font-size: 0.75rem; background: #f3f4f6; padding: 3px 10px; border-radius: 6px; color: var(--p0-accent); font-weight: 700; margin-left: 5px; flex-shrink: 0; border: 1px solid #e5e7eb; transition: all 0.3s ease; }
+        .card-p0.active .tag, .roadmap-item.active .tag { background: var(--grad-point); color: white; border: none; box-shadow: 0 2px 4px rgba(99, 102, 241, 0.2); }
         .p1-item .tag { color: var(--grad-start); }
 
         .phase-0-text, .sub-desc-container { margin: 10px 0 12px 32px; display: flex; flex-direction: column; gap: 8px; } 
@@ -105,7 +128,7 @@
         }
         .roadmap-p1::after {
              content: ''; position: absolute; left: 21px; top: 35px; bottom: 0; width: 2px; 
-             background: var(--grad-point); z-index: 1; opacity: 0.15; border-radius: 2px 2px 0 0;
+             background: var(--grad-point); z-index: 1; opacity: 0.08; border-radius: 2px 2px 0 0;
         }
 
         .roadmap-item { position: relative; padding-left: 55px; margin-bottom: 20px; z-index: 2; }
@@ -117,57 +140,72 @@
         }
         .roadmap-item.active .node { 
             background-color: currentColor; border-color: currentColor;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); transform: translateX(-50%) scale(1.1);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+            transform: translateX(-50%) scale(1.1);
         }
 
         .step-1 .node { color: var(--step1-color); } .step-2 .node { color: var(--step2-color); }
         .step-3 .node { color: var(--step3-color); } .step-4 .node { color: var(--step4-color); }
         .step-5 .node { color: var(--step5-color); } .step-6 .node { color: var(--step6-color); }
 
-        /* [최종 출력 Step 6 디테일 수정] */
+        /* [최종 출력 Step 6 스타일] */
         .final-step .roadmap-content {
-            border: none;
+            border: 1px solid var(--card-border);
             background: var(--card-bg);
             box-shadow: var(--card-shadow);
             overflow: visible;
         }
-        /* 수정: 호버 및 활성화 시 그림자 퍼짐을 줄여서 깔끔하게 표현 */
-        .final-step .roadmap-content:hover, .final-step.active .roadmap-content {
-            background: linear-gradient(145deg, #ffffff 0%, #f3e8ff 100%);
-            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3), 0 4px 8px rgba(59, 130, 246, 0.15);
-            transform: translateY(-2px);
+        .final-step .roadmap-content:hover {
+            border-color: rgba(99, 102, 241, 0.5); 
+            transform: translateY(-3px); 
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(99, 102, 241, 0.5) inset;
+        }
+        .final-step.active .roadmap-content {
+            border: 2px solid transparent; 
+            background-image: var(--card-active-bg-grad), var(--card-active-border-grad);
+            background-origin: padding-box, border-box;
+            background-clip: padding-box, border-box;
+            box-shadow: var(--card-active-shadow);
+            padding: 23px 25px;
+            transform: none;
         }
         
         .final-step .step-name { color: var(--grad-end) !important; }
-        .final-step .icon-svg { fill: url(#grad-icon) !important; color: var(--grad-end); }
-        .final-step .tag { background: var(--grad-point) !important; color: white !important; border: none; box-shadow: 0 2px 4px rgba(139, 92, 246, 0.2); } 
+        .final-step .icon-svg { fill: url(#grad-point) !important; color: var(--grad-end); }
+        .final-step .tag { background: var(--grad-point) !important; color: white !important; border: none; box-shadow: 0 2px 4px rgba(99, 102, 241, 0.2); } 
         .final-step .remark-area { color: var(--grad-end) !important; border-top-color: #f3f4f6; }
 
         .final-step .roadmap-content::after {
             content: 'FINAL'; position: absolute; top: -10px; left: 20px;
             background: var(--grad-point); color: #ffffff; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.5px;
-            padding: 4px 12px; border-radius: 20px; z-index: 3; box-shadow: 0 2px 6px rgba(139, 92, 246, 0.3);
+            padding: 4px 12px; border-radius: 20px; z-index: 3; box-shadow: 0 4px 6px rgba(99, 102, 241, 0.2);
         }
 
         .final-step.active .node {
-            border: none; background: var(--grad-point); box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+            border: none; background: var(--grad-point); box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
         }
 
         /* [화살표 아이콘 컬러] */
         .arrow-icon { transition: transform 0.3s, color 0.3s; color: var(--text-dim); font-size: 0.75rem; display: inline-block; margin-left: 10px; flex-shrink: 0; }
         .active .arrow-icon { transform: rotate(180deg); }
-        
         .card-p0.active .arrow-icon { color: var(--text-p); } 
         .roadmap-item.active .arrow-icon { color: var(--text-p); }
 
-        
         .phase-divider { display: flex; align-items: center; justify-content: center; margin: 60px 0; color: var(--border); }
         .phase-divider::before, .phase-divider::after { content: ''; flex: 1; border-bottom: 1px solid var(--border); }
         .phase-divider span { padding: 0 25px; color: var(--text-s); font-size: 0.9rem; letter-spacing: 2px; font-weight: 600; white-space: nowrap; background: var(--bg-light); }
 
-        .remark-area { padding-top: 15px; border-top: 1px solid #f3f4f6; font-size: 0.85rem; font-weight: 700; color: var(--p0-accent); margin-top: auto; }
+        /* 활성화 시 비고란 스타일 */
+        .remark-area { padding-top: 15px; border-top: 1px solid #f3f4f6; font-size: 0.85rem; font-weight: 700; color: var(--p0-accent); margin-top: auto; transition: color 0.3s ease, border-color 0.3s ease; }
         .p1-item .remark-area { color: var(--grad-start); }
-        .details { max-height: 0; opacity: 0; overflow: hidden; transition: all 0.4s ease-in-out; width: 100%; }
+        .card-p0.active .remark-area, .roadmap-item.active .remark-area { 
+            color: var(--grad-end); 
+            border-top: none;
+            box-shadow: 0 -1px 0 0 var(--point-purple);
+            padding-top: 16px;
+        }
+
+        .details { max-height: 0; opacity: 0; overflow: hidden; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); width: 100%; }
         .active .details { max-height: 1500px; opacity: 1; padding: 20px 0 0 0; margin-bottom: 10px; }
         .details-inner { padding: 20px; background: #f9fafb; border-radius: 12px; border: 1px solid var(--border); text-align: center; }
         .content-image { width: 100%; max-width: 700px; height: auto; border-radius: 8px; margin-bottom: 15px; border: 1px solid var(--border); background: #ffffff; box-shadow: var(--card-shadow); }
@@ -193,12 +231,16 @@
 
             .step-name { white-space: nowrap; gap: 8px; }
             .title-txt { font-size: clamp(0.9rem, 4vw, 1.1rem); }
+            
+            /* 모바일 아이콘 크기 */
             .icon-svg { width: 20px; height: 20px; }
+            
             .tag { font-size: 0.7rem; padding: 2px 8px; }
 
             .grid-p0 { grid-template-columns: 1fr; margin-left: 0; gap: 20px; }
             .card-p0 { height: auto; min-height: auto; padding: 22px; } 
-            
+            .card-p0.active, .roadmap-item.active .roadmap-content { padding: 21px; }
+
             .phase-0-text, .sub-desc-container { margin-left: 32px; gap: 8px; }
             .line-item { font-size: 0.85rem; }
             .line-item span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; width: 100%; }
@@ -339,7 +381,7 @@
                 <div class="roadmap-content">
                     <div class="header-row">
                         <span class="step-name">
-                            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" stroke="currentColor" stroke-width="2" fill="none" ry="2"/></svg>
+                            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
                             <span class="title-txt">연출 (Sequencing)</span>
                             <span class="tag">2~3일</span>
                         </span>
@@ -356,7 +398,7 @@
                 <div class="roadmap-content">
                     <div class="header-row">
                         <span class="step-name">
-                            <svg class="icon-svg" viewBox="0 0 24 24" style="fill: url(#grad-point);"><path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            <svg class="icon-svg" viewBox="0 0 24 24" style="fill: url(#grad-point);"><path d="M10 8v8l5-4-5-4zm9-5H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/></svg>
                             <span class="title-txt" style="background: var(--grad-point); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">최종 출력 (Export)</span>
                         </span>
                         <span class="arrow-icon">▼</span>
