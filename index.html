@@ -7,12 +7,13 @@
     <style>
         :root {
             --bg: #0d1117;
-            --p0-accent: #3b82f6;
-            --p1-accent: #22d3ee;
-            --final-accent: #10b981;
+            --p0-accent: #60a5fa; 
+            --p1-accent: #67e8f9; 
+            --final-accent: #34d399; 
             --card-bg: #161b22;
             --text-p: #f0f6fc;
-            --text-s: #8b949e;
+            --text-s: #ffffff;
+            --text-dim: #94a3b8;
             --border: #30363d;
         }
 
@@ -31,11 +32,12 @@
             -webkit-text-size-adjust: 100%; 
         }
 
+        /* [수정] 좌우 여백을 다시 복구하여 정돈된 레이아웃 (max-width 적용) */
         .container { 
-            width: 100%; 
-            max-width: none !important; 
+            width: 92%; 
+            max-width: 1040px; 
             margin: 0 auto; 
-            padding: 30px 3%; 
+            padding: 40px 0; 
             box-sizing: border-box; 
         }
 
@@ -43,46 +45,48 @@
         .header h1 { margin: 0; font-size: clamp(1.5rem, 5vw, 2rem); letter-spacing: -1px; }
         .total-time { color: var(--p1-accent); font-weight: 800; font-size: 0.9rem; margin-bottom: 5px; display: block; }
 
-        .phase-title { font-size: clamp(1.1rem, 4vw, 1.3rem); font-weight: 800; margin-bottom: 15px; display: flex; align-items: center; gap: 12px; text-transform: uppercase; }
+        .phase-title { font-size: clamp(1.1rem, 4vw, 1.3rem); font-weight: 800; margin-bottom: 15px; display: flex; align-items: center; gap: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
         .p0-title { color: var(--p0-accent); }
         .p1-title { color: var(--p1-accent); }
 
         .icon-svg { width: 24px; height: 24px; flex-shrink: 0; }
-        .icon-fill { fill: currentColor; } /* 꽉 찬 아이콘 스타일 통일 */
+        .icon-fill { fill: currentColor; } 
 
-        /* PHASE 0 */
-        /* [수정] 따로 열릴 때 레이아웃이 깨지지 않도록 align-items: start 로 복구 */
+        /* ================= PHASE 0 ================= */
+        /* [수정] 따로 열렸을 때 서로 높이가 어색해지지 않도록 align-items: start 적용 */
         .grid-p0 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; align-items: start; }
+        
+        /* [핵심 수정] 겹침(Overlap)을 완벽하게 방지하는 새로운 플렉스 구조 */
         .card-p0 { 
             background: var(--card-bg); 
             border: 1px solid var(--border); 
             border-radius: 12px; 
-            padding: 20px 22px; 
-            min-height: 200px; 
+            padding: 22px; 
             cursor: pointer; 
             display: flex; 
             flex-direction: column; 
-            gap: 12px; 
             transition: 0.3s ease; 
+            min-height: 190px;
         }
         .card-p0:hover { border-color: var(--p0-accent); transform: translateY(-3px); }
-        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0; }
-        .step-name { font-weight: 800; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; }
-        .tag { font-size: 0.75rem; background: #21262d; padding: 2px 8px; border-radius: 4px; color: var(--text-s); }
         
-        .card-p0 ul { margin: 0 0 auto 0; padding: 0; list-style: none; font-size: 0.88rem; color: var(--text-s); }
+        /* 내부 컨텐츠를 위/아래 그룹으로 확실히 분리하여 겹침 원천 차단 */
+        .card-p0-top { flex-grow: 1; display: flex; flex-direction: column; }
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+        .step-name { font-weight: 800; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; color: #fff; }
+        .tag { font-size: 0.75rem; background: #21262d; padding: 3px 8px; border-radius: 4px; color: var(--p0-accent); font-weight: 700; }
+        
+        .card-p0 ul { margin: 0 0 10px 0; padding: 0; list-style: none; font-size: 0.9rem; color: var(--text-s); }
         .card-p0 li { margin-bottom: 4px; }
-        .spacer-li { margin-bottom: 10px !important; }
-        .remark-p0 { padding-top: 12px; border-top: 1px solid var(--border); font-size: 0.82rem; font-weight: 600; color: var(--p0-accent); }
+        
+        .remark-p0 { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--border); font-size: 0.85rem; font-weight: 700; color: var(--p0-accent); }
 
-        /* =======================================================
-           [추가] PHASE 0과 PHASE 1을 명확히 분리하는 경계선 (Divider)
-           ======================================================= */
+        /* ================= 경계선 (Divider) ================= */
         .phase-divider {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 40px 0; /* 상하 여백을 주어 확실한 분리감 제공 */
+            margin: 45px 0; 
             color: var(--border);
         }
         .phase-divider::before,
@@ -93,15 +97,13 @@
         }
         .phase-divider span {
             padding: 0 20px;
-            color: var(--text-s);
+            color: var(--text-dim);
             font-size: 0.8rem;
             letter-spacing: 2px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+            font-weight: 600;
         }
 
-        /* PHASE 1 */
+        /* ================= PHASE 1 ================= */
         .roadmap-p1 { position: relative; padding-left: 40px; margin-top: 10px; }
         .roadmap-p1::before { content: ''; position: absolute; left: 15px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--p1-accent), var(--final-accent)); }
         .roadmap-item { position: relative; margin-bottom: 15px; }
@@ -111,20 +113,30 @@
         .roadmap-content:hover { border-color: var(--p1-accent); transform: translateX(10px); }
         
         .flow-main { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-        .flow-text h3 { margin: 0 0 4px 0; font-size: 1.05rem; display: flex; align-items: center; gap: 10px; }
-        .flow-text p { margin: 0; font-size: 0.88rem; color: var(--text-s); }
+        .flow-text h3 { margin: 0 0 4px 0; font-size: 1.05rem; display: flex; align-items: center; gap: 10px; color: #fff; }
+        .flow-text p { margin: 0; font-size: 0.88rem; color: #cbd5e1; }
         .flow-meta { display: flex; align-items: center; gap: 20px; }
-        .flow-remark { font-size: 0.82rem; font-weight: 600; color: var(--p1-accent); text-align: right; }
+        .flow-remark { font-size: 0.82rem; font-weight: 700; color: var(--p1-accent); text-align: right; }
 
-        /* 상세 이미지 영역 */
-        .details { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; width: 100%; }
-        .active .details { max-height: 1500px; }
+        /* ================= 공통 상세 영역 (애니메이션) ================= */
+        .details { 
+            max-height: 0; 
+            opacity: 0;
+            overflow: hidden; 
+            transition: all 0.4s ease-in-out; 
+            width: 100%; 
+        }
+        .active .details { 
+            max-height: 1500px; 
+            opacity: 1;
+            margin-bottom: 15px; /* 열렸을 때만 하단 여백 추가하여 겹침 방지 */
+        }
         .details-inner { 
             padding: 25px 20px; 
             background: rgba(0,0,0,0.3); 
             border-radius: 10px; 
-            margin-top: 15px; 
-            border: 1px solid var(--border);
+            margin-top: 10px; 
+            border: 1px dashed var(--border);
             text-align: center; 
             display: flex;
             flex-direction: column;
@@ -140,17 +152,19 @@
             border: 1px solid var(--border);
         }
 
-        .arrow-icon { transition: transform 0.3s; color: var(--text-s); font-size: 0.8rem; }
+        .arrow-icon { transition: transform 0.3s; color: var(--text-dim); font-size: 0.8rem; }
         .active .arrow-icon { transform: rotate(180deg); color: var(--p1-accent); }
 
         .final-step .node { border-color: var(--final-accent); }
         .final-step.active .node { background-color: var(--final-accent); box-shadow: 0 0 10px var(--final-accent); }
-        .final-step h3 { color: var(--final-accent); }
+        .final-step h3 { color: var(--final-accent) !important; }
+        .final-step .flow-remark { color: var(--final-accent); }
 
-        /* 모바일 반응형 조절 */
+        /* 모바일 반응형 */
         @media (max-width: 768px) {
-            .grid-p0 { grid-template-columns: 1fr; gap: 20px; } 
-            .card-p0 { min-height: auto; padding: 20px 22px; }
+            .container { padding: 30px 5%; width: 100%; }
+            .grid-p0 { grid-template-columns: 1fr; gap: 15px; } 
+            .card-p0 { min-height: auto; padding: 18px 20px; }
             .roadmap-p1 { padding-left: 28px; margin-top: 10px; }
             .roadmap-p1::before { left: 10px; }
             .node { left: -26px; top: 18px; width: 12px; height: 12px; border-width: 2px; }
@@ -173,37 +187,41 @@
         <div class="phase-title p0-title">PHASE 0: PRE-PRODUCTION</div>
         <div class="grid-p0">
             <div class="card-p0" onclick="togglePhase0(this)">
-                <div class="card-header">
-                    <span class="step-name"><svg class="icon-svg icon-fill" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>테스트 기간</span>
-                    <div style="display:flex; align-items:center; gap:10px;"><span class="tag">0~5일</span><span class="arrow-icon">▼</span></div>
-                </div>
-                <ul>
-                    <li>• QGIS 데이터 1:1 사이즈 정합 테스트</li>
-                    <li>• 라이팅 무드 및 밤낮 블루프린트 검증</li>
-                    <li class="spacer-li">• 전용 쉐이더 및 재질 머티리얼 선제작</li>
-                </ul>
-                <div class="details">
-                    <div class="details-inner">
-                        <img src="https://via.placeholder.com/800x350/21262d/8b949e?text=Test+Phase+Image" alt="테스트 이미지" class="content-image">
-                        <p style="color:var(--text-s); font-weight:700; margin:0;">상세 데이터 및 기술 테스트 이미지 영역</p>
+                <div class="card-p0-top">
+                    <div class="card-header">
+                        <span class="step-name"><svg class="icon-svg icon-fill" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>테스트 기간</span>
+                        <div style="display:flex; align-items:center; gap:10px;"><span class="tag">0~5일</span><span class="arrow-icon">▼</span></div>
+                    </div>
+                    <ul>
+                        <li>• QGIS 데이터 1:1 사이즈 정합 테스트</li>
+                        <li>• 라이팅 무드 및 밤낮 블루프린트 검증</li>
+                        <li>• 전용 쉐이더 및 재질 머티리얼 선제작</li>
+                    </ul>
+                    <div class="details">
+                        <div class="details-inner">
+                            <img src="https://via.placeholder.com/800x350/21262d/8b949e?text=Test+Phase+Image" alt="테스트 이미지" class="content-image">
+                            <p style="color:var(--text-s); font-weight:700; margin:0;">상세 데이터 및 기술 테스트 이미지 영역</p>
+                        </div>
                     </div>
                 </div>
                 <div class="remark-p0">기술적 기초 수립 및 리스크 해소</div>
             </div>
 
             <div class="card-p0" onclick="togglePhase0(this)">
-                <div class="card-header">
-                    <span class="step-name"><svg class="icon-svg icon-fill" viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3zM18 13l-1.5-1.5L4 23l3 3 11-13z"/></svg>디자인 기획</span>
-                    <div style="display:flex; align-items:center; gap:10px;"><span class="tag">3~5일</span><span class="arrow-icon">▼</span></div>
-                </div>
-                <ul>
-                    <li>• 통합 UI 스타일 가이드 수립</li>
-                    <li class="spacer-li">• 최적 레이아웃 리서치</li>
-                </ul>
-                <div class="details">
-                    <div class="details-inner">
-                        <img src="https://via.placeholder.com/800x350/21262d/8b949e?text=Design+Guide+Image" alt="디자인 기획 이미지" class="content-image">
-                        <p style="color:var(--text-s); font-weight:700; margin:0;">디자인 전략 및 비주얼 가이드 이미지 영역</p>
+                <div class="card-p0-top">
+                    <div class="card-header">
+                        <span class="step-name"><svg class="icon-svg icon-fill" viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3zM18 13l-1.5-1.5L4 23l3 3 11-13z"/></svg>디자인 기획</span>
+                        <div style="display:flex; align-items:center; gap:10px;"><span class="tag">3~5일</span><span class="arrow-icon">▼</span></div>
+                    </div>
+                    <ul>
+                        <li>• 통합 UI 스타일 가이드 수립</li>
+                        <li>• 최적 레이아웃 리서치</li>
+                    </ul>
+                    <div class="details">
+                        <div class="details-inner">
+                            <img src="https://via.placeholder.com/800x350/21262d/8b949e?text=Design+Guide+Image" alt="디자인 기획 이미지" class="content-image">
+                            <p style="color:var(--text-s); font-weight:700; margin:0;">디자인 전략 및 비주얼 가이드 이미지 영역</p>
+                        </div>
                     </div>
                 </div>
                 <div class="remark-p0">독자적 비주얼 아이덴티티 구축</div>
@@ -212,7 +230,7 @@
     </section>
 
     <div class="phase-divider">
-        <span>▼ NEXT PHASE ▼</span>
+        <span>▼ MAIN PRODUCTION ▼</span>
     </div>
 
     <section>
@@ -243,7 +261,14 @@
                 <div class="roadmap-content">
                     <div class="flow-main">
                         <div class="flow-text">
-                            <h3><svg class="icon-svg icon-fill" viewBox="0 0 24 24"><path d="M21 16.42v-8.84c0-.8-.47-1.52-1.2-1.87l-6.6-3.18c-.76-.37-1.64-.37-2.4 0L4.2 5.71c-.73.35-1.2 1.07-1.2 1.87v8.84c0 .8.47 1.52 1.2 1.87l6.6 3.18c.76.37 1.64.37 2.4 0l6.6-3.18c.73-.35 1.2-1.07 1.2-1.87zM12 12.55L4.56 8.96l6.6-3.18c.5-.24 1.08-.24 1.58 0l6.6 3.18L12 12.55zm-.5 9.07l-6.6-3.18c-.18-.09-.29-.27-.29-.47V9.69l6.89 3.32v8.61zm1.5 0V13.01l6.89-3.32v8.28c0 .2-.11.38-.29.47l-6.6 3.18z"/></svg> 모델링 (Blender) <span class="tag">5~7일</span></h3>
+                            <h3>
+                                <svg class="icon-svg" viewBox="0 0 24 24">
+                                    <path d="M6 4H4v2 M18 4h2v2 M6 20H4v-2 M18 20h2v-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M12 5.5L5.5 9v6.5L12 19l6.5-3.5V9L12 5.5z" fill="currentColor"/>
+                                    <path d="M5.5 9L12 12.5m0 0l6.5-3.5M12 12.5V19" fill="none" stroke="var(--bg)" stroke-width="2" stroke-linejoin="round"/>
+                                </svg> 
+                                모델링 (Blender) <span class="tag">5~7일</span>
+                            </h3>
                             <p>교량 주탑, 상판 및 주요 건물 블로킹</p>
                         </div>
                         <div class="flow-meta"><div class="flow-remark">디테일보다 '덩어리'와 '최적화' 중심</div><span class="arrow-icon">▼</span></div>
@@ -262,7 +287,16 @@
                 <div class="roadmap-content">
                     <div class="flow-main">
                         <div class="flow-text">
-                            <h3><svg class="icon-svg icon-fill" viewBox="0 0 24 24"><path d="M14 6c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3zM2.8 21l6.2-8.5 4.1 5.4 3.7-4.9 4.4 8H2.8z"/></svg> 환경 구축 (UE5) <span class="tag">3~4일</span></h3>
+                            <h3>
+                                <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M2 17h20" stroke-width="2"/>
+                                    <path d="M10 17v-4l4-3 4 3v4 M13 17v-2h2v2"/>
+                                    <path d="M6 17v-3c0-2 2-2 2-4 0-1.5-1.5-2-2.5-1S5 8.5 5 10c0 2 2 2 2 4v3"/>
+                                    <path d="M7 17v2c0 1 1 2 2 2h4l3-2" />
+                                    <path d="M16 6l2-2 2 2-1 1-2-2 M15 7l-2 2h-3l-1-1 M12 6h3" />
+                                </svg> 
+                                환경 구축 (UE5) <span class="tag">3~4일</span>
+                            </h3>
                             <p>지형 임포트, 밤낮 라이팅 및 구름 세팅</p>
                         </div>
                         <div class="flow-meta"><div class="flow-remark">전체적인 톤앤매너(Look) 결정</div><span class="arrow-icon">▼</span></div>
@@ -337,24 +371,22 @@
 </div>
 
 <script>
-    // [수정] 테스트 기간과 디자인 기획이 "따로(독립적으로)" 열리도록 복구했습니다.
+    // [수정] Phase 0의 카드가 독립적으로 열리되, 구조적으로 완벽히 분리되어 겹치지 않습니다.
     function togglePhase0(element) {
         const cards = document.querySelectorAll('.card-p0');
         
         if (element.classList.contains('active')) {
-            // 이미 열려있다면 닫기
             element.classList.remove('active');
         } else {
-            // 다른 상자가 열려있다면 닫고, 내가 누른 상자만 열기
             cards.forEach(card => card.classList.remove('active'));
             element.classList.add('active');
             
-            // Phase 0를 열었으므로 아래의 Phase 1은 모두 닫아줌
+            // 아래의 Phase 1도 모두 닫아줌
             document.querySelectorAll('.roadmap-item').forEach(item => item.classList.remove('active'));
         }
     }
 
-    // PHASE 1 제어 (기존과 동일)
+    // PHASE 1 제어 로직 유지
     function togglePhase1(element) {
         const items = document.querySelectorAll('.roadmap-item');
         items.forEach(item => { if (item !== element) item.classList.remove('active'); });
