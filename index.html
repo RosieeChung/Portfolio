@@ -11,9 +11,11 @@
             --p1-accent: #67e8f9; 
             --final-accent: #34d399; 
             --card-bg: #161b22;
-            --text-p: #f0f6fc;
-            --text-s: #ffffff;
-            --text-dim: #94a3b8;
+            
+            /* [수정] 눈이 편안한 소프트 화이트 톤으로 전체 텍스트 컬러 교체 */
+            --text-p: #f0f6fc; /* 메인 텍스트 (부드러운 흰색) */
+            --text-s: #cbd5e1; /* 서브 텍스트 (차분한 은회색) */
+            --text-dim: #94a3b8; /* 비고란 등 (어두운 회색) */
             --border: #30363d;
         }
 
@@ -40,12 +42,20 @@
             box-sizing: border-box; 
         }
 
-        .header { text-align: left; margin-bottom: 30px; border-left: 4px solid var(--p1-accent); padding-left: 20px; }
-        .header h1 { margin: 0; font-size: clamp(1.5rem, 5vw, 2rem); letter-spacing: -1px; }
-        .total-time { color: var(--p1-accent); font-weight: 800; font-size: 0.9rem; margin-bottom: 5px; display: block; }
+        /* [수정] 타이틀 여백 대폭 확대 및 하단 구분선 추가로 레이아웃 안정감 부여 */
+        .header { 
+            text-align: left; 
+            margin-bottom: 45px; 
+            padding-bottom: 25px; 
+            border-bottom: 1px solid var(--border);
+            border-left: 4px solid var(--p1-accent); 
+            padding-left: 20px; 
+        }
+        .header h1 { margin: 0; font-size: clamp(1.5rem, 5vw, 2rem); letter-spacing: -1px; color: var(--text-p); }
+        .total-time { color: var(--p1-accent); font-weight: 800; font-size: 0.9rem; margin-bottom: 8px; display: block; }
 
-        .phase-title { font-size: clamp(1.1rem, 4vw, 1.3rem); font-weight: 800; margin-bottom: 15px; display: flex; align-items: center; gap: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .p0-title { color: var(--p0-accent); }
+        .phase-title { font-size: clamp(1.1rem, 4vw, 1.3rem); font-weight: 800; margin-bottom: 18px; display: flex; align-items: center; gap: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .p0-title { color: var(--p0-accent); margin-top: 10px; }
         .p1-title { color: var(--p1-accent); }
 
         .icon-svg { width: 24px; height: 24px; flex-shrink: 0; }
@@ -69,7 +79,9 @@
         
         .card-p0-top { flex-grow: 1; display: flex; flex-direction: column; }
         .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-        .step-name { font-weight: 800; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; color: #fff; }
+        
+        /* [수정] 쨍한 #fff 대신 눈이 편안한 var(--text-p) 사용 */
+        .step-name { font-weight: 800; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; color: var(--text-p); }
         .tag { font-size: 0.75rem; background: #21262d; padding: 3px 8px; border-radius: 4px; color: var(--p0-accent); font-weight: 700; }
         
         .card-p0 ul { margin: 0 0 10px 0; padding: 0; list-style: none; font-size: 0.9rem; color: var(--text-s); }
@@ -109,8 +121,11 @@
         .roadmap-content:hover { border-color: var(--p1-accent); transform: translateX(10px); }
         
         .flow-main { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-        .flow-text h3 { margin: 0 0 4px 0; font-size: 1.05rem; display: flex; align-items: center; gap: 10px; color: #fff; }
-        .flow-text p { margin: 0; font-size: 0.88rem; color: #cbd5e1; }
+        
+        /* [수정] 쨍한 #fff 대신 눈이 편안한 var(--text-p) 사용 */
+        .flow-text h3 { margin: 0 0 4px 0; font-size: 1.05rem; display: flex; align-items: center; gap: 10px; color: var(--text-p); }
+        .flow-text p { margin: 0; font-size: 0.88rem; color: var(--text-s); }
+        
         .flow-meta { display: flex; align-items: center; gap: 20px; }
         .flow-remark { font-size: 0.82rem; font-weight: 700; color: var(--p1-accent); text-align: right; }
 
@@ -159,6 +174,8 @@
         /* 모바일 반응형 */
         @media (max-width: 768px) {
             .container { padding: 30px 5%; width: 100%; }
+            /* [수정] 모바일에서도 헤더 여백을 충분히 주어 답답함을 해소 */
+            .header { margin-bottom: 35px; padding-bottom: 20px; }
             .grid-p0 { grid-template-columns: 1fr; gap: 15px; } 
             .card-p0 { min-height: auto; padding: 18px 20px; }
             .roadmap-p1 { padding-left: 28px; margin-top: 10px; }
@@ -186,7 +203,10 @@
                 <div class="card-p0-top">
                     <div class="card-header">
                         <span class="step-name">
-                            <svg class="icon-svg icon-fill" viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm-2 14l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                            <svg class="icon-svg icon-fill" viewBox="0 0 24 24">
+                                <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                                <path d="M20.49 19l-3.23-3.23c.79-1.06 1.24-2.35 1.24-3.77C18.5 8.69 15.81 6 12.5 6S6.5 8.69 6.5 12s2.69 6 6 6c1.42 0 2.71-.45 3.77-1.24L19.51 20l.98-.98zM12.5 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/>
+                            </svg>
                             테스트 기간
                         </span>
                         <div style="display:flex; align-items:center; gap:10px;"><span class="tag">0~5일</span><span class="arrow-icon">▼</span></div>
@@ -210,7 +230,9 @@
                 <div class="card-p0-top">
                     <div class="card-header">
                         <span class="step-name">
-                            <svg class="icon-svg icon-fill" viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM13 7h6v2h-6zM13 11h6v2h-6zM13 15h6v2h-6zM5 7h6v6H5zM5 15h6v2H5z"/></svg>
+                            <svg class="icon-svg icon-fill" viewBox="0 0 24 24">
+                                <path d="M3 3v18h18V3H3zm16 16H5V5h14v14zM7 7h4v4H7V7zm6 0h4v4h-4V7zm-6 6h4v4H7v-4zm6 0h4v4h-4v-4z"/>
+                            </svg>
                             디자인 기획
                         </span>
                         <div style="display:flex; align-items:center; gap:10px;"><span class="tag">3~5일</span><span class="arrow-icon">▼</span></div>
@@ -245,12 +267,10 @@
                     <div class="flow-main">
                         <div class="flow-text">
                             <h3>
-                                <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="3 3 3 21 21 21"/>
-                                    <circle cx="15" cy="9" r="3" fill="currentColor"/>
-                                    <line x1="3" y1="9" x2="12" y2="9" stroke-dasharray="3 3"/>
-                                    <line x1="15" y1="21" x2="15" y2="12" stroke-dasharray="3 3"/>
-                                </svg> 
+                                <svg class="icon-svg icon-fill" viewBox="0 0 24 24">
+                                    <path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/>
+                                    <path d="M12 6c-1.66 0-3 1.34-3 3 0 1.66 1.34 3 3 3s3-1.34 3-3c0-1.66-1.34-3-3-3zm0 4c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/>
+                                </svg>
                                 준비 (GIS) <span class="tag">1~2일</span>
                             </h3>
                             <p>QGIS 데이터 추출 및 좌표/고도 정합</p>
@@ -381,7 +401,6 @@
         } else {
             cards.forEach(card => card.classList.remove('active'));
             element.classList.add('active');
-            
             document.querySelectorAll('.roadmap-item').forEach(item => item.classList.remove('active'));
         }
     }
