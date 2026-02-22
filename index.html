@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>3D Visualization Workflow (Mobile Refined)</title>
+    <title>3D Visualization Workflow (Perfect Line Alignment)</title>
     <style>
         :root {
             --bg: #0d1117;
@@ -35,10 +35,7 @@
             text-align: left; position: relative; margin: 0 0 40px 0; padding: 0 0 20px 42px;
             border-bottom: 1px solid var(--border);
         }
-        .header::before {
-            content: ''; position: absolute; left: 20px; top: 0; bottom: 20px;
-            width: 4px; background: var(--grad-start);
-        }
+        .header::before { content: ''; position: absolute; left: 20px; top: 0; bottom: 20px; width: 4px; background: var(--grad-start); }
         .header h1 { margin: 0; font-size: clamp(1.4rem, 5vw, 2rem); letter-spacing: -1px; }
         .total-time { color: var(--grad-start); font-weight: 800; font-size: 0.9rem; margin-bottom: 8px; display: block; }
 
@@ -48,16 +45,13 @@
             display: flex; align-items: center; text-transform: uppercase; 
             padding-left: 42px; position: relative;
         }
-        .phase-title::before {
-            content: ''; position: absolute; left: 21px; top: 0; bottom: 0;
-            width: 2px; background: transparent;
-        }
+        .phase-title::before { content: ''; position: absolute; left: 21px; top: 0; bottom: 0; width: 2px; background: transparent; }
         .p0-title::before { background: var(--p0-accent); }
         .p1-title::before { background: var(--grad-start); }
 
         .icon-svg { width: 22px; height: 22px; flex-shrink: 0; display: inline-block; fill: currentColor; } 
 
-        /* [Phase 0 Grid] */
+        /* [Grid & Card Setup] */
         .grid-p0 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; margin: 0 0 40px 42px; align-items: start; }
         .card-p0, .roadmap-content { 
             background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; 
@@ -68,7 +62,6 @@
         .card-p0.active { height: auto; min-height: 220px; border-color: var(--p0-accent); }
         .card-p0:hover, .roadmap-content:hover { border-color: var(--grad-start); transform: translateY(-2px); }
         
-        /* [헤더 및 태그 스타일] */
         .header-row { display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 5px; }
         .step-name { font-weight: 800; font-size: 1.05rem; display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; }
         .title-txt { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -79,47 +72,49 @@
         }
         .p1-item .tag { color: var(--grad-start); }
 
-        /* [텍스트 칼정렬 32px] */
-        .phase-0-text, .sub-desc { 
-            margin: 10px 0 12px 32px; 
-            font-size: 0.88rem; color: var(--text-s) !important; 
-            font-weight: 500; line-height: 1.7; display: flex; flex-direction: column; gap: 4px;
+        /* ★ [텍스트 칼정렬 & 불렛 분리 방지 수정] ★ */
+        .phase-0-text, .sub-desc-container { 
+            margin: 10px 0 12px 32px; /* 제목 글자 시작점 32px와 일치 */
+            display: flex; flex-direction: column; gap: 8px;
         } 
-        .phase-0-text span { display: block; }
-        .sub-desc { margin-top: 4px; font-size: 0.85rem; }
+
+        .line-item {
+            display: flex; /* 점과 텍스트 수평 배치 */
+            align-items: flex-start; /* 줄이 길어져도 점은 첫 줄 상단 고정 */
+            gap: 10px; /* 점과 텍스트 사이 간격 */
+            font-size: 0.88rem; color: var(--text-s); 
+            font-weight: 500; line-height: 1.6;
+        }
+
+        /* 점 스타일: 텍스트 컬러 상속 및 크기 고정 */
+        .line-item::before {
+            content: '•';
+            color: inherit;
+            font-weight: 900;
+            flex-shrink: 0; /* 점이 찌그러지지 않게 고정 */
+        }
+
+        /* Phase 1 전용 서브 텍스트 스타일 */
+        .sub-desc { font-size: 0.85rem; color: var(--text-s) !important; }
 
         /* [Details Area] */
         .details { max-height: 0; opacity: 0; overflow: hidden; transition: all 0.4s ease-in-out; width: 100%; }
         .active .details { max-height: 1500px; opacity: 1; padding: 20px 0 0 0; margin-bottom: 10px; }
-        .details-inner { 
-            padding: 20px; background: rgba(0,0,0,0.2); border-radius: 10px; 
-            border: 1px dashed var(--border); text-align: center; 
-        }
+        .details-inner { padding: 20px; background: rgba(0,0,0,0.2); border-radius: 10px; border: 1px dashed var(--border); text-align: center; }
         .content-image { width: 100%; max-width: 700px; height: auto; border-radius: 6px; margin-bottom: 15px; border: 1px solid var(--border); background: #21262d; }
 
         /* [Remark Area] */
-        .remark-area { 
-            padding-top: 15px; border-top: 1px solid var(--border); 
-            font-size: 0.85rem; font-weight: 700; color: var(--p0-accent);
-            margin-top: auto; 
-        }
+        .remark-area { padding-top: 15px; border-top: 1px solid var(--border); font-size: 0.85rem; font-weight: 700; color: var(--p0-accent); margin-top: auto; }
         .p1-item .remark-area { color: var(--grad-start); }
 
         /* [Roadmap Alignment] */
         .roadmap-p1 { position: relative; padding-left: 0; margin-top: 15px; }
-        .roadmap-p1::before { 
-            content: ''; position: absolute; left: 21px; top: 0; bottom: 0; width: 2px; 
-            background: linear-gradient(to bottom, var(--grad-start) 0%, var(--grad-mid) 50%, var(--grad-end) 100%); 
-        }
+        .roadmap-p1::before { content: ''; position: absolute; left: 21px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--grad-start) 0%, var(--grad-mid) 50%, var(--grad-end) 100%); }
         .roadmap-item { position: relative; padding-left: 55px; margin-bottom: 20px; }
-        
-        .node { 
-            position: absolute; left: 22px; top: 28px; width: 14px; height: 14px; 
-            background: var(--bg); border-width: 2.5px; border-style: solid; border-radius: 50%; 
-            z-index: 2; transform: translateX(-50%); transition: 0.25s ease;
-        }
+        .node { position: absolute; left: 22px; top: 28px; width: 14px; height: 14px; background: var(--bg); border-width: 2.5px; border-style: solid; border-radius: 50%; z-index: 2; transform: translateX(-50%); transition: 0.25s ease; }
         .roadmap-item.active .node { background-color: currentColor; box-shadow: 0 0 10px currentColor; }
 
+        /* 노드 컬러 */
         .step-1 .node { border-color: var(--step1-color); color: var(--step1-color); }
         .step-2 .node { border-color: var(--step2-color); color: var(--step2-color); }
         .step-3 .node { border-color: var(--step3-color); color: var(--step3-color); }
@@ -127,34 +122,18 @@
         .step-5 .node { border-color: var(--step5-color); color: var(--step5-color); }
         .step-6 .node { border-color: var(--step6-color); color: var(--step6-color); }
 
-        /* ★ 최종 출력 (Step 6) 강조 스타일 ★ */
+        /* [Final Step Style] */
         .final-step .step-name { color: var(--grad-end) !important; }
         .final-step .icon-svg { fill: var(--grad-end) !important; }
         .final-step .tag { color: var(--bg) !important; background-color: var(--grad-end) !important; } 
         .final-step .remark-area { color: var(--grad-end) !important; border-top-color: var(--border); }
-        
-        .final-step .roadmap-content { 
-            border: 1px solid var(--border); 
-            box-shadow: 0 4px 25px rgba(52, 211, 153, 0.1); 
-            background: linear-gradient(145deg, #16211d 0%, #161b22 100%);
-            position: relative;
-        }
+        .final-step .roadmap-content { border: 1px solid var(--border); box-shadow: 0 4px 25px rgba(52, 211, 153, 0.1); background: linear-gradient(145deg, #16211d 0%, #161b22 100%); position: relative; }
         .final-step.active .roadmap-content { border-color: var(--grad-end); }
+        .final-step .roadmap-content::after { content: 'FINAL'; position: absolute; top: -11px; left: 24px; background: linear-gradient(135deg, var(--grad-end), #059669); color: #fff; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.5px; padding: 3px 10px; border-radius: 12px; z-index: 3; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
 
-        .final-step .roadmap-content::after {
-            content: 'FINAL';
-            position: absolute;
-            top: -11px; left: 24px;
-            background: linear-gradient(135deg, var(--grad-end), #059669);
-            color: #fff; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.5px;
-            padding: 3px 10px; border-radius: 12px;
-            z-index: 3; box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-
-        /* 세모 화살표 */
+        /* Arrow Colors */
         .arrow-icon { transition: transform 0.3s; color: var(--text-dim); font-size: 0.75rem; display: inline-block; margin-left: 10px; flex-shrink: 0; }
         .active .arrow-icon { transform: rotate(180deg); }
-        
         .card-p0.active .arrow-icon { color: var(--p0-accent); }
         .step-1.active .arrow-icon { color: var(--step1-color); }
         .step-2.active .arrow-icon { color: var(--step2-color); }
@@ -167,47 +146,26 @@
         .phase-divider::before, .phase-divider::after { content: ''; flex: 1; border-bottom: 1px solid var(--border); }
         .phase-divider span { padding: 0 25px; color: var(--text-dim); font-size: 0.85rem; letter-spacing: 2px; font-weight: 600; white-space: nowrap; }
 
-        /* =========================================
-           ★ 모바일 전용 수정 구역 (768px 이하) ★
-        ========================================= */
+        /* [Mobile View] */
         @media (max-width: 768px) {
             .container { width: 90%; padding: 30px 0; }
-            
-            /* 1. 수직 라인 비율 및 여백 축소 */
-            .header, .phase-title { padding-left: 28px; } /* 여백 축소 */
-            .header::before { width: 3px; left: 10px; } /* 헤더 라인 두께 축소 및 이동 */
-            .phase-title::before, .roadmap-p1::before { width: 1px; left: 11px; } /* 메인 라인 두께 축소 및 이동 */
-            .roadmap-item { padding-left: 38px; } /* 아이템 여백 축소 */
-            .node { left: 12px; top: 26px; width: 12px; height: 12px; border-width: 2px; } /* 노드 크기 및 위치 조정 */
-
-            /* 2. Phase 제목 폰트 사이즈 축소 */
+            .header, .phase-title { padding-left: 28px; }
+            .header::before { width: 3px; left: 10px; }
+            .phase-title::before, .roadmap-p1::before { width: 1px; left: 11px; }
+            .roadmap-item { padding-left: 38px; }
+            .node { left: 12px; top: 26px; width: 12px; height: 12px; border-width: 2px; }
             .phase-title { font-size: 1rem; }
             .header h1 { font-size: 1.5rem; }
-
-            /* Phase 0 상자 중앙 정렬 */
             .grid-p0 { grid-template-columns: 1fr; margin-left: 0; gap: 15px; }
             .card-p0 { height: auto; min-height: auto; } 
+            .step-name { white-space: normal; overflow: visible; align-items: flex-start; }
+            .title-txt { white-space: normal; overflow: visible; text-overflow: clip; font-size: 0.95rem; }
+            .tag { margin-top: 3px; }
+            .arrow-icon { align-self: flex-start; margin-top: 5px; }
             
-            /* 3. 제목 텍스트 잘림 방지 (줄바꿈 허용) */
-            .step-name { 
-                white-space: normal; /* 줄바꿈 허용 */
-                overflow: visible; 
-                align-items: flex-start; /* 줄바꿈 시 상단 정렬 */
-            }
-            .title-txt { 
-                white-space: normal; /* 줄바꿈 허용 */
-                overflow: visible; 
-                text-overflow: clip;
-                font-size: 0.95rem; /* 폰트 사이즈 약간 축소 */
-            }
-            .tag { margin-top: 3px; } /* 줄바꿈 시 태그 위치 조정 */
-            .arrow-icon { align-self: flex-start; margin-top: 5px; } /* 화살표 상단 정렬 */
-
-            /* Phase 0 텍스트 한 줄 처리 유지 */
-            .phase-0-text span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; width: 100%; }
-            
-            .roadmap-item { margin-right: 0; }
-            .phase-0-text, .sub-desc { margin-left: 0; }
+            /* 모바일에서도 칼정렬 여백 유지 */
+            .phase-0-text, .sub-desc-container { margin-left: 32px; }
+            .line-item { font-size: 0.85rem; }
         }
     </style>
 </head>
@@ -222,7 +180,7 @@
     <section>
         <div class="phase-title p0-title">PHASE 0: PRE-PRODUCTION</div>
         <div class="grid-p0">
-            <div class="card-p0" onclick="togglePhase0(this)">
+            <div class="card-p0" onclick="toggleAccordion(this)">
                 <div class="header-row">
                     <span class="step-name">
                         <svg class="icon-svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
@@ -232,15 +190,15 @@
                     <span class="arrow-icon">▼</span>
                 </div>
                 <div class="phase-0-text">
-                    <span>QGIS 데이터 1:1 사이즈 정합 테스트</span>
-                    <span>라이팅 무드 및 밤낮 블루프린트 검증</span>
-                    <span>전용 쉐이더 및 재질 머티리얼 선제작</span>
+                    <div class="line-item">QGIS 데이터 1:1 사이즈 정합 테스트</div>
+                    <div class="line-item">라이팅 무드 및 밤낮 블루프린트 검증</div>
+                    <div class="line-item">전용 쉐이더 및 재질 머티리얼 선제작</div>
                 </div>
                 <div class="details"><div class="details-inner"><img src="https://via.placeholder.com/700x300/21262d/8b949e?text=Technical+Test+Image" class="content-image"></div></div>
                 <div class="remark-area">기술적 기초 수립 및 리스크 해소</div>
             </div>
 
-            <div class="card-p0" onclick="togglePhase0(this)">
+            <div class="card-p0" onclick="toggleAccordion(this)">
                 <div class="header-row">
                     <span class="step-name">
                         <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7zm-3 19a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1z"/></svg>
@@ -250,8 +208,8 @@
                     <span class="arrow-icon">▼</span>
                 </div>
                 <div class="phase-0-text">
-                    <span>통합 UI 스타일 가이드 수립</span>
-                    <span>최적 레이아웃 리서치</span>
+                    <div class="line-item">통합 UI 스타일 가이드 수립</div>
+                    <div class="line-item">최적 레이아웃 리서치</div>
                 </div>
                 <div class="details"><div class="details-inner"><img src="https://via.placeholder.com/700x300/21262d/8b949e?text=UI+Design+Concept" class="content-image"></div></div>
                 <div class="remark-area">독자적 비주얼 아이덴티티 구축</div>
@@ -262,9 +220,10 @@
     <div class="phase-divider"><span>▼ MAIN PRODUCTION ▼</span></div>
 
     <section>
-        <div class="phase-title p1-title">PHASE 1: MAIN-PRODUCTION</div>
         <div class="roadmap-p1">
-            <div class="roadmap-item step-1 p1-item" onclick="togglePhase1(this)">
+            <div class="phase-title p1-title">PHASE 1: MAIN-PRODUCTION</div>
+            
+            <div class="roadmap-item step-1 p1-item" onclick="toggleAccordion(this)">
                 <div class="node"></div>
                 <div class="roadmap-content">
                     <div class="header-row">
@@ -275,13 +234,15 @@
                         </span>
                         <span class="arrow-icon">▼</span>
                     </div>
-                    <div class="sub-desc">QGIS 데이터 추출 및 좌표/고도 정합</div>
+                    <div class="sub-desc-container">
+                        <div class="line-item sub-desc">QGIS 데이터 추출 및 좌표/고도 정합</div>
+                    </div>
                     <div class="details"><div class="details-inner"><img src="https://via.placeholder.com/800x350/21262d/8b949e?text=GIS+Visualization" class="content-image"></div></div>
                     <div class="remark-area">데이터 무결성 확보 단계</div>
                 </div>
             </div>
 
-            <div class="roadmap-item step-2 p1-item" onclick="togglePhase1(this)">
+            <div class="roadmap-item step-2 p1-item" onclick="toggleAccordion(this)">
                 <div class="node"></div>
                 <div class="roadmap-content">
                     <div class="header-row">
@@ -292,13 +253,15 @@
                         </span>
                         <span class="arrow-icon">▼</span>
                     </div>
-                    <div class="sub-desc">교량 주탑, 상판 및 주요 건물 블로킹</div>
+                    <div class="sub-desc-container">
+                        <div class="line-item sub-desc">교량 주탑, 상판 및 주요 건물 블로킹</div>
+                    </div>
                     <div class="details"><div class="details-inner"><img src="https://via.placeholder.com/800x350/21262d/8b949e?text=3D+Modeling" class="content-image"></div></div>
                     <div class="remark-area">최적화 중심 모델링 단계</div>
                 </div>
             </div>
 
-            <div class="roadmap-item step-3 p1-item" onclick="togglePhase1(this)">
+            <div class="roadmap-item step-3 p1-item" onclick="toggleAccordion(this)">
                 <div class="node"></div>
                 <div class="roadmap-content">
                     <div class="header-row">
@@ -309,13 +272,15 @@
                         </span>
                         <span class="arrow-icon">▼</span>
                     </div>
-                    <div class="sub-desc">지형 임포트, 밤낮 라이팅 및 구름 세팅</div>
+                    <div class="sub-desc-container">
+                        <div class="line-item sub-desc">지형 임포트, 밤낮 라이팅 및 구름 세팅</div>
+                    </div>
                     <div class="details"><div class="details-inner"><img src="https://via.placeholder.com/800x350/21262d/8b949e?text=Environment+Setup" class="content-image"></div></div>
                     <div class="remark-area">전체적인 톤앤매너 결정</div>
                 </div>
             </div>
 
-            <div class="roadmap-item step-4 p1-item" onclick="togglePhase1(this)">
+            <div class="roadmap-item step-4 p1-item" onclick="toggleAccordion(this)">
                 <div class="node"></div>
                 <div class="roadmap-content">
                     <div class="header-row">
@@ -326,13 +291,15 @@
                         </span>
                         <span class="arrow-icon">▼</span>
                     </div>
-                    <div class="sub-desc">재질 웨더링, 수면, 식생 및 차량 배치</div>
+                    <div class="sub-desc-container">
+                        <div class="line-item sub-desc">재질 웨더링, 수면, 식생 및 차량 배치</div>
+                    </div>
                     <div class="details"><div class="details-inner"><img src="https://via.placeholder.com/800x350/21262d/8b949e?text=Detailing+UE5" class="content-image"></div></div>
                     <div class="remark-area">실사 퀄리티 완성 단계</div>
                 </div>
             </div>
 
-            <div class="roadmap-item step-5 p1-item" onclick="togglePhase1(this)">
+            <div class="roadmap-item step-5 p1-item" onclick="toggleAccordion(this)">
                 <div class="node"></div>
                 <div class="roadmap-content">
                     <div class="header-row">
@@ -343,13 +310,15 @@
                         </span>
                         <span class="arrow-icon">▼</span>
                     </div>
-                    <div class="sub-desc">카메라 경로 설계 및 드론뷰 모션 튜닝</div>
+                    <div class="sub-desc-container">
+                        <div class="line-item sub-desc">카메라 경로 설계 및 드론뷰 모션 튜닝</div>
+                    </div>
                     <div class="details"><div class="details-inner"><img src="https://via.placeholder.com/800x350/21262d/8b949e?text=Sequencing" class="content-image"></div></div>
                     <div class="remark-area">시네마틱 흐름 설계</div>
                 </div>
             </div>
 
-            <div class="roadmap-item step-6 p1-item final-step" onclick="togglePhase1(this)">
+            <div class="roadmap-item step-6 p1-item final-step" onclick="toggleAccordion(this)">
                 <div class="node"></div>
                 <div class="roadmap-content">
                     <div class="header-row">
@@ -360,7 +329,9 @@
                         </span>
                         <span class="arrow-icon">▼</span>
                     </div>
-                    <div class="sub-desc">렌더링 및 2D 인포그래픽 합성</div>
+                    <div class="sub-desc-container">
+                        <div class="line-item sub-desc">렌더링 및 2D 인포그래픽 합성</div>
+                    </div>
                     <div class="details"><div class="details-inner"><img src="https://via.placeholder.com/800x350/21262d/8b949e?text=Final+Result" class="content-image"></div></div>
                     <div class="remark-area">최종 결과물 출력 및 완료</div>
                 </div>
@@ -370,17 +341,9 @@
 </div>
 
 <script>
-    // Phase 0 아코디언
-    function togglePhase0(element) {
+    function toggleAccordion(element) {
         const isActive = element.classList.contains('active');
-        document.querySelectorAll('.card-p0').forEach(el => el.classList.remove('active'));
-        if (!isActive) element.classList.add('active');
-    }
-
-    // Phase 1 아코디언
-    function togglePhase1(element) {
-        const isActive = element.classList.contains('active');
-        document.querySelectorAll('.roadmap-item').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.card-p0, .roadmap-item').forEach(el => el.classList.remove('active'));
         if (!isActive) element.classList.add('active');
     }
 </script>
