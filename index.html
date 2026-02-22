@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>3D Visualization Workflow (Phase 1 Arrow Color Fixed)</title>
+    <title>3D Visualization Workflow (Mobile Optimized)</title>
     <style>
         :root {
             --bg: #0d1117;
@@ -30,7 +30,7 @@
         body { color: var(--text-p); font-family: 'Pretendard', sans-serif; line-height: 1.6; }
         .container { width: 92%; max-width: 1040px; margin: 0 auto; padding: 40px 0; box-sizing: border-box; }
 
-        /* [Header] 중심축 22px 고정 */
+        /* [Header] */
         .header { 
             text-align: left; position: relative; margin: 0 0 40px 0; padding: 0 0 20px 42px;
             border-bottom: 1px solid var(--border);
@@ -70,10 +70,13 @@
         
         /* [헤더 및 태그 스타일] */
         .header-row { display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 5px; }
-        .step-name { font-weight: 800; font-size: 1.05rem; display: flex; align-items: center; gap: 10px; }
+        .step-name { font-weight: 800; font-size: 1.05rem; display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; /* Flex 자식의 말줄임표를 위한 설정 */ }
+        /* 제목 텍스트 감싸는 span 스타일 (모바일 말줄임표용) */
+        .title-txt { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
         .tag { 
             font-size: 0.75rem; background: #21262d; padding: 3px 10px; border-radius: 4px; 
-            color: var(--p0-accent); font-weight: 700; margin-left: 5px;
+            color: var(--p0-accent); font-weight: 700; margin-left: 5px; flex-shrink: 0; /* 태그는 줄어들지 않음 */
         }
         .p1-item .tag { color: var(--grad-start); }
 
@@ -149,13 +152,11 @@
             z-index: 3; box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
-        /* ★ 세모 화살표 컬러 복구 및 수정 ★ */
-        .arrow-icon { transition: transform 0.3s; color: var(--text-dim); font-size: 0.75rem; display: inline-block; margin-left: auto; }
-        .active .arrow-icon { transform: rotate(180deg); } /* 회전만 적용 */
+        /* 세모 화살표 */
+        .arrow-icon { transition: transform 0.3s; color: var(--text-dim); font-size: 0.75rem; display: inline-block; margin-left: 10px; flex-shrink: 0; }
+        .active .arrow-icon { transform: rotate(180deg); }
         
-        .card-p0.active .arrow-icon { color: var(--p0-accent); } /* Phase 0 활성화 시 파란색 */
-        
-        /* Phase 1 각 단계 활성화 시 화살표 컬러 지정 */
+        .card-p0.active .arrow-icon { color: var(--p0-accent); }
         .step-1.active .arrow-icon { color: var(--step1-color); }
         .step-2.active .arrow-icon { color: var(--step2-color); }
         .step-3.active .arrow-icon { color: var(--step3-color); }
@@ -167,14 +168,41 @@
         .phase-divider::before, .phase-divider::after { content: ''; flex: 1; border-bottom: 1px solid var(--border); }
         .phase-divider span { padding: 0 25px; color: var(--text-dim); font-size: 0.85rem; letter-spacing: 2px; font-weight: 600; white-space: nowrap; }
 
+        /* =========================================
+           ★ 모바일 전용 수정 구역 (768px 이하) ★
+        ========================================= */
         @media (max-width: 768px) {
             .container { width: 90%; padding: 30px 0; }
-            .grid-p0 { grid-template-columns: 1fr; margin-left: 35px; gap: 15px; }
+            
+            /* 1. Phase 0 상자 중앙 정렬 */
+            .grid-p0 { 
+                grid-template-columns: 1fr; 
+                margin-left: 0; /* 기존 35px 제거하여 중앙 정렬 */
+                gap: 15px; 
+            }
             .card-p0 { height: auto; min-height: auto; } 
+            
+            /* 2. Phase 0 텍스트 한 줄 처리 (말줄임표) */
+            .phase-0-text span {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: block;
+                width: 100%;
+            }
+
+            /* 3. 제목과 태그 한 줄 유지 (공간 부족 시 제목 말줄임) */
+            .step-name {
+                white-space: nowrap; /* 자식 요소들 한 줄 강제 */
+                overflow: hidden; /* 넘치는 내용 숨김 */
+            }
+            
+            /* 레이아웃 조정 */
             .roadmap-item { padding-left: 45px; margin-right: 8px; margin-bottom: 15px; }
             .header, .phase-title { padding-left: 35px; }
             .header::before, .phase-title::before, .roadmap-p1::before { left: 15px; }
             .node { left: 16px; top: 26px; }
+            .phase-0-text, .sub-desc { margin-left: 0; } /* 모바일에서는 아이콘 아래로 자연스럽게 배치 */
         }
     </style>
 </head>
@@ -193,8 +221,7 @@
                 <div class="header-row">
                     <span class="step-name">
                         <svg class="icon-svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-                        테스트 기간
-                        <span class="tag">0~5일</span>
+                        <span class="title-txt">테스트 기간</span> <span class="tag">0~5일</span>
                     </span>
                     <span class="arrow-icon">▼</span>
                 </div>
@@ -211,8 +238,7 @@
                 <div class="header-row">
                     <span class="step-name">
                         <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7zm-3 19a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1z"/></svg>
-                        디자인 기획
-                        <span class="tag">3~5일</span>
+                        <span class="title-txt">디자인 기획</span> <span class="tag">3~5일</span>
                     </span>
                     <span class="arrow-icon">▼</span>
                 </div>
@@ -237,8 +263,7 @@
                     <div class="header-row">
                         <span class="step-name">
                             <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
-                            준비 (GIS)
-                            <span class="tag">1~2일</span>
+                            <span class="title-txt">준비 (GIS)</span> <span class="tag">1~2일</span>
                         </span>
                         <span class="arrow-icon">▼</span>
                     </div>
@@ -254,8 +279,7 @@
                     <div class="header-row">
                         <span class="step-name">
                             <svg class="icon-svg" viewBox="0 0 24 24"><path d="M21 16.5L12 21.5L3 16.5V7.5L12 2.5L21 7.5V16.5ZM12 4.1L5 8L12 11.9L19 8L12 4.1z"/></svg>
-                            모델링 (Blender)
-                            <span class="tag">5~7일</span>
+                            <span class="title-txt">모델링 (Blender)</span> <span class="tag">5~7일</span>
                         </span>
                         <span class="arrow-icon">▼</span>
                     </div>
@@ -271,8 +295,7 @@
                     <div class="header-row">
                         <span class="step-name">
                             <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg>
-                            환경 구축 (UE5)
-                            <span class="tag">3~4일</span>
+                            <span class="title-txt">환경 구축 (UE5)</span> <span class="tag">3~4일</span>
                         </span>
                         <span class="arrow-icon">▼</span>
                     </div>
@@ -288,8 +311,7 @@
                     <div class="header-row">
                         <span class="step-name">
                             <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            디테일 업 (UE5)
-                            <span class="tag">4~6일</span>
+                            <span class="title-txt">디테일 업 (UE5)</span> <span class="tag">4~6일</span>
                         </span>
                         <span class="arrow-icon">▼</span>
                     </div>
@@ -305,8 +327,7 @@
                     <div class="header-row">
                         <span class="step-name">
                             <svg class="icon-svg" viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" stroke="currentColor" stroke-width="2" fill="none" ry="2"/></svg>
-                            연출 (Sequencing)
-                            <span class="tag">2~3일</span>
+                            <span class="title-txt">연출 (Sequencing)</span> <span class="tag">2~3일</span>
                         </span>
                         <span class="arrow-icon">▼</span>
                     </div>
@@ -322,8 +343,7 @@
                     <div class="header-row">
                         <span class="step-name">
                             <svg class="icon-svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                            최종 출력 (Export)
-                            <span class="tag">2~3일</span>
+                            <span class="title-txt">최종 출력 (Export)</span> <span class="tag">2~3일</span>
                         </span>
                         <span class="arrow-icon">▼</span>
                     </div>
@@ -337,7 +357,7 @@
 </div>
 
 <script>
-    // Phase 0 아코디언 애니메이션
+    // Phase 0 아코디언
     function togglePhase0(element) {
         const isActive = element.classList.contains('active');
         document.querySelectorAll('.card-p0').forEach(el => el.classList.remove('active'));
