@@ -196,7 +196,7 @@
     <section>
         <div class="phase-title p0-title">PHASE 0: PRE-PRODUCTION</div>
         <div class="grid-p0">
-            <div class="card-p0" onclick="togglePhase0(this)">
+            <div class="card-p0" onclick="toggleAccordion(this)">
                 <div class="card-p0-top">
                     <div class="card-header">
                         <span class="step-name">
@@ -220,11 +220,11 @@
                 <div class="remark-p0">기술적 기초 수립 및 리스크 해소</div>
             </div>
 
-            <div class="card-p0" onclick="togglePhase0(this)">
+            <div class="card-p0" onclick="toggleAccordion(this)">
                 <div class="card-p0-top">
                     <div class="card-header">
                         <span class="step-name">
-                            <svg class="icon-svg icon-fill" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+                            <svg class="icon-svg icon-fill" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7zm-3 19a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1z"/></svg>
                             디자인 기획
                         </span>
                         <div style="display:flex; align-items:center; gap:10px;"><span class="tag">3~5일</span><span class="arrow-icon">▼</span></div>
@@ -253,7 +253,7 @@
         <div class="phase-title p1-title">PHASE 1: MAIN-PRODUCTION</div>
         <div class="roadmap-p1">
             
-            <div class="roadmap-item" onclick="togglePhase1(this)">
+            <div class="roadmap-item" onclick="toggleAccordion(this)">
                 <div class="node"></div>
                 <div class="roadmap-content">
                     <div class="flow-main">
@@ -275,7 +275,7 @@
                 </div>
             </div>
 
-            <div class="roadmap-item" onclick="togglePhase1(this)">
+            <div class="roadmap-item" onclick="toggleAccordion(this)">
                 <div class="node"></div>
                 <div class="roadmap-content">
                     <div class="flow-main">
@@ -297,13 +297,13 @@
                 </div>
             </div>
 
-            <div class="roadmap-item" onclick="togglePhase1(this)">
+            <div class="roadmap-item" onclick="toggleAccordion(this)">
                 <div class="node"></div>
                 <div class="roadmap-content">
                     <div class="flow-main">
                         <div class="flow-text">
                             <h3>
-                                <svg class="icon-svg icon-fill" viewBox="0 0 24 24"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41"/></svg> 
+                                <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg> 
                                 환경 구축 (UE5) <span class="tag">3~4일</span>
                             </h3>
                             <p>지형 임포트, 밤낮 라이팅 및 구름 세팅</p>
@@ -319,7 +319,7 @@
                 </div>
             </div>
 
-            <div class="roadmap-item" onclick="togglePhase1(this)">
+            <div class="roadmap-item" onclick="toggleAccordion(this)">
                 <div class="node"></div>
                 <div class="roadmap-content">
                     <div class="flow-main">
@@ -341,7 +341,7 @@
                 </div>
             </div>
 
-            <div class="roadmap-item" onclick="togglePhase1(this)">
+            <div class="roadmap-item" onclick="toggleAccordion(this)">
                 <div class="node"></div>
                 <div class="roadmap-content">
                     <div class="flow-main">
@@ -363,7 +363,7 @@
                 </div>
             </div>
 
-            <div class="roadmap-item final-step" onclick="togglePhase1(this)">
+            <div class="roadmap-item final-step" onclick="toggleAccordion(this)">
                 <div class="node"></div>
                 <div class="roadmap-content">
                     <div class="flow-main">
@@ -390,11 +390,19 @@
 </div>
 
 <script>
-    function togglePhase0(element) {
-        element.classList.toggle('active');
-    }
-    function togglePhase1(element) {
-        element.classList.toggle('active');
+    function toggleAccordion(element) {
+        // 방금 클릭한 창이 열려있던 상태인지 체크
+        const isActive = element.classList.contains('active');
+        
+        // 1. 모든 창(Phase 0의 카드, Phase 1의 리스트)을 일단 전부 닫음
+        document.querySelectorAll('.card-p0, .roadmap-item').forEach(el => {
+            el.classList.remove('active');
+        });
+
+        // 2. 방금 클릭한 창이 닫혀있던 상태였다면 열어줌
+        if (!isActive) {
+            element.classList.add('active');
+        }
     }
 </script>
 
