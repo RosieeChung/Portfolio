@@ -3,89 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>3D Visualization Workflow (Final Balanced Edition)</title>
+    <title>3D Visualization Workflow (PC Restored & Mobile Optimized)</title>
     <style>
+        /* [전역 변수 및 기본 설정] */
         :root {
-            --bg: #0d1117;
-            --p0-accent: #60a5fa; 
-            --grad-start: #67e8f9; 
-            --grad-mid: #33f3db;   
-            --grad-end: #34d399;   
-            
-            --step1-color: var(--grad-start);
-            --step2-color: #4deeea;
-            --step3-color: var(--grad-mid);
-            --step4-color: #1df9cc;
-            --step5-color: #1ceeb3;
-            --step6-color: var(--grad-end);
-
-            --card-bg: #161b22;
-            --text-p: #f0f6fc; 
-            --text-s: #cbd5e1; 
-            --text-dim: #94a3b8; 
-            --border: #30363d;
+            --bg: #0d1117; --p0-accent: #60a5fa; 
+            --grad-start: #67e8f9; --grad-mid: #33f3db; --grad-end: #34d399;
+            --step1-color: var(--grad-start); --step2-color: #4deeea; --step3-color: var(--grad-mid);
+            --step4-color: #1df9cc; --step5-color: #1ceeb3; --step6-color: var(--grad-end);
+            --card-bg: #161b22; --text-p: #f0f6fc; --text-s: #cbd5e1; --text-dim: #94a3b8; --border: #30363d;
         }
-
         html, body { background-color: var(--bg); margin: 0; padding: 0; width: 100%; overflow-x: hidden; }
         body { color: var(--text-p); font-family: 'Pretendard', sans-serif; line-height: 1.6; }
         .container { width: 92%; max-width: 1040px; margin: 0 auto; padding: 40px 0; box-sizing: border-box; }
 
-        /* [Header] PC 고정 */
-        .header { 
-            text-align: left; position: relative; margin: 0 0 40px 0; padding: 0 0 20px 42px;
-            border-bottom: 1px solid var(--border);
-        }
+        /* =========================================
+           ★ PC 고정 스타일 (변경 금지) ★
+        ========================================= */
+        /* [Header] */
+        .header { text-align: left; position: relative; margin: 0 0 40px 0; padding: 0 0 20px 42px; border-bottom: 1px solid var(--border); }
         .header::before { content: ''; position: absolute; left: 20px; top: 0; bottom: 20px; width: 4px; background: var(--grad-start); }
-        .header h1 { margin: 0; font-size: 2rem; letter-spacing: -1px; }
+        .header h1 { margin: 0; font-size: 2rem; letter-spacing: -1px; } /* PC 고정 크기 */
         .total-time { color: var(--grad-start); font-weight: 800; font-size: 0.9rem; margin-bottom: 8px; display: block; }
 
-        /* [Phase Titles] PC 고정 */
-        .phase-title { 
-            font-size: 1.25rem; font-weight: 800; margin: 35px 0 25px 0; 
-            display: flex; align-items: center; text-transform: uppercase; 
-            padding-left: 42px; position: relative;
-        }
+        /* [Phase Titles] */
+        .phase-title { font-size: 1.25rem; font-weight: 800; margin: 35px 0 25px 0; display: flex; align-items: center; text-transform: uppercase; padding-left: 42px; position: relative; }
         .phase-title::before { content: ''; position: absolute; left: 21px; top: 0; bottom: 0; width: 2px; background: transparent; }
         .p0-title::before { background: var(--p0-accent); }
         .p1-title::before { background: var(--grad-start); }
 
-        .icon-svg { width: 22px; height: 22px; flex-shrink: 0; display: inline-block; fill: currentColor; } 
+        .icon-svg { width: 22px; height: 22px; flex-shrink: 0; display: inline-block; fill: currentColor; } /* PC 고정 크기 */
 
-        /* [Grid & Card Setup] */
+        /* [Grid & Card] */
         .grid-p0 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; margin: 0 0 40px 42px; align-items: start; }
         .card-p0, .roadmap-content { 
             background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; 
             padding: 24px 26px; cursor: pointer; transition: 0.3s ease;
-            display: flex; flex-direction: column; box-sizing: border-box;
-            position: relative; /* 배지 배치를 위해 필요 */
+            display: flex; flex-direction: column; box-sizing: border-box; position: relative;
         }
         .card-p0 { height: 220px; overflow: hidden; } 
         .card-p0.active { height: auto; min-height: 220px; border-color: var(--p0-accent); }
-        .card-p0:hover, .roadmap-content:hover { border-color: var(--grad-start); transform: translateY(-2px); }
         
+        /* [Step Name & Tag] */
         .header-row { display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 5px; }
-        .step-name { font-weight: 800; font-size: 1.05rem; display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; }
+        .step-name { font-weight: 800; font-size: 1.05rem; display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; } /* PC 고정 크기 */
         .title-txt { white-space: nowrap; }
-
-        .tag { 
-            font-size: 0.75rem; background: #21262d; padding: 3px 10px; border-radius: 4px; 
-            color: var(--p0-accent); font-weight: 700; margin-left: 5px; flex-shrink: 0;
-        }
+        .tag { font-size: 0.75rem; background: #21262d; padding: 3px 10px; border-radius: 4px; color: var(--p0-accent); font-weight: 700; margin-left: 5px; flex-shrink: 0; }
         .p1-item .tag { color: var(--grad-start); }
 
-        /* [텍스트 칼정렬 & 불렛] */
+        /* [Text & Bullet Alignment] */
         .phase-0-text, .sub-desc-container { margin: 10px 0 12px 32px; display: flex; flex-direction: column; gap: 8px; } 
         .line-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: var(--text-s); font-weight: 500; line-height: 1.6; }
         .line-item::before { content: '•'; color: inherit; font-weight: 900; flex-shrink: 0; }
 
-        /* [Roadmap Alignment] */
+        /* [Roadmap Layout] */
         .roadmap-p1 { position: relative; padding-left: 0; margin-top: 15px; }
         .roadmap-p1::before { content: ''; position: absolute; left: 21px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--grad-start) 0%, var(--grad-mid) 50%, var(--grad-end) 100%); }
         .roadmap-item { position: relative; padding-left: 55px; margin-bottom: 20px; }
         .node { position: absolute; left: 22px; top: 28px; width: 14px; height: 14px; background: var(--bg); border-width: 2.5px; border-style: solid; border-radius: 50%; z-index: 2; transform: translateX(-50%); transition: 0.25s ease; }
         .roadmap-item.active .node { background-color: currentColor; box-shadow: 0 0 10px currentColor; }
 
-        /* 노드 컬러 적용 */
+        /* [Node Colors] */
         .step-1 .node { border-color: var(--step1-color); color: var(--step1-color); }
         .step-2 .node { border-color: var(--step2-color); color: var(--step2-color); }
         .step-3 .node { border-color: var(--step3-color); color: var(--step3-color); }
@@ -93,66 +71,65 @@
         .step-5 .node { border-color: var(--step5-color); color: var(--step5-color); }
         .step-6 .node { border-color: var(--step6-color); color: var(--step6-color); }
 
-        /* ★ [FINAL 배지 공통 위치 수정] ★ */
+        /* ★ [FINAL 배지 PC 위치 복구 (걸쳐있는 느낌)] ★ */
         .final-step .roadmap-content::after { 
-            content: 'FINAL'; 
-            position: absolute; 
-            top: 10px; /* 카드 상단 여백 안쪽 */
-            left: 10px; /* 카드 좌측 여백 안쪽 */
+            content: 'FINAL'; position: absolute; 
+            top: -11px; left: 24px; /* 다시 테두리에 걸치도록 복구 */
             background: linear-gradient(135deg, var(--grad-end), #059669); 
-            color: #fff; font-size: 0.6rem; font-weight: 900; letter-spacing: 0.5px; 
-            padding: 2px 8px; border-radius: 4px; z-index: 3; 
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            color: #fff; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.5px; 
+            padding: 3px 10px; border-radius: 12px; z-index: 3; box-shadow: 0 2px 4px rgba(0,0,0,0.2); 
         }
-        /* 배지 위치로 인한 제목 간격 조정 */
-        .final-step .header-row { padding-left: 45px; }
 
+        /* [Other Styles] */
         .arrow-icon { transition: transform 0.3s; color: var(--text-dim); font-size: 0.75rem; display: inline-block; margin-left: 10px; flex-shrink: 0; }
         .active .arrow-icon { transform: rotate(180deg); }
         .card-p0.active .arrow-icon { color: var(--p0-accent); }
         .roadmap-item.active .arrow-icon { color: currentColor; }
-
         .phase-divider { display: flex; align-items: center; justify-content: center; margin: 50px 0; color: var(--border); }
         .phase-divider::before, .phase-divider::after { content: ''; flex: 1; border-bottom: 1px solid var(--border); }
         .phase-divider span { padding: 0 25px; color: var(--text-dim); font-size: 0.85rem; letter-spacing: 2px; font-weight: 600; white-space: nowrap; }
-
         .remark-area { padding-top: 15px; border-top: 1px solid var(--border); font-size: 0.85rem; font-weight: 700; color: var(--p0-accent); margin-top: auto; }
         .p1-item .remark-area { color: var(--grad-start); }
         .final-step .remark-area { color: var(--grad-end) !important; }
+        .details { max-height: 0; opacity: 0; overflow: hidden; transition: all 0.4s ease-in-out; width: 100%; }
+        .active .details { max-height: 1500px; opacity: 1; padding: 20px 0 0 0; margin-bottom: 10px; }
+        .details-inner { padding: 20px; background: rgba(0,0,0,0.2); border-radius: 10px; border: 1px dashed var(--border); text-align: center; }
+        .content-image { width: 100%; max-width: 700px; height: auto; border-radius: 6px; margin-bottom: 15px; border: 1px solid var(--border); background: #21262d; }
+
 
         /* =========================================
-           ★ 모바일 전용 수정 구역 (768px 이하) ★
+           ★ 모바일 전용 안전 수정 구역 (768px 이하) ★
         ========================================= */
         @media (max-width: 768px) {
             .container { width: 94%; padding: 25px 0; }
             
-            /* 1. Phase 제목 크기 적절히 확대 (너무 작았던 50%에서 복구) */
+            /* 1. Phase 제목 크기 적절히 축소 */
             .phase-title { font-size: 1rem; margin: 25px 0 15px 0; padding-left: 30px; }
             .header h1 { font-size: 1.4rem; }
             .header { padding-left: 30px; }
 
-            /* 2. 수직 라인 여백 재조정 */
+            /* 2. 수직 라인 및 노드 비율 축소 */
             .header::before { width: 3px; left: 12px; }
             .phase-title::before, .roadmap-p1::before { width: 1px; left: 13px; }
             .roadmap-item { padding-left: 38px; }
             .node { left: 14px; top: 24px; width: 10px; height: 10px; border-width: 1.5px; }
 
-            /* 3. 제목 자동 스케일링 및 한 줄 유지 */
-            .step-name { white-space: nowrap; gap: 8px; }
-            .title-txt { font-size: clamp(0.85rem, 3.8vw, 1.05rem); } /* 화면에 맞춰 알아서 변하는 폰트 */
-            .icon-svg { width: 18px; height: 18px; }
+            /* 3. 제목 자동 스케일링 및 한 줄 유지 (모바일 전용) */
+            .step-name { white-space: nowrap; gap: 2vw; }
+            .title-txt { font-size: clamp(0.8rem, 4vw, 1.05rem); } /* 화면에 맞춰 줄어드는 폰트 */
+            .icon-svg { width: clamp(16px, 5vw, 22px); height: clamp(16px, 5vw, 22px); } /* 화면에 맞춰 줄어드는 아이콘 */
             .tag { font-size: 0.7rem; padding: 2px 8px; }
 
             .grid-p0 { grid-template-columns: 1fr; margin-left: 0; gap: 15px; }
             .card-p0 { height: auto; min-height: auto; padding: 20px; } 
             
-            /* 불렛 정렬 여백 고수 */
+            /* 불렛 정렬 여백 유지 */
             .phase-0-text, .sub-desc-container { margin-left: 32px; gap: 6px; }
             .line-item { font-size: 0.82rem; }
             .line-item span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
             
-            /* FINAL 배지 모바일 위치 */
-            .final-step .roadmap-content::after { left: 10px; top: 8px; font-size: 0.55rem; }
+            /* ★ FINAL 배지 모바일 위치 (걸쳐있는 느낌 유지) ★ */
+            .final-step .roadmap-content::after { left: 18px; top: -10px; font-size: 0.55rem; padding: 2px 7px; }
         }
     </style>
 </head>
@@ -249,7 +226,7 @@
                 <div class="roadmap-content">
                     <div class="header-row">
                         <span class="step-name">
-                            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm1.06-10.96a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg>
+                            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg>
                             <span class="title-txt">환경 구축 (UE5)</span>
                             <span class="tag">3~4일</span>
                         </span>
