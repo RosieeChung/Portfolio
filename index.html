@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>3D 시각화 제작 파이프라인</title>
+    <title>3D 시각화 제작 파이프라인 (Dark Theme)</title>
     <style>
         :root {
             --bg: #0d1117;
@@ -51,7 +51,7 @@
         .card-p0 ul { margin: 0 0 10px 0; padding: 0; list-style: none; font-size: 0.8rem; color: var(--text-s); }
         .remark-p0 { padding-top: 10px; border-top: 1px solid var(--border); font-size: 0.75rem; font-weight: 700; color: var(--p0-accent); }
 
-        /* [Divider] 얇은 실선 디자인 */
+        /* [Divider] 중앙 실선 */
         .phase-divider { display: flex; align-items: center; justify-content: center; margin: 35px 0; color: var(--border); }
         .phase-divider::before, .phase-divider::after { content: ''; flex: 1; border-bottom: 1px solid var(--border); }
         .phase-divider span { padding: 0 15px; color: var(--text-dim); font-size: 0.7rem; letter-spacing: 2px; font-weight: 600; white-space: nowrap; }
@@ -59,9 +59,10 @@
         /* [PHASE 1] 노드 정중앙 정렬 */
         .roadmap-p1 { position: relative; padding-left: 0; margin-top: 10px; }
         .roadmap-p1::before { content: ''; position: absolute; left: 0px; top: 0; bottom: 0; width: 4px; background: linear-gradient(to bottom, var(--p1-accent), var(--final-accent)); }
-        .roadmap-item { position: relative; padding-left: 40px; margin-bottom: 12px; }
         
-        /* 노드 위치: 라인(4px)의 정확한 중앙 */
+        .roadmap-item { position: relative; padding-left: 40px; margin-bottom: 12px; transition: all 0.3s; }
+        
+        /* 노드 정중앙 고정 */
         .node { 
             position: absolute; left: 2px; top: 16px; width: 12px; height: 12px; 
             background: var(--bg); border: 3px solid var(--p1-accent); border-radius: 50%; 
@@ -93,13 +94,27 @@
         .final-step .node { border-color: var(--final-accent); }
         .final-step.active .node { background-color: var(--final-accent); box-shadow: 0 0 12px var(--final-accent); }
 
+        /* ================= 반응형 사이드 여백 최적화 ================= */
         @media (max-width: 768px) {
-            .container { width: 92%; }
+            .container { 
+                width: 88%; /* 화면 양옆에 넉넉한 공백 확보 */
+                padding: 20px 0; 
+            }
             .header, .phase-title { padding-left: 15px; }
             .grid-p0 { grid-template-columns: 1fr; }
-            .roadmap-item { padding-left: 30px; }
+            
+            .roadmap-item { 
+                padding-left: 32px; /* 수직 라인과 상자 사이 간격 조절 */
+                margin-right: 8px; /* 상자 우측이 화면 끝에 붙지 않게 여백 추가 */
+            }
+            .node { left: 2px; } /* 수직 라인 중앙 정렬 유지 */
+            
             .flow-main { flex-direction: column; align-items: flex-start; gap: 5px; }
-            .flow-meta { width: 100%; justify-content: space-between; border-top: 1px dashed var(--border); padding-top: 8px; margin-top: 5px; }
+            .flow-meta { 
+                width: 100%; justify-content: space-between; 
+                border-top: 1px dashed var(--border); padding-top: 8px; margin-top: 5px; 
+            }
+            .roadmap-content { padding: 12px 15px; } /* 내부 패딩 조절로 상자 크기 최적화 */
         }
     </style>
 </head>
@@ -214,7 +229,7 @@
                     <div class="details">
                         <div class="details-inner">
                             <img src="https://via.placeholder.com/800x350/21262d/8b949e?text=Environment" class="content-image">
-                            <p style="color:var(--text-s); font-size:0.75rem; font-weight:700; margin:0;">라이팅 설정 레퍼런스</p>
+                            <p style="color:var(--text-s); font-size:0.75rem; font-weight:700; margin:0;">환경 설정 시각 자료</p>
                         </div>
                     </div>
                 </div>
