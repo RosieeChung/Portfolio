@@ -43,30 +43,26 @@
         .header h1 { margin: 0; font-size: clamp(1.5rem, 5vw, 2rem); letter-spacing: -1px; }
         .total-time { color: var(--p1-accent); font-weight: 800; font-size: 0.9rem; margin-bottom: 5px; display: block; }
 
-        .phase-title { font-size: clamp(1.1rem, 4vw, 1.3rem); font-weight: 800; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; text-transform: uppercase; }
+        .phase-title { font-size: clamp(1.1rem, 4vw, 1.3rem); font-weight: 800; margin-bottom: 15px; display: flex; align-items: center; gap: 12px; text-transform: uppercase; }
         .p0-title { color: var(--p0-accent); }
-        .p1-title { color: var(--p1-accent); margin-top: 20px; }
+        .p1-title { color: var(--p1-accent); }
 
-        /* 아이콘 공통 스타일 - stroke 기반 아이콘을 위해 fill:none 및 stroke 설정 추가 */
         .icon-svg { width: 24px; height: 24px; flex-shrink: 0; }
-        /* 기존 fill 아이콘용 */
-        .icon-fill { fill: currentColor; }
-        /* 신규 stroke 아이콘용 (모델링, 환경구축) */
-        .icon-stroke { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-
+        .icon-fill { fill: currentColor; } /* 꽉 찬 아이콘 스타일 통일 */
 
         /* PHASE 0 */
-        .grid-p0 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; align-items: stretch; }
+        /* [수정] 따로 열릴 때 레이아웃이 깨지지 않도록 align-items: start 로 복구 */
+        .grid-p0 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; align-items: start; }
         .card-p0 { 
             background: var(--card-bg); 
             border: 1px solid var(--border); 
             border-radius: 12px; 
-            padding: 20px 22px; /* 상하 패딩 약간 증가 */
-            min-height: 200px; /* [수정] 최소 높이를 늘려 공간 확보 */
+            padding: 20px 22px; 
+            min-height: 200px; 
             cursor: pointer; 
             display: flex; 
             flex-direction: column; 
-            gap: 12px; /* [수정] 내부 요소들 사이에 일정한 간격 강제 부여 */
+            gap: 12px; 
             transition: 0.3s ease; 
         }
         .card-p0:hover { border-color: var(--p0-accent); transform: translateY(-3px); }
@@ -74,16 +70,39 @@
         .step-name { font-weight: 800; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; }
         .tag { font-size: 0.75rem; background: #21262d; padding: 2px 8px; border-radius: 4px; color: var(--text-s); }
         
-        /* [수정] 리스트 하단에 여백을 주어 아래 요소들과 겹치지 않게 밀어냄 */
         .card-p0 ul { margin: 0 0 auto 0; padding: 0; list-style: none; font-size: 0.88rem; color: var(--text-s); }
         .card-p0 li { margin-bottom: 4px; }
         .spacer-li { margin-bottom: 10px !important; }
-        
-        /* [수정] margin-top: auto는 유지하되, gap 덕분에 더 안정적으로 하단에 고정됨 */
         .remark-p0 { padding-top: 12px; border-top: 1px solid var(--border); font-size: 0.82rem; font-weight: 600; color: var(--p0-accent); }
 
+        /* =======================================================
+           [추가] PHASE 0과 PHASE 1을 명확히 분리하는 경계선 (Divider)
+           ======================================================= */
+        .phase-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 40px 0; /* 상하 여백을 주어 확실한 분리감 제공 */
+            color: var(--border);
+        }
+        .phase-divider::before,
+        .phase-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px dashed var(--border);
+        }
+        .phase-divider span {
+            padding: 0 20px;
+            color: var(--text-s);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
         /* PHASE 1 */
-        .roadmap-p1 { position: relative; padding-left: 40px; margin-top: 25px; }
+        .roadmap-p1 { position: relative; padding-left: 40px; margin-top: 10px; }
         .roadmap-p1::before { content: ''; position: absolute; left: 15px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--p1-accent), var(--final-accent)); }
         .roadmap-item { position: relative; margin-bottom: 15px; }
         .node { position: absolute; left: -34px; top: 18px; width: 14px; height: 14px; background: var(--bg); border: 3px solid var(--p1-accent); border-radius: 50%; z-index: 2; transition: all 0.25s ease; }
@@ -97,14 +116,14 @@
         .flow-meta { display: flex; align-items: center; gap: 20px; }
         .flow-remark { font-size: 0.82rem; font-weight: 600; color: var(--p1-accent); text-align: right; }
 
-        /* 상세 영역 */
+        /* 상세 이미지 영역 */
         .details { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; width: 100%; }
         .active .details { max-height: 1500px; }
         .details-inner { 
             padding: 25px 20px; 
             background: rgba(0,0,0,0.3); 
             border-radius: 10px; 
-            margin-top: 15px; /* gap이 있어도 상세 영역 구분을 위해 margin 유지 */
+            margin-top: 15px; 
             border: 1px solid var(--border);
             text-align: center; 
             display: flex;
@@ -132,12 +151,13 @@
         @media (max-width: 768px) {
             .grid-p0 { grid-template-columns: 1fr; gap: 20px; } 
             .card-p0 { min-height: auto; padding: 20px 22px; }
-            .roadmap-p1 { padding-left: 28px; margin-top: 20px; }
+            .roadmap-p1 { padding-left: 28px; margin-top: 10px; }
             .roadmap-p1::before { left: 10px; }
             .node { left: -26px; top: 18px; width: 12px; height: 12px; border-width: 2px; }
             .roadmap-content { padding: 15px 20px; }
             .flow-main { flex-direction: column; align-items: flex-start; gap: 8px; }
             .flow-meta { width: 100%; justify-content: space-between; border-top: 1px dashed var(--border); padding-top: 10px; margin-top: 5px; }
+            .phase-divider { margin: 30px 0; }
         }
     </style>
 </head>
@@ -152,7 +172,7 @@
     <section>
         <div class="phase-title p0-title">PHASE 0: PRE-PRODUCTION</div>
         <div class="grid-p0">
-            <div class="card-p0" onclick="togglePhase0()">
+            <div class="card-p0" onclick="togglePhase0(this)">
                 <div class="card-header">
                     <span class="step-name"><svg class="icon-svg icon-fill" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>테스트 기간</span>
                     <div style="display:flex; align-items:center; gap:10px;"><span class="tag">0~5일</span><span class="arrow-icon">▼</span></div>
@@ -171,7 +191,7 @@
                 <div class="remark-p0">기술적 기초 수립 및 리스크 해소</div>
             </div>
 
-            <div class="card-p0" onclick="togglePhase0()">
+            <div class="card-p0" onclick="togglePhase0(this)">
                 <div class="card-header">
                     <span class="step-name"><svg class="icon-svg icon-fill" viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3zM18 13l-1.5-1.5L4 23l3 3 11-13z"/></svg>디자인 기획</span>
                     <div style="display:flex; align-items:center; gap:10px;"><span class="tag">3~5일</span><span class="arrow-icon">▼</span></div>
@@ -190,6 +210,10 @@
             </div>
         </div>
     </section>
+
+    <div class="phase-divider">
+        <span>▼ NEXT PHASE ▼</span>
+    </div>
 
     <section>
         <div class="phase-title p1-title">PHASE 1: MAIN-PRODUCTION</div>
@@ -219,7 +243,7 @@
                 <div class="roadmap-content">
                     <div class="flow-main">
                         <div class="flow-text">
-                            <h3><svg class="icon-svg icon-stroke" viewBox="0 0 24 24"><path d="M21 16.5l-9-5.25-9 5.25 9 5.25 9-5.25zM12 11.25l9 5.25M12 11.25v10.5M3 16.5l9-5.25"/></svg> 모델링 (Blender) <span class="tag">5~7일</span></h3>
+                            <h3><svg class="icon-svg icon-fill" viewBox="0 0 24 24"><path d="M21 16.42v-8.84c0-.8-.47-1.52-1.2-1.87l-6.6-3.18c-.76-.37-1.64-.37-2.4 0L4.2 5.71c-.73.35-1.2 1.07-1.2 1.87v8.84c0 .8.47 1.52 1.2 1.87l6.6 3.18c.76.37 1.64.37 2.4 0l6.6-3.18c.73-.35 1.2-1.07 1.2-1.87zM12 12.55L4.56 8.96l6.6-3.18c.5-.24 1.08-.24 1.58 0l6.6 3.18L12 12.55zm-.5 9.07l-6.6-3.18c-.18-.09-.29-.27-.29-.47V9.69l6.89 3.32v8.61zm1.5 0V13.01l6.89-3.32v8.28c0 .2-.11.38-.29.47l-6.6 3.18z"/></svg> 모델링 (Blender) <span class="tag">5~7일</span></h3>
                             <p>교량 주탑, 상판 및 주요 건물 블로킹</p>
                         </div>
                         <div class="flow-meta"><div class="flow-remark">디테일보다 '덩어리'와 '최적화' 중심</div><span class="arrow-icon">▼</span></div>
@@ -238,7 +262,7 @@
                 <div class="roadmap-content">
                     <div class="flow-main">
                         <div class="flow-text">
-                            <h3><svg class="icon-svg icon-stroke" viewBox="0 0 24 24"><path d="M14 6a2 2 0 1 0-4 0 2 2 0 0 0 4 0zM4.5 19.5l4.25-7.5 3.5 4.5 4.25-3.5L21 19.5H4.5z"/></svg> 환경 구축 (UE5) <span class="tag">3~4일</span></h3>
+                            <h3><svg class="icon-svg icon-fill" viewBox="0 0 24 24"><path d="M14 6c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3zM2.8 21l6.2-8.5 4.1 5.4 3.7-4.9 4.4 8H2.8z"/></svg> 환경 구축 (UE5) <span class="tag">3~4일</span></h3>
                             <p>지형 임포트, 밤낮 라이팅 및 구름 세팅</p>
                         </div>
                         <div class="flow-meta"><div class="flow-remark">전체적인 톤앤매너(Look) 결정</div><span class="arrow-icon">▼</span></div>
@@ -313,18 +337,24 @@
 </div>
 
 <script>
-    function togglePhase0() {
+    // [수정] 테스트 기간과 디자인 기획이 "따로(독립적으로)" 열리도록 복구했습니다.
+    function togglePhase0(element) {
         const cards = document.querySelectorAll('.card-p0');
-        const isCurrentlyActive = cards[0].classList.contains('active');
         
-        if (isCurrentlyActive) {
-            cards.forEach(card => card.classList.remove('active'));
+        if (element.classList.contains('active')) {
+            // 이미 열려있다면 닫기
+            element.classList.remove('active');
         } else {
-            cards.forEach(card => card.classList.add('active'));
+            // 다른 상자가 열려있다면 닫고, 내가 누른 상자만 열기
+            cards.forEach(card => card.classList.remove('active'));
+            element.classList.add('active');
+            
+            // Phase 0를 열었으므로 아래의 Phase 1은 모두 닫아줌
             document.querySelectorAll('.roadmap-item').forEach(item => item.classList.remove('active'));
         }
     }
 
+    // PHASE 1 제어 (기존과 동일)
     function togglePhase1(element) {
         const items = document.querySelectorAll('.roadmap-item');
         items.forEach(item => { if (item !== element) item.classList.remove('active'); });
