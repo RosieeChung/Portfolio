@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>3D 시각화 제작 파이프라인</title>
     <style>
-        /* [복구] 사용자가 작성하신 원본 컬러 코드를 100% 그대로 유지합니다 */
         :root {
             --bg: #0d1117;
             --p0-accent: #3b82f6;
@@ -17,7 +16,6 @@
             --border: #30363d;
         }
 
-        /* [추가] 모바일에서 가로 스크롤이 생기지 않도록 여백 초기화 및 폭 고정 */
         html, body {
             background-color: var(--bg);
             margin: 0;
@@ -30,10 +28,9 @@
             color: var(--text-p);
             font-family: 'Pretendard', sans-serif;
             line-height: 1.6;
-            -webkit-text-size-adjust: 100%; /* 모바일 텍스트 크기 자동확대 방지 */
+            -webkit-text-size-adjust: 100%; 
         }
 
-        /* [수정] 모바일과 PC 모두를 고려한 컨테이너 설정 */
         .container { 
             width: 100%; 
             max-width: 1000px; 
@@ -42,7 +39,6 @@
             box-sizing: border-box; 
         }
 
-        /* [Header] 원본 코드 동일 */
         .header { 
             text-align: left; 
             margin-bottom: 30px; 
@@ -58,12 +54,12 @@
 
         .icon-svg { width: 24px; height: 24px; fill: currentColor; flex-shrink: 0; }
 
-        /* [PHASE 0] 원본 코드 동일 */
+        /* [수정] 양쪽 상자의 높이가 항상 완벽하게 똑같이 늘어나도록 stretch 적용 */
         .grid-p0 { 
             display: grid; 
             grid-template-columns: repeat(2, 1fr); 
             gap: 20px; 
-            align-items: start; 
+            align-items: stretch; 
         }
 
         .card-p0 { 
@@ -96,7 +92,6 @@
             color: var(--p0-accent); 
         }
 
-        /* [PHASE 1] 원본 코드 동일 */
         .roadmap-p1 { position: relative; padding-left: 40px; margin-top: 20px; }
         .roadmap-p1::before { content: ''; position: absolute; left: 15px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--p1-accent), var(--final-accent)); }
 
@@ -159,22 +154,15 @@
         .final-step.active .node { background-color: var(--final-accent); box-shadow: 0 0 10px var(--final-accent); }
         .final-step h3 { color: var(--final-accent); }
 
-        /* ========================================================= */
-        /* [핵심 추가] 모바일 화면(768px 이하)을 위한 반응형 레이아웃 보정 */
-        /* ========================================================= */
+        /* 모바일 반응형 조절 */
         @media (max-width: 768px) {
-            .grid-p0 { grid-template-columns: 1fr; gap: 15px; } /* 상자를 세로 1열로 배치 */
+            .grid-p0 { grid-template-columns: 1fr; gap: 15px; } 
             .card-p0 { min-height: auto; padding: 15px 18px; }
-            
-            /* 타임라인 여백 축소 */
             .roadmap-p1 { padding-left: 28px; margin-top: 15px; }
             .roadmap-p1::before { left: 10px; }
             .node { left: -26px; top: 18px; width: 12px; height: 12px; border-width: 2px; }
-            
             .roadmap-content { padding: 15px; }
             .flow-main { flex-direction: column; align-items: flex-start; gap: 8px; }
-            
-            /* 모바일에서 비고란과 화살표를 하단으로 분리하여 가로 정렬 */
             .flow-meta { width: 100%; justify-content: space-between; border-top: 1px dashed var(--border); padding-top: 8px; margin-top: 4px; }
         }
     </style>
@@ -190,7 +178,7 @@
     <section>
         <div class="phase-title p0-title">PHASE 0: PRE-PRODUCTION</div>
         <div class="grid-p0">
-            <div class="card-p0" onclick="togglePhase0(this)">
+            <div class="card-p0" onclick="togglePhase0()">
                 <div class="card-header">
                     <span class="step-name">
                         <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
@@ -212,7 +200,7 @@
                 <div class="remark-p0">기술적 기초 수립 및 리스크 해소</div>
             </div>
 
-            <div class="card-p0" onclick="togglePhase0(this)">
+            <div class="card-p0" onclick="togglePhase0()">
                 <div class="card-header">
                     <span class="step-name">
                         <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3zM18 13l-1.5-1.5L4 23l3 3 11-13z"/></svg>
@@ -345,17 +333,24 @@
 </div>
 
 <script>
-    // [복구] 사용자가 작성하신 클릭 기능 스크립트를 원본 100% 그대로 반영
-    function togglePhase0(element) {
+    // [핵심 수정] Phase 0의 두 상자가 무조건 동시에 열리고 닫히도록 동기화
+    function togglePhase0() {
         const cards = document.querySelectorAll('.card-p0');
-        cards.forEach(card => { if (card !== element) card.classList.remove('active'); });
-        element.classList.toggle('active');
+        // 첫 번째 카드가 열려있는지 확인
+        const isCurrentlyActive = cards[0].classList.contains('active');
         
-        if(element.classList.contains('active')) {
+        if (isCurrentlyActive) {
+            // 열려있으면 둘 다 닫음
+            cards.forEach(card => card.classList.remove('active'));
+        } else {
+            // 닫혀있으면 둘 다 열음
+            cards.forEach(card => card.classList.add('active'));
+            // 이때 Phase 1 항목들은 깔끔하게 닫아줌
             document.querySelectorAll('.roadmap-item').forEach(item => item.classList.remove('active'));
         }
     }
 
+    // Phase 1 제어 로직 유지
     function togglePhase1(element) {
         const items = document.querySelectorAll('.roadmap-item');
         items.forEach(item => { if (item !== element) item.classList.remove('active'); });
