@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>3D Visualization Workflow (Final Export Icon Updated)</title>
+    <title>3D Visualization Workflow (with Video)</title>
     <style>
         /* [전역 변수: 차분하고 고급스러운 딥 블루/인디고 톤 정의] */
         :root {
@@ -52,6 +52,30 @@
         }
         .container { width: 92%; max-width: 1040px; margin: 0 auto; padding: 40px 0; box-sizing: border-box; }
 
+        /* [Video Section Style] */
+        .main-video-wrapper {
+            margin-bottom: 50px;
+            border-radius: 16px;
+            overflow: hidden;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            box-shadow: var(--card-active-shadow);
+        }
+        .video-aspect-ratio {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 비율 */
+            height: 0;
+            overflow: hidden;
+        }
+        .video-aspect-ratio iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
         /* [Header] */
         .header { 
             text-align: left; position: relative; margin: 0 0 40px 0; padding: 0 0 20px 42px;
@@ -89,7 +113,6 @@
         }
         .card-p0 { height: 220px; overflow: hidden; } 
 
-        /* 활성화 상태 시 그라데이션 배경 및 테두리 적용 */
         .card-p0.active, .roadmap-item.active .roadmap-content { 
             border: 2px solid transparent; 
             background-image: var(--card-active-bg-grad), var(--card-active-border-grad);
@@ -100,7 +123,6 @@
         }
         .card-p0.active { height: auto; min-height: 220px; }
         
-        /* 호버 상태 */
         .card-p0:hover, .roadmap-content:hover { 
             border-color: rgba(99, 102, 241, 0.5); 
             transform: translateY(-3px); 
@@ -209,39 +231,26 @@
         .details-inner { padding: 20px; background: #f9fafb; border-radius: 12px; border: 1px solid var(--border); text-align: center; }
         .content-image { width: 100%; max-width: 700px; height: auto; border-radius: 8px; margin-bottom: 15px; border: 1px solid var(--border); background: #ffffff; box-shadow: var(--card-shadow); }
 
-        /* =========================================
-           ★ 모바일 전용 최적화 (768px 이하) ★
-        ========================================= */
+        /* 모바일 최적화 */
         @media (max-width: 768px) {
             .container { width: 94%; padding: 30px 0; }
+            .main-video-wrapper { margin-bottom: 30px; border-radius: 12px; }
             .header, .phase-title { padding-left: 32px; }
             .header h1 { font-size: 1.5rem; padding-left: 15px; }
             .total-time { padding-left: 15px; }
             .phase-title { font-size: 1.1rem; margin: 30px 0 20px 0; }
-
             .header::before { width: 4px; left: 12px; }
             .phase-title::before { width: 4px; left: 12px; }
-            
-            .roadmap-p1 { margin-top: 0; }
             .roadmap-p1::before, .roadmap-p1::after { width: 2px; left: 13px; top: 29px; }
-            
             .roadmap-item { padding-left: 42px; }
             .node { left: 14px; top: 24px; width: 10px; height: 10px; border-width: 2px; }
-
             .step-name { white-space: nowrap; gap: 8px; }
             .title-txt { font-size: clamp(0.9rem, 4vw, 1.1rem); }
-            .icon-svg { width: 20px; height: 20px; }
-            .tag { font-size: 0.7rem; padding: 2px 8px; }
-
             .grid-p0 { grid-template-columns: 1fr; margin-left: 0; gap: 20px; }
             .card-p0 { height: auto; min-height: auto; padding: 22px; } 
             .card-p0.active, .roadmap-item.active .roadmap-content { padding: 21px; }
-
             .phase-0-text, .sub-desc-container { margin-left: 32px; gap: 8px; }
             .line-item { font-size: 0.85rem; }
-            .line-item span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; width: 100%; }
-            
-            .final-step .roadmap-content::after { left: 18px; top: -8px; font-size: 0.6rem; padding: 3px 10px; }
         }
     </style>
     <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
@@ -254,6 +263,16 @@
 <body>
 
 <div class="container">
+    <div class="main-video-wrapper">
+        <div class="video-aspect-ratio">
+	<iframe 
+    		src="https://www.youtube-nocookie.com/embed/WFdeDJwT3jk?origin=http://localhost" 
+    		title="Portfolio Video" 
+   		 allowfullscreen>
+	</iframe>
+        </div>
+    </div>
+
     <header class="header">
         <span class="total-time">6 WEEKS / 30 WORKING DAYS</span>
         <h1>3D Visualization Workflow</h1>
