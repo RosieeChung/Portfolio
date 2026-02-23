@@ -60,7 +60,12 @@
 
         /* [히어로 섹션] */
         .hero-section { margin-bottom: 60px; padding-bottom: 50px; border-bottom: 1px dashed var(--border); }
-        .hero-label { display: inline-block; padding: 6px 16px; border-radius: 20px; background: rgba(99, 102, 241, 0.1); color: var(--point-purple); font-size: 0.8rem; font-weight: 800; letter-spacing: 1px; margin-bottom: 15px; border: 1px solid rgba(99, 102, 241, 0.2); }
+        .hero-label, .total-time-badge { 
+            display: inline-block; padding: 6px 14px; border-radius: 8px; 
+            background: rgba(99, 102, 241, 0.08); color: var(--point-purple); 
+            font-size: 0.75rem; font-weight: 800; letter-spacing: 0.5px; 
+            margin-bottom: 15px; border: 1px solid rgba(99, 102, 241, 0.15); 
+        }
         .hero-title { font-size: 2.6rem; font-weight: 900; color: var(--text-p); margin: 0 0 15px 0; letter-spacing: -1.5px; line-height: 1.3; }
         .hero-desc { font-size: 1.1rem; color: var(--text-s); margin: 0 0 25px 0; font-weight: 500; word-break: keep-all; }
         .hero-tags { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 35px; }
@@ -72,16 +77,22 @@
         .video-aspect-ratio iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
         /* [기본 스타일 모음] */
-        .header { text-align: left; position: relative; margin: 40px 0 40px 0; padding: 0 0 20px 42px; border-bottom: 1px solid var(--border); }
-        .header::before { content: ''; position: absolute; left: 20px; top: 0; bottom: 20px; width: 4px; background: var(--grad-point); border-radius: 2px; }
-        .header h1 { margin: 0; font-size: 2rem; letter-spacing: -1px; color: var(--text-p); padding-left: 15px; font-weight: 800; }
-        .total-time { color: var(--point-blue); font-weight: 800; font-size: 0.9rem; margin-bottom: 8px; display: block; letter-spacing: 0.5px; padding-left: 15px; }
-        .phase-title { font-size: 1.25rem; font-weight: 800; margin: 35px 0 25px 0; display: flex; align-items: center; text-transform: uppercase; padding-left: 42px; position: relative; color: var(--text-p); }
-        .phase-title::before { content: ''; position: absolute; left: 20px; top: 0; bottom: 0; width: 4px; background: currentColor; border-radius: 2px; }
-        .p0-title { color: var(--p0-accent); }
+        .header { text-align: left; position: relative; margin: 60px 0 40px 0; padding: 0 0 20px 30px; border-bottom: 1px solid var(--border); }
+        .header::before { 
+            content: ''; position: absolute; left: 0; top: 0; bottom: 20px; 
+            width: 3px; background: var(--grad-point); border-radius: 2px; 
+        }
+        .header h1 { margin: 0; font-size: 1.8rem; letter-spacing: -1px; color: var(--text-p); font-weight: 800; line-height: 1.2; }
+        
+        /* 6WEEKS 라벨을 배지 스타일로 통일 */
+        .total-time-badge { color: var(--point-blue); background: rgba(59, 130, 246, 0.08); border-color: rgba(59, 130, 246, 0.15); margin-bottom: 10px; }
+
+        .phase-title { font-size: 1.15rem; font-weight: 800; margin: 35px 0 25px 0; display: flex; align-items: center; text-transform: uppercase; padding-left: 30px; position: relative; color: var(--text-p); }
+        .phase-title::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: currentColor; border-radius: 2px; }
         .p1-title { color: var(--grad-start); }
+        
         .icon-svg { width: 22px; height: 22px; flex-shrink: 0; display: inline-block; fill: currentColor; } 
-        .grid-p0 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; margin: 0 0 40px 42px; align-items: start; }
+        .grid-p0 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; margin: 0 0 40px 30px; align-items: start; }
         .card-p0, .roadmap-content { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 24px 26px; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; box-sizing: border-box; position: relative; box-shadow: var(--card-shadow); }
         .card-p0 { height: 220px; overflow: hidden; } 
         .card-p0.active, .roadmap-item.active .roadmap-content { border: 2px solid transparent; background-image: var(--card-active-bg-grad), var(--card-active-border-grad); background-origin: padding-box, border-box; background-clip: padding-box, border-box; box-shadow: var(--card-active-shadow); padding: 23px 25px; }
@@ -90,17 +101,17 @@
         .header-row { display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 5px; }
         .step-name { font-weight: 800; font-size: 1.05rem; display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; color: var(--text-p); }
         .title-txt { white-space: nowrap; }
-        .tag { font-size: 0.75rem; background: #f3f4f6; padding: 3px 10px; border-radius: 6px; color: var(--p0-accent); font-weight: 700; margin-left: 5px; flex-shrink: 0; border: 1px solid #e5e7eb; transition: all 0.3s ease; }
+        .tag { font-size: 0.75rem; background: #f3f4f6; padding: 3px 10px; border-radius: 6px; color: var(--point-purple); font-weight: 700; margin-left: 5px; flex-shrink: 0; border: 1px solid #e5e7eb; transition: all 0.3s ease; }
         .card-p0.active .tag, .roadmap-item.active .tag { background: var(--grad-point); color: white; border: none; box-shadow: 0 2px 4px rgba(99, 102, 241, 0.2); }
         .p1-item .tag { color: var(--grad-start); }
-        .phase-0-text, .sub-desc-container { margin: 10px 0 12px 32px; display: flex; flex-direction: column; gap: 8px; } 
+        .sub-desc-container { margin: 10px 0 12px 32px; display: flex; flex-direction: column; gap: 8px; } 
         .line-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: var(--text-s); font-weight: 500; line-height: 1.6; }
         .line-item::before { content: '•'; color: inherit; font-weight: 900; flex-shrink: 0; }
         .roadmap-p1 { position: relative; padding-left: 0; margin-top: 0; }
-        .roadmap-p1::before { content: ''; position: absolute; left: 21px; top: 35px; bottom: 0; width: 2px; background: var(--border); z-index: 1; border-radius: 2px 2px 0 0; }
-        .roadmap-p1::after { content: ''; position: absolute; left: 21px; top: 35px; bottom: 0; width: 2px; background: var(--grad-point); z-index: 1; opacity: 0.08; border-radius: 2px 2px 0 0; }
-        .roadmap-item { position: relative; padding-left: 55px; margin-bottom: 20px; z-index: 2; }
-        .node { position: absolute; left: 22px; top: 28px; width: 14px; height: 14px; background: var(--card-bg); border: 2px solid var(--border); border-radius: 50%; z-index: 3; transform: translateX(-50%); transition: all 0.3s ease; }
+        .roadmap-p1::before { content: ''; position: absolute; left: 11px; top: 35px; bottom: 0; width: 2px; background: var(--border); z-index: 1; border-radius: 2px 2px 0 0; }
+        .roadmap-p1::after { content: ''; position: absolute; left: 11px; top: 35px; bottom: 0; width: 2px; background: var(--grad-point); z-index: 1; opacity: 0.08; border-radius: 2px 2px 0 0; }
+        .roadmap-item { position: relative; padding-left: 45px; margin-bottom: 20px; z-index: 2; }
+        .node { position: absolute; left: 12px; top: 28px; width: 12px; height: 12px; background: var(--card-bg); border: 2px solid var(--border); border-radius: 50%; z-index: 3; transform: translateX(-50%); transition: all 0.3s ease; }
         .roadmap-item.active .node { background-color: currentColor; border-color: currentColor; box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15); transform: translateX(-50%) scale(1.1); }
         .step-1 .node { color: var(--step1-color); } .step-2 .node { color: var(--step2-color); } .step-3 .node { color: var(--step3-color); } .step-4 .node { color: var(--step4-color); } .step-5 .node { color: var(--step5-color); } .step-6 .node { color: var(--step6-color); }
         .final-step .roadmap-content { border: 1px solid var(--card-border); background: var(--card-bg); box-shadow: var(--card-shadow); overflow: visible; }
@@ -114,8 +125,8 @@
         .arrow-icon { transition: transform 0.3s, color 0.3s; color: var(--text-dim); font-size: 0.75rem; display: inline-block; margin-left: 10px; flex-shrink: 0; }
         .active .arrow-icon { transform: rotate(180deg); }
         .phase-divider { display: flex; align-items: center; justify-content: center; margin: 60px 0; color: var(--border); }
-        .phase-divider span { padding: 0 25px; color: var(--text-s); font-size: 0.9rem; letter-spacing: 2px; font-weight: 600; white-space: nowrap; background: var(--bg-light); }
-        .remark-area { padding-top: 15px; border-top: 1px solid #f3f4f6; font-size: 0.85rem; font-weight: 700; color: var(--p0-accent); margin-top: auto; transition: color 0.3s ease, border-color 0.3s ease; }
+        .phase-divider span { padding: 0 20px; color: var(--text-s); font-size: 0.85rem; letter-spacing: 2px; font-weight: 600; white-space: nowrap; background: var(--bg-light); }
+        .remark-area { padding-top: 15px; border-top: 1px solid #f3f4f6; font-size: 0.85rem; font-weight: 700; color: var(--p1-title); margin-top: auto; transition: color 0.3s ease, border-color 0.3s ease; }
         .p1-item .remark-area { color: var(--grad-start); }
         .card-p0.active .remark-area, .roadmap-item.active .remark-area { color: var(--grad-end); border-top: none; box-shadow: 0 -1px 0 0 var(--point-purple); padding-top: 16px; }
         .details { max-height: 0; opacity: 0; overflow: hidden; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); width: 100%; }
@@ -126,8 +137,19 @@
         /* 모바일 최적화 */
         @media (max-width: 768px) {
             .navbar { height: 60px; } .nav-logo { font-size: 0.9rem; } .nav-menu { gap: 15px; } .nav-link { font-size: 0.8rem; }
-            .container { margin-top: 60px; width: 94%; } .hero-title { font-size: 1.8rem; } .grid-p0 { grid-template-columns: 1fr; margin-left: 0; }
-            .roadmap-item { padding-left: 42px; } .node { left: 14px; }
+            .container { margin-top: 60px; width: 94%; } 
+            .hero-title { font-size: 1.8rem; } 
+            .hero-desc { font-size: 1rem; }
+            .header { margin-top: 40px; padding-left: 0; border-bottom: none; }
+            .header::before { display: none; } /* 모바일에서 큰 제목 옆의 바는 제거하여 텍스트 공간 확보 */
+            .header h1 { font-size: 1.4rem; padding-left: 0; }
+            .total-time-badge { margin-bottom: 15px; }
+            .grid-p0 { grid-template-columns: 1fr; margin-left: 0; }
+            .phase-title { padding-left: 20px; font-size: 1rem; }
+            .phase-title::before { width: 2px; }
+            .roadmap-p1::before, .roadmap-p1::after { left: 9px; }
+            .roadmap-item { padding-left: 35px; } .node { left: 10px; width: 10px; height: 10px; }
+            .step-name { font-size: 0.95rem; }
         }
     </style>
 </head>
@@ -162,7 +184,7 @@
     </div>
 
     <header class="header">
-        <span class="total-time">6 WEEKS / 30 WORKING DAYS</span>
+        <span class="total-time-badge">6 WEEKS / 30 WORKING DAYS</span>
         <h1>3D Visualization Workflow</h1>
     </header>
 
