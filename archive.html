@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Archive | 3D Visualization Portfolio</title>
     <style>
-        /* [1. 전역 시스템] */
+        /* [1. 전역 디자인 시스템 - 김시민대교와 100% 동일] */
         :root {
             --bg-light: #f9fafb;
             --point-blue: #3b82f6;
@@ -21,7 +21,7 @@
             --max-width: 1040px;
         }
 
-        /* [수정] 폰트 패밀리를 김시민 대교 메인 페이지와 완전히 동일하게 맞춰 굵기/렌더링 차이 해결 */
+        /* 폰트 렌더링을 김시민 대교 메인과 완전히 동일하게 맞춤 */
         html, body { 
             background-color: var(--bg-light);
             margin: 0; padding: 0; width: 100%; overflow-x: hidden; 
@@ -63,7 +63,7 @@
         }
         .h-tag::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--grad-point); }
 
-        /* [4. PC 레이아웃 - 좌우 분할 구조 100% 유지] */
+        /* [4. PC 레이아웃 - 건드리지 않음 (좌우 분할 유지)] */
         .archive-zone { display: flex; gap: 40px; margin-bottom: 100px; align-items: flex-start; }
         .zone-profile { flex: 0 0 240px; position: sticky; top: 110px; }
         .big-name { font-size: 2.4rem; font-weight: 900; line-height: 1.1; margin: 0 0 10px 0; letter-spacing: -1.5px; }
@@ -92,30 +92,45 @@
         .tag { font-size: 0.75rem; background: #f3f4f6; padding: 4px 10px; border-radius: 6px; color: var(--text-s); font-weight: 700; border: 1px solid #e5e7eb; white-space: nowrap; }
 
         .sub-desc-container { margin: 0; display: flex; flex-direction: column; gap: 8px; }
-        .line-item { display: flex; align-items: center; gap: 10px; font-size: 0.95rem; color: var(--text-s); font-weight: 500; }
-        .line-item::before { content: '•'; font-weight: 900; font-size: 1.2rem; flex-shrink: 0; }
+        .line-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.95rem; color: var(--text-s); font-weight: 500; }
+        .line-item::before { content: '•'; font-weight: 900; font-size: 1.2rem; flex-shrink: 0; margin-top: -2px; }
         .zone-a .line-item::before { color: var(--point-blue); }
         .zone-b .line-item::before { color: var(--point-purple); }
 
-        /* [6. 모바일 반응형 - 김시민 대교 규격에 맞게 완벽 수정] */
+        /* ========================================= */
+        /* [6. 🚨 모바일 전용 미디어 쿼리 - 김시민대교와 100% 동기화 🚨] */
+        /* ========================================= */
         @media (max-width: 768px) {
+            /* 네비게이션 폰트 크기 및 굵기 동기화 */
             .navbar { height: 60px; }
-            .nav-logo { font-size: 0.9rem; }
+            .nav-logo { font-size: 0.9rem; font-weight: 900; }
             .nav-menu { gap: 15px; }
-            .nav-link { font-size: 0.8rem; }
+            .nav-link { font-size: 0.8rem; font-weight: 700; }
 
-            .container { margin-top: 60px; width: 94%; } /* 김시민 대교 패딩과 동일하게 맞춤 */
+            .container { margin-top: 60px; width: 94%; }
             
-            /* [수정] 폰트 크기와 굵기를 메인 페이지와 동일하게 상속되도록 정리 */
-            .hero-title { font-size: 1.8rem; }
-            .hero-desc { font-size: 1rem; }
+            /* Previous Experience 제목 폰트/굵기 동기화 (김시민대교 1.8rem) */
+            .hero-title { font-size: 1.8rem; font-weight: 900; letter-spacing: -1.5px; }
+            .hero-desc { font-size: 1rem; font-weight: 500; }
             
             .archive-zone { flex-direction: column; gap: 30px; margin-bottom: 60px; }
             .zone-profile { flex: none; width: 100%; position: static; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
-            .big-name { font-size: 1.8rem; } /* 불필요한 굵기 오버라이드 제거 */
+            .big-name { font-size: 2rem; font-weight: 900; } /* 모바일 프로필 굵기 900 고정 */
             
             .card-info { padding: 20px; }
-            /* [중요 수정] 태그가 아래로 떨어지지 않고 제목 '옆에' 위치하도록 PC의 flex-row 유지 (column 오버라이드 삭제) */
+            
+            /* 🚨 핵심 요청사항: 모바일에서도 제목과 태그가 옆으로 나란히 나오도록 수정 🚨 */
+            .title-row { 
+                display: flex; 
+                flex-direction: row !important; /* 가로 배열 강제 유지 */
+                justify-content: space-between; 
+                align-items: center; 
+                margin-bottom: 10px;
+                gap: 10px;
+            }
+            /* 폰트 굵기를 900으로 고정하고 크기를 태그와 어울리게 조절 */
+            .title-row h3 { font-size: 1.25rem !important; font-weight: 900 !important; } 
+            .tag { font-size: 0.7rem; padding: 3px 8px; }
         }
     </style>
 </head>
