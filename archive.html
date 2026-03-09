@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Archive | 3D Visualization Portfolio</title>
     <style>
-        /* [1. 전역 시스템 - 김시민 대교와 100% 동일] */
+        /* [1. 전역 시스템 - 김시민 대교(index.html)에서 100% 복제] */
         :root {
             --bg-light: #f9fafb;
             --point-blue: #3b82f6;
@@ -25,10 +25,11 @@
         html, body { 
             background-color: var(--bg-light); margin: 0; padding: 0; width: 100%; 
             overflow-x: hidden; color: var(--text-p); 
-            font-family: 'Pretendard', sans-serif; line-height: 1.6;
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; 
+            line-height: 1.6;
         }
 
-        /* [2. 네비게이션 - 김시민 대교 스타일] */
+        /* [2. 네비게이션 - 그라데이션 및 규격 일치] */
         .navbar {
             position: fixed; top: 0; left: 0; width: 100%; height: var(--nav-height);
             background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px);
@@ -42,124 +43,152 @@
         }
         .nav-menu { display: flex; gap: 30px; }
         .nav-link { text-decoration: none; color: var(--text-s); font-weight: 700; font-size: 0.95rem; transition: color 0.3s ease; position: relative; padding: 5px 0; }
+        .nav-link:hover { color: var(--point-purple) !important; }
+        .nav-link.active { color: var(--text-p); }
         .nav-link.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: var(--grad-point); border-radius: 2px; }
 
         .container { width: 92%; max-width: var(--max-width); margin: var(--nav-height) auto 0; padding: 40px 0; box-sizing: border-box; }
 
-        /* [3. PC 레이아웃 - 🚨 좌우 분할 구조 복구 🚨] */
-        .archive-zone { display: flex; gap: 40px; margin-bottom: 100px; align-items: flex-start; }
-        .zone-profile { flex: 0 0 240px; position: sticky; top: 110px; }
-        .big-name { font-size: 2.4rem; font-weight: 900; line-height: 1.1; margin: 0 0 10px 0; letter-spacing: -1.5px; }
+        /* [3. 히어로 헤더 - 제목 밑 텍스트 포함] */
+        .hero-section { margin-bottom: 60px; }
+        .hero-title { font-size: 2.6rem; font-weight: 900; margin: 0 0 15px 0; letter-spacing: -1.5px; line-height: 1.2; }
+        .hero-desc { font-size: 1.15rem; color: var(--text-s); font-weight: 500; margin: 0; word-break: keep-all; }
+
+        /* [4. PC 레이아웃 - 좌우 분할 구조 복구] */
+        .archive-zone { display: flex; gap: 50px; margin-bottom: 120px; align-items: flex-start; }
+        .zone-profile { flex: 0 0 260px; position: sticky; top: 110px; }
+        .big-name { font-size: 2.5rem; font-weight: 900; line-height: 1.1; margin: 0 0 12px 0; letter-spacing: -1.5px; }
         .zone-a .big-name { color: var(--point-blue); }
         .zone-b .big-name { color: var(--point-purple); }
 
-        /* [4. 🚨 누락된 태그 아이콘 - 그라데이션 점 복구 🚨] */
-        .hero-tags { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+        /* [5. 아이콘 - 태그 앞 그라데이션 점] */
+        .hero-tags { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 25px; }
         .h-tag { 
-            font-size: 0.85rem; padding: 6px 14px; background: #ffffff; border: 1px solid var(--border); 
-            border-radius: 8px; color: var(--text-s); font-weight: 700; display: flex; align-items: center; gap: 6px; 
+            font-size: 0.85rem; padding: 7px 15px; background: #ffffff; border: 1px solid var(--border); 
+            border-radius: 9px; color: var(--text-s); font-weight: 700; display: flex; align-items: center; gap: 7px; 
         }
         .h-tag::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--grad-point); }
 
-        /* [5. 프로젝트 카드] */
+        /* [6. 프로젝트 카드 및 영상] */
         .project-card { 
-            flex: 1; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; 
+            flex: 1; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 20px; 
             overflow: hidden; box-shadow: var(--card-shadow); display: flex; flex-direction: column;
         }
         .card-video { width: 100%; background: #000; border-bottom: 1px solid var(--border); position: relative; }
         .video-aspect-ratio { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
         .video-aspect-ratio iframe, .video-aspect-ratio img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; object-fit: cover; }
         
-        /* [6. 🚨 정렬 방식 - 22px 고정 정렬 복구 🚨] */
-        .card-info { padding: 25px 30px; }
-        .sub-desc-container { margin: 10px 0 12px 0; display: flex; flex-direction: column; gap: 8px; }
-        .line-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: var(--text-s); font-weight: 500; }
-        .line-item::before { content: '•'; flex-shrink: 0; width: 22px; text-align: center; font-weight: 900; }
+        .card-info { padding: 30px; }
+        .title-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .title-row h3 { margin: 0; font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+
+        /* [7. 정렬 방식 - 리스트 점 22px 고정] */
+        .sub-desc-container { margin-top: 15px; display: flex; flex-direction: column; gap: 10px; }
+        .line-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.95rem; color: var(--text-s); font-weight: 500; }
+        .line-item::before { content: '•'; flex-shrink: 0; width: 22px; text-align: center; font-weight: 900; color: var(--text-p); }
         .line-item.notice::before { content: '※'; width: 22px; text-align: center; }
 
-        /* [7. 모바일 반응형] */
+        /* [8. 모바일 반응형 - 잘림 및 흔들림 방지] */
         @media (max-width: 768px) {
             .navbar { height: 60px; }
-            .nav-logo { font-size: 0.9rem !important; }
-            .archive-zone { flex-direction: column; gap: 25px; }
-            .zone-profile { flex: none; width: 100%; position: static; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
-            .hero-title, .big-name { font-size: 1.8rem !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+            .nav-logo { font-size: 0.95rem !important; }
+            .container { margin-top: 60px; width: 94%; padding: 30px 0; }
+            .archive-zone { flex-direction: column; gap: 30px; margin-bottom: 80px; }
+            .zone-profile { flex: none; width: 100%; position: static; border-bottom: 1px solid var(--border); padding-bottom: 15px; }
+            
+            .hero-title { font-size: 1.8rem !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+            .hero-desc { font-size: 1rem; }
+            .big-name { font-size: 2rem !important; }
+            
             .video-aspect-ratio { padding-bottom: 0 !important; height: auto !important; aspect-ratio: 16 / 9 !important; }
             .video-aspect-ratio iframe, .video-aspect-ratio img { position: relative !important; width: 100% !important; height: 100% !important; }
-            .line-item { font-size: 0.82rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; padding-left: 28px; position: relative; }
+            
+            .card-info { padding: 20px; }
+            .title-row h3 { font-size: 1.2rem !important; }
+            .line-item { font-size: 0.88rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; padding-left: 32px; position: relative; }
             .line-item::before { position: absolute; left: 0; top: 0; }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">3D VISUALIZATION PORTFOLIO</a>
-            <div class="nav-menu">
-                <a href="index.html" class="nav-link">MAIN PROJECT</a>
-                <a href="archive.html" class="nav-link active">ARCHIVE</a>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">3D VISUALIZATION PORTFOLIO</a>
+        <div class="nav-menu">
+            <a href="index.html" class="nav-link">MAIN PROJECT</a>
+            <a href="archive.html" class="nav-link active">ARCHIVE</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <header class="hero-section">
+        <h1 class="hero-title">Previous Experience</h1>
+        <p class="hero-desc">실무에서의 기술적 도전과 대외비 프로젝트의 기록을 담은 아카이브입니다.</p>
+    </header>
+
+    <section class="archive-zone zone-a">
+        <div class="zone-profile">
+            <div style="display: inline-block; padding: 5px 14px; background: rgba(59, 130, 246, 0.08); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 7px; color: var(--point-blue); font-size: 0.75rem; font-weight: 800; margin-bottom: 15px;">EXPERIENCE 01</div>
+            <h2 class="big-name">A-STUDIO<br>WORKS</h2>
+            <p style="font-size: 1.05rem; font-weight: 700; margin: 10px 0 0 0;">2023 - 2024</p>
+            <div class="hero-tags">
+                <span class="h-tag">UE5</span>
+                <span class="h-tag">QGIS</span>
             </div>
         </div>
-    </nav>
-    <div class="container">
-        <header class="hero-section">
-            <h1 class="hero-title" style="font-size: 2.6rem; font-weight: 900; letter-spacing: -1.5px;">Previous Experience</h1>
-        </header>
+        <div class="project-card">
+            <div class="card-video">
+                <div class="video-aspect-ratio">
+                    <img src="images/sample_Images.jpg" alt="NDA Project">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.45); z-index: 2;">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <div style="color: #ffffff; font-weight: 900; font-size: 0.95rem; letter-spacing: 2.5px; margin-top: 15px; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">NDA / CONFIDENTIAL</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-info">
+                <div class="title-row">
+                    <h3>A-Studio Works</h3>
+                    <span style="font-size: 0.8rem; color: var(--point-blue); font-weight: 800;">UE5 / QGIS</span>
+                </div>
+                <div class="sub-desc-container">
+                    <div class="line-item">대규모 지형 데이터 시각화 및 최적화 공정 수립</div>
+                    <div class="line-item notice" style="color: var(--point-blue); font-size: 0.88rem; margin-top: 5px;">본 프로젝트는 보안 사항을 포함하고 있어 상세 이미지 공개가 제한됩니다.</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section class="archive-zone zone-a">
-            <div class="zone-profile">
-                <div style="display: inline-block; padding: 4px 12px; background: rgba(59, 130, 246, 0.08); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 6px; color: var(--point-blue); font-size: 0.7rem; font-weight: 800; margin-bottom: 12px;">EXPERIENCE 01</div>
-                <h2 class="big-name">A-STUDIO<br>WORKS</h2>
-                <div class="hero-tags">
-                    <span class="h-tag">UE5</span>
-                    <span class="h-tag">QGIS</span>
+    <section class="archive-zone zone-b">
+        <div class="zone-profile">
+            <div style="display: inline-block; padding: 5px 14px; background: rgba(99, 102, 241, 0.08); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 7px; color: var(--point-purple); font-size: 0.75rem; font-weight: 800; margin-bottom: 15px;">EXPERIENCE 02</div>
+            <h2 class="big-name">B-TECH<br>VISUALS</h2>
+            <p style="font-size: 1.05rem; font-weight: 700; margin: 10px 0 0 0;">2021 - 2022</p>
+            <div class="hero-tags">
+                <span class="h-tag">Blender</span>
+                <span class="h-tag">UE4</span>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="card-video">
+                <div class="video-aspect-ratio">
+                    <iframe src="https://player.vimeo.com/video/746338314?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
                 </div>
             </div>
-            <div class="project-card">
-                <div class="card-video">
-                    <div class="video-aspect-ratio">
-                        <img src="images/sample_Images.jpg" alt="NDA">
-                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.45); z-index: 2;">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                            <div style="color: #ffffff; font-weight: 900; font-size: 0.9rem; letter-spacing: 2.5px; margin-top: 12px;">NDA / CONFIDENTIAL</div>
-                        </div>
-                    </div>
+            <div class="card-info">
+                <div class="title-row">
+                    <h3>산업 단지 시뮬레이션</h3>
+                    <span style="font-size: 0.8rem; color: var(--point-purple); font-weight: 800;">Blender / UE4</span>
                 </div>
-                <div class="card-info">
-                    <div class="title-row">
-                        <h3 style="margin:0; font-size: 1.4rem;">A-Studio Works</h3>
-                    </div>
-                    <div class="sub-desc-container">
-                        <div class="line-item">대규모 지형 데이터 시각화 및 최적화 공정 수립</div>
-                        <div class="line-item notice" style="color: var(--point-blue);">본 프로젝트는 보안 사항을 포함하고 있어 상세 이미지 공개가 제한됩니다.</div>
-                    </div>
+                <div class="sub-desc-container">
+                    <div class="line-item">PBR 기반 고품질 에셋 제작 및 라이팅 최적화 워크플로우</div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+</div>
 
-        <section class="archive-zone zone-b">
-            <div class="zone-profile">
-                <div style="display: inline-block; padding: 4px 12px; background: rgba(99, 102, 241, 0.08); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 6px; color: var(--point-purple); font-size: 0.7rem; font-weight: 800; margin-bottom: 12px;">EXPERIENCE 02</div>
-                <h2 class="big-name">B-TECH<br>VISUALS</h2>
-                <div class="hero-tags">
-                    <span class="h-tag">Blender</span>
-                    <span class="h-tag">UE4</span>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="card-video">
-                    <div class="video-aspect-ratio">
-                        <iframe src="https://player.vimeo.com/video/746338314?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
-                <div class="card-info">
-                    <div class="title-row"><h3 style="margin:0; font-size: 1.4rem;">산업 단지 시뮬레이션</h3></div>
-                    <div class="sub-desc-container">
-                        <div class="line-item">PBR 기반 고품질 에셋 제작 및 라이팅 최적화 워크플로우</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
 </body>
 </html>
