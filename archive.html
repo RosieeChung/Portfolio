@@ -27,7 +27,7 @@
             color: var(--text-p); font-family: 'Pretendard', sans-serif; line-height: 1.6;
         }
 
-        /* [2. 네비게이션 - 호버 컬러 및 1040px 정렬 복구] */
+        /* [2. 네비게이션 - 상단 고정 및 호버 반응] */
         .navbar {
             position: fixed; top: 0; left: 0; width: 100%; height: var(--nav-height);
             background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px);
@@ -37,13 +37,12 @@
         .nav-logo { font-weight: 900; font-size: 1.1rem; background: var(--grad-point); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
         .nav-menu { display: flex; gap: 30px; }
         .nav-link { text-decoration: none; color: var(--text-s); font-weight: 700; font-size: 0.95rem; position: relative; padding: 5px 0; transition: color 0.3s ease; }
-        .nav-link:hover { color: var(--point-purple); } /* 누락된 호버 반응 복구 */
-        .nav-link.active { color: var(--text-p); }
+        .nav-link:hover { color: var(--point-purple); }
         .nav-link.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: var(--grad-point); border-radius: 2px; }
 
         .container { width: 92%; max-width: var(--max-width); margin: var(--nav-height) auto 0; padding: 40px 0; box-sizing: border-box; }
 
-        /* [3. 히어로 헤더 - 정렬 및 점 포인트 기술 태그 복구] */
+        /* [3. 히어로 헤더] */
         .hero-section { margin-bottom: 50px; border-bottom: none !important; }
         .hero-label { 
             display: inline-block; padding: 6px 14px; border-radius: 8px; 
@@ -61,48 +60,64 @@
         }
         .h-tag::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--grad-point); }
 
-        /* [4. 아카이브 분할 레이아웃 - 정렬 최적화] */
+        /* [4. 아카이브 레이아웃] */
         .archive-zone { display: flex; gap: 40px; margin-bottom: 100px; align-items: flex-start; }
         .zone-profile { flex: 0 0 240px; position: sticky; top: 110px; }
         .big-name { font-size: 2.4rem; font-weight: 900; line-height: 1.1; margin: 0 0 10px 0; letter-spacing: -1.5px; }
         .zone-a .big-name { color: var(--point-blue); }
         .zone-b .big-name { color: var(--point-purple); }
 
-        /* [5. 프로젝트 카드 - 영상(상단) / 정보(하단) 일체형 복구] */
+        /* [5. 프로젝트 카드 - 영상(상단) / 정보(하단)] */
         .project-card { 
             flex: 1; background: var(--card-bg); border: 1px solid var(--card-border); 
             border-radius: 16px; overflow: hidden; box-shadow: var(--card-shadow);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex; flex-direction: column;
         }
-        /* 호버 시 컬러 변화 및 뜨는 효과 복구 */
         .project-card:hover { 
             border-color: rgba(99, 102, 241, 0.5);
             transform: translateY(-3px);
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(99, 102, 241, 0.5) inset;
         }
 
-        /* 카드 상단 영상 */
         .card-video { width: 100%; background: #000; border-bottom: 1px solid var(--card-border); }
         .video-aspect-ratio { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
         .video-aspect-ratio iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        /* 카드 하단 정보 */
         .card-info { padding: 25px 30px; }
         .title-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
         .tag { font-size: 0.75rem; background: #f3f4f6; padding: 4px 10px; border-radius: 6px; color: var(--text-s); font-weight: 700; border: 1px solid #e5e7eb; }
 
-        /* 도트 리스트 복구 */
         .sub-desc-container { margin: 0; display: flex; flex-direction: column; gap: 8px; }
         .line-item { display: flex; align-items: center; gap: 10px; font-size: 0.95rem; color: var(--text-s); font-weight: 500; }
         .line-item::before { content: '•'; font-weight: 900; font-size: 1.2rem; flex-shrink: 0; }
         .zone-a .line-item::before { color: var(--point-blue); }
         .zone-b .line-item::before { color: var(--point-purple); }
 
-        @media (max-width: 992px) {
-            .archive-zone { flex-direction: column; gap: 30px; }
-            .zone-profile { position: static; flex: none; }
-            .hero-title, .big-name { font-size: 2rem; }
+        /* [6. 고도화된 반응형 미디어 쿼리 - 김시민 대교 페이지 규격 100% 이식] */
+        @media (max-width: 768px) {
+            /* 네비게이션 모바일 규격 */
+            .navbar { height: 60px; }
+            .nav-logo { font-size: 0.9rem; }
+            .nav-menu { gap: 15px; }
+            .nav-link { font-size: 0.8rem; }
+
+            /* 컨테이너 모바일 규격 */
+            .container { margin-top: 60px; width: 94%; padding: 30px 0; }
+            
+            /* 타이틀 모바일 규격 */
+            .hero-title { font-size: 1.8rem; }
+            .hero-desc { font-size: 1rem; }
+            
+            /* 아카이브 레이아웃 전환 */
+            .archive-zone { flex-direction: column; gap: 30px; margin-bottom: 60px; }
+            .zone-profile { flex: none; width: 100%; position: static; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+            .big-name { font-size: 1.8rem; }
+            
+            /* 카드 모바일 규격 */
+            .card-info { padding: 20px; }
+            .card-video { padding: 0; } /* 모바일에서는 영상 여백 최소화 */
+            .title-row { flex-direction: column; align-items: flex-start; gap: 8px; }
         }
     </style>
 </head>
@@ -118,23 +133,6 @@
     </div>
 </nav>
 
-    #### **2. `archive.html` (아카이브 페이지) 상단부**
-```html
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    </head>
-<body>
-
-    <nav class="navbar">
-        <div class="nav-container" style="max-width: 1040px;"> <a href="index.html" class="nav-logo">3D VISUALIZATION PORTFOLIO</a>
-            <div class="nav-menu">
-                <a href="index.html" class="nav-link">MAIN PROJECT</a>
-                <a href="archive.html" class="nav-link active">ARCHIVE</a>
-            </div>
-        </div>
-    </nav>
-    
 <div class="container">
     <header class="hero-section">
         <span class="hero-label">PROJECT ARCHIVE</span>
