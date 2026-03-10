@@ -84,6 +84,7 @@
         }
         .header h1 { margin: 0; font-size: 1.8rem; letter-spacing: -1px; color: var(--text-p); font-weight: 800; line-height: 1.2; }
         
+        /* 6WEEKS 라벨을 배지 스타일로 통일 */
         .total-time-badge { color: var(--point-blue); background: rgba(59, 130, 246, 0.08); border-color: rgba(59, 130, 246, 0.15); margin-bottom: 10px; }
 
         .phase-title { font-size: 1.15rem; font-weight: 800; margin: 35px 0 25px 0; display: flex; align-items: center; text-transform: uppercase; padding-left: 30px; position: relative; color: var(--text-p); }
@@ -103,12 +104,9 @@
         .tag { font-size: 0.75rem; background: #f3f4f6; padding: 3px 10px; border-radius: 6px; color: var(--point-purple); font-weight: 700; margin-left: 5px; flex-shrink: 0; border: 1px solid #e5e7eb; transition: all 0.3s ease; }
         .card-p0.active .tag, .roadmap-item.active .tag { background: var(--grad-point); color: white; border: none; box-shadow: 0 2px 4px rgba(99, 102, 241, 0.2); }
         .p1-item .tag { color: var(--grad-start); }
-        
-        /* 🚨 [PC 버전 유지] 아이콘과 총알 기호(•) 수직 정렬 🚨 */
-        .sub-desc-container { margin: 10px 0 12px 0; display: flex; flex-direction: column; gap: 8px; } 
+        .sub-desc-container { margin: 10px 0 12px 32px; display: flex; flex-direction: column; gap: 8px; } 
         .line-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: var(--text-s); font-weight: 500; line-height: 1.6; }
-        .line-item::before { content: '•'; color: inherit; font-weight: 900; flex-shrink: 0; width: 22px; text-align: center; }
-        
+        .line-item::before { content: '•'; color: inherit; font-weight: 900; flex-shrink: 0; }
         .roadmap-p1 { position: relative; padding-left: 0; margin-top: 0; }
         .roadmap-p1::before { content: ''; position: absolute; left: 11px; top: 35px; bottom: 0; width: 2px; background: var(--border); z-index: 1; border-radius: 2px 2px 0 0; }
         .roadmap-p1::after { content: ''; position: absolute; left: 11px; top: 35px; bottom: 0; width: 2px; background: var(--grad-point); z-index: 1; opacity: 0.08; border-radius: 2px 2px 0 0; }
@@ -136,35 +134,31 @@
         .details-inner { padding: 20px; background: #f9fafb; border-radius: 12px; border: 1px solid var(--border); text-align: center; }
         .content-image { width: 100%; max-width: 700px; height: auto; border-radius: 8px; margin-bottom: 15px; border: 1px solid var(--border); background: #ffffff; box-shadow: var(--card-shadow); }
 
-        /* ========================================= */
-        /* [모바일 최적화 영역] */
-        /* ========================================= */
+        /* 모바일 최적화 */
         @media (max-width: 768px) {
             .navbar { height: 60px; } .nav-logo { font-size: 0.9rem; } .nav-menu { gap: 15px; } .nav-link { font-size: 0.8rem; }
-            .container { margin-top: 60px; width: 94%; } 
-            .hero-title { font-size: 1.8rem; } 
+            .container { margin-top: 60px; width: 94%; }
+            .hero-title { font-size: 1.8rem; }
             .hero-desc { font-size: 1rem; }
-            .header { margin-top: 40px; padding-left: 0; border-bottom: none; }
-            .header::before { display: none; } 
-            .header h1 { font-size: 1.4rem; padding-left: 0; }
-            .total-time-badge { margin-bottom: 15px; }
+
+            /* 헤더 섹션 - 모바일에서 좌측 바 제거, 상단 여백 정리 */
+            .header { margin: 35px 0 25px 0; padding: 0 0 15px 0; border-bottom: 1px solid var(--border); }
+            .header::before { display: none; }
+            .header h1 { font-size: 1.35rem; padding-left: 0; }
+
+            /* total-time-badge: 헤더 제목 위에 작게 배지처럼 */
+            .total-time-badge {
+                display: inline-flex; align-items: center;
+                font-size: 0.7rem; padding: 4px 10px;
+                margin-bottom: 8px; letter-spacing: 0.3px;
+            }
+
             .grid-p0 { grid-template-columns: 1fr; margin-left: 0; }
             .phase-title { padding-left: 20px; font-size: 1rem; }
             .phase-title::before { width: 2px; }
             .roadmap-p1::before, .roadmap-p1::after { left: 9px; }
             .roadmap-item { padding-left: 35px; } .node { left: 10px; width: 10px; height: 10px; }
             .step-name { font-size: 0.95rem; }
-
-            .sub-desc-container { 
-                margin-left: 0 !important; 
-            } 
-            
-            /* 🚨 [모바일 수정] 두 줄로 절대 꺾이지 않도록 속성 완벽 강제 🚨 */
-            .line-item {
-                white-space: nowrap !important; /* 글자가 꺾이지 않고 가로로 고정 */
-                font-size: 0.8rem !important; /* 좁은 화면에서도 다 들어가게 크기 조절 */
-                letter-spacing: -0.5px !important; /* 폰트 자간 조절 */
-            }
         }
     </style>
 </head>
