@@ -86,7 +86,7 @@
         .header-sub { font-size: 1rem; color: var(--text-s); font-weight: 500; margin: 8px 0 0 0; word-break: keep-all; }
         
         /* 6WEEKS 라벨을 배지 스타일로 통일 */
-        .total-time-badge { color: var(--point-blue); background: rgba(59, 130, 246, 0.08); border-color: rgba(59, 130, 246, 0.15); margin-bottom: 10px; }
+        .total-time-badge { color: var(--point-blue); background: rgba(59, 130, 246, 0.08); border-color: rgba(59, 130, 246, 0.15); margin-bottom: 15px; }
 
         .phase-title { font-size: 1.15rem; font-weight: 800; margin: 35px 0 25px 0; display: flex; align-items: center; text-transform: uppercase; padding-left: 30px; position: relative; color: var(--text-p); }
         .phase-title::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: currentColor; border-radius: 2px; }
@@ -141,20 +141,19 @@
             .container { margin-top: 60px; width: 94%; padding: 30px 0; }
             .hero-title { font-size: 1.8rem; }
             .hero-desc { font-size: 1rem; }
-            .hero-section { margin-bottom: 30px; }
-
-            /* 헤더 섹션 - hero-section 상단 여백(30px)과 동일하게 */
             .hero-section { margin-bottom: 0; }
+
+            /* 헤더 섹션 - container padding-top(30px)과 완전 동일 */
             .header { margin: 0; padding: 30px 0 20px 0; border-bottom: 1px solid var(--border); }
             .header::before { display: none; }
             .header h1 { font-size: 1.35rem; padding-left: 0; }
             .header-sub { font-size: 0.9rem; }
 
-            /* total-time-badge: 헤더 제목 위에 작게 배지처럼 */
+            /* total-time-badge 모바일 크기 */
             .total-time-badge {
                 display: inline-flex; align-items: center;
                 font-size: 0.7rem; padding: 4px 10px;
-                margin-bottom: 8px; letter-spacing: 0.3px;
+                margin-bottom: 15px; letter-spacing: 0.3px;
             }
 
             .grid-p0 { grid-template-columns: 1fr; margin-left: 0; }
