@@ -52,7 +52,7 @@
         .container { width: 92%; max-width: var(--max-width); margin: var(--nav-height) auto 0; padding: 40px 0; box-sizing: border-box; }
 
         /* ── [히어로 섹션 - Main의 hero-section 규격 그대로] ── */
-        .hero-section { margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px dashed var(--border); }
+        .hero-section { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px dashed var(--border); }
         .hero-label {
             display: inline-block; padding: 6px 14px; border-radius: 8px;
             background: rgba(99, 102, 241, 0.08); color: var(--point-purple);
@@ -61,7 +61,7 @@
         }
         .hero-title { font-size: 2.6rem; font-weight: 900; color: var(--text-p); margin: 0 0 15px 0; letter-spacing: -1.5px; line-height: 1.3; }
         .hero-desc { font-size: 1.1rem; color: var(--text-s); margin: 0 0 25px 0; font-weight: 500; word-break: keep-all; }
-        .hero-tags { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 35px; }
+        .hero-tags { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 0; }
         .h-tag {
             font-size: 0.85rem; padding: 6px 14px; background: #ffffff;
             border: 1px solid var(--border); border-radius: 8px; color: var(--text-s);
@@ -155,8 +155,9 @@
             .section-header h2 { font-size: 1.4rem; }
 
             /* archive layout: 세로 스택 */
-            .archive-zone { flex-direction: column; gap: 20px; margin-bottom: 50px; }
-            .zone-profile { position: static; flex: none; width: 100%; }
+            .archive-zone { flex-direction: column; gap: 0; margin-bottom: 50px; }
+            .zone-profile { position: static; flex: none; width: 100%; padding-bottom: 20px; border-bottom: 1px dashed var(--border); margin-bottom: 20px; }
+            .zone-profile .hero-tags { margin-bottom: 0; }
             .big-name { font-size: 1.8rem; }
 
             /* card - 모바일에서 제목+태그 세로 배치로 두줄 방지 */
