@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Archive | 3D Visualization Portfolio</title>
     <style>
-        /* ── [전역 변수 - Main_Portfolio_v0_1_1 완전 동기화] ── */
         :root {
             --bg-light: #f9fafb;
             --point-blue: #3b82f6;
@@ -13,30 +12,25 @@
             --grad-point: linear-gradient(to right, var(--point-blue), var(--point-purple));
             --card-bg: #ffffff;
             --card-border: #e5e7eb;
-            --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-            --card-active-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.15), 0 4px 6px -2px rgba(99, 102, 241, 0.1);
+            --card-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06);
             --text-p: #111827;
             --text-s: #4b5563;
             --text-dim: #9ca3af;
             --border: #e5e7eb;
-            --nav-height: 70px;         /* Main과 동일 */
-            --max-width: 1040px;        /* Main과 동일 */
+            --nav-height: 70px;
+            --max-width: 1040px;
         }
-
-        /* ── [기본 리셋 - font-family 완전 동기화] ── */
         html, body {
-            background-color: var(--bg-light);
-            margin: 0; padding: 0; width: 100%; overflow-x: hidden;
+            background-color: var(--bg-light); margin: 0; padding: 0; width: 100%; overflow-x: hidden;
             color: var(--text-p);
-            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; /* Main과 동일 */
-            line-height: 1.6;
-            scroll-padding-top: var(--nav-height);
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            line-height: 1.6; scroll-padding-top: var(--nav-height);
         }
 
-        /* ── [네비게이션 - Main과 픽셀 단위 동일] ── */
+        /* ── 네비게이션 ── */
         .navbar {
             position: fixed; top: 0; left: 0; width: 100%; height: var(--nav-height);
-            background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px);
+            background: rgba(255,255,255,0.85); backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
             display: flex; align-items: center; justify-content: center; z-index: 1000;
         }
@@ -48,16 +42,16 @@
         .nav-link.active { color: var(--text-p); }
         .nav-link.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: var(--grad-point); border-radius: 2px; }
 
-        /* ── [컨테이너 - Main과 완전 동일: width 92%, max-width 1040px, padding 40px 0] ── */
+        /* ── 컨테이너 ── */
         .container { width: 92%; max-width: var(--max-width); margin: var(--nav-height) auto 0; padding: 40px 0; box-sizing: border-box; }
 
-        /* ── [히어로 섹션 - Main의 hero-section 규격 그대로] ── */
+        /* ── 히어로 ── */
         .hero-section { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px dashed var(--border); }
         .hero-label {
             display: inline-block; padding: 6px 14px; border-radius: 8px;
-            background: rgba(99, 102, 241, 0.08); color: var(--point-purple);
+            background: rgba(99,102,241,0.08); color: var(--point-purple);
             font-size: 0.75rem; font-weight: 800; letter-spacing: 0.5px;
-            margin-bottom: 15px; border: 1px solid rgba(99, 102, 241, 0.15);
+            margin-bottom: 15px; border: 1px solid rgba(99,102,241,0.15);
         }
         .hero-title { font-size: 2.6rem; font-weight: 900; color: var(--text-p); margin: 0 0 15px 0; letter-spacing: -1.5px; line-height: 1.3; }
         .hero-desc { font-size: 1.1rem; color: var(--text-s); margin: 0 0 25px 0; font-weight: 500; word-break: keep-all; }
@@ -70,101 +64,100 @@
         }
         .h-tag::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--grad-point); }
 
-        /* ── [섹션 헤더 - Main의 .header 규격 그대로] ── */
-        .section-header {
-            text-align: left; position: relative;
-            margin: 60px 0 40px 0; padding: 0 0 20px 30px;
-            border-bottom: 1px solid var(--border);
-        }
-        .section-header::before {
-            content: ''; position: absolute; left: 0; top: 0; bottom: 20px;
-            width: 3px; background: var(--grad-point); border-radius: 2px;
-        }
-        .section-header h2 { margin: 0; font-size: 1.8rem; letter-spacing: -1px; color: var(--text-p); font-weight: 800; line-height: 1.2; }
-
-        /* ── [아카이브 존 레이아웃] ── */
+        /* ── 아카이브 존 ── */
         .archive-zone { display: flex; gap: 40px; margin-bottom: 60px; align-items: flex-start; }
 
-        /* 좌측 프로필 */
         .zone-profile { flex: 0 0 230px; position: sticky; top: calc(var(--nav-height) + 20px); }
-        .exp-badge {
-            display: inline-block; padding: 4px 12px; border-radius: 6px;
-            font-size: 0.7rem; font-weight: 800; margin-bottom: 12px;
-        }
-        .zone-a .exp-badge { background: rgba(59, 130, 246, 0.08); border: 1px solid rgba(59, 130, 246, 0.2); color: var(--point-blue); }
-        .zone-b .exp-badge { background: rgba(99, 102, 241, 0.08); border: 1px solid rgba(99, 102, 241, 0.2); color: var(--point-purple); }
+        .exp-badge { display: inline-block; padding: 4px 12px; border-radius: 6px; font-size: 0.7rem; font-weight: 800; margin-bottom: 12px; }
+        .zone-a .exp-badge { background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.2); color: var(--point-blue); }
+        .zone-b .exp-badge { background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2); color: var(--point-purple); }
+        .zone-c .exp-badge { background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2); color: #10b981; }
 
         .big-name { font-size: 2.2rem; font-weight: 900; line-height: 1.15; margin: 0 0 10px 0; letter-spacing: -1.5px; }
         .zone-a .big-name { color: var(--point-blue); }
         .zone-b .big-name { color: var(--point-purple); }
+        .zone-c .big-name { color: #10b981; }
 
         .profile-period { font-size: 1rem; color: var(--text-p); font-weight: 700; margin: 8px 0 5px 0; }
         .profile-desc { font-size: 0.9rem; color: var(--text-s); font-weight: 500; margin-bottom: 15px; }
 
-        /* 우측 카드 */
+        /* ── 카드 ── */
         .project-card {
-            flex: 1;
-            background: var(--card-bg); border: 1px solid var(--card-border);
+            flex: 1; background: var(--card-bg); border: 1px solid var(--card-border);
             border-radius: 16px; overflow: hidden; box-shadow: var(--card-shadow);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex; flex-direction: column;
+            transition: all 0.3s cubic-bezier(0.4,0,0.2,1); display: flex; flex-direction: column;
         }
         .project-card:hover {
-            border-color: rgba(99, 102, 241, 0.5);
-            transform: translateY(-3px);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(99, 102, 241, 0.5) inset;
+            border-color: rgba(99,102,241,0.5); transform: translateY(-3px);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06), 0 0 0 1px rgba(99,102,241,0.5) inset;
         }
 
-        /* 카드 영상 */
-        .card-video { width: 100%; background: var(--card-bg); }
+        /* ── CONFIDENTIAL 배너 (01, 02용) ── */
+        .confidential-banner {
+            width: 100%; background: #f8f9ff; border-bottom: 1px solid var(--card-border);
+            padding: 20px 30px; box-sizing: border-box;
+            display: flex; align-items: center; gap: 14px;
+        }
+        .conf-icon {
+            width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
+            background: var(--grad-point); display: flex; align-items: center; justify-content: center;
+        }
+        .conf-icon svg { width: 20px; height: 20px; fill: #fff; }
+        .conf-text-group { display: flex; flex-direction: column; gap: 2px; }
+        .conf-label { font-size: 0.68rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--text-dim); }
+        .conf-title { font-size: 0.88rem; font-weight: 700; color: var(--text-p); }
+
+        /* ── 공개 영상 (03용) ── */
+        .card-video { width: 100%; background: #000; border-bottom: 1px solid var(--card-border); }
         .video-aspect-ratio { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
         .video-aspect-ratio iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        /* 카드 정보 */
-        .card-info { padding: 25px 30px; }
-        .title-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-        .card-title { font-size: 1.4rem; font-weight: 800; margin: 0; color: var(--text-p); }
+        /* ── 카드 정보 ── */
+        .card-info { padding: 25px 30px; display: flex; flex-direction: column; gap: 20px; }
+        .title-row { display: flex; justify-content: space-between; align-items: center; }
+        .card-title { font-size: 1.35rem; font-weight: 800; margin: 0; color: var(--text-p); }
         .tag { font-size: 0.75rem; background: #f3f4f6; padding: 3px 10px; border-radius: 6px; color: var(--point-purple); font-weight: 700; flex-shrink: 0; border: 1px solid #e5e7eb; }
 
-        /* 도트 리스트 - Main의 .line-item과 동일 */
-        .sub-desc-container { margin: 10px 0 0 0; display: flex; flex-direction: column; gap: 8px; }
+        /* 스탯 행 */
+        .stat-row { display: flex; gap: 0; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+        .stat-cell { flex: 1; padding: 12px 16px; background: #f9fafb; border-right: 1px solid var(--border); }
+        .stat-cell:last-child { border-right: none; }
+        .stat-label { font-size: 0.67rem; font-weight: 800; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; }
+        .stat-value { font-size: 0.87rem; font-weight: 700; color: var(--text-p); }
+
+        /* Case Study */
+        .case-section { display: flex; flex-direction: column; gap: 14px; }
+        .case-block { display: flex; flex-direction: column; gap: 6px; }
+        .case-block-label { display: flex; align-items: center; gap: 7px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-s); }
+        .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+        .zone-a .dot { background: var(--point-blue); }
+        .zone-b .dot { background: var(--point-purple); }
+        .zone-c .dot { background: #10b981; }
+
+        .sub-desc-container { display: flex; flex-direction: column; gap: 6px; margin: 0; }
         .line-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: var(--text-s); font-weight: 500; line-height: 1.6; }
         .line-item::before { content: '•'; font-weight: 900; font-size: 1rem; flex-shrink: 0; color: var(--text-p); }
-        .zone-a .line-item::before { color: var(--text-p); }
-        .zone-b .line-item::before { color: var(--text-p); }
 
-        /* ── [모바일 최적화 - Main의 @media 768px 규격 완전 동기화] ── */
+        /* ── 모바일 ── */
         @media (max-width: 768px) {
-            /* nav */
             .navbar { height: 60px; }
             .nav-logo { font-size: 0.9rem; }
             .nav-menu { gap: 15px; }
             .nav-link { font-size: 0.8rem; }
-
-            /* container */
             .container { margin-top: 60px; width: 94%; padding: 30px 0; }
-
-            /* hero */
             .hero-title { font-size: 1.8rem; }
             .hero-desc { font-size: 1rem; }
             .hero-section { margin-bottom: 20px; padding-bottom: 20px; }
-
-            /* section header */
-            .section-header { margin: 40px 0 30px 0; padding-left: 0; border-bottom: none; }
-            .section-header::before { display: none; }
-            .section-header h2 { font-size: 1.4rem; }
-
-            /* archive layout: 세로 스택 */
             .archive-zone { flex-direction: column; gap: 0; margin-bottom: 50px; }
             .zone-profile { position: static; flex: none; width: 100%; padding-bottom: 20px; border-bottom: 1px dashed var(--border); margin-bottom: 20px; }
-            .zone-profile .hero-tags { margin-bottom: 0; }
             .big-name { font-size: 1.8rem; white-space: nowrap; }
-
-            /* card - 모바일에서 제목+태그 세로 배치로 두줄 방지 */
-            .card-info { padding: 18px 20px; }
+            .confidential-banner { padding: 18px 20px; }
+            .card-info { padding: 18px 20px; gap: 16px; }
+            .title-row { flex-direction: column; align-items: flex-start; gap: 6px; }
             .card-title { font-size: 1.1rem; line-height: 1.4; }
-            .title-row { flex-direction: column; align-items: flex-start; gap: 6px; margin-bottom: 10px; }
             .tag { font-size: 0.7rem; }
+            .stat-cell { padding: 10px 12px; }
+            .stat-value { font-size: 0.82rem; }
         }
     </style>
 </head>
@@ -183,9 +176,9 @@
 <div class="container">
 
     <header class="hero-section">
-        <span class="hero-label">PROJECT ARCHIVE</span>
-        <h1 class="hero-title">Previous Experience</h1>
-        <p class="hero-desc">과거 실무 경험과 기술적 해결 과정을 기록한 아카이브입니다.</p>
+        <span class="hero-label">CONFIDENTIAL ARCHIVE</span>
+        <h1 class="hero-title">Work Experience</h1>
+        <p class="hero-desc">대외비 프로젝트로 구성된 실무 경력입니다. 작업물 영상은 이력서 첨부 개인 공유 페이지에서 확인하실 수 있습니다.</p>
         <div class="hero-tags">
             <span class="h-tag">Unreal Engine 5</span>
             <span class="h-tag">Blender</span>
@@ -194,15 +187,13 @@
         </div>
     </header>
 
-    <div style="margin-bottom: 10px;"></div>
-
-    <!-- EXPERIENCE 01 -->
+    <!-- EXPERIENCE 01 — 대외비 -->
     <section class="archive-zone zone-a">
         <div class="zone-profile">
             <span class="exp-badge">EXPERIENCE 01</span>
-            <h2 class="big-name">A-STUDIO WORKS</h2>
+            <h2 class="big-name">A-STUDIO<br>WORKS</h2>
             <p class="profile-period">2023 - 2024</p>
-            <p class="profile-desc">도시 및 대규모 지형 시뮬레이션을 전문적으로 수행했습니다.</p>
+            <p class="profile-desc">도시 및 대규모 지형 시뮬레이션 전문 실무.</p>
             <div class="hero-tags">
                 <span class="h-tag">UE5</span>
                 <span class="h-tag">QGIS</span>
@@ -210,9 +201,13 @@
         </div>
 
         <div class="project-card">
-            <div class="card-video">
-                <div class="video-aspect-ratio">
-                    <iframe src="https://www.youtube-nocookie.com/embed/YOUTUBE_ID_A" allowfullscreen></iframe>
+            <div class="confidential-banner">
+                <div class="conf-icon">
+                    <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+                </div>
+                <div class="conf-text-group">
+                    <span class="conf-label">Confidential Work · NDA 적용</span>
+                    <span class="conf-title">대외비 — 이력서 첨부 개인 공유 페이지에서 확인 가능합니다</span>
                 </div>
             </div>
             <div class="card-info">
@@ -220,20 +215,43 @@
                     <h3 class="card-title">스마트 시티 통합 관제 시각화</h3>
                     <span class="tag">UE5 / GIS</span>
                 </div>
-                <div class="sub-desc-container">
-                    <div class="line-item">8km² 규모의 도시 데이터 최적화 및 리얼타임 렌더링</div>
+                <div class="stat-row">
+                    <div class="stat-cell"><div class="stat-label">Role</div><div class="stat-value">Visualization Lead</div></div>
+                    <div class="stat-cell"><div class="stat-label">Scale</div><div class="stat-value">8km² 도시 데이터</div></div>
+                    <div class="stat-cell"><div class="stat-label">Duration</div><div class="stat-value">약 3개월</div></div>
+                </div>
+                <div class="case-section">
+                    <div class="case-block">
+                        <div class="case-block-label"><span class="dot"></span>Challenge</div>
+                        <div class="sub-desc-container">
+                            <div class="line-item">8km² 규모의 실제 도시 GIS 데이터를 리얼타임 환경에서 렌더링 가능한 수준으로 최적화하는 것이 핵심 과제였습니다.</div>
+                        </div>
+                    </div>
+                    <div class="case-block">
+                        <div class="case-block-label"><span class="dot"></span>Approach</div>
+                        <div class="sub-desc-container">
+                            <div class="line-item">QGIS로 좌표·고도 데이터를 추출하고 UE5 Nanite·LOD 시스템을 활용해 폴리곤 수를 단계별로 제어했습니다.</div>
+                            <div class="line-item">도시 블록 단위로 레이어를 분리해 관제 UI와 실시간 연동되는 구조로 설계했습니다.</div>
+                        </div>
+                    </div>
+                    <div class="case-block">
+                        <div class="case-block-label"><span class="dot"></span>Outcome</div>
+                        <div class="sub-desc-container">
+                            <div class="line-item">60fps 리얼타임 렌더링 유지, 클라이언트 납품 및 실제 관제 시스템 연동 완료.</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- EXPERIENCE 02 -->
+    <!-- EXPERIENCE 02 — 대외비 -->
     <section class="archive-zone zone-b">
         <div class="zone-profile">
             <span class="exp-badge">EXPERIENCE 02</span>
-            <h2 class="big-name">B-TECH VISUALS</h2>
+            <h2 class="big-name">B-TECH<br>VISUALS</h2>
             <p class="profile-period">2021 - 2022</p>
-            <p class="profile-desc">환경 디테일과 하이엔드 렌더링 퀄리티 연구에 집중했습니다.</p>
+            <p class="profile-desc">환경 디테일 및 하이엔드 렌더링 퀄리티 연구.</p>
             <div class="hero-tags">
                 <span class="h-tag">Blender</span>
                 <span class="h-tag">UE4</span>
@@ -241,9 +259,13 @@
         </div>
 
         <div class="project-card">
-            <div class="card-video">
-                <div class="video-aspect-ratio">
-                    <iframe src="https://www.youtube-nocookie.com/embed/YOUTUBE_ID_B" allowfullscreen></iframe>
+            <div class="confidential-banner">
+                <div class="conf-icon">
+                    <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+                </div>
+                <div class="conf-text-group">
+                    <span class="conf-label">Confidential Work · NDA 적용</span>
+                    <span class="conf-title">대외비 — 이력서 첨부 개인 공유 페이지에서 확인 가능합니다</span>
                 </div>
             </div>
             <div class="card-info">
@@ -251,14 +273,91 @@
                     <h3 class="card-title">친환경 산업 단지 시뮬레이션</h3>
                     <span class="tag">Blender / UE4</span>
                 </div>
-                <div class="sub-desc-container">
-                    <div class="line-item">PBR 기반 고품질 에셋 제작 및 라이팅 최적화 워크플로우</div>
+                <div class="stat-row">
+                    <div class="stat-cell"><div class="stat-label">Role</div><div class="stat-value">Environment Artist</div></div>
+                    <div class="stat-cell"><div class="stat-label">Tech</div><div class="stat-value">PBR / Lumen</div></div>
+                    <div class="stat-cell"><div class="stat-label">Duration</div><div class="stat-value">약 2개월</div></div>
+                </div>
+                <div class="case-section">
+                    <div class="case-block">
+                        <div class="case-block-label"><span class="dot"></span>Challenge</div>
+                        <div class="sub-desc-container">
+                            <div class="line-item">실제 산업 시설의 노후화된 질감과 자연 환경의 조화를 사실적으로 표현하면서도 렌더링 퍼포먼스를 유지해야 했습니다.</div>
+                        </div>
+                    </div>
+                    <div class="case-block">
+                        <div class="case-block-label"><span class="dot"></span>Approach</div>
+                        <div class="sub-desc-container">
+                            <div class="line-item">Blender에서 PBR 머티리얼 레이어드 시스템으로 웨더링·녹·오염 텍스처를 절차적으로 제작했습니다.</div>
+                            <div class="line-item">UE4 Lumen을 활용해 낮/저녁 라이팅 변화를 실시간으로 전환하는 씬 구성을 설계했습니다.</div>
+                        </div>
+                    </div>
+                    <div class="case-block">
+                        <div class="case-block-label"><span class="dot"></span>Outcome</div>
+                        <div class="sub-desc-container">
+                            <div class="line-item">클라이언트 프레젠테이션용 시네마틱 렌더링 납품 완료, 동일 파이프라인을 사내 표준으로 채택.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE 03 — 공개 영상 (Vimeo) -->
+    <section class="archive-zone zone-c">
+        <div class="zone-profile">
+            <span class="exp-badge">EXPERIENCE 03</span>
+            <h2 class="big-name">C-ARCH<br>STUDIO</h2>
+            <p class="profile-period">2020 - 2021</p>
+            <p class="profile-desc">건축 및 인프라 구조물 시각화 전문 실무.</p>
+            <div class="hero-tags">
+                <span class="h-tag">UE4</span>
+                <span class="h-tag">Blender</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <!-- 공개 Vimeo 영상 -->
+            <div class="card-video">
+                <div class="video-aspect-ratio">
+                    <iframe src="https://player.vimeo.com/video/VIMEO_ID_HERE" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="card-info">
+                <div class="title-row">
+                    <h3 class="card-title">대형 인프라 구조물 건설 시각화</h3>
+                    <span class="tag">UE4 / Blender</span>
+                </div>
+                <div class="stat-row">
+                    <div class="stat-cell"><div class="stat-label">Role</div><div class="stat-value">3D Generalist</div></div>
+                    <div class="stat-cell"><div class="stat-label">Type</div><div class="stat-value">건축 인허가 영상</div></div>
+                    <div class="stat-cell"><div class="stat-label">Duration</div><div class="stat-value">약 6주</div></div>
+                </div>
+                <div class="case-section">
+                    <div class="case-block">
+                        <div class="case-block-label"><span class="dot"></span>Challenge</div>
+                        <div class="sub-desc-container">
+                            <div class="line-item">인허가 제출용 영상으로, 실제 도면 치수와 오차 없이 일치하는 정밀 모델링과 주변 환경과의 자연스러운 합성이 요구됐습니다.</div>
+                        </div>
+                    </div>
+                    <div class="case-block">
+                        <div class="case-block-label"><span class="dot"></span>Approach</div>
+                        <div class="sub-desc-container">
+                            <div class="line-item">CAD 도면 기반으로 Blender에서 정밀 모델링 후 UE4 임포트, 실제 현장 사진과 매칭되는 카메라 앵글로 씬을 구성했습니다.</div>
+                            <div class="line-item">실제 위도·경도 기반 태양 각도 시뮬레이션으로 그림자 방향의 정확도를 확보했습니다.</div>
+                        </div>
+                    </div>
+                    <div class="case-block">
+                        <div class="case-block-label"><span class="dot"></span>Outcome</div>
+                        <div class="sub-desc-container">
+                            <div class="line-item">인허가 심의 통과 및 클라이언트 발표 자료로 활용, 동일 클라이언트와 추가 프로젝트 계약으로 이어짐.</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
 </div>
-
 </body>
 </html>
