@@ -59,7 +59,8 @@
         .container { width: 92%; max-width: 1040px; margin: var(--nav-height) auto 0; padding: 40px 0; box-sizing: border-box; }
 
         /* [히어로 섹션] */
-        .hero-section { margin-bottom: 60px; padding-bottom: 50px; border-bottom: 1px dashed var(--border); }
+        .hero-section { margin-bottom: 60px; padding-bottom: 0; }
+        .hero-divider { border: none; border-top: 1px dashed var(--border); margin: 0 0 30px 0; }
         .hero-label, .total-time-badge { 
             display: inline-block; padding: 6px 14px; border-radius: 8px; 
             background: rgba(99, 102, 241, 0.08); color: var(--point-purple); 
@@ -185,6 +186,7 @@
             <span class="h-tag">QGIS</span>
             <span class="h-tag">Cinematic Rendering</span>
         </div>
+        <hr class="hero-divider">
         <div class="main-video-wrapper">
             <div class="video-aspect-ratio">
                 <iframe src="https://www.youtube-nocookie.com/embed/WFdeDJwT3jk" title="Portfolio Video" allowfullscreen></iframe>
