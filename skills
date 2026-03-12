@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Skills | 3D Visualization Portfolio</title>
+    <style>
+        :root {
+            --bg-light: #f9fafb;
+            --point-blue: #3b82f6;
+            --point-purple: #6366f1;
+            --grad-point: linear-gradient(to right, var(--point-blue), var(--point-purple));
+            --card-bg: #ffffff;
+            --card-border: #e5e7eb;
+            --card-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06);
+            --text-p: #111827;
+            --text-s: #4b5563;
+            --text-dim: #9ca3af;
+            --border: #e5e7eb;
+            --nav-height: 70px;
+            --max-width: 1040px;
+        }
+        html, body {
+            background-color: var(--bg-light); margin: 0; padding: 0; width: 100%; overflow-x: hidden;
+            color: var(--text-p);
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            line-height: 1.6; scroll-padding-top: var(--nav-height);
+        }
+
+        /* ── 네비게이션 ── */
+        .navbar {
+            position: fixed; top: 0; left: 0; width: 100%; height: var(--nav-height);
+            background: rgba(255,255,255,0.85); backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: center; z-index: 1000;
+        }
+        .nav-container { width: 92%; max-width: var(--max-width); display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { font-weight: 900; font-size: 1.1rem; background: var(--grad-point); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+        .nav-menu { display: flex; gap: 30px; }
+        .nav-link { text-decoration: none; color: var(--text-s); font-weight: 700; font-size: 0.95rem; transition: color 0.3s ease; position: relative; padding: 5px 0; }
+        .nav-link:hover { color: var(--point-purple); }
+        .nav-link.active { color: var(--text-p); }
+        .nav-link.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: var(--grad-point); border-radius: 2px; }
+
+        /* ── 컨테이너 ── */
+        .container { width: 92%; max-width: var(--max-width); margin: var(--nav-height) auto 0; padding: 40px 0 80px; box-sizing: border-box; }
+
+        /* ── 히어로 ── */
+        .hero-section { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px dashed var(--border); }
+        .hero-label {
+            display: inline-block; padding: 6px 14px; border-radius: 8px;
+            background: rgba(99,102,241,0.08); color: var(--point-purple);
+            font-size: 0.75rem; font-weight: 800; letter-spacing: 0.5px;
+            margin-bottom: 15px; border: 1px solid rgba(99,102,241,0.15);
+        }
+        .hero-title { font-size: 2.6rem; font-weight: 900; color: var(--text-p); margin: 0 0 15px 0; letter-spacing: -1.5px; line-height: 1.3; }
+        .hero-desc { font-size: 1.1rem; color: var(--text-s); margin: 0 0 25px 0; font-weight: 500; word-break: keep-all; }
+        .hero-tags { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 0; }
+        .h-tag {
+            font-size: 0.85rem; padding: 6px 14px; background: #ffffff;
+            border: 1px solid var(--border); border-radius: 8px; color: var(--text-s);
+            font-weight: 700; box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            display: flex; align-items: center; gap: 6px;
+        }
+        .h-tag::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--grad-point); }
+
+        /* ── 섹션 공통 헤더 ── */
+        .section-header {
+            margin: 50px 0 28px 0; padding-bottom: 16px;
+            border-bottom: 1px dashed var(--border);
+            display: flex; align-items: baseline; gap: 12px;
+        }
+        .section-header h2 { font-size: 1.5rem; font-weight: 900; margin: 0; letter-spacing: -0.8px; color: var(--text-p); }
+        .section-header span { font-size: 0.78rem; font-weight: 700; color: var(--text-dim); }
+
+        /* ── 수치 카드 그리드 (협업/납품) ── */
+        .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 0; }
+        .stat-card {
+            background: var(--card-bg); border: 1px solid var(--card-border);
+            border-radius: 14px; padding: 22px 20px;
+            box-shadow: var(--card-shadow);
+            display: flex; flex-direction: column; gap: 6px;
+            transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+        }
+        .stat-card:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgba(99,102,241,0.1); border-color: rgba(99,102,241,0.3); }
+        .stat-card-label { font-size: 0.7rem; font-weight: 800; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.5px; }
+        .stat-card-number {
+            font-size: 2.2rem; font-weight: 900; letter-spacing: -1.5px; line-height: 1;
+            background: var(--grad-point); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .stat-card-desc { font-size: 0.82rem; color: var(--text-s); font-weight: 500; }
+
+        /* ── 기술 스택 ── */
+        .skill-list { display: flex; flex-direction: column; gap: 16px; }
+        .skill-row { display: flex; flex-direction: column; gap: 7px; }
+        .skill-row-top { display: flex; justify-content: space-between; align-items: center; }
+        .skill-name { font-size: 0.95rem; font-weight: 800; color: var(--text-p); display: flex; align-items: center; gap: 8px; }
+        .skill-badge {
+            font-size: 0.65rem; font-weight: 800; padding: 2px 8px; border-radius: 20px;
+            background: rgba(99,102,241,0.08); color: var(--point-purple); border: 1px solid rgba(99,102,241,0.2);
+        }
+        .skill-badge.blue { background: rgba(59,130,246,0.08); color: var(--point-blue); border-color: rgba(59,130,246,0.2); }
+        .skill-badge.green { background: rgba(16,185,129,0.08); color: #10b981; border-color: rgba(16,185,129,0.2); }
+        .skill-level { font-size: 0.78rem; font-weight: 700; color: var(--text-dim); }
+        .skill-bar-bg { width: 100%; height: 6px; background: #f3f4f6; border-radius: 99px; overflow: hidden; }
+        .skill-bar { height: 100%; border-radius: 99px; background: var(--grad-point); transition: width 1s cubic-bezier(0.4,0,0.2,1); }
+        .skill-bar.green { background: linear-gradient(to right, #10b981, #059669); }
+        .skill-desc { font-size: 0.82rem; color: var(--text-dim); font-weight: 500; }
+
+        /* 스택 그룹 */
+        .skill-group { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 14px; padding: 24px 26px; box-shadow: var(--card-shadow); display: flex; flex-direction: column; gap: 20px; }
+        .skill-group-label {
+            font-size: 0.7rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+            color: var(--text-dim); padding-bottom: 12px; border-bottom: 1px solid var(--border);
+        }
+        .skill-groups { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+        /* ── 포텐셜 카드 ── */
+        .potential-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .potential-card {
+            background: var(--card-bg); border: 1px solid var(--card-border);
+            border-radius: 14px; padding: 24px 22px;
+            box-shadow: var(--card-shadow);
+            display: flex; flex-direction: column; gap: 12px;
+            transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+        }
+        .potential-card:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgba(99,102,241,0.1); border-color: rgba(99,102,241,0.3); }
+        .potential-icon {
+            width: 40px; height: 40px; border-radius: 10px;
+            background: var(--grad-point);
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .potential-icon svg { width: 20px; height: 20px; fill: #fff; }
+        .potential-card-title { font-size: 1rem; font-weight: 800; color: var(--text-p); margin: 0; }
+        .potential-card-desc { font-size: 0.86rem; color: var(--text-s); font-weight: 500; line-height: 1.65; word-break: keep-all; }
+        .potential-tag {
+            display: inline-flex; align-items: center; gap: 5px;
+            font-size: 0.7rem; font-weight: 800; padding: 3px 10px; border-radius: 20px;
+            background: rgba(99,102,241,0.07); color: var(--point-purple);
+            border: 1px solid rgba(99,102,241,0.18); align-self: flex-start;
+        }
+
+        /* ── 모바일 ── */
+        @media (max-width: 768px) {
+            .navbar { height: 60px; }
+            .nav-logo { font-size: 0.9rem; }
+            .nav-menu { gap: 15px; }
+            .nav-link { font-size: 0.8rem; }
+            .container { margin-top: 60px; width: 94%; padding: 30px 0 60px; }
+            .hero-title { font-size: 1.8rem; }
+            .hero-desc { font-size: 1rem; }
+            .hero-section { margin-bottom: 20px; padding-bottom: 20px; }
+            .section-header { margin: 35px 0 20px 0; }
+            .section-header h2 { font-size: 1.25rem; }
+            .stat-grid { grid-template-columns: repeat(2, 1fr); }
+            .skill-groups { grid-template-columns: 1fr; }
+            .potential-grid { grid-template-columns: 1fr; }
+            .stat-card-number { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">3D VISUALIZATION PORTFOLIO</a>
+        <div class="nav-menu">
+            <a href="index.html" class="nav-link">MAIN PROJECT</a>
+            <a href="archive.html" class="nav-link">ARCHIVE</a>
+            <a href="skills.html" class="nav-link active">SKILLS</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <!-- 히어로 -->
+    <header class="hero-section">
+        <span class="hero-label">SKILLS & POTENTIAL</span>
+        <h1 class="hero-title">What I Can Do</h1>
+        <p class="hero-desc">기술 숙련도와 실무 경험 수치, 그리고 앞으로 나아가고 싶은 방향입니다.</p>
+        <div class="hero-tags">
+            <span class="h-tag">Unreal Engine 5</span>
+            <span class="h-tag">Blender</span>
+            <span class="h-tag">QGIS</span>
+            <span class="h-tag">Cinematic Rendering</span>
+        </div>
+    </header>
+
+    <!-- 협업/납품 수치 -->
+    <div class="section-header">
+        <h2>Experience in Numbers</h2>
+        <span>실무 기반 수치</span>
+    </div>
+    <div class="stat-grid">
+        <div class="stat-card">
+            <span class="stat-card-label">Projects Delivered</span>
+            <span class="stat-card-number">12+</span>
+            <span class="stat-card-desc">클라이언트 납품 완료 프로젝트</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-card-label">Avg. Turnaround</span>
+            <span class="stat-card-number">6wk</span>
+            <span class="stat-card-desc">기획~최종 렌더링 평균 소요 기간</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-card-label">Max Scene Scale</span>
+            <span class="stat-card-number">8km²</span>
+            <span class="stat-card-desc">단일 씬 최대 처리 도시 데이터 규모</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-card-label">Industries</span>
+            <span class="stat-card-number">4+</span>
+            <span class="stat-card-desc">스마트시티 · 건축 · 인프라 · 산업시설</span>
+        </div>
+    </div>
+
+    <!-- 기술 스택 숙련도 -->
+    <div class="section-header">
+        <h2>Tech Stack</h2>
+        <span>주요 툴 숙련도</span>
+    </div>
+    <div class="skill-groups">
+        <!-- 3D / 렌더링 -->
+        <div class="skill-group">
+            <div class="skill-group-label">3D · Rendering</div>
+            <div class="skill-list">
+                <div class="skill-row">
+                    <div class="skill-row-top">
+                        <span class="skill-name">Unreal Engine 5 <span class="skill-badge blue">Main</span></span>
+                        <span class="skill-level">90%</span>
+                    </div>
+                    <div class="skill-bar-bg"><div class="skill-bar" style="width:90%"></div></div>
+                    <span class="skill-desc">Nanite, Lumen, Sequencer, 리얼타임 렌더링</span>
+                </div>
+                <div class="skill-row">
+                    <div class="skill-row-top">
+                        <span class="skill-name">Blender <span class="skill-badge blue">Main</span></span>
+                        <span class="skill-level">85%</span>
+                    </div>
+                    <div class="skill-bar-bg"><div class="skill-bar" style="width:85%"></div></div>
+                    <span class="skill-desc">모델링, PBR 머티리얼, 절차적 텍스처</span>
+                </div>
+                <div class="skill-row">
+                    <div class="skill-row-top">
+                        <span class="skill-name">Unreal Engine 4</span>
+                        <span class="skill-level">75%</span>
+                    </div>
+                    <div class="skill-bar-bg"><div class="skill-bar" style="width:75%"></div></div>
+                    <span class="skill-desc">환경 구축, 라이팅, 시네마틱 연출</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- GIS / 데이터 -->
+        <div class="skill-group">
+            <div class="skill-group-label">GIS · Data</div>
+            <div class="skill-list">
+                <div class="skill-row">
+                    <div class="skill-row-top">
+                        <span class="skill-name">QGIS <span class="skill-badge">Specialist</span></span>
+                        <span class="skill-level">80%</span>
+                    </div>
+                    <div class="skill-bar-bg"><div class="skill-bar" style="width:80%"></div></div>
+                    <span class="skill-desc">좌표·고도 추출, 도시 데이터 정합</span>
+                </div>
+                <div class="skill-row">
+                    <div class="skill-row-top">
+                        <span class="skill-name">CAD 도면 해석</span>
+                        <span class="skill-level">70%</span>
+                    </div>
+                    <div class="skill-bar-bg"><div class="skill-bar" style="width:70%"></div></div>
+                    <span class="skill-desc">건축·인프라 도면 기반 정밀 모델링</span>
+                </div>
+                <div class="skill-row">
+                    <div class="skill-row-top">
+                        <span class="skill-name">Cinematic Sequencing <span class="skill-badge green">Growing</span></span>
+                        <span class="skill-level">78%</span>
+                    </div>
+                    <div class="skill-bar-bg"><div class="skill-bar green" style="width:78%"></div></div>
+                    <span class="skill-desc">카메라 경로 설계, 드론뷰 모션 튜닝</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 포텐셜 -->
+    <div class="section-header">
+        <h2>Potential & Direction</h2>
+        <span>앞으로 나아가고 싶은 방향</span>
+    </div>
+    <div class="potential-grid">
+        <div class="potential-card">
+            <div class="potential-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+            </div>
+            <p class="potential-card-title">Interactive Real-time Visualization</p>
+            <p class="potential-card-desc">단순 영상 납품을 넘어, 클라이언트가 직접 조작하고 탐색할 수 있는 인터랙티브 리얼타임 뷰어를 구현하고 싶습니다. UE5의 Pixel Streaming을 활용한 웹 기반 시각화가 목표입니다.</p>
+            <span class="potential-tag">UE5 Pixel Streaming</span>
+        </div>
+        <div class="potential-card">
+            <div class="potential-icon">
+                <svg viewBox="0 0 24 24"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/></svg>
+            </div>
+            <p class="potential-card-title">Large-scale GIS Pipeline</p>
+            <p class="potential-card-desc">도시 단위를 넘어 광역 지형 데이터를 실시간으로 처리하는 파이프라인을 고도화하고 싶습니다. GIS 자동화 스크립트와 UE5 World Partition을 결합한 워크플로우를 연구 중입니다.</p>
+            <span class="potential-tag">QGIS Automation</span>
+        </div>
+        <div class="potential-card">
+            <div class="potential-icon">
+                <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+            </div>
+            <p class="potential-card-title">Cinematic Direction</p>
+            <p class="potential-card-desc">기술적 정확도 위에 감각적인 연출을 더하는 것이 궁극적인 목표입니다. 드론 촬영 레퍼런스와 영화적 카메라 무빙을 결합해, 데이터 기반 영상이 감동을 줄 수 있다는 걸 보여주고 싶습니다.</p>
+            <span class="potential-tag">Cinematic Sequencer</span>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // 스크롤 시 스킬바 애니메이션
+    const bars = document.querySelectorAll('.skill-bar');
+    const widths = Array.from(bars).map(b => b.style.width);
+    bars.forEach(b => b.style.width = '0');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                bars.forEach((b, i) => { b.style.width = widths[i]; });
+                observer.disconnect();
+            }
+        });
+    }, { threshold: 0.2 });
+
+    const skillSection = document.querySelector('.skill-groups');
+    if (skillSection) observer.observe(skillSection);
+</script>
+
+</body>
+</html>
