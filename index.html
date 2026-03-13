@@ -5,49 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>김시민 대교 3D 실사화 포트폴리오</title>
     <style>
-        /* [전역 변수] */
         :root {
             --bg-light: #f9fafb;
             --point-blue: #3b82f6;
             --point-purple: #6366f1;
             --grad-point: linear-gradient(to right, var(--point-blue), var(--point-purple));
-            --p0-accent: var(--point-purple);    
-            --grad-start: var(--point-blue);     
-            --grad-mid: #4f46e5;                 
-            --grad-end: var(--point-purple);     
-            --step1-color: var(--grad-start); 
-            --step2-color: #0ea5e9; 
-            --step3-color: var(--grad-mid);
-            --step4-color: #7c3aed; 
-            --step5-color: #9333ea; 
-            --step6-color: var(--grad-end);
-            --card-bg: #ffffff; 
-            --card-border: #e5e7eb; 
-            --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-            --card-active-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.15), 0 4px 6px -2px rgba(99, 102, 241, 0.1);
-            --card-active-bg-grad: linear-gradient(to bottom right, #ffffff, #f5f7ff);
-            --card-active-border-grad: var(--grad-point);
-            --text-p: #111827; 
-            --text-s: #4b5563; 
-            --text-dim: #9ca3af; 
-            --border: #e5e7eb; 
+            --card-bg: #ffffff;
+            --card-border: #e5e7eb;
+            --card-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06);
+            --card-active-shadow: 0 10px 15px -3px rgba(99,102,241,0.15), 0 4px 6px -2px rgba(99,102,241,0.1);
+            --text-p: #111827;
+            --text-s: #4b5563;
+            --text-dim: #9ca3af;
+            --border: #e5e7eb;
             --nav-height: 70px;
         }
-
-        html, body { 
-            background-color: var(--bg-light); 
-            margin: 0; padding: 0; width: 100%; overflow-x: hidden; 
-            color: var(--text-p); font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; line-height: 1.6;
-            scroll-padding-top: var(--nav-height);
+        html, body {
+            background-color: var(--bg-light); margin: 0; padding: 0; width: 100%; overflow-x: hidden;
+            color: var(--text-p);
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            line-height: 1.6; scroll-padding-top: var(--nav-height);
         }
 
-        /* [네비게이션 바] */
-        .navbar {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: var(--nav-height);
-            background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: center; z-index: 1000;
-        }
+        /* ── 네비게이션 ── */
+        .navbar { position: fixed; top: 0; left: 0; width: 100%; height: var(--nav-height); background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: center; z-index: 1000; }
         .nav-container { width: 92%; max-width: 1040px; display: flex; justify-content: space-between; align-items: center; }
         .nav-logo { font-weight: 900; font-size: 1.1rem; background: var(--grad-point); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
         .nav-menu { display: flex; gap: 30px; }
@@ -56,124 +37,85 @@
         .nav-link.active { color: var(--text-p); }
         .nav-link.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: var(--grad-point); border-radius: 2px; }
 
+        /* ── 컨테이너 ── */
         .container { width: 92%; max-width: 1040px; margin: var(--nav-height) auto 0; padding: 40px 0; box-sizing: border-box; }
 
-        /* [히어로 섹션] */
-        .hero-section { margin-bottom: 0; padding-bottom: 0; }
-        .hero-divider { border: none; border-top: 1px dashed var(--border); margin: 0 0 25px 0; }
-        @media (max-width: 768px) {
-            .hero-divider { margin: 0 0 20px 0; }
-        }
-        .hero-label, .total-time-badge { 
-            display: inline-block; padding: 6px 14px; border-radius: 8px; 
-            background: rgba(99, 102, 241, 0.08); color: var(--point-purple); 
-            font-size: 0.75rem; font-weight: 800; letter-spacing: 0.5px; 
-            margin-bottom: 15px; border: 1px solid rgba(99, 102, 241, 0.15); 
-        }
+        /* ── 히어로 ── */
+        .hero-section { margin-bottom: 0; }
+        .hero-label { display: inline-block; padding: 6px 14px; border-radius: 8px; background: rgba(99,102,241,0.08); color: var(--point-purple); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 15px; border: 1px solid rgba(99,102,241,0.15); }
         .hero-title { font-size: 2.6rem; font-weight: 900; color: var(--text-p); margin: 0 0 15px 0; letter-spacing: -1.5px; line-height: 1.3; }
         .hero-desc { font-size: 1.1rem; color: var(--text-s); margin: 0 0 25px 0; font-weight: 500; word-break: keep-all; }
         .hero-tags { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
         .h-tag { font-size: 0.85rem; padding: 6px 14px; background: #ffffff; border: 1px solid var(--border); border-radius: 8px; color: var(--text-s); font-weight: 700; box-shadow: 0 1px 2px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 6px; }
         .h-tag::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--grad-point); }
-        
+        .hero-divider { border: none; border-top: 1px dashed var(--border); margin: 0 0 25px 0; }
         .main-video-wrapper { border-radius: 16px; overflow: hidden; background: var(--card-bg); border: 1px solid var(--card-border); box-shadow: var(--card-active-shadow); }
         .video-aspect-ratio { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
         .video-aspect-ratio iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        /* [기본 스타일 모음] */
-        .header { text-align: left; position: relative; margin: 0; padding: 40px 0 25px 0; border-bottom: 1px dashed var(--border); }
+        /* ── 워크플로우 헤더 ── */
+        .header { margin: 0; padding: 40px 0 25px 0; border-bottom: 1px dashed var(--border); }
+        .total-time-badge { display: inline-block; padding: 6px 14px; border-radius: 8px; background: rgba(59,130,246,0.08); color: var(--point-blue); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 15px; border: 1px solid rgba(59,130,246,0.15); }
         .header h1 { margin: 0; font-size: 1.8rem; letter-spacing: -1px; color: var(--text-p); font-weight: 800; line-height: 1.2; }
         .header-sub { font-size: 1rem; color: var(--text-s); font-weight: 500; margin: 8px 0 0 0; word-break: keep-all; }
-        
-        /* 6WEEKS 라벨을 배지 스타일로 통일 */
-        .total-time-badge { color: var(--point-blue); background: rgba(59, 130, 246, 0.08); border-color: rgba(59, 130, 246, 0.15); margin-bottom: 15px; }
 
-        .phase-title { font-size: 1.15rem; font-weight: 800; margin: 35px 0 25px 0; display: flex; align-items: center; text-transform: uppercase; padding-left: 30px; position: relative; color: var(--text-p); }
-        .phase-title::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: currentColor; border-radius: 2px; }
-        .p1-title { color: var(--grad-start); }
-        
-        .icon-svg { width: 22px; height: 22px; flex-shrink: 0; display: inline-block; fill: currentColor; } 
-
-
-        /* 모바일 최적화 */
         /* ── 스텝 카드 그리드 ── */
-        .step-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 50px 20px; margin-top: 10px; padding-top: 48px; }
-        .step-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 14px; padding: 30px 24px 22px; box-shadow: var(--card-shadow); display: flex; flex-direction: column; gap: 10px; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); position: relative; }
-        .step-card:hover { transform: translateY(-3px); border-color: rgba(99,102,241,0.4); box-shadow: 0 4px 12px rgba(99,102,241,0.1); }
-        .step-card.final { border-color: rgba(99,102,241,0.3); background: var(--card-bg); }
-        .step-number {
-            font-size: 3.4rem; font-weight: 900; line-height: 1; letter-spacing: -2px;
-            background: var(--grad-point); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            position: absolute; top: -22px; left: 20px;
-            -webkit-text-stroke: 1.5px rgba(99,102,241,0.2);
-            filter: drop-shadow(0 2px 8px rgba(99,102,241,0.2));
+        .step-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 30px; }
+
+        .step-card {
+            background: var(--card-bg); border: 1px solid var(--card-border);
+            border-radius: 14px; overflow: hidden;
+            box-shadow: var(--card-shadow);
+            display: flex; flex-direction: column;
+            transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
         }
-        .step-card.final .step-number { opacity: 1; }
-        .step-top { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-        .step-icon { width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .step-icon svg { width: 16px; height: 16px; fill: var(--point-blue); }
-        .step-title { font-size: 1rem; font-weight: 800; color: var(--text-p); }
-        .step-tag { font-size: 0.75rem; color: var(--text-dim); font-weight: 700; align-self: flex-start; }
-        .step-card.final .step-tag { background: none; color: var(--point-purple); font-weight: 800; }
-        .step-desc { font-size: 0.87rem; color: var(--text-s); font-weight: 500; line-height: 1.65; margin: 0; }
-        .step-remark { font-size: 0.75rem; font-weight: 700; color: var(--text-dim); padding-top: 8px; border-top: 1px solid var(--border); margin-top: auto; }
+        .step-card:hover { transform: translateY(-3px); border-color: rgba(99,102,241,0.4); box-shadow: 0 4px 12px rgba(99,102,241,0.1); }
+        .step-card.final { border-color: rgba(99,102,241,0.25); }
+
+        /* 카드 상단 슬라이드: 숫자 좌 + 날짜 우 */
+        .step-card-top {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 7px 16px;
+            background: #f9fafb;
+            border-bottom: 1px solid var(--border);
+        }
+        .step-number {
+            font-size: 1.1rem; font-weight: 900; line-height: 1; letter-spacing: -0.5px;
+            background: var(--grad-point); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .step-tag { font-size: 0.72rem; color: var(--text-dim); font-weight: 700; }
+        .step-card.final .step-tag { color: var(--point-purple); font-weight: 800; }
+
+        /* 카드 본문 */
+        .step-card-body { padding: 16px 20px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+        .step-title-row { display: flex; align-items: center; gap: 7px; margin-bottom: 2px; }
+        .step-icon { width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .step-icon svg { width: 14px; height: 14px; fill: var(--point-blue); }
+        .step-title { font-size: 0.97rem; font-weight: 800; color: var(--text-p); }
+        .step-card.final .step-title { background: var(--grad-point); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .step-desc { font-size: 0.86rem; color: var(--text-s); font-weight: 500; line-height: 1.65; margin: 0; }
+        .step-remark { font-size: 0.72rem; font-weight: 700; color: var(--text-dim); margin-top: auto; padding-top: 8px; border-top: 1px solid var(--border); }
         .step-card.final .step-remark { color: var(--point-purple); border-top-color: rgba(99,102,241,0.2); }
 
+        /* 이미지 영역 */
+        .step-img-wrap { border-radius: 8px; overflow: hidden; border: 1px solid var(--border); background: #f3f4f6; margin-top: 4px; }
+        .step-img-wrap img { width: 100%; height: auto; display: block; }
 
+        /* ── 모바일 ── */
         @media (max-width: 768px) {
-            .navbar { height: 60px; } .nav-logo { font-size: 0.9rem; } .nav-menu { gap: 15px; } .nav-link { font-size: 0.8rem; }
+            .navbar { height: 60px; }
+            .nav-logo { font-size: 0.9rem; }
+            .nav-menu { gap: 15px; }
+            .nav-link { font-size: 0.8rem; }
             .container { margin-top: 60px; width: 94%; padding: 30px 0; }
             .hero-title { font-size: 1.8rem; }
             .hero-desc { font-size: 1rem; }
-            .hero-section { margin-bottom: 0; }
-
-            /* 헤더 섹션 - container padding-top(30px)과 완전 동일 */
-            .header { margin: 0; padding: 30px 0 20px 0; border-bottom: 1px dashed var(--border); }
-            .header::before { display: none; }
-            .header h1 { font-size: 1.35rem; padding-left: 0; }
+            .header { padding: 30px 0 20px 0; }
+            .header h1 { font-size: 1.35rem; }
             .header-sub { font-size: 0.9rem; }
-
-            /* total-time-badge 모바일 크기 */
-            .total-time-badge {
-                display: inline-flex; align-items: center;
-                font-size: 0.7rem; padding: 4px 10px;
-                margin-bottom: 15px; letter-spacing: 0.3px;
-            }
-
-
-        /* ── 스텝 카드 그리드 ── */
-        .step-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 50px 20px; margin-top: 10px; padding-top: 48px; }
-        .step-card {
-            background: var(--card-bg); border: 1px solid var(--card-border);
-            border-radius: 14px; padding: 22px 22px 20px;
-            box-shadow: var(--card-shadow);
-            display: flex; flex-direction: column; gap: 10px;
-            transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-            position: relative; overflow: hidden;
-        }
-        .step-card:hover { transform: translateY(-3px); border-color: rgba(99,102,241,0.4); box-shadow: 0 4px 12px rgba(99,102,241,0.1); }
-        .step-card.final { border-color: rgba(99,102,241,0.3); background: var(--card-bg); }
-        .step-number {
-            font-size: 3.4rem; font-weight: 900; line-height: 1; letter-spacing: -2px;
-            background: var(--grad-point); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            position: absolute; top: -22px; left: 20px;
-            -webkit-text-stroke: 1.5px rgba(99,102,241,0.2);
-            filter: drop-shadow(0 2px 8px rgba(99,102,241,0.2));
-        }
-        .step-card.final .step-number { opacity: 1; }
-        .step-top { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-        .step-icon { width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .step-icon svg { width: 16px; height: 16px; fill: var(--point-blue); }
-        .step-title { font-size: 1rem; font-weight: 800; color: var(--text-p); }
-        .step-tag { font-size: 0.75rem; color: var(--text-dim); font-weight: 700; align-self: flex-start; }
-        .step-card.final .step-tag { background: none; color: var(--point-purple); font-weight: 800; }
-        .step-desc { font-size: 0.87rem; color: var(--text-s); font-weight: 500; line-height: 1.65; }
-        .step-remark { font-size: 0.75rem; font-weight: 700; color: var(--text-dim); padding-top: 8px; border-top: 1px solid var(--border); margin-top: auto; }
-        .step-card.final .step-remark { color: var(--point-purple); border-top-color: rgba(99,102,241,0.2); }
-
-        .tag { font-size: 0.75rem; background: #f3f4f6; padding: 3px 10px; border-radius: 6px; color: var(--point-purple); font-weight: 700; flex-shrink: 0; border: 1px solid #e5e7eb; }
-
-            .step-grid { grid-template-columns: 1fr; }
+            .total-time-badge { font-size: 0.7rem; padding: 4px 10px; }
+            .step-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 20px; }
+            .step-number { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -219,82 +161,104 @@
         <div class="step-grid">
 
             <div class="step-card">
-                <span class="step-number">01</span>
-                <div class="step-top">
-                    <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg></div>
-                    <span class="step-title">준비 (GIS)</span>
+                <div class="step-card-top">
+                    <span class="step-number">01</span>
+                    <span class="step-tag">1~2일</span>
                 </div>
-                <span class="step-tag">1~2일</span>
-                <p class="step-desc">QGIS로 실제 지형 좌표·고도 데이터를 추출하고, 언리얼 엔진에 임포트하기 위한 데이터 정합 작업을 진행합니다.</p>
-                <span class="step-remark">데이터 무결성 확보 단계</span>
+                <div class="step-card-body">
+                    <div class="step-title-row">
+                        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg></div>
+                        <span class="step-title">준비 (GIS)</span>
+                    </div>
+                    <div class="step-img-wrap"><img src="https://via.placeholder.com/800x350/f0f2f5/a0aec0?text=GIS+Visualization" alt="준비 (GIS)"></div>
+                    <p class="step-desc">QGIS로 실제 지형 좌표·고도 데이터를 추출하고, 언리얼 엔진에 임포트하기 위한 데이터 정합 작업을 진행합니다.</p>
+                    <span class="step-remark">데이터 무결성 확보 단계</span>
+                </div>
             </div>
 
             <div class="step-card">
-                <span class="step-number">02</span>
-                <div class="step-top">
-                    <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M21 16.5L12 21.5L3 16.5V7.5L12 2.5L21 7.5V16.5ZM12 4.1L5 8L12 11.9L19 8L12 4.1z"/></svg></div>
-                    <span class="step-title">모델링 (Blender)</span>
+                <div class="step-card-top">
+                    <span class="step-number">02</span>
+                    <span class="step-tag">5~7일</span>
                 </div>
-                <span class="step-tag">5~7일</span>
-                <p class="step-desc">교량 주탑, 상판 구조물 및 주변 주요 건물을 Blender에서 정밀 모델링합니다. 씬 최적화를 염두에 두고 폴리곤 수를 제어합니다.</p>
-                <span class="step-remark">최적화 중심 모델링 단계</span>
+                <div class="step-card-body">
+                    <div class="step-title-row">
+                        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M21 16.5L12 21.5L3 16.5V7.5L12 2.5L21 7.5V16.5ZM12 4.1L5 8L12 11.9L19 8L12 4.1z"/></svg></div>
+                        <span class="step-title">모델링 (Blender)</span>
+                    </div>
+                    <div class="step-img-wrap"><img src="https://via.placeholder.com/800x350/f0f2f5/a0aec0?text=3D+Modeling" alt="모델링 (Blender)"></div>
+                    <p class="step-desc">교량 주탑, 상판 구조물 및 주변 주요 건물을 Blender에서 정밀 모델링합니다. 씬 최적화를 염두에 두고 폴리곤 수를 제어합니다.</p>
+                    <span class="step-remark">최적화 중심 모델링 단계</span>
+                </div>
             </div>
 
             <div class="step-card">
-                <span class="step-number">03</span>
-                <div class="step-top">
-                    <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg></div>
-                    <span class="step-title">환경 구축 (UE5)</span>
+                <div class="step-card-top">
+                    <span class="step-number">03</span>
+                    <span class="step-tag">3~4일</span>
                 </div>
-                <span class="step-tag">3~4일</span>
-                <p class="step-desc">지형 데이터를 UE5에 임포트하고, 밤낮 전환 라이팅·볼류메트릭 구름·대기 세팅으로 전체적인 톤앤매너를 결정합니다.</p>
-                <span class="step-remark">전체적인 톤앤매너 결정</span>
+                <div class="step-card-body">
+                    <div class="step-title-row">
+                        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1z"/></svg></div>
+                        <span class="step-title">환경 구축 (UE5)</span>
+                    </div>
+                    <div class="step-img-wrap"><img src="https://via.placeholder.com/800x350/f0f2f5/a0aec0?text=Environment+Setup" alt="환경 구축 (UE5)"></div>
+                    <p class="step-desc">지형 데이터를 UE5에 임포트하고, 밤낮 전환 라이팅·볼류메트릭 구름·대기 세팅으로 전체적인 톤앤매너를 결정합니다.</p>
+                    <span class="step-remark">전체적인 톤앤매너 결정</span>
+                </div>
             </div>
 
             <div class="step-card">
-                <span class="step-number">04</span>
-                <div class="step-top">
-                    <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-                    <span class="step-title">디테일 업 (UE5)</span>
+                <div class="step-card-top">
+                    <span class="step-number">04</span>
+                    <span class="step-tag">4~6일</span>
                 </div>
-                <span class="step-tag">4~6일</span>
-                <p class="step-desc">재질 웨더링, 한강 수면 시뮬레이션, 식생 배치, 차량 트래픽 추가 등 실사 퀄리티를 완성하는 핵심 단계입니다.</p>
-                <span class="step-remark">실사 퀄리티 완성 단계</span>
+                <div class="step-card-body">
+                    <div class="step-title-row">
+                        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                        <span class="step-title">디테일 업 (UE5)</span>
+                    </div>
+                    <div class="step-img-wrap"><img src="https://via.placeholder.com/800x350/f0f2f5/a0aec0?text=Detailing+UE5" alt="디테일 업 (UE5)"></div>
+                    <p class="step-desc">재질 웨더링, 한강 수면 시뮬레이션, 식생 배치, 차량 트래픽 추가 등 실사 퀄리티를 완성하는 핵심 단계입니다.</p>
+                    <span class="step-remark">실사 퀄리티 완성 단계</span>
+                </div>
             </div>
 
             <div class="step-card">
-                <span class="step-number">05</span>
-                <div class="step-top">
-                    <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg></div>
-                    <span class="step-title">연출 (Sequencing)</span>
+                <div class="step-card-top">
+                    <span class="step-number">05</span>
+                    <span class="step-tag">2~3일</span>
                 </div>
-                <span class="step-tag">2~3일</span>
-                <p class="step-desc">Sequencer로 카메라 경로를 설계하고 드론뷰 모션을 튜닝합니다. 시간대 변화에 따른 컷 전환 흐름을 시네마틱하게 구성합니다.</p>
-                <span class="step-remark">시네마틱 흐름 설계</span>
+                <div class="step-card-body">
+                    <div class="step-title-row">
+                        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg></div>
+                        <span class="step-title">연출 (Sequencing)</span>
+                    </div>
+                    <div class="step-img-wrap"><img src="https://via.placeholder.com/800x350/f0f2f5/a0aec0?text=Sequencing" alt="연출 (Sequencing)"></div>
+                    <p class="step-desc">Sequencer로 카메라 경로를 설계하고 드론뷰 모션을 튜닝합니다. 시간대 변화에 따른 컷 전환 흐름을 시네마틱하게 구성합니다.</p>
+                    <span class="step-remark">시네마틱 흐름 설계</span>
+                </div>
             </div>
 
             <div class="step-card final">
-                <span class="step-number">06</span>
-                <div class="step-top">
-                    <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 12.5v-9l6 4.5-6 4.5z"/></svg></div>
-                    <span class="step-title" style="background: var(--grad-point); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">최종 출력 (Export)</span>
+                <div class="step-card-top">
+                    <span class="step-number">06</span>
+                    <span class="step-tag">렌더링 완료</span>
                 </div>
-                <span class="step-tag">렌더링 완료</span>
-                <p class="step-desc">최종 렌더링 후 2D 인포그래픽·자막을 합성하여 납품 포맷으로 출력합니다. 전체 워크플로우의 결과물이 완성되는 단계입니다.</p>
-                <span class="step-remark">최종 결과물 출력 및 완료</span>
+                <div class="step-card-body">
+                    <div class="step-title-row">
+                        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 12.5v-9l6 4.5-6 4.5z"/></svg></div>
+                        <span class="step-title">최종 출력 (Export)</span>
+                    </div>
+                    <div class="step-img-wrap"><img src="https://via.placeholder.com/800x350/f0f2f5/a0aec0?text=Final+Export" alt="최종 출력 (Export)"></div>
+                    <p class="step-desc">최종 렌더링 후 2D 인포그래픽·자막을 합성하여 납품 포맷으로 출력합니다. 전체 워크플로우의 결과물이 완성되는 단계입니다.</p>
+                    <span class="step-remark">최종 결과물 출력 및 완료</span>
+                </div>
             </div>
 
         </div>
     </section>
 </div>
-
-
-
-<svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
-  <linearGradient id="grad-point" x1="0%" y1="0%" x2="100%" y2="0%">
-    <stop offset="0%" stop-color="var(--point-blue)" /><stop offset="100%" stop-color="var(--point-purple)" />
-  </linearGradient>
-</svg>
 
 </body>
 </html>
