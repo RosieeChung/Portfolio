@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>3D 디자이너 포트폴리오</title>
+
+  <!-- CSS: feature-based -->
+  <link rel="stylesheet" href="assets/css/base.css?v=admin1">
+  <link rel="stylesheet" href="assets/css/landing.css?v=admin1">
+  <link rel="stylesheet" href="assets/css/workspace.css?v=admin1">
+  <link rel="stylesheet" href="assets/css/animations.css?v=admin1">
+  <link rel="stylesheet" href="assets/css/responsive.css?v=admin1">
+</head>
+<body>
+  <main class="app" id="app">
+    <div class="grid-bg"></div>
+    <div class="ambient ambient-a"></div>
+    <div class="ambient ambient-b"></div>
+
+    <div class="warp-layer" id="warpLayer" aria-hidden="true">
+      <span class="warp-core"></span>
+      <span class="warp-ring warp-ring-a"></span>
+      <span class="warp-ring warp-ring-b"></span>
+      <span class="warp-streaks"></span>
+    </div>
+
+    <!-- Landing -->
+    <section class="landing" id="landing">
+      <button class="start-folder" id="startFolder" type="button" aria-label="Open portfolio">
+        <span class="folder-shell" aria-hidden="true">
+          <span class="folder-back"></span>
+          <span class="folder-tab"></span>
+
+          <span class="folder-docs">
+            <span class="doc doc-left">
+              <span class="paper-stroke paper-accent" style="left:16px;top:26px;width:30px;"></span>
+              <span class="paper-stroke" style="left:16px;top:45px;width:58px;"></span>
+              <span class="paper-stroke paper-soft" style="left:16px;top:58px;width:58px;"></span>
+            </span>
+
+            <span class="doc doc-center">
+              <span class="profile-chip">
+                <span class="profile-head"></span>
+                <span class="profile-body"></span>
+              </span>
+              <span class="paper-stroke paper-accent" style="left:16px;top:26px;width:30px;"></span>
+              <span class="paper-stroke" style="left:16px;top:45px;width:58px;"></span>
+              <span class="paper-stroke paper-soft" style="left:16px;top:58px;width:58px;"></span>
+            </span>
+
+            <span class="doc doc-right">
+              <span class="paper-stroke paper-accent" style="left:16px;top:26px;width:30px;"></span>
+              <span class="paper-stroke" style="left:16px;top:45px;width:58px;"></span>
+              <span class="paper-stroke paper-soft" style="left:16px;top:58px;width:58px;"></span>
+            </span>
+          </span>
+
+          <span class="folder-front"></span>
+        </span>
+
+        <span class="folder-copy">
+          <span class="folder-eyebrow">3D DESIGNER</span>
+          <strong>Portfolio</strong>
+          <span>Open workspace</span>
+        </span>
+      </button>
+      <p class="landing-help">CLICK TO OPEN</p>
+    </section>
+
+    <!-- Workspace -->
+    <section class="workspace" id="workspace" aria-hidden="true">
+      <header class="topbar">
+        <button class="home-button" id="homeButton" type="button">포트폴리오</button>
+        <div class="breadcrumb" id="breadcrumb">포트폴리오 / 소개</div>
+        <span class="topbar-spacer" aria-hidden="true"></span>
+      </header>
+
+      <div class="workspace-shell">
+        <aside class="list-pane">
+          <div class="list-pane-header">
+            <div class="list-title-group">
+                            <h2 class="list-heading" id="listHeading">목차</h2>
+            </div>
+            <button class="back-button-local" id="backButton" type="button" hidden>← 뒤로</button>
+          </div>
+          <div class="location-trail" id="locationTrail" aria-label="Current location"></div>
+          <nav class="item-list" id="itemList" aria-label="Portfolio sections"></nav>
+        </aside>
+
+        <article class="content-pane" id="contentPane">
+          <div class="content-inner" id="contentInner"></div>
+        </article>
+      </div>
+</section>
+  </main>
+
+  <!-- JS: classic scripts for file:// compatibility -->
+  <script src="assets/js/data.js?v=admin1"></script>
+  <script src="assets/js/core.js?v=admin1"></script>
+  <script src="assets/js/views/portfolio.js?v=admin1"></script>
+  <script src="assets/js/views/project.js?v=admin1"></script>
+  <script src="assets/js/views/process.js?v=admin1"></script>
+  <script src="assets/js/navigation.js?v=admin1"></script>
+  <script src="assets/js/app.js?v=admin1"></script>
+</body>
+</html>

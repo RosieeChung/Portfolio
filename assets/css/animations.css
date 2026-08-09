@@ -1,0 +1,195 @@
+.start-folder{
+  transition:transform .58s cubic-bezier(.22,.72,.18,1),filter .28s ease;
+}
+
+.landing{
+  transition:
+    opacity .48s ease,
+    filter .48s ease,
+    transform .72s cubic-bezier(.22,.72,.18,1);
+}
+
+.workspace{
+  transition:
+    opacity .48s ease,
+    transform .78s cubic-bezier(.16,.84,.17,1),
+    filter .64s cubic-bezier(.16,.84,.17,1);
+}
+
+.content-inner{
+  transition:
+    opacity .25s ease,
+    transform .42s cubic-bezier(.22,.72,.18,1);
+}
+
+.warp-layer{
+  position:absolute;
+  inset:0;
+  z-index:30;
+  overflow:hidden;
+  pointer-events:none;
+  opacity:0;
+  visibility:hidden;
+}
+
+.warp-core{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:24vmin;
+  height:24vmin;
+  border-radius:50%;
+  transform:translate(-50%,-50%) scale(.35);
+  background:
+    radial-gradient(circle,
+      rgba(255,255,255,.92) 0%,
+      rgba(205,220,255,.34) 28%,
+      rgba(126,146,239,.12) 48%,
+      transparent 72%);
+  filter:blur(2px);
+}
+
+.warp-ring{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:18vmin;
+  height:18vmin;
+  border-radius:50%;
+  border:1px solid rgba(131,151,236,.22);
+  transform:translate(-50%,-50%) scale(.35);
+  opacity:0;
+}
+
+.warp-streaks{
+  position:absolute;
+  inset:-32%;
+  transform-origin:50% 50%;
+  background:
+    repeating-conic-gradient(
+      from 0deg at 50% 50%,
+      transparent 0deg 8deg,
+      rgba(103,135,236,.12) 8.4deg 9deg,
+      transparent 9.6deg 17deg
+    );
+  -webkit-mask-image:radial-gradient(circle at center,transparent 0 18%,#000 32%,rgba(0,0,0,.55) 55%,transparent 76%);
+  mask-image:radial-gradient(circle at center,transparent 0 18%,#000 32%,rgba(0,0,0,.55) 55%,transparent 76%);
+  opacity:0;
+  filter:blur(1.4px);
+}
+
+.warp-layer.active{
+  visibility:visible;
+  animation:warpLayerFade 860ms linear both;
+}
+
+.warp-layer.active .warp-core{
+  animation:warpCoreRush 860ms cubic-bezier(.18,.78,.16,1) both;
+}
+
+.warp-layer.active .warp-ring-a{
+  animation:warpRingRush 700ms cubic-bezier(.18,.78,.16,1) 70ms both;
+}
+
+.warp-layer.active .warp-ring-b{
+  animation:warpRingRush 700ms cubic-bezier(.18,.78,.16,1) 150ms both;
+}
+
+.warp-layer.active .warp-streaks{
+  animation:warpStreakRush 820ms cubic-bezier(.18,.78,.16,1) both;
+}
+
+.landing.entering{
+  pointer-events:none;
+  animation:landingDepthFade 860ms linear both;
+}
+
+.landing.entering .start-folder{
+  animation:folderDepthRush 860ms cubic-bezier(.18,.78,.16,1) both;
+  pointer-events:none;
+}
+
+.landing.entering .landing-help{
+  animation:landingHelpFade 300ms ease both;
+}
+
+.app.warping .grid-bg{
+  animation:gridDepthRush 860ms cubic-bezier(.18,.78,.16,1) both;
+}
+
+.app.warping .ambient-a,
+.app.warping .ambient-b{
+  animation:ambientDepthRush 860ms cubic-bezier(.18,.78,.16,1) both;
+}
+
+@keyframes folderDepthRush{
+  0%{transform:translateY(-6px) scale(1);filter:blur(0);opacity:1}
+  30%{transform:translateY(-8px) scale(1.10);filter:blur(.3px);opacity:1}
+  62%{transform:translateY(-5px) scale(1.72);filter:blur(2.2px);opacity:.98}
+  100%{transform:translateY(0) scale(3.65);filter:blur(13px);opacity:0}
+}
+
+@keyframes landingDepthFade{
+  0%,46%{opacity:1}
+  100%{opacity:0}
+}
+
+@keyframes landingHelpFade{
+  from{opacity:1}
+  to{opacity:0}
+}
+
+@keyframes warpLayerFade{
+  0%{opacity:0}
+  20%{opacity:.38}
+  62%{opacity:.72}
+  100%{opacity:0}
+}
+
+@keyframes warpCoreRush{
+  0%{transform:translate(-50%,-50%) scale(.30);opacity:0}
+  24%{opacity:.52}
+  70%{opacity:.76}
+  100%{transform:translate(-50%,-50%) scale(7.2);opacity:0}
+}
+
+@keyframes warpRingRush{
+  0%{transform:translate(-50%,-50%) scale(.35);opacity:0}
+  22%{opacity:.65}
+  100%{transform:translate(-50%,-50%) scale(8.8);opacity:0}
+}
+
+@keyframes warpStreakRush{
+  0%{transform:scale(.72);opacity:0}
+  26%{opacity:.24}
+  64%{opacity:.48}
+  100%{transform:scale(1.72);opacity:0}
+}
+
+@keyframes gridDepthRush{
+  0%{transform:scale(1);opacity:.70}
+  100%{transform:scale(1.22);opacity:.18}
+}
+
+@keyframes ambientDepthRush{
+  0%{transform:scale(1);filter:blur(100px);opacity:1}
+  100%{transform:scale(1.25);filter:blur(145px);opacity:.35}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .warp-layer,
+  .warp-layer *,
+  .landing.entering,
+  .landing.entering .start-folder,
+  .app.warping .grid-bg,
+  .app.warping .ambient-a,
+  .app.warping .ambient-b{
+    animation:none !important;
+  }
+
+  .workspace{
+    transition:opacity .18s ease !important;
+    transform:none !important;
+    filter:none !important;
+  }
+}

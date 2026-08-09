@@ -1,0 +1,77 @@
+:root{
+  --bg:#f8f7fc;
+  --surface:rgba(255,255,255,.78);
+  --surface-strong:rgba(255,255,255,.92);
+  --ink:#28194a;
+  --muted:#8478a1;
+  --line:rgba(81,62,128,.11);
+  --line-strong:rgba(104,75,190,.22);
+  --violet:#7451e8;
+  --violet-2:#9a76f2;
+  --blue:#3e73e6;
+  --blue-2:#6f93ef;
+}
+
+*{box-sizing:border-box}
+
+html,body{
+  margin:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
+body{
+  font-family:Inter,Pretendard,"Noto Sans KR",system-ui,-apple-system,sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 78% 18%,rgba(222,214,255,.50),transparent 28%),
+    radial-gradient(circle at 15% 75%,rgba(237,233,255,.72),transparent 36%),
+    var(--bg);
+}
+
+button{font:inherit}
+
+.app{
+  position:relative;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  isolation:isolate;
+}
+
+.grid-bg{
+  position:absolute;
+  inset:-20%;
+  z-index:0;
+  pointer-events:none;
+  opacity:.70;
+  background-image:
+    linear-gradient(45deg,rgba(72,55,115,.035) 1px,transparent 1px),
+    linear-gradient(-45deg,rgba(72,55,115,.035) 1px,transparent 1px);
+  background-size:24px 24px;
+}
+
+.ambient{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(100px);
+  pointer-events:none;
+  z-index:0;
+}
+
+.ambient-a{
+  width:420px;
+  height:420px;
+  right:8%;
+  top:8%;
+  background:rgba(163,139,243,.13);
+}
+
+.ambient-b{
+  width:460px;
+  height:460px;
+  left:5%;
+  bottom:0;
+  background:rgba(111,148,239,.11);
+}
