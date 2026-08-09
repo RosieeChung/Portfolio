@@ -5,7 +5,7 @@ window.PORTFOLIO = {
     "portfolioHeading": "포트폴리오"
   },
   "profile": {
-    "name": "YOUR NAME",
+    "name": "정로지",
     "role": "3D 디자이너",
     "intro": "형태, 재질, 조명과 제작 판단을 하나의 프로젝트 흐름 안에서 보여주는 3D 디자이너 포트폴리오.",
     "disciplines": [
