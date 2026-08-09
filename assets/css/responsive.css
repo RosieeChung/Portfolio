@@ -1,27 +1,78 @@
 @media(max-width:820px){
+  /*
+     Mobile workspace uses the page itself as the scroll surface.
+     This avoids the previous nested-scroll panel that looked clipped on phones.
+  */
+  html.workspace-open{
+    height:auto;
+    min-height:100%;
+    overflow:visible;
+  }
+
+  body.workspace-open{
+    height:auto;
+    min-height:100dvh;
+    overflow-x:hidden;
+    overflow-y:visible;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  body.workspace-open .app{
+    height:auto;
+    min-height:100dvh;
+    overflow:visible;
+  }
+
+  body.workspace-open .workspace{
+    position:relative;
+    inset:auto;
+    min-height:100dvh;
+    padding:66px 12px 26px;
+  }
+
   .topbar{
     left:14px;
     right:14px;
     top:10px;
   }
 
-  .workspace-shell{
-    width:calc(100vw - 24px);
-    height:calc(100vh - 92px);
+  body.workspace-open .topbar{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    height:58px;
+    padding:0 16px;
+    background:linear-gradient(to bottom,rgba(248,247,252,.96),rgba(248,247,252,.78));
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(81,62,128,.06);
+  }
+
+  .workspace-shell,
+  body.workspace-open .workspace-shell{
+    position:relative;
+    left:auto;
+    top:auto;
+    transform:none;
+    width:100%;
+    height:auto;
+    display:grid;
     grid-template-columns:1fr;
-    grid-template-rows:auto minmax(0,1fr);
+    grid-template-rows:auto auto;
     gap:10px;
   }
 
   .list-pane{
     border-radius:20px;
-    padding:14px 12px;
+    padding:12px 10px 11px;
+    overflow:visible;
   }
 
   .list-pane-header{
-    min-height:42px;
+    min-height:0;
     align-items:center;
-    padding:0 2px 8px;
+    padding:0 2px 6px;
     margin-bottom:0;
   }
 
@@ -36,26 +87,69 @@
   }
 
   .item-list{
-    display:flex;
-    overflow:auto;
+    display:grid;
     gap:6px;
+    overflow:visible;
   }
 
-  .list-item{
-    min-width:170px;
-    min-height:54px;
+  /* Level 0: 소개 / 경력 / 선정 프로젝트 are always visible together. */
+  .item-list.section-tabs{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+
+  .section-tabs .list-item{
+    min-width:0;
+    min-height:66px;
+    padding:8px 7px;
+    border-radius:15px;
+    grid-template-columns:28px minmax(0,1fr);
+    gap:7px;
+  }
+
+  .section-tabs .list-no{
+    width:28px;
+    height:28px;
+    border-radius:10px;
+    font-size:8px;
+  }
+
+  .section-tabs .list-copy strong{
+    font-size:10px;
+    line-height:1.25;
+    margin:0;
+    word-break:keep-all;
+  }
+
+  .section-tabs .list-copy span,
+  .section-tabs .list-arrow{
+    display:none;
   }
 
   .content-pane{
     border-radius:22px;
+    overflow:visible;
   }
 
-  .content-inner{
-    padding:28px 22px;
+  .content-inner,
+  body.workspace-open .content-inner{
+    position:relative;
+    inset:auto;
+    min-height:0;
+    padding:28px 22px 34px;
+    overflow:visible;
   }
 
   .content-title{
     font-size:34px;
+  }
+
+  .content-description{
+    margin-top:22px;
+    line-height:1.72;
+  }
+
+  .section-rule{
+    margin:28px 0 22px;
   }
 
   .summary-grid,
@@ -63,9 +157,28 @@
     grid-template-columns:1fr;
   }
 
+  .summary-card{
+    min-height:86px;
+  }
+
   .experience-row{
     grid-template-columns:1fr;
     gap:5px;
+  }
+
+  .location-trail{
+    margin:0 2px 8px;
+    min-height:28px;
+    overflow-x:auto;
+    scrollbar-width:none;
+  }
+
+  .location-trail::-webkit-scrollbar{
+    display:none;
+  }
+
+  .location-crumb{
+    max-width:118px;
   }
 
   .start-folder{
@@ -141,20 +254,42 @@
   }
 }
 
-
-@media(max-width:820px){
-  .location-trail{
-    margin:0 2px 8px;
-    min-height:28px;
-    overflow-x:auto;
-    scrollbar-width:none;
+@media(max-width:460px){
+  body.workspace-open .workspace{
+    padding-left:9px;
+    padding-right:9px;
   }
 
-  .location-trail::-webkit-scrollbar{
-    display:none;
+  body.workspace-open .topbar{
+    padding:0 12px;
   }
 
-  .location-crumb{
-    max-width:100px;
+  .breadcrumb{
+    max-width:56vw;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+
+  .section-tabs .list-item{
+    min-height:62px;
+    padding:8px 6px;
+    grid-template-columns:24px minmax(0,1fr);
+    gap:5px;
+  }
+
+  .section-tabs .list-no{
+    width:24px;
+    height:24px;
+    border-radius:9px;
+  }
+
+  .section-tabs .list-copy strong{
+    font-size:9px;
+  }
+
+  .content-inner,
+  body.workspace-open .content-inner{
+    padding:25px 18px 32px;
   }
 }

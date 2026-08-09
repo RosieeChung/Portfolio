@@ -47,6 +47,7 @@
   }
 
   function syncAccordion(stageId=state.stage || "concept",processId=state.process || null){
+    refs.itemList.classList.remove("section-tabs");
     refs.itemList.innerHTML = DATA.stages.map(stage =>
       accordionStageItem(stage,stageId,processId)
     ).join("");

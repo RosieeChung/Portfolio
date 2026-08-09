@@ -17,6 +17,7 @@
     refs.listHeading.textContent = portfolioHeading;
     refs.breadcrumb.textContent = `${homeLabel} / ${aboutItem?.label || "소개"}`;
 
+    refs.itemList.classList.add("section-tabs");
     refs.itemList.innerHTML = DATA.portfolioSections.map((item,index) =>
       helpers.listItem({
         id:item.id,

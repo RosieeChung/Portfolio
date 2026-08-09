@@ -17,6 +17,9 @@
     refs.warpLayer.classList.add("active");
 
     setTimeout(() => {
+      document.documentElement.classList.add("workspace-open");
+      document.body.classList.add("workspace-open");
+      window.scrollTo(0,0);
       refs.workspace.classList.add("show");
     },330);
 
@@ -30,6 +33,9 @@
   }
 
   function closeWorkspace(){
+    document.documentElement.classList.remove("workspace-open");
+    document.body.classList.remove("workspace-open");
+    window.scrollTo(0,0);
     refs.workspace.classList.remove("show");
     refs.workspace.setAttribute("aria-hidden","true");
     runtime.workspaceOpening = false;
