@@ -84,7 +84,31 @@ window.PORTFOLIO = {
       "eyebrow": "03 · 개인 프로젝트",
       "title": "선정 개인 프로젝트",
       "description": "하나의 개인 프로젝트를 콘셉트 → 모델링 → 룩디벨롭 → 최종 결과 순서로 깊게 보여줍니다.",
-      "navSubtitle": "개인 프로젝트"
+      "navSubtitle": "개인 프로젝트",
+      "projectCompositionTitle": "프로젝트 구성",
+      "projectCompositionItems": [
+        {
+          "title": "콘셉트",
+          "subtitle": "리서치와 방향 설정",
+          "media": [
+            {
+              "src": "assets/media/msnbkwsd-63d7d771-factory.png",
+              "alt": "factory",
+              "caption": ""
+            }
+          ]
+        },
+        {
+          "title": "모델링",
+          "subtitle": "형태와 구조",
+          "media": []
+        },
+        {
+          "title": "룩디벨롭",
+          "subtitle": "재질과 조명",
+          "media": []
+        }
+      ]
     }
   ],
   "stages": [
@@ -104,7 +128,13 @@ window.PORTFOLIO = {
         "reference",
         "direction"
       ],
-      "media": []
+      "media": [
+        {
+          "src": "assets/media/msnbljc3-8ba5310e-factory.png",
+          "alt": "factory",
+          "caption": ""
+        }
+      ]
     },
     {
       "id": "modeling",
