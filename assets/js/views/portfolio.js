@@ -43,6 +43,21 @@
     App.Navigation.syncContext();
 
     if(id === "about"){
+      const workStyleTitle = typeof DATA.profile.workStyleTitle === "string"
+        ? DATA.profile.workStyleTitle
+        : "작업 방식";
+      const rawWorkStyleItems = Array.isArray(DATA.profile.workStyleItems)
+        ? DATA.profile.workStyleItems
+        : (Array.isArray(item.bullets) ? item.bullets : []);
+      const workStyleItems = rawWorkStyleItems.map(entry => {
+        if(typeof entry === "string") return {text:entry,media:[]};
+        if(!entry || typeof entry !== "object") return {text:"",media:[]};
+        return {
+          text:typeof entry.text === "string" ? entry.text : "",
+          media:Array.isArray(entry.media) ? entry.media : []
+        };
+      });
+
       helpers.setContent(`
         <div class="content-eyebrow">${item.eyebrow}</div>
         <h1 class="content-title">${DATA.profile.name}</h1>
@@ -54,14 +69,26 @@
         </div>
 
         <div class="section-rule"></div>
-        <div class="section-label">작업 방식</div>
+        <div class="section-label">${workStyleTitle}</div>
         <div class="summary-grid">
-          ${item.bullets.map((x,i) => `
-            <div class="summary-card">
-              <span>0${i+1}</span>
-              <strong>${x}</strong>
-            </div>
-          `).join("")}
+          ${workStyleItems.map((x,i) => {
+            const image = x.media[0];
+            return `
+              <div class="summary-card workstyle-card">
+                <span>${String(i+1).padStart(2,"0")}</span>
+                ${image?.src ? `
+                  <div class="workstyle-card-image">
+                    <img
+                      src="${image.src}"
+                      alt="${image.alt || ""}"
+                      loading="lazy"
+                    >
+                  </div>
+                ` : ""}
+                <strong>${x.text}</strong>
+              </div>
+            `;
+          }).join("")}
         </div>
       `);
       return;
@@ -90,20 +117,51 @@
       return;
     }
 
+    const projectCompositionTitle = typeof item.projectCompositionTitle === "string"
+      ? item.projectCompositionTitle
+      : "프로젝트 구성";
+    const rawProjectCompositionItems = Array.isArray(item.projectCompositionItems)
+      ? item.projectCompositionItems
+      : DATA.stages.slice(0,3).map(stage => ({
+          title:stage.label,
+          subtitle:stage.subtitle,
+          media:[]
+        }));
+    const projectCompositionItems = rawProjectCompositionItems.map(entry => ({
+      title:typeof entry?.title === "string" ? entry.title : "",
+      subtitle:typeof entry?.subtitle === "string" ? entry.subtitle : "",
+      media:Array.isArray(entry?.media) ? entry.media : []
+    }));
+
     helpers.setContent(`
       <div class="content-eyebrow">${item.eyebrow}</div>
       <h1 class="content-title">${item.title}</h1>
       <p class="content-description">${item.description}</p>
 
       <div class="section-rule"></div>
-      <div class="section-label">프로젝트 구성</div>
-      <div class="summary-grid">
-        ${DATA.stages.slice(0,3).map(stage => `
-          <div class="summary-card">
-            <span>${stage.no}</span>
-            <strong>${stage.label}<br>${stage.subtitle}</strong>
-          </div>
-        `).join("")}
+      <div class="section-label">${projectCompositionTitle}</div>
+      <div class="summary-grid project-composition-grid">
+        ${projectCompositionItems.map((entry,index) => {
+          const image = entry.media[0];
+          return `
+            <div class="summary-card project-composition-card">
+              <span>${String(index+1).padStart(2,"0")}</span>
+              ${image?.src ? `
+                <div class="project-composition-card-image">
+                  <img
+                    src="${image.src}"
+                    alt="${image.alt || ""}"
+                    loading="lazy"
+                  >
+                </div>
+              ` : ""}
+              <div class="project-composition-card-copy">
+                <strong>${entry.title}</strong>
+                ${entry.subtitle ? `<small>${entry.subtitle}</small>` : ""}
+              </div>
+            </div>
+          `;
+        }).join("")}
       </div>
 
       <button class="project-open" id="openProject" type="button">프로젝트 과정 보기 →</button>

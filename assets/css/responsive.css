@@ -161,6 +161,38 @@
     min-height:86px;
   }
 
+  .workstyle-card{
+    min-height:0;
+    padding:12px;
+  }
+
+  .workstyle-card-image{
+    aspect-ratio:16/10;
+    margin-bottom:11px;
+  }
+
+  .workstyle-card > span{
+    margin-bottom:8px;
+  }
+
+  .project-composition-card{
+    min-height:0;
+    padding:12px;
+  }
+
+  .project-composition-card-image{
+    aspect-ratio:16/10;
+    margin-bottom:11px;
+  }
+
+  .project-composition-card > span{
+    margin-bottom:8px;
+  }
+
+  .project-composition-card-copy small{
+    font-size:10px;
+  }
+
   .experience-row{
     grid-template-columns:1fr;
     gap:5px;

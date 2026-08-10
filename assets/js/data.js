@@ -13,6 +13,27 @@ window.PORTFOLIO = {
       "룩디벨롭",
       "조명",
       "시각화"
+    ],
+    "workStyleTitle": "작업 방식",
+    "workStyleItems": [
+      {
+        "text": "형태와 비율을 먼저 읽고 구조를 정리합니다.",
+        "media": []
+      },
+      {
+        "text": "재질과 조명은 형태 가독성을 기준으로 테스트합니다.",
+        "media": [
+          {
+            "src": "assets/media/msn9vjzm-a02afc79-factory.png",
+            "alt": "factory",
+            "caption": ""
+          }
+        ]
+      },
+      {
+        "text": "최종 결과와 함께 과정의 선택 이유를 보여줍니다.",
+        "media": []
+      }
     ]
   },
   "experience": [
