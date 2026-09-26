@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700">
+  <defs><linearGradient id="paper" x1="0" y1="0" x2="0.72" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#edf6ff"/></linearGradient></defs>
+  <g>
+    <!-- narrower than V97; centered and clearly in front of side papers -->
+    <path d="M344 250 C346 231 359 219 378 217 L526 199 C545 197 558 209 559 228 L565 493 L365 515 C346 517 334 505 335 486 Z"
+          fill="url(#paper)" stroke="#d8e9fa" stroke-width="3"/>
+    <path d="M375 273 L413 269" stroke="#75b4ee" stroke-width="5.8" stroke-linecap="round"/>
+    <path d="M374 305 L491 292" stroke="#d3e5f7" stroke-width="5" stroke-linecap="round"/>
+    <path d="M376 328 L500 314" stroke="#deebf8" stroke-width="5" stroke-linecap="round"/>
+    <path d="M378 351 L489 338" stroke="#d3e5f7" stroke-width="5" stroke-linecap="round"/>
+    <path d="M380 374 L498 361" stroke="#deebf8" stroke-width="5" stroke-linecap="round"/>
+    <path d="M382 397 L487 385" stroke="#d3e5f7" stroke-width="5" stroke-linecap="round"/>
+    <g transform="translate(482 216) rotate(-5.4)">
+      <rect width="48" height="48" rx="14" fill="#f1f8ff" stroke="#d9eafb" stroke-width="2"/>
+      <circle cx="24" cy="16.5" r="7" fill="#6eaff0"/>
+      <path d="M13 38 C15 29 19 25 24 25 C30 25 34 29 36 38" fill="#6eaff0"/>
+    </g>
+  </g>
+</svg>

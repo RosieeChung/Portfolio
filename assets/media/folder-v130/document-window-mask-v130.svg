@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1254 1254" width="1254" height="1254" shape-rendering="geometricPrecision">
+  <!-- Slot opening: the long run follows the inner/top edge of the front-panel thickness. -->
+  <path d="M0 0H1254V342L1120 373
+    C950 411 780 449 620 485
+    C500 512 400 535 320 554
+    C292 560 274 566 267 576
+    C259 588 255 606 232 612
+    L0 654Z" fill="#fff"/>
+</svg>

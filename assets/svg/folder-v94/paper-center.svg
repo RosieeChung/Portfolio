@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700"><defs>
+  <linearGradient id="blueBack" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#63bdff"/>
+    <stop offset="0.50" stop-color="#3d9cf2"/>
+    <stop offset="1" stop-color="#2578df"/>
+  </linearGradient>
+  <linearGradient id="blueDeep" x1="0" y1="0" x2="0.9" y2="1">
+    <stop offset="0" stop-color="#2f86e9"/>
+    <stop offset="1" stop-color="#155ec9"/>
+  </linearGradient>
+  <linearGradient id="glassFront" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#8bd9ff" stop-opacity="0.93"/>
+    <stop offset="0.38" stop-color="#59b8f7" stop-opacity="0.93"/>
+    <stop offset="0.78" stop-color="#379ae9" stop-opacity="0.96"/>
+    <stop offset="1" stop-color="#2f8cdf" stop-opacity="0.98"/>
+  </linearGradient>
+  <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#e8fbff" stop-opacity="0.95"/>
+    <stop offset="0.42" stop-color="#b7ecff" stop-opacity="0.72"/>
+    <stop offset="1" stop-color="#6bc8ff" stop-opacity="0.75"/>
+  </linearGradient>
+  <linearGradient id="paper" x1="0" y1="0" x2="0.6" y2="1">
+    <stop offset="0" stop-color="#ffffff"/>
+    <stop offset="1" stop-color="#eef7ff"/>
+  </linearGradient>
+  <filter id="softShadow" x="-30%" y="-30%" width="160%" height="180%">
+    <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#315f92" flood-opacity="0.16"/>
+  </filter>
+  <filter id="paperShadow" x="-30%" y="-30%" width="160%" height="180%">
+    <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#5c83a8" flood-opacity="0.14"/>
+  </filter>
+</defs>
+  <g filter="url(#paperShadow)">
+    <path d="M292 236 Q294 214 316 211 L489 193 Q512 190 514 214 L526 509 L307 532 Z" fill="url(#paper)" stroke="#d8eafa" stroke-width="3"/>
+    <path d="M325 254 L366 250" stroke="#79b8ef" stroke-width="6" stroke-linecap="round"/>
+    <path d="M326 287 L446 274" stroke="#cfe4f7" stroke-width="5" stroke-linecap="round"/>
+    <path d="M327 310 L466 295" stroke="#dbeaf8" stroke-width="5" stroke-linecap="round"/>
+    <path d="M328 333 L456 319" stroke="#cfe4f7" stroke-width="5" stroke-linecap="round"/>
+    <path d="M329 356 L469 341" stroke="#dbeaf8" stroke-width="5" stroke-linecap="round"/>
+    <path d="M330 379 L449 366" stroke="#cfe4f7" stroke-width="5" stroke-linecap="round"/>
+    <path d="M331 402 L462 388" stroke="#dbeaf8" stroke-width="5" stroke-linecap="round"/>
+    <g transform="translate(432 213) rotate(-5)">
+      <rect x="0" y="0" width="52" height="52" rx="16" fill="#f0f7ff" stroke="#d6e9fb" stroke-width="2"/>
+      <circle cx="26" cy="19" r="8" fill="#79b9f1"/>
+      <path d="M13 42 C14 31 20 27 26 27 C32 27 38 31 39 42" fill="#79b9f1"/>
+    </g>
+
+  </g>
+</svg>

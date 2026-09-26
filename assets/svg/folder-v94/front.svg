@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700"><defs>
+  <linearGradient id="blueBack" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#63bdff"/>
+    <stop offset="0.50" stop-color="#3d9cf2"/>
+    <stop offset="1" stop-color="#2578df"/>
+  </linearGradient>
+  <linearGradient id="blueDeep" x1="0" y1="0" x2="0.9" y2="1">
+    <stop offset="0" stop-color="#2f86e9"/>
+    <stop offset="1" stop-color="#155ec9"/>
+  </linearGradient>
+  <linearGradient id="glassFront" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#8bd9ff" stop-opacity="0.93"/>
+    <stop offset="0.38" stop-color="#59b8f7" stop-opacity="0.93"/>
+    <stop offset="0.78" stop-color="#379ae9" stop-opacity="0.96"/>
+    <stop offset="1" stop-color="#2f8cdf" stop-opacity="0.98"/>
+  </linearGradient>
+  <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#e8fbff" stop-opacity="0.95"/>
+    <stop offset="0.42" stop-color="#b7ecff" stop-opacity="0.72"/>
+    <stop offset="1" stop-color="#6bc8ff" stop-opacity="0.75"/>
+  </linearGradient>
+  <linearGradient id="paper" x1="0" y1="0" x2="0.6" y2="1">
+    <stop offset="0" stop-color="#ffffff"/>
+    <stop offset="1" stop-color="#eef7ff"/>
+  </linearGradient>
+  <filter id="softShadow" x="-30%" y="-30%" width="160%" height="180%">
+    <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#315f92" flood-opacity="0.16"/>
+  </filter>
+  <filter id="paperShadow" x="-30%" y="-30%" width="160%" height="180%">
+    <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#5c83a8" flood-opacity="0.14"/>
+  </filter>
+</defs>
+  <g filter="url(#softShadow)">
+    <path d="M166 350 Q168 322 196 317 L634 268 Q667 264 672 295 L654 507 Q651 538 622 544 L203 594 Q174 597 166 570 Z" fill="url(#glassFront)" stroke="#5ab8f5" stroke-width="6"/>
+    <path d="M166 350 L184 365 L184 559 Q184 575 203 576 L203 594 Q174 597 166 570 Z" fill="#237bdc" opacity="0.83"/>
+    <path d="M203 594 L622 544 Q651 538 654 507 L656 486 Q652 528 616 535 L201 584 Z" fill="#216fcf" opacity="0.72"/>
+    <path d="M184 348 Q188 332 205 329 L632 282 Q652 279 655 296" fill="none" stroke="url(#rim)" stroke-width="5" stroke-linecap="round"/>
+    <path d="M187 371 L187 551 Q187 571 208 568 L613 520" fill="none" stroke="#c7f0ff" stroke-opacity="0.42" stroke-width="3" stroke-linecap="round"/>
+    <path d="M208 337 L628 291" stroke="#ffffff" stroke-opacity="0.22" stroke-width="2" stroke-linecap="round"/>
+    <path d="M210 347 L625 302" stroke="#6dd2ff" stroke-opacity="0.16" stroke-width="9" stroke-linecap="round"/>
+  </g>
+</svg>

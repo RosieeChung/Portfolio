@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700"><defs>
+  <linearGradient id="blueBack" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#63bdff"/>
+    <stop offset="0.50" stop-color="#3d9cf2"/>
+    <stop offset="1" stop-color="#2578df"/>
+  </linearGradient>
+  <linearGradient id="blueDeep" x1="0" y1="0" x2="0.9" y2="1">
+    <stop offset="0" stop-color="#2f86e9"/>
+    <stop offset="1" stop-color="#155ec9"/>
+  </linearGradient>
+  <linearGradient id="glassFront" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#8bd9ff" stop-opacity="0.93"/>
+    <stop offset="0.38" stop-color="#59b8f7" stop-opacity="0.93"/>
+    <stop offset="0.78" stop-color="#379ae9" stop-opacity="0.96"/>
+    <stop offset="1" stop-color="#2f8cdf" stop-opacity="0.98"/>
+  </linearGradient>
+  <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#e8fbff" stop-opacity="0.95"/>
+    <stop offset="0.42" stop-color="#b7ecff" stop-opacity="0.72"/>
+    <stop offset="1" stop-color="#6bc8ff" stop-opacity="0.75"/>
+  </linearGradient>
+  <linearGradient id="paper" x1="0" y1="0" x2="0.6" y2="1">
+    <stop offset="0" stop-color="#ffffff"/>
+    <stop offset="1" stop-color="#eef7ff"/>
+  </linearGradient>
+  <filter id="softShadow" x="-30%" y="-30%" width="160%" height="180%">
+    <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#315f92" flood-opacity="0.16"/>
+  </filter>
+  <filter id="paperShadow" x="-30%" y="-30%" width="160%" height="180%">
+    <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#5c83a8" flood-opacity="0.14"/>
+  </filter>
+</defs>
+  <g filter="url(#paperShadow)">
+    <path d="M190 278 Q192 258 213 255 L382 236 Q404 234 407 255 L424 525 L208 548 Z" fill="url(#paper)" stroke="#d8eafa" stroke-width="3"/>
+    <path d="M219 286 L254 282" stroke="#79b8ef" stroke-width="6" stroke-linecap="round"/>
+    <path d="M220 315 L354 299" stroke="#cfe4f7" stroke-width="5" stroke-linecap="round"/>
+    <path d="M221 337 L365 320" stroke="#dbeaf8" stroke-width="5" stroke-linecap="round"/>
+    <path d="M222 359 L346 344" stroke="#cfe4f7" stroke-width="5" stroke-linecap="round"/>
+    <path d="M223 381 L362 364" stroke="#dbeaf8" stroke-width="5" stroke-linecap="round"/>
+    <path d="M224 403 L344 389" stroke="#cfe4f7" stroke-width="5" stroke-linecap="round"/>
+
+  </g>
+</svg>

@@ -1,0 +1,54 @@
+/* Work-style cards: image, number/title, description and tool badge. */
+.section-page-mode .section-document-about > .section-document-block,
+.section-page-mode .section-document-experience > .section-document-block{padding-top:52px}
+.section-page-mode .experience-list-wide .experience-row:first-child{border-top:0;padding-top:0}
+.section-page-mode .workstyle-grid-wide{gap:24px;align-items:stretch}
+.section-page-mode .workstyle-card{padding:0;min-height:0;border:0;border-radius:22px;overflow:hidden;background:#fff;box-shadow:0 8px 28px rgba(59,114,158,.055)}
+.section-page-mode .workstyle-card-image{width:100%;aspect-ratio:1.9;margin:0;border:0;border-radius:0;background:#edf5fb}
+.section-page-mode .workstyle-card-image img{width:100%;height:100%;object-fit:cover}
+.section-page-mode .workstyle-card-body{display:flex;flex:1;flex-direction:column;align-items:flex-start;padding:24px}
+.section-page-mode .workstyle-card .workstyle-number{margin:0 0 12px;font-size:14px;font-weight:650;line-height:1;color:#8198b3}
+.section-page-mode .workstyle-title{margin:0 0 12px;color:#213d53;font-size:clamp(21px,1.8vw,28px);font-weight:750;line-height:1.25;letter-spacing:-.035em;word-break:keep-all}
+.section-page-mode .workstyle-description{margin:0 0 26px;color:#617b94;font-size:14px;line-height:1.75;word-break:keep-all;overflow-wrap:anywhere}
+.section-page-mode .workstyle-footer{display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;margin-top:auto;width:100%}
+.section-page-mode .workstyle-card .workstyle-tool{display:inline-flex;align-items:center;gap:8px;flex-shrink:0;margin:0;padding:9px 12px;background:#eaf4ff;border-radius:999px;color:#087fe9;font-size:12px;line-height:1.25;font-weight:650;white-space:nowrap}
+.workstyle-tool svg{display:block;width:18px;height:18px;flex:none}
+.section-page-mode .workstyle-card .workstyle-tool-detail{display:block;margin:0;color:#71859b;font-size:11px;line-height:1.55;word-break:keep-all}
+@media(max-width:1050px){.section-page-mode .workstyle-grid-wide{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){.section-page-mode .workstyle-grid-wide{grid-template-columns:1fr;gap:22px}.section-page-mode .workstyle-card-body{padding:22px}.section-page-mode .workstyle-title{font-size:25px}}
+
+.section-page-mode .experience-scope{white-space:pre-wrap}
+.section-page-mode .experience-links{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:14px}
+.section-page-mode .experience-link-item{padding:0;border:0;background:none;font-size:12px;line-height:1.7;color:#71879b}
+.section-page-mode .experience-link-item p{margin:3px 0 0;font-size:12px;line-height:1.7;color:#71879b;white-space:pre-wrap}
+.section-page-mode .experience-link-item a{color:#2581c6;text-decoration:underline;text-decoration-color:#8bb9da;text-underline-offset:3px;font-size:12px;line-height:1.7;overflow-wrap:anywhere}
+.section-page-mode .experience-link-item a:hover{color:#2581c6;text-decoration-color:currentColor}
+.section-page-mode .experience-link-item a:focus-visible{outline:2px solid #2581c6;outline-offset:4px;border-radius:3px}
+.section-page-mode .experience-tools{display:flex;align-items:baseline;gap:12px;margin-top:10px;font-size:12px;line-height:1.75;color:#71879b;white-space:pre-wrap;overflow-wrap:anywhere}
+.section-page-mode .experience-tools-label{flex:none;font-size:11px;color:#8b9fb0}
+
+.section-page-mode .experience-project{white-space:pre-wrap}
+.section-page-mode .experience-scope,.section-page-mode .experience-link-item p{overflow-wrap:anywhere}
+
+.section-page-mode .experience-external-mark{display:inline-block;margin-left:5px;font-size:12px;line-height:1;vertical-align:baseline}
+
+.section-page-mode .experience-link-item a{display:inline-flex;align-items:baseline;gap:7px;max-width:100%}
+.section-page-mode .experience-link-icon{width:13px;height:13px;flex:none;align-self:flex-start;margin-top:4px;opacity:.8}
+.section-page-mode .experience-external-mark{margin-left:0;flex:none}
+.section-page-mode .experience-role-subtitle{margin:10px 0 20px;color:#70879c;font-size:14px;font-weight:500;line-height:1.6;letter-spacing:.01em;overflow-wrap:anywhere;white-space:pre-wrap}
+
+/* Each record owns its school label and centered node. Lines end at nodes. */
+.section-page-mode .research-timeline{margin-top:24px;min-width:0;overflow-x:auto;scrollbar-width:thin;scrollbar-color:#cbdce9 transparent}
+.section-page-mode .research-timeline-list{display:grid;grid-template-columns:repeat(var(--timeline-count),minmax(320px,1fr));list-style:none;margin:0 auto;padding:0 0 8px;width:100%;min-width:calc(var(--timeline-count) * 320px);max-width:1100px}
+.section-page-mode .research-timeline-item{position:relative;min-width:0;text-align:center;padding:0 16px;font-size:12px;line-height:1.7}
+.section-page-mode .research-timeline-school{display:block;height:38px;color:#8395a6;font-size:12px;font-weight:550;white-space:nowrap}
+.section-page-mode .research-timeline-marker{display:block;position:relative;height:20px}
+.section-page-mode .research-timeline-marker:after{content:"";position:absolute;left:50%;top:2px;transform:translateX(-50%);width:7px;height:7px;border-radius:50%;background:#a7c3d8}
+.section-page-mode .research-timeline-item:not(:last-child):before{content:"";position:absolute;left:50%;width:100%;top:43px;height:1px;background:#e0e9f0}
+.section-page-mode .research-timeline-period{display:block;margin-bottom:4px;color:#91a3b3;font-size:11px}
+.section-page-mode .research-timeline-title{display:block;color:#71889c;font-size:12px;font-weight:500;white-space:nowrap}
+.section-page-mode .research-timeline-item a{display:inline-flex;align-items:baseline;justify-content:center;gap:7px;margin-top:8px;max-width:100%;color:#548aae;font-size:11px;text-decoration:underline;text-decoration-color:#bacfdd;text-underline-offset:3px;overflow-wrap:anywhere}
+.section-page-mode .research-timeline-item a:hover{color:#2581c6}
+.section-page-mode .research-timeline a:focus-visible,.section-page-mode .research-timeline-list:focus-visible{outline:2px solid #8bb9da;outline-offset:3px}
+.section-page-mode .section-document-experience > .research-timeline + .section-document-block{padding-top:60px}
+@media(max-width:680px){.section-page-mode .research-timeline{margin-top:30px}}

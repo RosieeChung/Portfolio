@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700">
+  <defs>
+    <linearGradient id="face" x1="0.06" y1="0.05" x2="0.94" y2="0.95">
+      <stop offset="0" stop-color="#73c8ff"/>
+      <stop offset="0.48" stop-color="#52aef7"/>
+      <stop offset="1" stop-color="#2d7ee8"/>
+    </linearGradient>
+    <linearGradient id="side" x1="0" y1="0" x2="0.15" y2="1">
+      <stop offset="0" stop-color="#3190ef"/>
+      <stop offset="0.64" stop-color="#216bd9"/>
+      <stop offset="1" stop-color="#2ac8f4"/>
+    </linearGradient>
+    <linearGradient id="cavity" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e8f6ff" stop-opacity="0.72"/>
+      <stop offset="0.52" stop-color="#c7e5ff" stop-opacity="0.46"/>
+      <stop offset="1" stop-color="#9fcfff" stop-opacity="0.24"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.92"/>
+      <stop offset="0.5" stop-color="#dff8ff" stop-opacity="0.58"/>
+      <stop offset="1" stop-color="#8fe1ff" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- substantial left thickness, part of the same folder body -->
+  <path d="M145 238 C143 204 162 179 194 173 L216 169 L216 556 L195 562 C167 568 148 552 147 522 Z"
+        fill="url(#side)"/>
+
+  <!-- rear folder body: taller tab and stronger isometric slope -->
+  <path d="M166 230 C164 197 183 173 217 167 L338 150 C366 146 388 156 404 177 L444 226 L637 204 C671 200 693 220 691 255 L681 516 C679 549 659 568 628 572 L218 602 C187 605 168 588 167 556 Z"
+        fill="url(#face)" stroke="#78d8ff" stroke-width="4.2"/>
+
+  <!-- real cavity behind the papers -->
+  <path d="M198 266 C197 241 212 224 237 220 L343 205 C364 202 381 210 393 226 L418 258 L610 236 C635 233 651 247 650 272 L641 492 C640 516 626 530 602 533 L241 559 C217 561 201 547 201 522 Z"
+        fill="url(#cavity)" stroke="#edfaff" stroke-opacity="0.52" stroke-width="2.6"/>
+
+  <path d="M181 228 C182 200 198 184 223 180 L338 164 C362 161 379 169 394 188 L434 236 L636 214 C660 211 675 223 677 246"
+        fill="none" stroke="url(#rim)" stroke-width="4.4" stroke-linecap="round"/>
+  <path d="M178 252 L178 540 C178 560 189 571 208 570"
+        fill="none" stroke="#d4f7ff" stroke-opacity="0.48" stroke-width="3.4" stroke-linecap="round"/>
+  <path d="M208 585 L623 555" fill="none" stroke="#4be5ff" stroke-opacity="0.24" stroke-width="6" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700">
+  <defs><linearGradient id="paper" x1="0" y1="0" x2="0.72" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#edf6ff"/></linearGradient></defs>
+  <g>
+    <!-- same isometric slope as every other paper -->
+    <path d="M232 300 C234 282 247 270 265 268 L437 246 C456 244 469 256 470 275 L476 506 L257 531 C238 533 226 521 227 503 Z"
+          fill="url(#paper)" stroke="#d8e9fa" stroke-width="3"/>
+    <path d="M263 322 L300 318" stroke="#7ab8ef" stroke-width="5.8" stroke-linecap="round"/>
+    <path d="M262 354 L404 338" stroke="#d4e6f7" stroke-width="5" stroke-linecap="round"/>
+    <path d="M264 377 L413 360" stroke="#deebf8" stroke-width="5" stroke-linecap="round"/>
+    <path d="M266 400 L401 385" stroke="#d4e6f7" stroke-width="5" stroke-linecap="round"/>
+    <path d="M268 423 L410 407" stroke="#deebf8" stroke-width="5" stroke-linecap="round"/>
+  </g>
+</svg>

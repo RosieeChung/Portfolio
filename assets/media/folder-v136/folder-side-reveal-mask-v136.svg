@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1254 1254" width="1254" height="1254" shape-rendering="geometricPrecision">
+  <!-- Reveal only the narrow left-side opening. The front face remains above the paper everywhere else. -->
+  <path d="M135 600L292 575C278 640 268 730 258 830L242 1040L140 1080Z" fill="#fff"/>
+</svg>

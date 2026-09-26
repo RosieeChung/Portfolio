@@ -2,65 +2,128 @@
 window.PORTFOLIO = {
   "ui": {
     "homeLabel": "포트폴리오",
-    "portfolioHeading": "포트폴리오"
+    "portfolioHeading": "포트폴리오",
+    "worksLabel": "작업모음",
+    "typography": {
+      "heroTitleSize": 40,
+      "heroTitleWeight": 700,
+      "sectionTitleSize": 38,
+      "sectionTitleWeight": 700,
+      "indexHeadingSize": 26,
+      "indexHeadingWeight": 700,
+      "navLabelSize": 12,
+      "navLabelWeight": 700,
+      "navSubtitleSize": 12,
+      "navSubtitleWeight": 500,
+      "eyebrowSize": 12,
+      "eyebrowWeight": 400,
+      "bodySize": 15,
+      "bodyWeight": 400
+    },
+    "worksPublished": false
   },
   "profile": {
-    "name": "정로지",
+    "name": "정 두 휘",
     "role": "3D 디자이너",
-    "intro": "형태, 재질, 조명과 제작 판단을 하나의 프로젝트 흐름 안에서 보여주는 3D 디자이너 포트폴리오.",
+    "intro": "안녕하세요.\n형태, 재질, 조명과 제작 판단을 하나의 프로젝트 흐름 안에서 보여주는 3D 디자이너 포트폴리오입니다.",
     "disciplines": [
       "모델링",
-      "룩디벨롭",
-      "조명",
-      "시각화"
+      "Infrastructure Modeling",
+      "실사 환경",
+      "Lookdev"
     ],
     "workStyleTitle": "작업 방식",
     "workStyleItems": [
       {
-        "text": "형태와 비율을 먼저 읽고 구조를 정리합니다.",
-        "media": []
-      },
-      {
-        "text": "재질과 조명은 형태 가독성을 기준으로 테스트합니다.",
+        "text": "지형과 수계, 도로, 건물 등 다양한 공간 데이터를 정리해 설계의 기준이 되는 대상을 구축합니다.",
         "media": [
           {
-            "src": "assets/media/msn9vjzm-a02afc79-factory.png",
-            "alt": "factory",
-            "caption": ""
+            "src": "assets/media/muiq88qp-c18b4fa8-작업방식-1.png",
+            "alt": "작업방식 1",
+            "caption": "",
+            "layout": "full"
           }
-        ]
+        ],
+        "title": "공간 읽기",
+        "tool": "QGIS",
+        "toolDetail": "국토지리정보원 · QGIS"
       },
       {
-        "text": "최종 결과와 함께 과정의 선택 이유를 보여줍니다.",
-        "media": []
+        "text": "주변 환경과의 관계를 고려하여 형태와 연결 구조를 단계적으로 구체화합니다.",
+        "media": [
+          {
+            "src": "assets/media/muiq99bz-1db7e178-작업방식-2.png",
+            "alt": "작업방식 2",
+            "caption": "",
+            "layout": "full"
+          }
+        ],
+        "title": "형태 설계",
+        "tool": "Blender",
+        "toolDetail": "Modeling · Structure"
+      },
+      {
+        "text": "재질과 조명을 테스트하며 장면의 완성도를 검증하고 최종 결과를 완성합니다.",
+        "media": [
+          {
+            "src": "assets/media/muipgsjp-21eb8b0b-작업방식-3.png",
+            "alt": "시각화 검증",
+            "caption": "",
+            "layout": "full"
+          }
+        ],
+        "title": "시각화 검증",
+        "tool": "Unreal Engine",
+        "toolDetail": "Material · Lighting · Rendering"
       }
-    ]
+    ],
+    "landing": {
+      "headline": "3D Environment Art",
+      "title": "Portfolio",
+      "subtitle": "Open Workspace"
+    }
   },
   "experience": [
     {
-      "period": "2026.03 — 현재",
-      "role": "3D 디자이너",
-      "project": "사내 비공개 프로젝트",
-      "scope": "모델링 · 룩디벨롭 · 시각화"
+      "period": "2023.03 — 현재",
+      "role": "3D 영상 디자이너",
+      "project": "사내 프로젝트 (실감형 영상, 회사 홍보 영상)",
+      "scope": "모델링 · 실사화 작업 · 영상제작 및 영상편집\n\n",
+      "links": [
+        {
+          "title": "관련 보도 보기 · MBC",
+          "description": "",
+          "url": "https://youtu.be/tw6-GNqCxTo?t=38"
+        },
+        {
+          "title": "공식 S/W 홈페이지 · 주요기능 03 모션",
+          "description": "",
+          "url": "https://eg-bim.com/egbim/index.php"
+        }
+      ],
+      "tools": "Blender · Unreal Engine · Adobe AE · Pr · Ps · Ai",
+      "roleSubtitle": "Public Infrastructure Visualization"
     },
     {
-      "period": "2025.01 — 2026.02",
-      "role": "3D 디자이너",
-      "project": "비공개 프로젝트",
-      "scope": "에셋 제작 · 재질 · 조명"
+      "period": "2022.09 — 2023.02",
+      "role": "영상 디자이너",
+      "project": "기업 홍보 영상",
+      "scope": "영상제작 및 영상편집 (2D · 3D)",
+      "tools": "Adobe AE · Pr · Ps · Ai · Cinema4D"
     },
     {
-      "period": "2024.04 — 2024.12",
-      "role": "3D 제작 / 디자인 지원",
-      "project": "내부 제작 업무",
-      "scope": "모델링 · 렌더링 · 디자인 지원"
+      "period": "2021.10 — 2022.8",
+      "role": "편집 디자이너",
+      "project": "외국 제품 국내 현지화 지원 · 디자인 작업",
+      "scope": "편집디자인 · 디자인 제작 지원 (2D · 3D)",
+      "tools": "Adobe Ps · Ai · AE · Cinema4D"
     }
   ],
   "portfolioSections": [
     {
       "id": "about",
       "label": "소개",
-      "eyebrow": "01 · 프로필",
+      "eyebrow": "03 · 프로필",
       "title": "3D 디자이너",
       "description": "결과 이미지뿐 아니라 어떤 판단을 거쳐 결과에 도달했는지 보여주는 포트폴리오입니다.",
       "bullets": [
@@ -75,350 +138,550 @@ window.PORTFOLIO = {
       "label": "경력",
       "eyebrow": "02 · 경력",
       "title": "경력",
-      "description": "회사 프로젝트는 비공개이므로 기간, 역할, 담당 범위를 중심으로 정리합니다.",
+      "description": "",
       "navSubtitle": "경력 타임라인"
     },
     {
       "id": "selected-project",
-      "label": "선정 프로젝트",
-      "eyebrow": "03 · 개인 프로젝트",
-      "title": "선정 개인 프로젝트",
-      "description": "하나의 개인 프로젝트를 콘셉트 → 모델링 → 룩디벨롭 → 최종 결과 순서로 깊게 보여줍니다.",
-      "navSubtitle": "개인 프로젝트",
-      "projectCompositionTitle": "프로젝트 구성",
-      "projectCompositionItems": [
+      "label": "대표 프로젝트",
+      "eyebrow": "01 · 프로젝트",
+      "title": "김시민대교 실사화 프로젝트",
+      "description": "실제 지리·공간 데이터를 기반으로 김시민대교 일대를 3D 환경으로 구축하는 프로젝트입니다. 정사영상과 좌표 데이터를 활용해 지형과 주변 건물을 구성하고, 교량·도로 모델링부터 Unreal Engine 실사 환경 제작까지 진행하고 있습니다.",
+      "navSubtitle": "실사 환경 프로젝트",
+      "heroMedia": [
         {
-          "title": "콘셉트",
-          "subtitle": "리서치와 방향 설정",
-          "media": [
-            {
-              "src": "assets/media/msnbkwsd-63d7d771-factory.png",
-              "alt": "factory",
-              "caption": ""
-            }
-          ]
+          "src": "assets/media/mui6szmy-63ad73ae-S01-0065.png",
+          "alt": "김시민대교",
+          "caption": "재질·식생·라이팅을 적용한 렌더",
+          "layout": "full",
+          "label": "Final"
         },
         {
-          "title": "모델링",
-          "subtitle": "형태와 구조",
-          "media": []
+          "src": "assets/media/mui7iu6j-ac39f140-S01-LightingOnly-0068.png",
+          "alt": "김시민대교 Lighting",
+          "caption": "형태와 빛을 확인하는 라이팅 렌더",
+          "layout": "full",
+          "label": "Lighting"
         },
         {
-          "title": "룩디벨롭",
-          "subtitle": "재질과 조명",
-          "media": []
+          "src": "assets/media/mui8j1yu-b43d95b6-S01-Wireframe-0071.png",
+          "alt": "김시민대교 Wireframe",
+          "caption": "메시 구성을 확인하는 와이어프레임 렌더",
+          "layout": "full",
+          "label": "Wireframe"
         }
-      ]
+      ],
+      "projectCompositionTitle": "제작 파이프라인",
+      "projectCompositionDescription": "자료 조사와 공간 데이터 정리부터 3D 환경 구축, 구조물 모델링, Unreal Engine 실사 환경 제작까지 이어지는 전체 흐름입니다.",
+      "projectFlowStatement": "REAL-WORLD DATA → RESEARCH / GIS → 3D BUILD → MODELING → REAL-TIME ENVIRONMENT",
+      "projectFacts": {
+        "role": "3D Environment Design",
+        "scope": "GIS Data Processing · Terrain · Infrastructure Modeling · Material · Vegetation",
+        "tools": "QGIS · Blender · Unreal Engine",
+        "data": "VWorld · 국토지리정보원",
+        "status": "Work in Progress"
+      },
+      "projectPipelineVersion": 33
     }
   ],
+  "works": [],
   "stages": [
     {
-      "id": "concept",
+      "id": "base-build",
       "no": "01",
-      "label": "콘셉트",
-      "subtitle": "리서치와 방향 설정",
-      "description": "프로젝트의 목적과 제약을 정의하고, 시각적 방향을 선택하는 단계입니다.",
+      "english": "RESEARCH & BASE BUILD",
+      "label": "자료 조사 · 지형 및 주변 환경 구축",
+      "subtitle": "Research · GIS · Terrain · Buildings",
+      "description": "정사영상·도면·거리뷰 등 기준 자료를 수집하고 QGIS에서 작업 영역과 좌표를 정리합니다. 이를 바탕으로 대상 지역의 지형과 주변 건물을 구축합니다.",
       "summary": [
-        "목표와 문제 정의",
-        "형태 / 재질 / 분위기 레퍼런스 분류",
-        "초기 옵션 비교와 방향 선택"
+        "정사영상·도면·거리뷰 등 기준 자료 수집",
+        "QGIS 작업 영역과 좌표 기준 정리",
+        "지형과 주변 건물 구축"
       ],
       "process": [
-        "research",
-        "reference",
-        "direction"
+        "source-data",
+        "data-prep",
+        "qgis-coordinates",
+        "terrain-build",
+        "surrounding-buildings"
       ],
-      "media": [
-        {
-          "src": "assets/media/msnbljc3-8ba5310e-factory.png",
-          "alt": "factory",
-          "caption": ""
-        }
-      ]
+      "pipelineMedia": [],
+      "media": []
     },
     {
       "id": "modeling",
       "no": "02",
-      "label": "모델링",
-      "subtitle": "형태와 구조",
-      "description": "큰 형태부터 세부 구조까지 단계적으로 밀도를 높이며 제작 가능한 형태로 정리합니다.",
+      "english": "MODELING",
+      "label": "교량 · 도로 모델링",
+      "subtitle": "Bridge · Road",
+      "description": "지형과 주변 환경을 기준으로 김시민대교와 연결 도로 등 주요 구조물을 Blender에서 제작하고, 실제 환경과 자연스럽게 연결되도록 형태·비율·레벨을 조정합니다.",
       "summary": [
-        "블록아웃으로 비율과 실루엣 확인",
-        "스컬프로 형태 밀도 향상",
-        "토폴로지 정리와 후속 공정 준비"
+        "교량 기본 구조와 비율 구축",
+        "교량 세부 구조 정리",
+        "도로와 지형 연결부 모델링"
       ],
       "process": [
-        "blockout",
-        "sculpt",
-        "topology"
+        "bridge-structure",
+        "road-modeling"
       ],
+      "pipelineMedia": [],
       "media": []
     },
     {
-      "id": "lookdev",
+      "id": "environment",
       "no": "03",
-      "label": "룩디벨롭",
-      "subtitle": "재질과 조명",
-      "description": "재질과 조명 테스트를 통해 표면 반응과 형태 가독성을 동시에 정리합니다.",
+      "english": "ENVIRONMENT",
+      "label": "Unreal 실사 환경",
+      "subtitle": "Material · Vegetation · Integration",
+      "description": "Blender에서 제작한 환경을 Unreal Engine으로 가져와 머티리얼을 구성하고 식생과 환경 요소를 배치해 실제 지역의 밀도와 분위기에 가까운 실시간 환경을 제작합니다.",
       "summary": [
-        "셰이더 반응 테스트",
-        "재질 스케일과 텍스처 밀도 조정",
-        "조명 대비와 분위기 비교"
+        "실사형 머티리얼 구성",
+        "식생 배치와 밀도 조정",
+        "지형·도로·교량·식생의 환경 통합"
       ],
       "process": [
-        "shader-test",
-        "material-study",
-        "lighting-test"
+        "unreal-material",
+        "vegetation",
+        "environment-integration"
       ],
+      "pipelineMedia": [],
       "media": []
     },
     {
-      "id": "final",
+      "id": "current-result",
       "no": "04",
-      "label": "최종 결과",
-      "subtitle": "렌더와 리뷰",
-      "description": "최종 결과물을 정리하고 초기 방향과 비교해 개선점을 보여줍니다.",
-      "summary": [
-        "대표 컷 / 디테일 렌더",
-        "턴테이블 / 프레젠테이션 모션",
-        "전후 비교 / 회고"
-      ],
-      "process": [
-        "final-render",
-        "turntable",
-        "review"
-      ],
-      "media": []
+      "english": "CURRENT RESULT",
+      "label": "현재 결과",
+      "subtitle": "Work in Progress",
+      "description": "현재까지 구축된 전체 환경과 주요 디테일을 출력 후 정리합니다.",
+      "summary": [],
+      "process": [],
+      "pipelineMedia": [],
+      "media": [
+        {
+          "src": "assets/media/mui9tew9-11bf8b77-S01-0004.png",
+          "alt": "김시민대교 Final",
+          "caption": "재질·식생·라이팅을 적용한 렌더",
+          "layout": "full",
+          "label": "Final 1"
+        },
+        {
+          "src": "assets/media/mui9u0mk-78134516-S01-LightingOnly-0008.png",
+          "alt": "김시민대교 Lighting",
+          "caption": "형태와 빛을 확인하는 라이팅 렌더",
+          "layout": "full",
+          "label": "Lighting 1"
+        },
+        {
+          "src": "assets/media/mui9xw8i-b27fa2ac-S01-Wireframe-0008.png",
+          "alt": "김시민대교 Wireframe 1",
+          "caption": "메시 구성을 확인하는 와이어프레임 렌더",
+          "layout": "full",
+          "label": "Wireframe 1"
+        },
+        {
+          "src": "assets/media/mui9ul03-b7db853a-S01-0044.png",
+          "alt": "김시민대교 Final",
+          "caption": "재질·식생·라이팅을 적용한 렌더",
+          "layout": "full",
+          "label": "Final 2"
+        },
+        {
+          "src": "assets/media/mui9v10i-2baa9e22-S01-LightingOnly-0048.png",
+          "alt": "김시민대교 Lighting",
+          "caption": "형태와 빛을 확인하는 라이팅 렌더",
+          "layout": "full",
+          "label": "Lighting 2"
+        },
+        {
+          "src": "assets/media/mui9veax-1a078156-S01-Wireframe-0048.png",
+          "alt": "김시민대교 Wireframe",
+          "caption": "메시 구성을 확인하는 와이어프레임 렌더",
+          "layout": "full",
+          "label": "Wireframe 2"
+        },
+        {
+          "src": "assets/media/mui9vzo0-e7550502-S01-0064.png",
+          "alt": "김시민대교 Final 3",
+          "caption": "재질·식생·라이팅을 적용한 렌더",
+          "layout": "full",
+          "label": "Final 3"
+        },
+        {
+          "src": "assets/media/mui9w7iq-ea248ff3-S01-LightingOnly-0068.png",
+          "alt": "김시민대교 Lighting 3",
+          "caption": "형태와 빛을 확인하는 라이팅 렌더",
+          "layout": "full",
+          "label": "Lighting 3"
+        },
+        {
+          "src": "assets/media/mui9wdwq-7b96b8ee-S01-Wireframe-0068.png",
+          "alt": "김시민대교 Wireframe 3",
+          "caption": "메시 구성을 확인하는 와이어프레임 렌더",
+          "layout": "full",
+          "label": "Wireframe 3"
+        }
+      ]
     }
   ],
   "process": {
-    "research": {
-      "id": "research",
-      "stage": "concept",
-      "no": "01.1",
-      "label": "리서치",
-      "subtitle": "문제 정의",
-      "description": "프로젝트 목적과 제약을 정리하고 무엇을 해결할지 먼저 정의합니다.",
+    "source-data": {
+      "id": "source-data",
+      "stage": "base-build",
+      "no": "01-1",
+      "label": "공간 자료 확보",
+      "subtitle": "VWorld · 국토지리정보원",
+      "description": "VWorld와 국토지리정보원에서 김시민대교 일대의 정사영상과 공간 자료를 확보하고, 실제 위치와 주변 환경을 확인할 기준 자료로 정리합니다.",
       "bullets": [
-        "프로젝트 목표 정리",
-        "제약 조건과 우선순위 설정",
-        "핵심 질문 정의"
+        "대상 지역 정사영상 확보",
+        "공간 자료 범위와 해상도 확인",
+        "지형·배치 기준 자료 선정"
       ],
       "tags": [
-        "리서치",
-        "목표",
-        "제약 조건"
+        "VWorld",
+        "국토지리정보원",
+        "정사영상"
       ],
-      "media": []
+      "media": [
+        {
+          "src": "assets/media/muh5c209-ce1e7037-reference-004.png",
+          "alt": "reference 004",
+          "caption": "",
+          "layout": "full"
+        },
+        {
+          "src": "assets/media/muh4mieq-1b89dd41-reference-001.png",
+          "alt": "reference 001",
+          "caption": "",
+          "layout": "full"
+        }
+      ]
     },
-    "reference": {
-      "id": "reference",
-      "stage": "concept",
-      "no": "01.2",
-      "label": "레퍼런스",
-      "subtitle": "시각 언어",
-      "description": "형태, 재질, 분위기 레퍼런스를 분류해 디자인 언어를 만듭니다.",
+    "qgis-coordinates": {
+      "id": "qgis-coordinates",
+      "stage": "base-build",
+      "no": "01-3",
+      "label": "QGIS 좌표 · 작업 영역",
+      "subtitle": "좌표값 · Spatial Reference",
+      "description": "QGIS에서 대상 영역과 좌표값을 확인해 실제 위치를 기준으로 Blender 환경을 구축할 수 있는 공간 기준을 정리합니다.",
       "bullets": [
-        "형태 레퍼런스 분류",
-        "재질 / 표면 키워드 정리",
-        "분위기와 톤 방향 설정"
+        "대상 영역 확인",
+        "좌표값과 기준점 정리",
+        "Blender 환경 구축용 작업 범위 확정"
       ],
       "tags": [
-        "레퍼런스",
-        "분위기",
-        "형태"
+        "QGIS",
+        "좌표",
+        "정사영상"
       ],
-      "media": []
+      "media": [
+        {
+          "src": "assets/media/muh5fgnu-8cbe93ef-QGIS-001.png",
+          "alt": "QGIS 001",
+          "caption": "",
+          "layout": "full"
+        }
+      ]
     },
-    "direction": {
-      "id": "direction",
-      "stage": "concept",
-      "no": "01.3",
-      "label": "방향 설정",
-      "subtitle": "디자인 판단",
-      "description": "여러 방향을 비교하고 최종 방향을 선택한 이유를 명확하게 보여줍니다.",
+    "data-prep": {
+      "id": "data-prep",
+      "stage": "base-build",
+      "no": "01-2",
+      "label": "레퍼런스 리서치",
+      "subtitle": "도면 · 거리뷰 · 영상",
+      "description": "인터넷에 공개된 교량 관련 도면과 구조 자료, 거리뷰, 영상 및 현장 이미지를 축적해 교량 형태와 도로 연결, 재질과 주변 환경을 검증합니다.",
       "bullets": [
-        "초기 옵션 비교",
-        "장단점 검토",
-        "최종 방향 선택 근거"
+        "교량 도면과 구조 자료 수집",
+        "거리뷰·영상으로 실제 형태와 주변 맥락 확인",
+        "모델링·재질·식생 판단에 사용할 레퍼런스 정리"
       ],
       "tags": [
-        "판단",
-        "반복 개선",
-        "방향"
+        "Drawings",
+        "Street View",
+        "Video Reference",
+        "Research"
       ],
-      "media": []
+      "media": [
+        {
+          "src": "assets/media/muh6vajy-a9db98cc-reference-003.png",
+          "alt": "reference 003",
+          "caption": "",
+          "layout": "full"
+        }
+      ]
     },
-    "blockout": {
-      "id": "blockout",
+    "terrain-build": {
+      "id": "terrain-build",
+      "stage": "base-build",
+      "no": "01-4",
+      "label": "지형 구축",
+      "subtitle": "Terrain",
+      "description": "QGIS에서 정리한 공간 기준을 바탕으로 Blender에서 대상 지역의 지형을 구성합니다.",
+      "bullets": [
+        "대상 영역 지형 생성",
+        "높이와 형태 조정",
+        "정사영상과 위치 관계 확인"
+      ],
+      "tags": [
+        "정사영상",
+        "QGIS",
+        "Blender"
+      ],
+      "media": [
+        {
+          "src": "assets/media/mui9omv5-afb7b485-blender-002.png",
+          "alt": "blender 002",
+          "caption": "",
+          "layout": "full"
+        }
+      ]
+    },
+    "surrounding-buildings": {
+      "id": "surrounding-buildings",
+      "stage": "base-build",
+      "no": "01-5",
+      "label": "주변 건물 구축",
+      "subtitle": "Context Buildings",
+      "description": "김시민대교 주변의 주요 건물과 도시 요소를 배치해 교량이 놓이는 실제 공간의 맥락을 구성합니다.",
+      "bullets": [
+        "주변 건물 배치",
+        "교량과 주변 환경의 관계 정리"
+      ],
+      "tags": [
+        "Blender",
+        "Buildings",
+        "Environment"
+      ],
+      "media": [
+        {
+          "src": "assets/media/mui9osyx-4cc71f0c-blender-001.png",
+          "alt": "blender 001",
+          "caption": "",
+          "layout": "full"
+        }
+      ]
+    },
+    "bridge-structure": {
+      "id": "bridge-structure",
       "stage": "modeling",
-      "no": "02.1",
-      "label": "블록아웃",
-      "subtitle": "기본 형태",
-      "description": "세부 묘사 전에 전체 비율과 실루엣이 제대로 읽히는지 빠르게 검증합니다.",
+      "no": "02-1",
+      "label": "교량 기본 구조",
+      "subtitle": "Bridge Structure",
+      "description": "실제 교량의 형태와 비율을 기준으로 주요 구조와 실루엣을 먼저 구축합니다.",
       "bullets": [
-        "전체 비율 테스트",
-        "실루엣 가독성 확인",
-        "카메라에서 형태 검증"
+        "전체 비율과 실루엣 설정",
+        "주요 구조 부재 구성",
+        "주변 지형과의 연결 확인"
       ],
       "tags": [
-        "블록아웃",
-        "비율",
-        "실루엣"
+        "Bridge",
+        "Structure",
+        "Blockout"
       ],
-      "media": []
+      "media": [
+        {
+          "src": "assets/media/mui9p7t9-29d56e91-blender-003.png",
+          "alt": "blender 003",
+          "caption": "",
+          "layout": "full"
+        },
+        {
+          "src": "assets/media/mui9p33b-f1f66ae7-blender-004.png",
+          "alt": "blender 004",
+          "caption": "",
+          "layout": "full"
+        }
+      ]
     },
-    "sculpt": {
-      "id": "sculpt",
+    "road-modeling": {
+      "id": "road-modeling",
       "stage": "modeling",
-      "no": "02.2",
-      "label": "스컬프",
-      "subtitle": "형태 정교화",
-      "description": "큰 형태에서 중간 형태, 필요한 디테일까지 단계적으로 밀도를 올립니다.",
+      "no": "02-2",
+      "label": "도로 · 연결부",
+      "subtitle": "Road Modeling",
+      "description": "교량과 주변 지형이 자연스럽게 이어지도록 도로와 연결부의 레벨, 곡선, 지형 접점을 모델링합니다.",
       "bullets": [
-        "큰 형태 유지",
-        "중간 형태 추가",
-        "필요한 부분에 디테일 집중"
+        "도로 형태와 레벨 구성",
+        "교량 연결부 정리",
+        "지형과의 접점 조정"
       ],
       "tags": [
-        "스컬프",
-        "형태",
-        "디테일"
+        "Road",
+        "Connection",
+        "Terrain"
+      ],
+      "media": [
+        {
+          "src": "assets/media/mui9pi87-cb310dd7-blender-005.png",
+          "alt": "blender 005",
+          "caption": "",
+          "layout": "full"
+        }
+      ]
+    },
+    "unreal-material": {
+      "id": "unreal-material",
+      "stage": "environment",
+      "no": "03-1",
+      "label": "머티리얼",
+      "subtitle": "Realistic Material",
+      "description": "Unreal Engine에서 지형, 도로, 교량 등 각 요소의 재질을 실사화 방향에 맞게 구성하고 표면 반응을 조정합니다.",
+      "bullets": [
+        "재질 기본값 설정",
+        "거칠기와 표면 디테일 조정",
+        "장면 전체의 재질 스케일 통일"
+      ],
+      "tags": [
+        "Unreal Engine",
+        "Material",
+        "Lookdev"
+      ],
+      "media": [
+        {
+          "src": "assets/media/muids8bq-e4504b4f-UN5_005.png",
+          "alt": "교량 모델링",
+          "caption": "",
+          "layout": "full",
+          "label": "교량 모델링"
+        },
+        {
+          "src": "assets/media/muick8pj-5de10c61-S01-2-0024.png",
+          "alt": "김시민대교 Top view",
+          "caption": "",
+          "layout": "full",
+          "label": "Top view"
+        }
+      ]
+    },
+    "vegetation": {
+      "id": "vegetation",
+      "stage": "environment",
+      "no": "03-2",
+      "label": "식생",
+      "subtitle": "Vegetation",
+      "description": "실제 지역의 환경 인상을 참고해 식생을 배치하고 종류, 밀도, 크기를 조정해 자연스러운 주변 환경을 구성합니다.",
+      "bullets": [
+        "식생 종류 선정",
+        "배치 밀도와 스케일 조정",
+        "도로·교량 주변 환경 정리"
+      ],
+      "tags": [
+        "Vegetation",
+        "Foliage",
+        "Environment"
+      ],
+      "media": [
+        {
+          "src": "assets/media/muickwy5-c47feae7-S01-2-0000.png",
+          "alt": "김시민대교 Foliage",
+          "caption": "",
+          "layout": "full",
+          "label": "Foliage"
+        }
+      ]
+    },
+    "environment-integration": {
+      "id": "environment-integration",
+      "stage": "environment",
+      "no": "03-3",
+      "label": "환경 통합",
+      "subtitle": "Real-time Environment",
+      "description": "지형, 건물, 도로, 교량, 재질, 식생을 하나의 실시간 장면으로 통합하고 전체적인 실사감과 공간 밀도를 조정합니다.",
+      "bullets": [
+        "주요 요소 통합",
+        "환경 밀도 조정",
+        "전체 실사감과 균형 확인"
+      ],
+      "tags": [
+        "Integration",
+        "Environment",
+        "Unreal Engine"
+      ],
+      "media": [
+        {
+          "src": "assets/media/muicm5wr-dffdccb0-UN5_001.png",
+          "alt": "Unreal Engine",
+          "caption": "",
+          "layout": "full",
+          "label": "Unreal Engine"
+        }
+      ]
+    },
+    "current-overview": {
+      "id": "current-overview",
+      "stage": "current-result",
+      "no": "04-1",
+      "label": "현재 전체 결과",
+      "subtitle": "Environment Overview",
+      "description": "현재까지 구축된 김시민대교 일대의 전체 환경을 큰 화면으로 보여줍니다.",
+      "bullets": [
+        "전체 환경 대표 뷰",
+        "교량과 주변 지역 관계",
+        "현재 단계의 장면 완성도"
+      ],
+      "tags": [
+        "Current Result",
+        "Overview",
+        "WIP"
       ],
       "media": []
     },
-    "topology": {
-      "id": "topology",
-      "stage": "modeling",
-      "no": "02.3",
-      "label": "토폴로지",
-      "subtitle": "지오메트리 정리",
-      "description": "후속 공정을 고려해 엣지 흐름과 지오메트리 밀도를 정리합니다.",
+    "detail-view": {
+      "id": "detail-view",
+      "stage": "current-result",
+      "no": "04-2",
+      "label": "디테일 뷰",
+      "subtitle": "Bridge · Road · Environment",
+      "description": "교량, 도로, 머티리얼, 식생 등 주요 작업 요소를 가까이에서 확인할 수 있는 디테일 이미지를 정리합니다.",
       "bullets": [
-        "불필요한 지오메트리 제거",
-        "엣지 흐름 정리",
-        "재질 / UV 작업 준비"
+        "교량 디테일",
+        "도로와 주변 환경",
+        "머티리얼과 식생 표현"
       ],
       "tags": [
-        "토폴로지",
-        "엣지 흐름",
-        "최적화"
+        "Detail",
+        "Bridge",
+        "Environment"
       ],
       "media": []
     },
-    "shader-test": {
-      "id": "shader-test",
-      "stage": "lookdev",
-      "no": "03.1",
-      "label": "셰이더 테스트",
-      "subtitle": "표면 반응",
-      "description": "거칠기와 반사값을 비교하며 표면 반응을 검증합니다.",
+    "progress-review": {
+      "id": "progress-review",
+      "stage": "current-result",
+      "no": "04-3",
+      "label": "진행 상황",
+      "subtitle": "Work in Progress",
+      "description": "현재 결과를 기준으로 실사감, 환경 밀도, 재질과 식생의 완성도를 검토하고 다음 개선 항목을 정리합니다.",
       "bullets": [
-        "거칠기 범위 비교",
-        "반사 강도 테스트",
-        "표면 변화 조절"
+        "실사감 추가 개선",
+        "환경 밀도와 식생 조정",
+        "최종 프레젠테이션 방향 정리"
       ],
       "tags": [
-        "셰이더",
-        "표면",
-        "거칠기"
-      ],
-      "media": []
-    },
-    "material-study": {
-      "id": "material-study",
-      "stage": "lookdev",
-      "no": "03.2",
-      "label": "재질 연구",
-      "subtitle": "재질 언어",
-      "description": "형태와 스케일이 자연스럽게 읽히도록 재질 대비와 디테일을 조절합니다.",
-      "bullets": [
-        "재질 스케일 검증",
-        "텍스처 밀도 조절",
-        "형태와 재질 대비 정리"
-      ],
-      "tags": [
-        "재질",
-        "텍스처",
-        "스케일"
-      ],
-      "media": []
-    },
-    "lighting-test": {
-      "id": "lighting-test",
-      "stage": "lookdev",
-      "no": "03.3",
-      "label": "조명 테스트",
-      "subtitle": "분위기와 가독성",
-      "description": "형태 가독성과 시선 흐름을 기준으로 키 라이트, 필 라이트, 대비를 비교합니다.",
-      "bullets": [
-        "키 라이트 방향 비교",
-        "필 라이트 강도 조절",
-        "명암 대비와 시선 흐름 확인"
-      ],
-      "tags": [
-        "조명",
-        "분위기",
-        "대비"
-      ],
-      "media": []
-    },
-    "final-render": {
-      "id": "final-render",
-      "stage": "final",
-      "no": "04.1",
-      "label": "최종 렌더",
-      "subtitle": "대표 프레임",
-      "description": "프로젝트를 대표하는 히어로 컷과 디테일 컷을 정리합니다.",
-      "bullets": [
-        "대표 이미지",
-        "디테일 클로즈업",
-        "포트폴리오용 크롭 정리"
-      ],
-      "tags": [
-        "렌더",
-        "구도",
-        "결과물"
-      ],
-      "media": []
-    },
-    "turntable": {
-      "id": "turntable",
-      "stage": "final",
-      "no": "04.2",
-      "label": "턴테이블",
-      "subtitle": "오브젝트 프레젠테이션",
-      "description": "형태와 재질을 한눈에 확인할 수 있도록 턴테이블 또는 짧은 모션을 보여줍니다.",
-      "bullets": [
-        "360° 형태 확인",
-        "재질 반응 확인",
-        "프레젠테이션 모션"
-      ],
-      "tags": [
-        "턴테이블",
-        "모션",
-        "프레젠테이션"
-      ],
-      "media": []
-    },
-    "review": {
-      "id": "review",
-      "stage": "final",
-      "no": "04.3",
-      "label": "리뷰",
-      "subtitle": "회고",
-      "description": "처음과 비교해 무엇이 개선되었고 다음 작업에 무엇을 이어갈지 정리합니다.",
-      "bullets": [
-        "초기안과 최종안 비교",
-        "개선된 지점 정리",
-        "다음 프로젝트에 이어갈 점"
-      ],
-      "tags": [
-        "리뷰",
-        "전후 비교",
-        "배운 점"
+        "WIP",
+        "Review",
+        "Next Step"
       ],
       "media": []
     }
+  },
+  "experienceTimeline": {
+    "title": "홍익대학교 국제디자인전문대학원",
+    "items": [
+      {
+        "period": "2019.08",
+        "title": "디지털미디어디자인 학부",
+        "linkText": "Unity 3D를 이용한 한식 메뉴보기 애플리케이션 작품 논문",
+        "url": "https://vimeo.com/507888940?fl=pl&fe=cm",
+        "school": "홍익대학교 국제디자인전문대학원"
+      },
+      {
+        "period": "2015.02",
+        "title": "애니메이션 전공 (3D 졸업작품)",
+        "linkText": "",
+        "url": "",
+        "school": "한성대학교"
+      }
+    ]
   }
 };

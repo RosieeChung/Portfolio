@@ -24,13 +24,14 @@
       <div class="content-eyebrow">${p.no} · 세부 작업</div>
       <h1 class="content-title">${p.label}</h1>
       <div class="content-subtitle">${p.subtitle}</div>
-      <p class="content-description">${p.description}</p>
 
       <div class="hero-meta">
         ${p.tags.map(x => `<span class="tag">${x}</span>`).join("")}
       </div>
 
       ${helpers.mediaGallery(p.media,"작업 이미지")}
+
+      <p class="content-description">${p.description}</p>
 
       <div class="detail-block">
         <div class="section-label">이 단계에서 하는 일</div>

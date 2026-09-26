@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1254 1254">
+<defs>
+<linearGradient id="paper" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#FFFFFF"/><stop offset=".7" stop-color="#FAFDFF"/><stop offset="1" stop-color="#EAF3FB"/></linearGradient>
+<linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#62B6FA"/><stop offset="1" stop-color="#277FD1"/></linearGradient>
+</defs>
+<g transform="matrix(1 -.22 -.05 .95 0 120)"><g transform="translate(470 396) matrix(1 .048 0 1 0 0)">
+<rect x="3" y="4" width="501" height="708" rx="12" fill="#B8D3E8"/>
+<rect width="501" height="708" rx="12" fill="url(#paper)" stroke="#D1E7F6" stroke-width="2"/>
+<!-- A compact resume header, with the portrait kept in the exposed upper corner. -->
+<rect x="43" y="43" width="5" height="75" rx="2.5" fill="#3196EC"/>
+<text x="61" y="75" fill="#2A6FA9" font-family="Arial,sans-serif" font-size="30" font-weight="800" letter-spacing="2">RESUME</text>
+<rect x="62" y="93" width="227" height="6" rx="3" fill="#73B7EC"/>
+<rect x="62" y="110" width="257" height="5" rx="2.5" fill="#B8D9F2"/>
+<rect x="349" y="43" width="98" height="90" rx="10" fill="#EDF7FD" stroke="#BDDEF4" stroke-width="2"/>
+<circle cx="398" cy="85" r="33" fill="#D4ECFC"/>
+<path d="M379 87c-3-24 8-39 25-39 18 0 28 16 25 39l-8 5h-35Z" fill="#315A7D"/>
+<ellipse cx="401" cy="87" rx="16" ry="20" fill="#EEC3A5"/>
+<path d="M373 125c3-21 13-29 28-29 15 0 25 8 28 29Z" fill="url(#blue)"/>
+<!-- This section becomes visible as the sheet rises on hover. -->
+<text x="62" y="190" fill="#347BAE" font-family="Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="1.3">PROFILE</text>
+<rect x="62" y="200" width="104" height="4" rx="2" fill="#65ACE5"/>
+<rect x="62" y="216" width="359" height="6" rx="3" fill="#A8CEE9"/>
+<rect x="62" y="232" width="321" height="6" rx="3" fill="#C2DCEE"/>
+<!-- The remaining A4 contents continue inside the folder. -->
+<text x="62" y="344" fill="#347BAE" font-family="Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="1.3">EXPERIENCE</text>
+<rect x="62" y="360" width="205" height="5" rx="2.5" fill="#73B7EC"/>
+<rect x="62" y="382" width="362" height="6" rx="3" fill="#B8D9F2"/>
+<rect x="62" y="400" width="331" height="6" rx="3" fill="#C2DCEE"/>
+<rect x="62" y="418" width="350" height="6" rx="3" fill="#C2DCEE"/>
+<text x="62" y="506" fill="#347BAE" font-family="Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="1.3">EDUCATION</text>
+<rect x="62" y="526" width="312" height="6" rx="3" fill="#B8D9F2"/>
+<rect x="62" y="544" width="282" height="6" rx="3" fill="#C2DCEE"/>
+</g></g></svg>

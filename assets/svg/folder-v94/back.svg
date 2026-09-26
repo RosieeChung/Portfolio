@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700"><defs>
+  <linearGradient id="blueBack" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#63bdff"/>
+    <stop offset="0.50" stop-color="#3d9cf2"/>
+    <stop offset="1" stop-color="#2578df"/>
+  </linearGradient>
+  <linearGradient id="blueDeep" x1="0" y1="0" x2="0.9" y2="1">
+    <stop offset="0" stop-color="#2f86e9"/>
+    <stop offset="1" stop-color="#155ec9"/>
+  </linearGradient>
+  <linearGradient id="glassFront" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#8bd9ff" stop-opacity="0.93"/>
+    <stop offset="0.38" stop-color="#59b8f7" stop-opacity="0.93"/>
+    <stop offset="0.78" stop-color="#379ae9" stop-opacity="0.96"/>
+    <stop offset="1" stop-color="#2f8cdf" stop-opacity="0.98"/>
+  </linearGradient>
+  <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#e8fbff" stop-opacity="0.95"/>
+    <stop offset="0.42" stop-color="#b7ecff" stop-opacity="0.72"/>
+    <stop offset="1" stop-color="#6bc8ff" stop-opacity="0.75"/>
+  </linearGradient>
+  <linearGradient id="paper" x1="0" y1="0" x2="0.6" y2="1">
+    <stop offset="0" stop-color="#ffffff"/>
+    <stop offset="1" stop-color="#eef7ff"/>
+  </linearGradient>
+  <filter id="softShadow" x="-30%" y="-30%" width="160%" height="180%">
+    <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#315f92" flood-opacity="0.16"/>
+  </filter>
+  <filter id="paperShadow" x="-30%" y="-30%" width="160%" height="180%">
+    <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#5c83a8" flood-opacity="0.14"/>
+  </filter>
+</defs>
+  <g filter="url(#softShadow)">
+    <path d="M150 208 C146 174 164 150 196 146 L331 128 C356 125 376 133 392 153 L426 190 L648 169 C679 166 698 184 698 215 L677 497 C675 527 657 545 629 549 L190 602 C164 605 148 589 148 561 Z" fill="url(#blueBack)" stroke="#7fd0ff" stroke-width="5"/>
+    <path d="M148 208 L164 224 L164 557 C164 573 174 583 190 584 L190 602 C164 605 148 589 148 561 Z" fill="url(#blueDeep)" opacity="0.9"/>
+    <path d="M190 602 L629 549 C657 545 675 527 677 497 L680 475 C678 519 657 546 620 553 L191 608 Z" fill="#1d69cf" opacity="0.72"/>
+    <path d="M171 190 C174 171 185 162 204 159 L328 143 C350 140 366 147 380 165 L414 201 L648 181 C666 180 677 190 680 205" fill="none" stroke="#d9f6ff" stroke-opacity="0.55" stroke-width="4" stroke-linecap="round"/>
+    <path d="M170 219 L170 548 C170 568 182 578 201 575 L625 526" fill="none" stroke="#9be1ff" stroke-opacity="0.42" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</svg>

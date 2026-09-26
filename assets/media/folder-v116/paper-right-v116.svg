@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1254 1254" width="1254" height="1254">
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="0.82" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.52" stop-color="#f5fbff"/>
+      <stop offset="1" stop-color="#d8efff"/>
+    </linearGradient>
+    <filter id="shadow" x="-25%" y="-25%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="9" stdDeviation="9" flood-color="#197fd1" flood-opacity="0.20"/>
+    </filter>
+  </defs>
+  <g transform="translate(-42 0) rotate(-8 980 560)" filter="url(#shadow)">
+    <rect x="870" y="310" width="220" height="500" rx="28" fill="url(#paper)" stroke="#d7edff" stroke-width="8"/>
+    <rect x="881" y="321" width="198" height="478" rx="20" fill="none" stroke="#fff" stroke-width="5" stroke-opacity=".84"/>
+    <rect x="916" y="362" width="80" height="13" rx="6.5" fill="#3597f2"/>
+    <rect x="916" y="401" width="102" height="11" rx="5.5" fill="#b5dcff"/>
+    <rect x="916" y="427" width="120" height="11" rx="5.5" fill="#a9d3ff"/>
+    <rect x="916" y="453" width="89" height="11" rx="5.5" fill="#c7e6ff"/>
+  </g>
+</svg>

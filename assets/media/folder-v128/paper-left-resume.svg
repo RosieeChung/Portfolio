@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1254 1254">
+<defs>
+<linearGradient id="paper" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#FFFFFF"/><stop offset=".7" stop-color="#FAFDFF"/><stop offset="1" stop-color="#EAF3FB"/></linearGradient>
+<linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#62B6FA"/><stop offset="1" stop-color="#277FD1"/></linearGradient>
+</defs>
+<g transform="matrix(1 -.22 -.05 .95 0 120)"><g transform="translate(250 421) matrix(1 .048 0 1 0 0)">
+<rect x="3" y="4" width="501" height="708" rx="12" fill="#B8D3E8"/>
+<rect width="501" height="708" rx="12" fill="url(#paper)" stroke="#D1E7F6" stroke-width="2"/>
+<text x="36" y="67" fill="#357BAB" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="1">PROJECTS</text>
+<rect x="36" y="81" width="399" height="6" rx="3" fill="#65ACE5"/>
+<rect x="36" y="99" width="423" height="5" rx="2.5" fill="#B7D7ED"/>
+<text x="36" y="180" fill="#4286B8" font-family="Arial,sans-serif" font-size="17" font-weight="700" letter-spacing="1">OVERVIEW</text>
+<rect x="36" y="197" width="412" height="6" rx="3" fill="#A8CEE9"/>
+<rect x="36" y="214" width="386" height="6" rx="3" fill="#C2DCEE"/>
+<text x="36" y="340" fill="#4286B8" font-family="Arial,sans-serif" font-size="17" font-weight="700" letter-spacing="1">DETAILS</text>
+<rect x="36" y="359" width="419" height="6" rx="3" fill="#B7D7ED"/>
+<rect x="36" y="378" width="366" height="6" rx="3" fill="#C2DCEE"/>
+<rect x="36" y="397" width="395" height="6" rx="3" fill="#C2DCEE"/>
+<rect x="36" y="416" width="337" height="6" rx="3" fill="#C2DCEE"/>
+</g></g></svg>

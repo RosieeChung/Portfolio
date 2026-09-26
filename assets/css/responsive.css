@@ -43,10 +43,10 @@
     right:0;
     height:58px;
     padding:0 16px;
-    background:linear-gradient(to bottom,rgba(248,247,252,.96),rgba(248,247,252,.78));
+    background:linear-gradient(to bottom,rgba(247,250,252,.96),rgba(247,250,252,.78));
     backdrop-filter:blur(14px);
     -webkit-backdrop-filter:blur(14px);
-    border-bottom:1px solid rgba(81,62,128,.06);
+    border-bottom:1px solid rgba(62,98,128,.06);
   }
 
   .workspace-shell,
@@ -214,9 +214,76 @@
   }
 
   .start-folder{
-    width:324px;
-    height:254px;
+    width:340px;
+    height:268px;
     transform:translateY(-3px) scale(.94);
+  }
+
+  .start-folder.start-folder-v92 .folder3d-base{
+    width:308px;
+  }
+
+  .start-folder.start-folder-v92 .folder3d-back-tint{
+    width:204px;
+    height:148px;
+    transform:translate(-52%,-45%);
+  }
+
+  .start-folder.start-folder-v92 .folder3d-docs{
+    width:150px;
+    height:104px;
+    transform:translate(-51%,-43%);
+  }
+
+  .start-folder.start-folder-v92 .folder3d-doc{
+    width:78px;
+    height:106px;
+    border-radius:12px;
+  }
+
+  .start-folder.start-folder-v92 .folder3d-line{
+    left:11px;
+    height:3px;
+  }
+
+  .start-folder.start-folder-v92 .folder3d-chip{
+    right:10px;
+    top:10px;
+    width:22px;
+    height:22px;
+    border-radius:8px;
+  }
+
+  .start-folder.start-folder-v92 .folder3d-chip-head{
+    top:4px;
+    width:6px;
+    height:6px;
+  }
+
+  .start-folder.start-folder-v92 .folder3d-chip-body{
+    bottom:4px;
+    width:10px;
+    height:5px;
+  }
+
+  .start-folder.start-folder-v92 .folder3d-front-glow{
+    width:196px;
+    height:116px;
+    transform:translate(-50%,-4%);
+  }
+
+  .start-folder.start-folder-v92 .folder3d-copy{
+    width:136px;
+    transform:translate(-50%,7%);
+  }
+
+  .start-folder.start-folder-v92 .folder3d-copy strong{
+    font-size:18px;
+  }
+
+  .start-folder.start-folder-v92 .folder3d-eyebrow,
+  .start-folder.start-folder-v92 .folder3d-sub{
+    font-size:9px;
   }
 
   .folder-shell{
@@ -252,16 +319,32 @@
   }
 
   .folder-copy{
-    top:141px;
-    width:188px;
-    gap:7px;
+    left:0;
+    right:0;
+    top:86px;
+    height:78px;
+    width:auto;
+    padding:0 24px;
+    transform:translateZ(50px);
+  }
+
+  .folder-copy > *{
+    left:24px;
+    right:24px;
+  }
+
+  .folder-eyebrow{
+    /* V46: keep the same tighter visual gap on mobile. */
+    top:16px;
   }
 
   .folder-copy strong{
+    top:27px;
     font-size:21px;
   }
 
   .folder-copy span:last-child{
+    top:59px;
     font-size:10px;
   }
 
@@ -324,4 +407,797 @@
   body.workspace-open .content-inner{
     padding:25px 18px 32px;
   }
+}
+
+/* V25 case-study responsive layout */
+@media(max-width:1100px) and (min-width:821px){
+  body.workspace-open.case-study-open .workspace.case-study-mode .workspace-shell{
+    grid-template-columns:210px minmax(0,1fr);
+  }
+
+  body.workspace-open.case-study-open .workspace.case-study-mode .content-inner{
+    padding-left:34px;
+    padding-right:34px;
+  }
+
+  .case-pipeline-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .case-story-link strong{
+    font-size:9px;
+  }
+}
+
+@media(max-width:820px){
+  html.workspace-open.case-study-open,
+  body.workspace-open.case-study-open{
+    height:auto;
+    min-height:100%;
+    overflow-x:hidden;
+    overflow-y:auto;
+  }
+
+  body.workspace-open.case-study-open .workspace.case-study-mode{
+    position:relative;
+    inset:auto;
+    min-height:100dvh;
+    padding:66px 10px 34px;
+  }
+
+  body.workspace-open.case-study-open .workspace.case-study-mode .workspace-shell{
+    width:100%;
+    display:grid;
+    grid-template-columns:1fr;
+    grid-template-rows:auto auto;
+    gap:10px;
+  }
+
+  body.workspace-open.case-study-open .workspace.case-study-mode .list-pane{
+    position:relative;
+    top:auto;
+    padding:12px 10px 11px;
+    border-radius:20px;
+  }
+
+  body.workspace-open.case-study-open .workspace.case-study-mode .content-pane{
+    border-radius:22px;
+  }
+
+  body.workspace-open.case-study-open .workspace.case-study-mode .content-inner{
+    padding:30px 18px 46px;
+  }
+
+  .case-study{
+    max-width:none;
+  }
+
+  .case-hero-title{
+    font-size:clamp(40px,12vw,58px);
+  }
+
+  .case-hero-description{
+    margin-top:20px;
+    font-size:13px;
+  }
+
+  .case-hero-media{
+    margin-top:28px;
+  }
+
+  .case-hero-media img{
+    aspect-ratio:4/3;
+    border-radius:17px;
+  }
+
+  .case-pipeline{
+    padding-top:48px;
+  }
+
+  .case-section-heading{
+    margin-bottom:22px;
+  }
+
+  .case-section-heading p{
+    margin-top:12px;
+  }
+
+  .case-section-heading h2,
+  .case-stage-heading h2{
+    font-size:34px;
+  }
+
+  .case-pipeline-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .case-pipeline-card{
+    min-height:150px;
+    padding:12px;
+  }
+
+  .case-stage{
+    padding-top:60px;
+    scroll-margin-top:112px;
+  }
+
+  .case-stage-number{
+    font-size:58px;
+  }
+
+  .case-stage-description{
+    margin-top:18px;
+    font-size:13px;
+  }
+
+  .case-media-grid,
+  .case-media-grid.single{
+    grid-template-columns:1fr;
+  }
+
+  .case-media-figure.featured{
+    grid-column:auto;
+  }
+
+  .case-media-figure img,
+  .case-media-stage .case-media-figure.featured img{
+    aspect-ratio:4/3;
+    border-radius:16px;
+  }
+
+  .case-summary-grid,
+  .case-bullet-grid{
+    grid-template-columns:1fr;
+  }
+
+  .case-process-heading{
+    grid-template-columns:48px minmax(0,1fr);
+  }
+
+  .case-process-description,
+  .case-tags,
+  .case-process .case-media,
+  .case-process .case-bullet-grid{
+    margin-left:0;
+  }
+
+  .case-process-heading h3{
+    font-size:22px;
+  }
+
+  .case-processes-title{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:5px;
+  }
+}
+
+@media(max-width:460px){
+  .case-pipeline-grid{
+    grid-template-columns:1fr;
+  }
+
+  .case-pipeline-card{
+    min-height:0;
+  }
+
+  .case-pipeline-image{
+    aspect-ratio:16/10;
+  }
+
+  .case-stage-heading{
+    gap:10px;
+  }
+
+  .case-stage-number{
+    font-size:46px;
+  }
+}
+
+/* V26 wide 소개 / 경력 responsive layout */
+@media(max-width:1100px) and (min-width:821px){
+  body.workspace-open.section-page-open .workspace.section-page-mode .workspace-shell{
+    grid-template-columns:210px minmax(0,1fr);
+  }
+
+  body.workspace-open.section-page-open .workspace.section-page-mode .content-inner{
+    padding-left:36px;
+    padding-right:36px;
+  }
+
+  .section-page-mode .workstyle-grid-wide{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media(max-width:820px){
+  html.workspace-open.section-page-open,
+  body.workspace-open.section-page-open{
+    height:auto;
+    min-height:100%;
+    overflow-x:hidden;
+    overflow-y:auto;
+  }
+
+  body.workspace-open.section-page-open .workspace.section-page-mode{
+    position:relative;
+    inset:auto;
+    min-height:100dvh;
+    padding:66px 10px 34px;
+  }
+
+  body.workspace-open.section-page-open .workspace.section-page-mode .topbar{
+    height:58px;
+    padding:0 16px;
+  }
+
+  body.workspace-open.section-page-open .workspace.section-page-mode .workspace-shell{
+    width:100%;
+    display:grid;
+    grid-template-columns:1fr;
+    grid-template-rows:auto auto;
+    gap:10px;
+  }
+
+  body.workspace-open.section-page-open .workspace.section-page-mode .list-pane{
+    position:relative;
+    top:auto;
+    padding:12px 10px 11px;
+    border-radius:20px;
+  }
+
+  body.workspace-open.section-page-open .workspace.section-page-mode .content-pane{
+    border-radius:22px;
+  }
+
+  body.workspace-open.section-page-open .workspace.section-page-mode .content-inner{
+    padding:32px 20px 46px;
+  }
+
+  .section-page-mode .content-title{
+    font-size:clamp(40px,12vw,58px);
+  }
+
+  .section-page-mode .content-subtitle{
+    font-size:13px;
+  }
+
+  .section-page-mode .content-description{
+    margin-top:22px;
+    font-size:13px;
+  }
+
+  .section-page-mode .section-rule{
+    margin:34px 0 26px;
+  }
+
+  .section-document-heading{
+    grid-template-columns:1fr;
+    gap:12px;
+    margin-bottom:18px;
+  }
+
+  .section-document-heading h2{
+    font-size:30px;
+  }
+
+  .section-page-mode .workstyle-grid-wide{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+  .section-page-mode .workstyle-card{
+    min-height:0;
+    padding:14px;
+    border-radius:17px;
+  }
+
+  .section-page-mode .workstyle-card-image{
+    aspect-ratio:16/10;
+  }
+
+  .section-page-mode .experience-list-wide .experience-row{
+    grid-template-columns:1fr;
+    gap:14px;
+    padding:24px 0;
+  }
+
+  .section-page-mode .experience-list-wide .experience-period{
+    display:grid;
+    grid-template-columns:34px minmax(0,1fr);
+    align-items:center;
+    gap:10px;
+  }
+
+  .section-page-mode .experience-list-wide .experience-role{
+    font-size:19px;
+  }
+}
+
+@media(max-width:460px){
+  body.workspace-open.section-page-open .workspace.section-page-mode .topbar{
+    padding:0 12px;
+  }
+
+  body.workspace-open.section-page-open .workspace.section-page-mode .content-inner{
+    padding:28px 17px 40px;
+  }
+}
+
+/* V27 typography mobile caps */
+@media(max-width:820px){
+  .section-page-mode .content-title,
+  .case-hero-title{
+    font-size:min(var(--portfolio-hero-title-size,56px),48px);
+  }
+
+  .section-document-heading h2,
+  .case-section-heading h2,
+  .case-stage-heading h2{
+    font-size:min(var(--portfolio-section-title-size,38px),34px);
+  }
+}
+
+
+/* V28 granular typography mobile caps */
+@media(max-width:820px){
+  .section-page-mode .content-description,
+  .case-hero-description,
+  .case-stage-description{
+    font-size:min(var(--portfolio-body-size,15px),17px);
+  }
+}
+
+/* V31 project pipeline responsive additions */
+@media(max-width:1250px) and (min-width:1101px){
+  .case-pipeline-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+
+  .case-project-facts{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+}
+
+@media(max-width:1100px){
+  .case-project-facts{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media(max-width:560px){
+  .case-project-facts{
+    grid-template-columns:1fr;
+  }
+
+  .case-flow-statement{
+    font-size:9px;
+  }
+}
+
+/* V32 case-study responsive hierarchy */
+@media(max-width:1300px) and (min-width:1101px){
+  .case-pipeline-grid{
+    grid-template-columns:repeat(5,minmax(0,1fr));
+  }
+
+  .case-project-facts{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+
+  .case-project-fact:nth-child(3){
+    border-right:0;
+  }
+
+  .case-project-fact:nth-child(n+4){
+    border-top:1px solid rgba(62,98,128,.08);
+  }
+}
+
+@media(max-width:1100px) and (min-width:821px){
+  .case-pipeline-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+
+  .case-pipeline-card{
+    min-height:96px;
+  }
+
+  .case-project-facts{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .case-project-fact{
+    border-top:1px solid rgba(62,98,128,.08);
+  }
+
+  .case-project-fact:nth-child(-n+2){
+    border-top:0;
+  }
+
+  .case-project-fact:nth-child(even){
+    border-right:0;
+  }
+}
+
+@media(max-width:820px){
+  .case-hero-media img,
+  .case-media-figure img,
+  .case-media-stage .case-media-figure.featured img{
+    aspect-ratio:auto;
+    height:auto;
+    object-fit:cover;
+  }
+
+  .case-project-facts{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    margin-top:18px;
+  }
+
+  .case-project-fact{
+    padding:10px 10px;
+    border-top:1px solid rgba(62,98,128,.08);
+  }
+
+  .case-project-fact:first-child{
+    padding-left:10px;
+  }
+
+  .case-project-fact:nth-child(-n+2){
+    border-top:0;
+  }
+
+  .case-project-fact:nth-child(even){
+    border-right:0;
+  }
+
+  .case-pipeline{
+    padding-top:46px;
+  }
+
+  .case-pipeline-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .case-pipeline-card{
+    min-height:92px;
+  }
+
+  .case-stage{
+    padding-top:70px;
+  }
+}
+
+@media(max-width:460px){
+  .case-project-facts{
+    grid-template-columns:1fr;
+  }
+
+  .case-project-fact,
+  .case-project-fact:nth-child(-n+2){
+    border-top:1px solid rgba(62,98,128,.08);
+    border-right:0;
+  }
+
+  .case-project-fact:first-child{
+    border-top:0;
+  }
+
+  .case-pipeline-grid{
+    grid-template-columns:1fr;
+  }
+
+  .case-pipeline-card{
+    min-height:0;
+    padding:11px 12px;
+  }
+
+  .case-pipeline-copy{
+    margin-top:10px;
+  }
+}
+
+
+/* V33 compact result-gallery responsive ending */
+@media(max-width:820px){
+  body.workspace-open.case-study-open .workspace.case-study-mode{
+    padding-bottom:14px;
+  }
+  body.workspace-open.case-study-open .workspace.case-study-mode .content-inner{
+    padding-bottom:22px;
+  }
+  .case-stage{
+    padding-top:56px;
+    padding-bottom:20px;
+  }
+  .case-stage:last-child{
+    padding-bottom:0;
+  }
+  .case-media-result .case-media-grid{
+    grid-template-columns:1fr;
+  }
+  .case-media-result .case-media-figure.featured{
+    grid-column:auto;
+  }
+}
+
+
+/* V34 — do not re-introduce viewport minimum height on mobile case studies. */
+@media(max-width:820px){
+  html.workspace-open.case-study-open,
+  body.workspace-open.case-study-open,
+  body.workspace-open.case-study-open .app,
+  body.workspace-open.case-study-open .workspace.case-study-mode{
+    height:auto !important;
+    min-height:0 !important;
+  }
+
+  body.workspace-open.case-study-open .workspace.case-study-mode{
+    padding-bottom:8px !important;
+  }
+
+  body.workspace-open.case-study-open .workspace.case-study-mode .content-inner{
+    padding-bottom:12px !important;
+  }
+}
+
+/* V56 — compact panel ending, with the closing gap outside the panel. */
+@media(max-width:820px){
+  body.workspace-open.case-study-open .workspace.case-study-mode{
+    padding-bottom:36px !important;
+  }
+
+  body.workspace-open.case-study-open .workspace.case-study-mode .content-inner{
+    padding-bottom:12px !important;
+  }
+}
+
+
+/* ==========================================================
+   V62 — responsive folder paper-line proportional scaling fix
+   Keep the desktop paper/document geometry intact and scale the whole
+   3D folder group. This prevents the fixed inline paper strokes from
+   becoming disproportionately long when the viewport gets narrower.
+   ========================================================== */
+
+@media(max-width:820px){
+  .start-folder{
+    width:340px;
+    height:268px;
+    transform:translateY(-3px) scale(.94);
+  }
+
+  .start-folder.start-folder-v92 .folder3d-base{
+    width:308px;
+  }
+
+  .start-folder.start-folder-v92 .folder3d-back-tint{
+    width:204px;
+    height:148px;
+    transform:translate(-52%,-45%);
+  }
+
+  .start-folder.start-folder-v92 .folder3d-docs{
+    width:150px;
+    height:104px;
+    transform:translate(-51%,-43%);
+  }
+
+  .start-folder.start-folder-v92 .folder3d-doc{
+    width:78px;
+    height:106px;
+    border-radius:12px;
+  }
+
+  .start-folder.start-folder-v92 .folder3d-line{
+    left:11px;
+    height:3px;
+  }
+
+  .start-folder.start-folder-v92 .folder3d-chip{
+    right:10px;
+    top:10px;
+    width:22px;
+    height:22px;
+    border-radius:8px;
+  }
+
+  .start-folder.start-folder-v92 .folder3d-chip-head{
+    top:4px;
+    width:6px;
+    height:6px;
+  }
+
+  .start-folder.start-folder-v92 .folder3d-chip-body{
+    bottom:4px;
+    width:10px;
+    height:5px;
+  }
+
+  .start-folder.start-folder-v92 .folder3d-front-glow{
+    width:196px;
+    height:116px;
+    transform:translate(-50%,-4%);
+  }
+
+  .start-folder.start-folder-v92 .folder3d-copy{
+    width:136px;
+    transform:translate(-50%,7%);
+  }
+
+  .start-folder.start-folder-v92 .folder3d-copy strong{
+    font-size:18px;
+  }
+
+  .start-folder.start-folder-v92 .folder3d-eyebrow,
+  .start-folder.start-folder-v92 .folder3d-sub{
+    font-size:9px;
+  }
+
+  /* Keep one canonical internal geometry. Individual document pieces must
+     not be resized independently because their paper strokes use fixed
+     coordinates from the desktop composition. */
+  .folder-shell{
+    width:310px;
+    height:222px;
+    scale:.80;
+  }
+
+  .folder-tab{
+    width:116px;
+    height:60px;
+    top:-28px;
+  }
+
+  .folder-docs{
+    left:24px;
+    right:24px;
+    top:22px;
+    height:112px;
+  }
+
+  .doc{
+    width:112px;
+    height:126px;
+    border-radius:18px;
+  }
+
+  .doc-center{
+    left:76px;
+  }
+
+  .folder-front{
+    height:126px;
+  }
+
+  .folder-copy{
+    left:0;
+    right:0;
+    top:104px;
+    height:88px;
+    width:auto;
+    padding:0 34px;
+    transform:translateZ(58px);
+  }
+
+  .folder-copy > *{
+    left:34px;
+    right:34px;
+  }
+
+  .folder-eyebrow{
+    top:18px;
+  }
+
+  .folder-copy strong{
+    top:30px;
+    font-size:23px;
+  }
+
+  .folder-copy span:last-child{
+    top:65px;
+    font-size:11px;
+  }
+
+  .profile-chip{
+    right:12px;
+    top:10px;
+    width:30px;
+    height:30px;
+    border-radius:11px;
+  }
+
+  .profile-head{
+    top:7px;
+    width:8px;
+    height:8px;
+  }
+
+  .profile-body{
+    bottom:6px;
+    width:13px;
+    height:7px;
+  }
+}
+
+@media(max-width:460px){
+  .start-folder{
+    width:300px;
+    height:246px;
+    transform:translateY(-2px) scale(.94);
+  }
+
+  .folder-shell{
+    scale:.73;
+  }
+}
+
+/* V91 — landing 3D folder responsive sizing */
+@media(max-width:820px){
+  .start-folder.start-folder-v91{width:min(92vw,460px);height:min(72vw,360px)}
+  .folder3d-base{width:min(88vw,390px);transform:translate(-50%,-46%)}
+  .folder3d-docs{width:min(44vw,188px);height:94px;transform:translate(-49%,-39%)}
+  .folder3d-doc{bottom:-50px;width:95px;height:150px;border-radius:18px}
+  .folder3d-doc-b{left:54px}
+  .folder3d-front-glow{width:min(54vw,252px);height:min(31vw,138px);transform:translate(-50%,-20%)}
+  .folder3d-copy{width:min(48vw,214px);transform:translate(-50%,-12%) rotate(-4deg)}
+  .folder3d-eyebrow{font-size:10px}.folder3d-copy strong{margin-top:7px;font-size:22px}.folder3d-sub{margin-top:8px;font-size:10px}
+  .landing-help{top:calc(50% + min(30vw,112px));font-size:11px;letter-spacing:.18em}
+}
+@media(max-width:460px){
+  .start-folder.start-folder-v91{width:min(92vw,380px);height:min(82vw,320px)}
+  .folder3d-base{width:min(94vw,354px)}
+  .folder3d-docs{width:min(48vw,172px);height:86px}
+  .folder3d-doc{width:84px;height:140px;bottom:-48px}
+  .folder3d-doc-b{left:46px}
+  .folder3d-copy{width:min(54vw,198px)}
+  .folder3d-copy strong{font-size:20px}
+}
+
+/* V94 — independent source layers; no clip-path based folder construction. */
+@media(max-width:820px){
+  .start-folder.start-folder-v94{
+    width:min(92vw,500px);
+    height:min(78vw,410px);
+    transform:none;
+  }
+
+  .start-folder.start-folder-v94 .folder-v94-stack{
+    width:min(82vw,410px);
+  }
+
+  .start-folder.start-folder-v94 .folder-v94-shadow{
+    width:min(58vw,300px);
+    height:82px;
+  }
+
+  .start-folder.start-folder-v94 .folder-v94-copy{
+    width:min(38vw,180px);
+  }
+
+  .start-folder.start-folder-v94 .folder-v94-copy strong{font-size:23px}
+  .start-folder.start-folder-v94 .folder-v94-eyebrow,
+  .start-folder.start-folder-v94 .folder-v94-sub{font-size:9px}
+
+  .landing-help{
+    top:calc(50% + min(29vw,118px));
+    font-size:9px;
+  }
+}
+
+@media(max-width:460px){
+  .start-folder.start-folder-v94{
+    width:min(94vw,390px);
+    height:min(86vw,330px);
+  }
+
+  .start-folder.start-folder-v94 .folder-v94-stack{
+    width:min(90vw,350px);
+  }
+
+  .start-folder.start-folder-v94 .folder-v94-copy{
+    width:min(44vw,165px);
+  }
+
+  .start-folder.start-folder-v94 .folder-v94-copy strong{font-size:20px}
 }

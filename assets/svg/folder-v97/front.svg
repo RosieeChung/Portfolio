@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700">
+  <defs>
+    <linearGradient id="frontGlass" x1="0.04" y1="0.05" x2="0.96" y2="0.96">
+      <stop offset="0" stop-color="#79ccff" stop-opacity="0.96"/>
+      <stop offset="0.42" stop-color="#56b6fa" stop-opacity="0.94"/>
+      <stop offset="0.78" stop-color="#3898ef" stop-opacity="0.96"/>
+      <stop offset="1" stop-color="#2c7ce4" stop-opacity="0.98"/>
+    </linearGradient>
+    <linearGradient id="frontSide" x1="0" y1="0" x2="0.2" y2="1">
+      <stop offset="0" stop-color="#3e91ed"/>
+      <stop offset="1" stop-color="#1c64ce"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f4fdff" stop-opacity="0.92"/>
+      <stop offset="0.48" stop-color="#c8f2ff" stop-opacity="0.62"/>
+      <stop offset="1" stop-color="#70d8ff" stop-opacity="0.68"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.18"/>
+      <stop offset="0.35" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.01"/>
+    </linearGradient>
+</defs>
+
+  <g>
+    <!-- left thickness of pocket -->
+    <path d="M172 355 L190 369 L190 557 C190 574 202 584 220 581 L219 600 C191 604 172 588 171 562 Z"
+          fill="url(#frontSide)" opacity="0.95"/>
+
+    <!-- unified front pocket -->
+    <path d="M185 350 C188 326 204 311 229 308 L625 269 C657 266 677 284 676 316 L662 508 C660 539 643 558 613 562 L220 603 C190 606 171 590 172 560 Z"
+          fill="url(#frontGlass)" stroke="#66cfff" stroke-width="4.6"/>
+
+    <!-- subtle front-plane sheen -->
+    <path d="M215 340 C219 329 229 322 242 321 L617 285 C635 283 647 294 646 311 L636 490 C635 507 626 517 610 519 L236 558 C218 560 207 550 208 533 Z"
+          fill="url(#sheen)"/>
+
+    <!-- continuous rim; no separate moving face -->
+    <path d="M199 349 C203 332 214 323 232 321 L623 283 C644 281 658 293 658 313"
+          fill="none" stroke="url(#edge)" stroke-width="4.2" stroke-linecap="round"/>
+    <path d="M190 374 L190 552 C190 572 202 582 222 579 L604 540"
+          fill="none" stroke="#cef5ff" stroke-opacity="0.42" stroke-width="3.1" stroke-linecap="round"/>
+    <path d="M220 591 L610 550" fill="none" stroke="#37e7ff" stroke-opacity="0.36" stroke-width="7" stroke-linecap="round"/>
+  </g>
+</svg>

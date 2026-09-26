@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1254 1254" width="1254" height="1254">
+  <defs>
+    <linearGradient id="left-card" x1="0" y1="0" x2=".86" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset=".56" stop-color="#f5fbff"/>
+      <stop offset="1" stop-color="#d7efff"/>
+    </linearGradient>
+    <filter id="left-shadow" x="-24%" y="-22%" width="154%" height="158%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#197fce" flood-opacity=".22"/>
+    </filter>
+  </defs>
+  <g transform="rotate(-8 405 640)" filter="url(#left-shadow)">
+    <rect x="255" y="370" width="300" height="540" rx="32" fill="url(#left-card)" stroke="#d4ecff" stroke-width="8"/>
+    <rect x="268" y="383" width="274" height="514" rx="23" fill="none" stroke="#fff" stroke-opacity=".84" stroke-width="5"/>
+    <rect x="303" y="435" width="90" height="14" rx="7" fill="#3295ef"/>
+    <rect x="303" y="481" width="165" height="12" rx="6" fill="#b9ddff"/>
+    <rect x="303" y="510" width="134" height="12" rx="6" fill="#a8d3ff"/>
+    <rect x="303" y="539" width="171" height="12" rx="6" fill="#c7e6ff"/>
+    <rect x="303" y="601" width="132" height="12" rx="6" fill="#9bceff"/>
+  </g>
+</svg>

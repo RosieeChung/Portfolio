@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700">
+  <defs>
+    <linearGradient id="backFace" x1="0.08" y1="0.02" x2="0.92" y2="0.96">
+      <stop offset="0" stop-color="#69c2ff"/>
+      <stop offset="0.48" stop-color="#4ca8f6"/>
+      <stop offset="1" stop-color="#2d7fe8"/>
+    </linearGradient>
+    <linearGradient id="backSide" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0" stop-color="#2a7be5"/>
+      <stop offset="0.62" stop-color="#1e65d7"/>
+      <stop offset="1" stop-color="#35d8f5"/>
+    </linearGradient>
+    <linearGradient id="innerGlass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d7efff" stop-opacity="0.78"/>
+      <stop offset="0.48" stop-color="#b9ddff" stop-opacity="0.46"/>
+      <stop offset="1" stop-color="#8fc8ff" stop-opacity="0.28"/>
+    </linearGradient>
+    <linearGradient id="edgeGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f5fdff" stop-opacity="0.9"/>
+      <stop offset="0.45" stop-color="#d7f6ff" stop-opacity="0.58"/>
+      <stop offset="1" stop-color="#86ddff" stop-opacity="0.62"/>
+    </linearGradient>
+</defs>
+
+  <g>
+    <!-- solid left thickness -->
+    <path d="M149 226 C147 194 164 171 193 165 L213 162 L214 548 L196 553 C169 559 151 545 150 518 Z"
+          fill="url(#backSide)"/>
+
+    <!-- unified rear folder shell -->
+    <path d="M166 224 C164 193 182 170 215 165 L337 149 C363 146 383 155 398 175 L433 217 L631 197 C665 194 686 214 684 248 L675 514 C673 547 654 566 622 570 L214 596 C185 599 167 582 166 552 Z"
+          fill="url(#backFace)" stroke="#78d8ff" stroke-width="4.5"/>
+
+    <!-- inner cavity panel, behind documents -->
+    <path d="M195 250 C194 226 208 210 232 206 L338 193 C358 190 374 197 385 213 L410 244 L608 225 C632 223 647 237 646 261 L638 487 C637 511 623 525 599 528 L236 552 C213 554 198 540 198 517 Z"
+          fill="url(#innerGlass)" stroke="#e8f9ff" stroke-opacity="0.5" stroke-width="2.5"/>
+
+    <!-- top and left glass rim -->
+    <path d="M180 222 C181 195 195 181 219 177 L336 162 C359 159 375 167 389 185 L424 226 L630 207 C654 205 668 217 670 240"
+          fill="none" stroke="url(#edgeGlow)" stroke-width="4.2" stroke-linecap="round"/>
+    <path d="M177 245 L177 538 C177 558 187 568 205 568"
+          fill="none" stroke="#cbf5ff" stroke-opacity="0.5" stroke-width="3.4" stroke-linecap="round"/>
+  </g>
+</svg>

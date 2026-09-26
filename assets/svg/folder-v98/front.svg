@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700">
+  <defs>
+    <linearGradient id="front" x1="0.04" y1="0.04" x2="0.96" y2="0.96">
+      <stop offset="0" stop-color="#84d4ff" stop-opacity="0.95"/>
+      <stop offset="0.42" stop-color="#59b7fa" stop-opacity="0.94"/>
+      <stop offset="0.8" stop-color="#3998ee" stop-opacity="0.96"/>
+      <stop offset="1" stop-color="#2c7ce4" stop-opacity="0.98"/>
+    </linearGradient>
+    <linearGradient id="side" x1="0" y1="0" x2="0.15" y2="1">
+      <stop offset="0" stop-color="#4d9ef4"/>
+      <stop offset="1" stop-color="#1e67cf"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.94"/>
+      <stop offset="0.5" stop-color="#d8f6ff" stop-opacity="0.62"/>
+      <stop offset="1" stop-color="#7bdcff" stop-opacity="0.66"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.19"/>
+      <stop offset="0.34" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.01"/>
+    </linearGradient>
+  </defs>
+
+  <!-- left transparent thickness remains attached to pocket -->
+  <path d="M174 390 L191 402 L191 563 C191 582 204 592 223 588 L222 607 C192 611 173 594 172 566 Z"
+        fill="url(#side)" opacity="0.94"/>
+
+  <!-- lower and more slanted pocket, matching reference -->
+  <path d="M190 378 C193 348 212 330 242 326 L626 276 C660 272 681 291 679 325 L664 520 C662 552 644 571 614 576 L226 612 C194 616 173 598 174 566 Z"
+        fill="url(#front)" stroke="#68d2ff" stroke-width="4.5"/>
+
+  <path d="M218 359 C221 345 232 336 247 334 L619 287 C640 284 654 296 653 316 L641 495 C640 514 630 525 612 528 L239 565 C220 567 208 556 209 537 Z"
+        fill="url(#sheen)"/>
+
+  <path d="M204 377 C209 354 222 342 246 339 L624 290 C646 287 661 300 661 322"
+        fill="none" stroke="url(#rim)" stroke-width="4.3" stroke-linecap="round"/>
+  <path d="M192 405 L192 557 C192 579 205 590 226 586 L606 550"
+        fill="none" stroke="#d5f7ff" stroke-opacity="0.43" stroke-width="3.1" stroke-linecap="round"/>
+  <path d="M229 601 L610 565" fill="none" stroke="#48eaff" stroke-opacity="0.34" stroke-width="6.5" stroke-linecap="round"/>
+</svg>

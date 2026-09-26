@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700">
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="0.72" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#edf6ff"/>
+    </linearGradient>
+</defs>
+  <g>
+    <path d="M224 276 C226 258 239 246 257 244 L420 226 C438 224 451 236 452 254 L458 500 L247 523 C229 525 218 514 218 496 Z"
+          fill="url(#paper)" stroke="#d8e9fa" stroke-width="3"/>
+    <path d="M256 300 L291 296" stroke="#7ab8ef" stroke-width="5.8" stroke-linecap="round"/>
+    <path d="M255 332 L389 317" stroke="#d3e5f7" stroke-width="5" stroke-linecap="round"/>
+    <path d="M257 355 L399 339" stroke="#deebf8" stroke-width="5" stroke-linecap="round"/>
+    <path d="M259 378 L388 364" stroke="#d3e5f7" stroke-width="5" stroke-linecap="round"/>
+    <path d="M261 401 L397 386" stroke="#deebf8" stroke-width="5" stroke-linecap="round"/>
+  </g>
+</svg>

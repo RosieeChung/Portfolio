@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700">
+  <defs><linearGradient id="paper" x1="0" y1="0" x2="0.72" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#edf6ff"/></linearGradient></defs>
+  <g>
+    <!-- kept fully inside the folder cavity; no white sheet protruding past the pocket edge -->
+    <path d="M465 286 C467 268 480 256 498 254 L612 240 C630 238 643 250 644 268 L647 486 L484 504 C466 506 454 495 455 477 Z"
+          fill="url(#paper)" stroke="#d8e9fa" stroke-width="3"/>
+    <path d="M494 309 L528 305" stroke="#7ab8ef" stroke-width="5.8" stroke-linecap="round"/>
+    <path d="M492 341 L610 328" stroke="#d3e5f7" stroke-width="5" stroke-linecap="round"/>
+    <path d="M494 364 L618 350" stroke="#deebf8" stroke-width="5" stroke-linecap="round"/>
+    <path d="M496 387 L607 375" stroke="#d3e5f7" stroke-width="5" stroke-linecap="round"/>
+    <path d="M498 410 L615 397" stroke="#deebf8" stroke-width="5" stroke-linecap="round"/>
+  </g>
+</svg>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1254 1254" style="enable-background:new 0 0 1254 1254;" xml:space="preserve">
+<defs>
+	<linearGradient id="frontFace" x1="0.02" y1="0.98" x2="0.88" y2="0.05">
+		<stop  offset="0" style="stop-color:#1D5FDB"/>
+		<stop  offset="0.32" style="stop-color:#3F8CF6"/>
+		<stop  offset="0.68" style="stop-color:#79BBF8"/>
+		<stop  offset="1" style="stop-color:#9ED4FA"/>
+	</linearGradient>
+	<filter id="frontShadow" x="-25%" y="-20%" width="150%" height="150%">
+		<feDropShadow dx="0" dy="12" stdDeviation="11" flood-color="#0d5fb8" flood-opacity="0.24"/>
+	</filter>
+	<filter id="softBlur" x="-60%" y="-60%" width="220%" height="220%">
+		<feGaussianBlur stdDeviation="55"/>
+	</filter>
+	<radialGradient id="sheen" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(430 0 0 260 520 520)">
+		<stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
+		<stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+	</radialGradient>
+	<linearGradient id="bottomShade" x1="0" y1="0" x2="0" y2="1">
+		<stop offset="0" stop-color="#0B3E9E" stop-opacity="0"/>
+		<stop offset="0.7" stop-color="#0B3E9E" stop-opacity="0"/>
+		<stop offset="1" stop-color="#0B3E9E" stop-opacity="0.38"/>
+	</linearGradient>
+	<linearGradient id="leftShade" x1="1" y1="0" x2="0" y2="0">
+		<stop offset="0" stop-color="#0B3E9E" stop-opacity="0"/>
+		<stop offset="0.65" stop-color="#0B3E9E" stop-opacity="0"/>
+		<stop offset="1" stop-color="#0B3E9E" stop-opacity="0.3"/>
+	</linearGradient>
+	<clipPath id="frontClip">
+		<path d="M1158,448c3-21.8-9.1-28.2-15.3-30.6l-10.7-4.1c-6.2-2.4-12.6-3-19.2-1.9L308.9,552.3
+			c-6.6,1.1-12.4,3.9-17.4,8.3l-41,35.8c-5,4.4-10.8,7.2-17.4,8.3l-83.7,13.9c-14.5,2.5-12.2-0.7-11.9,13.9l8.7,358.6
+			c0.8,47.3,5,56,20.8,67.9l36.3,22.2c15.5,7.7,31.7,9.6,48.6,5.7l788.7-186.8c6.5-1.5,23.7-6.3,36.9-21.3
+			c12.9-14.6,16.8-26.5,17.8-33.2L1158,448z"/>
+	</clipPath>
+</defs>
+<path d="M1158,448c3-21.8-9.1-28.2-15.3-30.6l-10.7-4.1c-6.2-2.4-12.6-3-19.2-1.9L308.9,552.3
+	c-6.6,1.1-12.4,3.9-17.4,8.3l-41,35.8c-5,4.4-10.8,7.2-17.4,8.3l-83.7,13.9c-14.5,2.5-12.2-0.7-11.9,13.9l8.7,358.6
+	c0.8,47.3,5,56,20.8,67.9l36.3,22.2c15.5,7.7,31.7,9.6,48.6,5.7l788.7-186.8c6.5-1.5,23.7-6.3,36.9-21.3
+	c12.9-14.6,16.8-26.5,17.8-33.2L1158,448z" fill="url(#frontFace)" filter="url(#frontShadow)"/>
+<!-- extra darkening along the left edge and bottom edge, on top of the
+     diagonal base gradient, so both edges read as the "shadowed" side of
+     the card for more depth -->
+<g clip-path="url(#frontClip)">
+	<rect x="80" y="920" width="1120" height="230" fill="url(#bottomShade)"/>
+	<rect x="80" y="360" width="150" height="780" fill="url(#leftShade)"/>
+</g>
+<!-- soft glossy highlight, blurred and clipped to the card so it reads like
+     the diffuse sheen on the original PNG instead of a hard-edged ring -->
+<g clip-path="url(#frontClip)">
+	<ellipse cx="520" cy="520" rx="430" ry="260" fill="url(#sheen)" filter="url(#softBlur)"/>
+</g>
+<!-- outer rim: a slightly darker edge line for definition -->
+<path d="M1158,448c3-21.8-9.1-28.2-15.3-30.6l-10.7-4.1c-6.2-2.4-12.6-3-19.2-1.9L308.9,552.3
+	c-6.6,1.1-12.4,3.9-17.4,8.3l-41,35.8c-5,4.4-10.8,7.2-17.4,8.3l-83.7,13.9c-14.5,2.5-12.2-0.7-11.9,13.9l8.7,358.6
+	c0.8,47.3,5,56,20.8,67.9l36.3,22.2c15.5,7.7,31.7,9.6,48.6,5.7l788.7-186.8c6.5-1.5,23.7-6.3,36.9-21.3
+	c12.9-14.6,16.8-26.5,17.8-33.2L1158,448z" fill="none" stroke="#2C7EE6" stroke-opacity="0.28" stroke-width="3"/>
+</svg>

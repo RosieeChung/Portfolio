@@ -31,18 +31,40 @@
   justify-self:start;
   border:0;
   background:transparent;
-  color:#604795;
+  color:#477295;
   cursor:pointer;
-  padding:8px 0;
-  font-size:10px;
-  font-weight:700;
+  padding:0;
+  width:38px;
+  height:38px;
+  -webkit-tap-highlight-color:transparent;
+}
+
+/* V170: workspace home button — a straight-on "front view" folder icon (not
+   the isometric landing-page folder), replacing the old "포트폴리오" text
+   link. Single self-contained SVG (assets/svg/folder-icon-front-view.svg). */
+.home-icon{
+  display:block;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  user-select:none;
+  -webkit-user-drag:none;
+  transition:transform .18s cubic-bezier(.18,.78,.2,1);
+}
+.home-button:hover .home-icon,
+.home-button:focus-visible .home-icon{
+  transform:scale(1.08) translateY(-1px);
+}
+@media(prefers-reduced-motion:reduce){
+  .home-icon{transition:none}
 }
 
 .breadcrumb{
+  display:none;
   font-size:9px;
   letter-spacing:.08em;
   text-transform:uppercase;
-  color:#9a8ab9;
+  color:#8aa4b9;
 }
 
 .topbar-spacer{
@@ -66,10 +88,10 @@
 
 .list-pane,
 .content-pane{
-  border:1px solid rgba(81,62,128,.10);
+  border:1px solid rgba(62,98,128,.10);
   background:rgba(255,255,255,.66);
   backdrop-filter:blur(22px);
-  box-shadow:0 28px 80px rgba(75,58,122,.07);
+  box-shadow:0 28px 80px rgba(58,93,122,.07);
 }
 
 .list-pane{
@@ -115,20 +137,20 @@
   height:30px;
   margin-top:5px;
   padding:0 11px;
-  border:1px solid rgba(96,66,158,.15);
+  border:1px solid rgba(66,117,158,.15);
   border-radius:999px;
   background:rgba(255,255,255,.88);
-  color:#5f468f;
+  color:#466e8f;
   font-size:9px;
   font-weight:650;
   line-height:1;
   white-space:nowrap;
   cursor:pointer;
-  box-shadow:0 3px 12px rgba(80,60,130,.05);
+  box-shadow:0 3px 12px rgba(60,98,130,.05);
 }
 
 #backButton.back-button-local:hover{
-  background:#f1ebff;
+  background:#ebf6ff;
 }
 
 .item-list{
@@ -157,27 +179,27 @@
 }
 
 .list-item:hover{
-  background:rgba(239,234,252,.70);
+  background:rgba(234,244,252,.70);
   transform:translateX(3px);
 }
 
 .list-item.active{
-  background:linear-gradient(135deg,rgba(116,81,232,.12),rgba(154,118,242,.08));
+  background:linear-gradient(135deg,rgba(81,164,232,.12),rgba(118,186,242,.08));
 }
 
 .list-no{
   width:34px;
   height:34px;
   border-radius:11px;
-  background:#f0ebfb;
+  background:#ebf4fb;
   display:grid;
   place-items:center;
   font-size:9px;
-  color:#7159a6;
+  color:#5983a6;
 }
 
 .list-item.active .list-no{
-  background:linear-gradient(135deg,#7652e8,#9470ef);
+  background:linear-gradient(135deg,#52a4e8,#70b6ef);
   color:#fff;
 }
 
@@ -188,17 +210,19 @@
 }
 
 .list-copy span{
-  display:block;
+  display:-webkit-box;
   font-size:9px;
-  color:#9285ad;
-  white-space:nowrap;
+  line-height:1.35;
+  color:#859bad;
+  white-space:normal;
   overflow:hidden;
-  text-overflow:ellipsis;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
 }
 
 .list-arrow{
   font-size:13px;
-  color:#b3a7c9;
+  color:#a7bac9;
 }
 
 .content-inner{
@@ -219,13 +243,18 @@
   font-size:9px;
   letter-spacing:.14em;
   text-transform:uppercase;
-  color:#8d73c9;
+  color:#73a2c9;
   margin-bottom:12px;
 }
 
 .content-title{
   margin:0;
-  font-size:42px;
+  /* V39: was hardcoded 42px/700, independent of the editable typography
+     settings. Now shares --portfolio-hero-title-size/-weight with every
+     other top-level page title (about/experience/process detail), so it
+     can't silently drift out of sync when those are changed in the editor. */
+  font-size:var(--portfolio-hero-title-size,42px);
+  font-weight:var(--portfolio-hero-title-weight,700);
   letter-spacing:-.055em;
   line-height:1.04;
 }
@@ -233,7 +262,7 @@
 .content-subtitle{
   margin-top:9px;
   font-size:12px;
-  color:#8a7ca4;
+  color:#7c92a4;
 }
 
 .content-description{
@@ -241,7 +270,7 @@
   margin:26px 0 0;
   font-size:14px;
   line-height:1.75;
-  color:#665a80;
+  color:#5a6f80;
 }
 
 .hero-meta{
@@ -254,10 +283,10 @@
 .tag{
   padding:6px 9px;
   border-radius:999px;
-  background:#f0eafe;
-  color:#7055aa;
+  background:#eaf5fe;
+  color:#5584aa;
   font-size:9px;
-  border:1px solid rgba(105,76,169,.08);
+  border:1px solid rgba(76,127,169,.08);
 }
 
 .section-rule{
@@ -271,7 +300,7 @@
   font-size:9px;
   letter-spacing:.12em;
   text-transform:uppercase;
-  color:#9c8db6;
+  color:#8da4b6;
 }
 
 .summary-grid{
@@ -284,14 +313,14 @@
   min-height:100px;
   padding:15px;
   border-radius:17px;
-  background:#f7f4fd;
-  border:1px solid rgba(89,66,143,.07);
+  background:#f4f9fd;
+  border:1px solid rgba(66,108,143,.07);
 }
 
 .summary-card span{
   display:block;
   font-size:8px;
-  color:#a294bb;
+  color:#94a9bb;
   margin-bottom:18px;
 }
 
@@ -299,7 +328,7 @@
   display:block;
   font-size:11px;
   line-height:1.55;
-  color:#49376f;
+  color:#37566f;
 }
 
 
@@ -319,7 +348,7 @@
   margin:0 0 12px;
   overflow:hidden;
   border-radius:12px;
-  background:#ece7f5;
+  background:#e7eff5;
 }
 
 .workstyle-card-image img{
@@ -349,7 +378,7 @@
   margin:0 0 12px;
   overflow:hidden;
   border-radius:12px;
-  background:#ece7f5;
+  background:#e7eff5;
 }
 
 .project-composition-card-image img{
@@ -372,7 +401,7 @@
   margin-top:3px;
   font-size:9px;
   line-height:1.45;
-  color:#786b90;
+  color:#6b7f90;
 }
 
 .experience-list{
@@ -390,7 +419,7 @@
 
 .experience-period{
   font-size:9px;
-  color:#9a8db2;
+  color:#8da1b2;
   letter-spacing:.06em;
 }
 
@@ -404,7 +433,7 @@
 .experience-scope{
   font-size:10px;
   line-height:1.6;
-  color:#83769d;
+  color:#768b9d;
 }
 
 .project-open{
@@ -412,7 +441,7 @@
   padding:12px 16px;
   border:0;
   border-radius:13px;
-  background:linear-gradient(135deg,#7652e8,#8d66ec);
+  background:linear-gradient(135deg,#52a4e8,#66b0ec);
   color:#fff;
   font-size:10px;
   cursor:pointer;
@@ -432,8 +461,8 @@
 
 .process-button{
   width:100%;
-  border:1px solid rgba(90,66,145,.08);
-  background:#f7f4fd;
+  border:1px solid rgba(66,109,145,.08);
+  background:#f4f9fd;
   border-radius:15px;
   padding:13px 14px;
   display:grid;
@@ -447,13 +476,13 @@
 }
 
 .process-button:hover{
-  background:#f0eafe;
+  background:#eaf5fe;
   transform:translateX(3px);
 }
 
 .process-button .process-no{
   font-size:9px;
-  color:#9a8bb4;
+  color:#8ba2b4;
 }
 
 .process-button strong{
@@ -464,20 +493,20 @@
 
 .process-button small{
   font-size:9px;
-  color:#8f82aa;
+  color:#8298aa;
 }
 
 .process-button .go{
   font-size:12px;
-  color:#aa9dc2;
+  color:#9db1c2;
 }
 
 .detail-block{
   margin-top:28px;
   padding:22px;
   border-radius:20px;
-  background:linear-gradient(145deg,#f5f1fc,#faf8ff);
-  border:1px solid rgba(90,66,145,.08);
+  background:linear-gradient(145deg,#f1f7fc,#f8fcff);
+  border:1px solid rgba(66,109,145,.08);
 }
 
 .detail-block h3{
@@ -490,7 +519,7 @@
   margin:0;
   font-size:12px;
   line-height:1.75;
-  color:#77698f;
+  color:#697e8f;
 }
 
 .detail-points{
@@ -504,10 +533,10 @@
   padding:12px;
   border-radius:13px;
   background:#fff;
-  border:1px solid rgba(90,66,145,.07);
+  border:1px solid rgba(66,109,145,.07);
   font-size:10px;
   line-height:1.55;
-  color:#5f5277;
+  color:#526677;
 }
 
 
@@ -528,13 +557,13 @@
   gap:6px;
   overflow:hidden;
   white-space:nowrap;
-  color:#9c8db6;
+  color:#8da4b6;
   font-size:9px;
 }
 
 .location-separator{
   flex:0 0 auto;
-  color:#c2b7d5;
+  color:#b7c8d5;
   font-size:10px;
 }
 
@@ -548,7 +577,7 @@
   padding:5px 8px;
   border-radius:999px;
   background:transparent;
-  color:#8c7ca7;
+  color:#7c94a7;
   font-size:9px;
   line-height:1;
 }
@@ -562,19 +591,19 @@ button.location-crumb{
 }
 
 button.location-crumb:hover{
-  color:#62459d;
-  background:#f1ebff;
+  color:#45759d;
+  background:#ebf6ff;
   transform:translateY(-1px);
 }
 
 .location-crumb.root{
   padding-left:0;
-  color:#a396b7;
+  color:#96a8b7;
 }
 
 .location-crumb.current{
-  background:linear-gradient(135deg,rgba(116,81,232,.12),rgba(154,118,242,.08));
-  color:#64489c;
+  background:linear-gradient(135deg,rgba(81,164,232,.12),rgba(118,186,242,.08));
+  color:#48769c;
   font-weight:650;
 }
 
@@ -612,9 +641,9 @@ button.location-crumb:hover{
   aspect-ratio:4/3;
   object-fit:cover;
   border-radius:18px;
-  background:#f1edf8;
-  border:1px solid rgba(90,66,145,.08);
-  box-shadow:0 16px 36px rgba(64,48,102,.06);
+  background:#edf3f8;
+  border:1px solid rgba(66,109,145,.08);
+  box-shadow:0 16px 36px rgba(48,78,102,.06);
 }
 
 .visual-figure.visual-featured img{
@@ -626,7 +655,7 @@ button.location-crumb:hover{
   padding:8px 3px 2px;
   font-size:9px;
   line-height:1.55;
-  color:#897ca1;
+  color:#7c90a1;
 }
 
 @media(max-width:720px){
@@ -662,7 +691,7 @@ button.location-crumb:hover{
 
 .stage-accordion.open .stage-trigger .stage-chevron{
   transform:rotate(0deg);
-  color:#7859b3;
+  color:#598ab3;
 }
 
 .stage-children{
@@ -687,25 +716,25 @@ button.location-crumb:hover{
   gap:7px;
   align-items:center;
   text-align:left;
-  color:#6f6188;
+  color:#617688;
   cursor:pointer;
   transition:background .18s ease,transform .18s ease,color .18s ease;
 }
 
 .stage-child:hover{
-  background:rgba(239,234,252,.64);
-  color:#543b89;
+  background:rgba(234,244,252,.64);
+  color:#3b6689;
   transform:translateX(2px);
 }
 
 .stage-child.active{
-  background:#f0eafe;
-  color:#53358f;
+  background:#eaf5fe;
+  color:#35678f;
 }
 
 .stage-child-no{
   font-size:8px;
-  color:#a597bb;
+  color:#97abbb;
 }
 
 .stage-child-copy{
@@ -726,17 +755,17 @@ button.location-crumb:hover{
   white-space:nowrap;
   font-size:8px;
   line-height:1.3;
-  color:#9a8daf;
+  color:#8da0af;
 }
 
 .stage-child.active .stage-child-copy small,
 .stage-child.active .stage-child-no{
-  color:#816ba7;
+  color:#6b8ca7;
 }
 
 .stage-child-arrow{
   font-size:11px;
-  color:#b8aec7;
+  color:#aebcc7;
 }
 
 /* Current stage content should read tighter after the large project image. */
@@ -796,3 +825,1752 @@ button.location-crumb:hover{
     min-width:150px;
   }
 }
+
+/* ==========================================================
+   V25 — selected project as a single visual case study
+   Folder entrance stays intact; project detail becomes one scroll story.
+   ========================================================== */
+
+html.workspace-open.case-study-open,
+body.workspace-open.case-study-open{
+  height:auto;
+  min-height:100%;
+  overflow-x:hidden;
+  overflow-y:auto;
+}
+
+body.workspace-open.case-study-open .app{
+  height:auto;
+  min-height:100vh;
+  overflow:visible;
+}
+
+body.workspace-open.case-study-open .workspace.case-study-mode{
+  position:relative;
+  inset:auto;
+  min-height:100vh;
+  padding:82px 24px 72px;
+}
+
+body.workspace-open.case-study-open .workspace.case-study-mode .topbar{
+  position:fixed;
+  left:0;
+  right:0;
+  top:0;
+  height:62px;
+  padding:0 28px;
+  background:linear-gradient(to bottom,rgba(247,250,252,.96),rgba(247,250,252,.82));
+  border-bottom:1px solid rgba(62,98,128,.06);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+}
+
+body.workspace-open.case-study-open .workspace.case-study-mode .workspace-shell{
+  position:relative;
+  left:auto;
+  top:auto;
+  width:min(1480px,calc(100vw - 48px));
+  height:auto;
+  min-height:0;
+  margin:0 auto;
+  transform:none;
+  grid-template-columns:250px minmax(0,1fr);
+  align-items:start;
+  gap:20px;
+}
+
+body.workspace-open.case-study-open .workspace.case-study-mode .list-pane{
+  position:sticky;
+  top:82px;
+  border-radius:26px;
+  padding:24px 18px;
+  overflow:visible;
+}
+
+body.workspace-open.case-study-open .workspace.case-study-mode .content-pane{
+  position:relative;
+  border-radius:30px;
+  overflow:visible;
+}
+
+body.workspace-open.case-study-open .workspace.case-study-mode .content-inner{
+  position:relative;
+  inset:auto;
+  min-height:0;
+  padding:58px clamp(34px,4.6vw,72px) 90px;
+  overflow:visible;
+}
+
+.case-study{
+  width:100%;
+  max-width:1120px;
+  margin:0 auto;
+}
+
+.case-intro,
+.case-pipeline,
+.case-stage{
+  scroll-margin-top:118px;
+}
+
+.case-intro{
+  padding-bottom:12px;
+}
+
+.case-hero-title{
+  max-width:920px;
+  margin:0;
+  font-size:clamp(48px,5vw,76px);
+  line-height:.98;
+  letter-spacing:-.065em;
+}
+
+.case-hero-description{
+  max-width:760px;
+  margin:28px 0 0;
+  color:#5a6f80;
+  font-size:15px;
+  line-height:1.8;
+}
+
+.case-hero-media{
+  margin:42px 0 0;
+}
+
+.case-hero-media img{
+  display:block;
+  width:100%;
+  max-height:720px;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  border-radius:22px;
+  border:1px solid rgba(66,109,145,.08);
+  background:#edf3f8;
+  box-shadow:0 22px 52px rgba(48,78,102,.08);
+}
+
+.case-hero-media figcaption,
+.case-media-figure figcaption{
+  padding:9px 3px 0;
+  color:#7c90a1;
+  font-size:9px;
+  line-height:1.55;
+}
+
+.case-pipeline{
+  padding:44px 0 20px;
+}
+
+.case-section-heading{
+  display:block;
+  margin-bottom:26px;
+}
+
+.case-stage-kicker{
+  margin-bottom:10px;
+  color:#73a2c9;
+  font-size:9px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+.case-section-heading h2,
+.case-stage-heading h2{
+  margin:0;
+  font-size:clamp(34px,3.6vw,52px);
+  line-height:1;
+  letter-spacing:-.055em;
+}
+
+.case-section-heading p{
+  max-width:720px;
+  margin:14px 0 0;
+  color:#6a7e8f;
+  font-size:12px;
+  line-height:1.75;
+}
+
+.case-pipeline-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+}
+
+.case-pipeline-card{
+  min-width:0;
+  min-height:186px;
+  padding:14px;
+  border:1px solid rgba(66,109,145,.08);
+  border-radius:18px;
+  background:#f4f9fd;
+  color:var(--ink);
+  text-align:left;
+  cursor:pointer;
+  display:flex;
+  flex-direction:column;
+  transition:transform .24s ease,background .2s ease,border-color .2s ease;
+}
+
+.case-pipeline-card:hover{
+  transform:translateY(-3px);
+  background:#edf5fc;
+  border-color:rgba(81,164,232,.15);
+}
+
+.case-pipeline-step{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  color:#5585ad;
+  font-size:9px;
+  font-weight:750;
+  letter-spacing:.04em;
+  line-height:1.2;
+  text-transform:uppercase;
+}
+
+.case-pipeline-step > strong{
+  font:inherit;
+}
+
+.case-pipeline-no{
+  color:#94a9bb;
+  font-size:8px;
+  font-weight:650;
+}
+
+.case-pipeline-image{
+  display:block;
+  width:100%;
+  aspect-ratio:4/3;
+  margin:12px 0;
+  overflow:hidden;
+  border-radius:13px;
+  background:#e7eff5;
+}
+
+.case-pipeline-image img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.case-pipeline-copy{
+  display:block;
+  margin-top:auto;
+}
+
+.case-pipeline-copy strong{
+  display:block;
+  font-size:12px;
+  line-height:1.35;
+}
+
+.case-pipeline-copy small{
+  display:block;
+  margin-top:4px;
+  color:#7a8e9f;
+  font-size:9px;
+  line-height:1.45;
+}
+
+.case-pipeline-arrow{
+  align-self:flex-end;
+  margin-top:12px;
+  color:#8ba5bb;
+  font-size:12px;
+}
+
+.case-stage{
+  padding:82px 0 38px;
+  border-top:1px solid var(--line);
+}
+
+.case-stage-heading{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:24px;
+}
+
+.case-stage-subtitle{
+  margin-top:9px;
+  color:#7c92a4;
+  font-size:12px;
+}
+
+.case-stage-number{
+  flex:0 0 auto;
+  color:rgba(81,164,232,.13);
+  font-size:clamp(54px,7vw,92px);
+  font-weight:750;
+  letter-spacing:-.06em;
+  line-height:.8;
+}
+
+.case-stage-description{
+  max-width:720px;
+  margin:24px 0 0;
+  color:#5a6f80;
+  font-size:14px;
+  line-height:1.8;
+}
+
+.case-media{
+  margin-top:34px;
+}
+
+.case-media-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+
+.case-media-grid.single{
+  grid-template-columns:1fr;
+}
+
+.case-media-figure{
+  min-width:0;
+  margin:0;
+}
+
+.case-media-figure.featured{
+  grid-column:1/-1;
+}
+
+.case-media-figure img{
+  display:block;
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  border-radius:18px;
+  border:1px solid rgba(66,109,145,.08);
+  background:#edf3f8;
+  box-shadow:0 16px 36px rgba(48,78,102,.05);
+}
+
+.case-media-stage .case-media-figure.featured img{
+  aspect-ratio:16/9;
+  max-height:700px;
+  border-radius:22px;
+}
+
+.case-summary-wrap{
+  margin-top:34px;
+}
+
+.case-summary-grid,
+.case-bullet-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:9px;
+}
+
+.case-summary-card,
+.case-bullet{
+  min-height:86px;
+  padding:13px 14px;
+  border-radius:15px;
+  background:#f4f9fd;
+  border:1px solid rgba(66,108,143,.07);
+}
+
+.case-summary-card span,
+.case-bullet span{
+  display:block;
+  margin-bottom:9px;
+  color:#94a9bb;
+  font-size:8px;
+}
+
+.case-summary-card strong,
+.case-bullet strong{
+  display:block;
+  color:#37566f;
+  font-size:10px;
+  line-height:1.5;
+}
+
+.case-processes{
+  margin-top:46px;
+}
+
+.case-processes-title{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:18px;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--line);
+}
+
+.case-processes-title .section-label{
+  margin:0;
+}
+
+.case-processes-title strong{
+  color:#465d6f;
+  font-size:11px;
+}
+
+.case-process{
+  padding:38px 0 12px;
+}
+
+.case-process + .case-process{
+  margin-top:18px;
+  border-top:1px solid rgba(62,98,128,.08);
+}
+
+.case-process-heading{
+  display:grid;
+  grid-template-columns:62px minmax(0,1fr);
+  gap:14px;
+  /* V39: was align-items:start with a hand-tuned padding-top on the index
+     number to fake a baseline match against the h3. That guess only holds
+     for one exact title font-size/line-height, so every process card whose
+     title wraps or uses a different size drifts out of line. Real baseline
+     alignment doesn't need tuning and can't drift. */
+  align-items:baseline;
+}
+
+.case-process-index{
+  color:#8da4b7;
+  /* V41: was hardcoded 9px, separate from .case-stage-kicker's "01 ·
+     DATA & RESEARCH" label even though they're the same role (small index
+     tag). Sharing the eyebrow size/weight vars keeps "01" and "01-1" the
+     same size everywhere, and lets both grow together from one place. */
+  font-size:var(--portfolio-eyebrow-size,9px);
+  font-weight:var(--portfolio-eyebrow-weight,400);
+}
+
+.case-process-heading h3{
+  margin:0;
+  font-size:24px;
+  letter-spacing:-.04em;
+}
+
+.case-process-subtitle{
+  margin-top:5px;
+  color:#7d92a3;
+  font-size:10px;
+}
+
+.case-process-description{
+  max-width:720px;
+  margin:17px 0 0 76px;
+  color:#647786;
+  /* V42: was hardcoded 12px, independent of .case-stage-description /
+     .case-hero-description which both already follow the editable
+     "설명 본문" body size. Unify so stage-level and process-level
+     descriptions are always the same size. */
+  font-size:var(--portfolio-body-size,12px);
+  line-height:1.75;
+}
+
+.case-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin:16px 0 0 76px;
+}
+
+.case-process .case-media{
+  margin-top:24px;
+  margin-left:76px;
+}
+
+.case-process .case-bullet-grid{
+  margin:20px 0 0 76px;
+}
+
+/* ==========================================================
+   V26 — 소개 / 경력도 선정 프로젝트처럼 넓은 문서 페이지
+   데스크톱에서도 패널 내부 스크롤 대신 브라우저 전체가 스크롤한다.
+   ========================================================== */
+
+html.workspace-open.section-page-open,
+body.workspace-open.section-page-open{
+  height:auto;
+  min-height:100%;
+  overflow-x:hidden;
+  overflow-y:auto;
+}
+
+body.workspace-open.section-page-open .app{
+  height:auto;
+  min-height:100vh;
+  overflow:visible;
+}
+
+body.workspace-open.section-page-open .workspace.section-page-mode{
+  position:relative;
+  inset:auto;
+  min-height:100vh;
+  padding:82px 24px 72px;
+}
+
+body.workspace-open.section-page-open .workspace.section-page-mode .topbar{
+  position:fixed;
+  left:0;
+  right:0;
+  top:0;
+  height:62px;
+  padding:0 28px;
+  background:linear-gradient(to bottom,rgba(247,250,252,.96),rgba(247,250,252,.82));
+  border-bottom:1px solid rgba(62,98,128,.06);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+}
+
+body.workspace-open.section-page-open .workspace.section-page-mode .workspace-shell{
+  position:relative;
+  left:auto;
+  top:auto;
+  width:min(1480px,calc(100vw - 48px));
+  height:auto;
+  min-height:0;
+  margin:0 auto;
+  transform:none;
+  grid-template-columns:250px minmax(0,1fr);
+  align-items:start;
+  gap:20px;
+}
+
+body.workspace-open.section-page-open .workspace.section-page-mode .list-pane{
+  position:sticky;
+  top:82px;
+  border-radius:26px;
+  padding:24px 18px;
+  overflow:visible;
+}
+
+body.workspace-open.section-page-open .workspace.section-page-mode .content-pane{
+  position:relative;
+  border-radius:30px;
+  overflow:visible;
+}
+
+body.workspace-open.section-page-open .workspace.section-page-mode .content-inner{
+  position:relative;
+  inset:auto;
+  min-height:0;
+  padding:64px clamp(38px,4.8vw,76px) 88px;
+  overflow:visible;
+}
+
+.section-document{
+  width:100%;
+  max-width:1120px;
+  margin:0 auto;
+}
+
+.section-document-hero{
+  padding:4px 0 10px;
+}
+
+.section-page-mode .content-title{
+  max-width:940px;
+  font-size:clamp(54px,5.1vw,76px);
+  line-height:.98;
+  letter-spacing:-.065em;
+}
+
+.section-page-mode .content-subtitle{
+  margin-top:14px;
+  font-size:15px;
+}
+
+.section-page-mode .content-description{
+  max-width:800px;
+  margin-top:30px;
+  font-size:15px;
+  line-height:1.82;
+}
+
+.section-page-mode .hero-meta{
+  margin-top:28px;
+  gap:9px;
+}
+
+.section-page-mode .tag{
+  padding:8px 11px;
+  font-size:10px;
+}
+
+.section-document-block{
+  padding-top:8px;
+}
+
+.section-page-mode .section-rule{
+  margin:46px 0 34px;
+}
+
+.section-document-heading{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(240px,.72fr);
+  gap:34px;
+  align-items:end;
+  margin-bottom:24px;
+}
+
+.section-document-heading-simple{
+  display:block;
+}
+
+.section-document-heading h2{
+  margin:0;
+  font-size:clamp(28px,3vw,40px);
+  line-height:1.05;
+  letter-spacing:-.045em;
+}
+
+.section-page-mode .workstyle-grid-wide{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+}
+
+.section-page-mode .workstyle-card{
+  min-height:260px;
+  padding:18px;
+  border-radius:21px;
+}
+
+.section-page-mode .workstyle-card > span{
+  margin-bottom:14px;
+  font-size:9px;
+}
+
+.section-page-mode .workstyle-card-image{
+  aspect-ratio:16/10;
+  margin-bottom:16px;
+  border-radius:15px;
+}
+
+.section-page-mode .workstyle-card strong{
+  font-size:13px;
+  line-height:1.6;
+}
+
+.section-page-mode .experience-list-wide{
+  border-bottom:1px solid var(--line);
+}
+
+.section-page-mode .experience-list-wide .experience-row{
+  grid-template-columns:190px minmax(0,1fr);
+  gap:40px;
+  padding:30px 4px;
+}
+
+.section-page-mode .experience-list-wide .experience-period{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:10px;
+  color:#8298aa;
+}
+
+.section-page-mode .experience-list-wide .experience-period span{
+  display:grid;
+  place-items:center;
+  width:34px;
+  height:34px;
+  border-radius:11px;
+  background:#ebf4fb;
+  color:#5983a6;
+  font-size:9px;
+}
+
+.section-page-mode .experience-list-wide .experience-period strong{
+  font-size:11px;
+  line-height:1.5;
+  color:#738491;
+  letter-spacing:.02em;
+}
+
+.section-page-mode .experience-list-wide .experience-role{
+  margin-bottom:8px;
+  font-size:22px;
+  line-height:1.2;
+  letter-spacing:-.025em;
+}
+
+.section-page-mode .experience-list-wide .experience-project{
+  margin-bottom:6px;
+  font-size:13px;
+  line-height:1.6;
+  color:#617688;
+}
+
+.section-page-mode .experience-list-wide .experience-scope{
+  max-width:760px;
+  font-size:12px;
+  line-height:1.75;
+  color:#7c92a4;
+}
+
+/* ==========================================================
+   V27 — editable public typography + slightly left-aligned index panel
+   ========================================================== */
+
+.section-page-mode .content-title,
+.case-hero-title{
+  font-size:var(--portfolio-hero-title-size,56px);
+}
+
+.section-document-heading h2,
+.case-section-heading h2,
+.case-stage-heading h2{
+  font-size:var(--portfolio-section-title-size,38px);
+}
+
+/* On wide desktop displays the small 01/02/03 index sits a little closer
+   to the left edge while keeping comfortable breathing room. */
+@media(min-width:1600px) and (max-width:1749px){
+  body.workspace-open.section-page-open .workspace.section-page-mode .workspace-shell,
+  body.workspace-open.case-study-open .workspace.case-study-mode .workspace-shell{
+    transform:translateX(-20px);
+  }
+}
+
+@media(min-width:1750px){
+  body.workspace-open.section-page-open .workspace.section-page-mode .workspace-shell,
+  body.workspace-open.case-study-open .workspace.case-study-mode .workspace-shell{
+    transform:translateX(-36px);
+  }
+}
+
+
+/* ==========================================================
+   V28 — granular editable typography
+   ========================================================== */
+
+.list-heading{
+  font-size:var(--portfolio-index-heading-size,26px);
+}
+
+.list-copy strong{
+  font-size:var(--portfolio-nav-label-size,12px);
+}
+
+.list-copy span{
+  font-size:var(--portfolio-nav-subtitle-size,9px);
+}
+
+.content-eyebrow,
+.case-stage-kicker{
+  font-size:var(--portfolio-eyebrow-size,9px);
+}
+
+.section-page-mode .content-description,
+.case-hero-description,
+.case-stage-description{
+  font-size:var(--portfolio-body-size,15px);
+}
+
+/* ==========================================================
+   V38 — editable font weight per text layer (bold/regular/etc.),
+   same layer grouping as the V27/V28 size rules above.
+   ========================================================== */
+
+.section-page-mode .content-title,
+.case-hero-title{
+  font-weight:var(--portfolio-hero-title-weight,700);
+}
+
+.section-document-heading h2,
+.case-section-heading h2,
+.case-stage-heading h2{
+  font-weight:var(--portfolio-section-title-weight,700);
+}
+
+.list-heading{
+  font-weight:var(--portfolio-index-heading-weight,700);
+}
+
+.list-copy strong{
+  font-weight:var(--portfolio-nav-label-weight,700);
+}
+
+.list-copy span{
+  font-weight:var(--portfolio-nav-subtitle-weight,400);
+}
+
+.content-eyebrow,
+.case-stage-kicker{
+  font-weight:var(--portfolio-eyebrow-weight,400);
+}
+
+.section-page-mode .content-description,
+.case-hero-description,
+.case-stage-description{
+  font-weight:var(--portfolio-body-weight,400);
+}
+
+/* ==========================================================
+   V31 — real-world data → GIS → 3D environment pipeline
+   ========================================================== */
+
+.case-project-facts{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:8px;
+  margin:30px 0 0;
+}
+
+.case-project-fact{
+  min-width:0;
+  padding:14px 13px;
+  border:1px solid rgba(66,109,145,.08);
+  border-radius:15px;
+  background:#f6f9fc;
+}
+
+.case-project-fact span{
+  display:block;
+  margin-bottom:7px;
+  color:#73a2c9;
+  font-size:8px;
+  font-weight:750;
+  letter-spacing:.12em;
+}
+
+.case-project-fact strong{
+  display:block;
+  color:#485c6d;
+  font-size:10px;
+  font-weight:650;
+  line-height:1.55;
+  overflow-wrap:anywhere;
+}
+
+.case-flow-statement{
+  margin:-2px 0 18px;
+  padding:11px 14px;
+  border-left:2px solid #7fb4e0;
+  border-radius:0 12px 12px 0;
+  background:#f8fcff;
+  color:#5b809f;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.035em;
+  line-height:1.6;
+}
+
+.case-pipeline-grid{
+  grid-template-columns:repeat(5,minmax(0,1fr));
+}
+
+.case-pipeline-card{
+  min-height:174px;
+}
+
+/* ==========================================================
+   V32 — case-study hierarchy: compact overview, large evidence
+   The pipeline is a quick map; real images live in the stages below.
+   ========================================================== */
+
+body.workspace-open.case-study-open .workspace.case-study-mode .workspace-shell{
+  width:min(1580px,calc(100vw - 44px));
+  grid-template-columns:238px minmax(0,1fr);
+  gap:18px;
+}
+
+body.workspace-open.case-study-open .workspace.case-study-mode .content-inner{
+  padding:54px clamp(34px,4.2vw,66px) 100px;
+}
+
+.case-study{
+  max-width:1240px;
+}
+
+.case-intro{
+  padding-bottom:10px;
+}
+
+.case-hero-description{
+  max-width:900px;
+}
+
+.case-hero-media{
+  margin-top:28px;
+}
+
+.case-hero-media img{
+  width:100%;
+  /* V37: cap by viewport height (not just a fixed px ceiling) so the image
+     never forces a scroll past the fold on shorter screens, while a min()
+     upper bound keeps it from ballooning on very tall displays. object-fit
+     is cover (not contain) so the image always fills full width — when the
+     height cap kicks in, it crops a sliver off top/bottom instead of
+     leaving empty bars down the sides. */
+  max-height:min(680px,62vh);
+  aspect-ratio:auto;
+  height:auto;
+  object-fit:cover;
+  border-radius:20px;
+}
+
+/* Project facts are supporting metadata, not five competing cards. */
+.case-project-facts{
+  display:grid;
+  grid-template-columns:1.1fr 2.2fr 1.45fr 1.45fr 1fr;
+  gap:0;
+  margin:24px 0 0;
+  border-top:1px solid rgba(62,98,128,.10);
+  border-bottom:1px solid rgba(62,98,128,.10);
+}
+
+.case-project-fact{
+  min-width:0;
+  padding:13px 16px 14px;
+  border:0;
+  border-right:1px solid rgba(62,98,128,.08);
+  border-radius:0;
+  background:transparent;
+}
+
+.case-project-fact:first-child{
+  padding-left:0;
+}
+
+.case-project-fact:last-child{
+  padding-right:0;
+  border-right:0;
+}
+
+.case-project-fact span{
+  margin-bottom:5px;
+  font-size:7px;
+  letter-spacing:.14em;
+}
+
+.case-project-fact strong{
+  font-size:9px;
+  line-height:1.55;
+}
+
+/* The pipeline is intentionally compact: it explains order only. */
+.case-pipeline{
+  padding:58px 0 16px;
+}
+
+.case-section-heading{
+  max-width:860px;
+  margin-bottom:18px;
+}
+
+.case-section-heading p{
+  max-width:800px;
+  margin-top:10px;
+}
+
+.case-flow-statement{
+  margin:0 0 12px;
+  padding:9px 12px;
+  font-size:9px;
+}
+
+.case-pipeline-grid{
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:8px;
+}
+
+.case-pipeline-card{
+  position:relative;
+  min-height:104px;
+  padding:12px 13px;
+  border-radius:15px;
+  background:#f6f9fc;
+}
+
+.case-pipeline-step{
+  font-size:8px;
+}
+
+.case-pipeline-copy{
+  margin-top:16px;
+  padding-right:18px;
+}
+
+.case-pipeline-copy strong{
+  font-size:10px;
+  line-height:1.35;
+}
+
+.case-pipeline-copy small{
+  margin-top:3px;
+  font-size:8px;
+  line-height:1.35;
+}
+
+.case-pipeline-arrow{
+  position:absolute;
+  right:12px;
+  bottom:11px;
+  margin:0;
+  font-size:10px;
+}
+
+/* Legacy pipeline thumbnails are deliberately not used in V32. */
+.case-pipeline-image{
+  display:none !important;
+}
+
+/* Each stage is the actual portfolio content: more breathing room + bigger images. */
+.case-stage{
+  padding:96px 0 48px;
+}
+
+.case-stage-description{
+  /* V42: 840px was forcing normal-length stage descriptions to wrap to a
+     second line even though the column has more room. Let it use the full
+     available width instead so typical descriptions stay on one line. */
+  max-width:none;
+}
+
+.case-media{
+  margin-top:30px;
+}
+
+.case-media-grid{
+  gap:16px;
+  align-items:start;
+}
+
+.case-media-figure img,
+.case-media-stage .case-media-figure.featured img{
+  width:100%;
+  height:auto;
+  /* V37: same viewport-relative cap + full-bleed cover idea as
+     .case-hero-media img above (no side letterboxing). */
+  max-height:min(640px,58vh);
+  aspect-ratio:auto;
+  object-fit:cover;
+  border-radius:18px;
+  background:#f1f5f9;
+}
+
+.case-media-stage .case-media-figure.featured img{
+  border-radius:20px;
+}
+
+/* V40: description/tags were left behind at margin-left:76px when media and
+   bullet-grid were reset to 0 here, so the paragraph text sat indented under
+   a full-width image — a visible left-edge step. Everything in this block
+   now shares the same left edge. */
+.case-process .case-media,
+.case-process .case-bullet-grid,
+.case-process-description,
+.case-tags{
+  margin-left:0;
+}
+
+.case-process .case-media{
+  margin-top:26px;
+}
+
+.case-process-description{
+  max-width:820px;
+}
+
+.case-processes{
+  margin-top:54px;
+}
+
+.case-process{
+  padding-top:44px;
+}
+
+.case-summary-card,
+.case-bullet{
+  min-height:74px;
+}
+
+
+/* ==========================================================
+   V33 — compact ending + one CURRENT RESULT gallery
+   Duplicate result sub-sections are consolidated and the document ends
+   immediately after the final gallery instead of leaving a dead tail.
+   ========================================================== */
+body.workspace-open.case-study-open .workspace.case-study-mode{
+  padding-bottom:28px;
+}
+body.workspace-open.case-study-open .workspace.case-study-mode .workspace-shell,
+body.workspace-open.case-study-open .workspace.case-study-mode .content-pane,
+body.workspace-open.case-study-open .workspace.case-study-mode .content-inner,
+.case-study{
+  height:auto !important;
+  min-height:0 !important;
+}
+body.workspace-open.case-study-open .workspace.case-study-mode .content-inner{
+  padding-bottom:34px;
+}
+.case-stage{
+  padding-top:76px;
+  padding-bottom:28px;
+}
+.case-stage:last-child{
+  padding-bottom:0;
+}
+.case-stage-result{
+  padding-top:76px;
+}
+.case-stage-result .case-media{
+  margin-top:28px;
+  margin-bottom:0;
+}
+.case-media-result .case-media-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+}
+.case-media-result .case-media-figure.featured{
+  grid-column:1/-1;
+}
+.case-media-result .case-media-figure img,
+.case-media-result .case-media-figure.featured img{
+  width:100%;
+  height:auto;
+  /* V37: same viewport-relative cap + full-bleed cover idea as
+     .case-hero-media img above (no side letterboxing). */
+  max-height:min(640px,58vh);
+  aspect-ratio:auto;
+  object-fit:cover;
+  border-radius:18px;
+}
+/* Pipeline + detail headings already explain the hierarchy. Avoid a second
+   set of stage-summary cards when detail breakdowns are present. */
+.case-processes{
+  margin-top:40px;
+}
+.case-process{
+  padding-top:34px;
+}
+.case-process:last-child{
+  padding-bottom:0;
+}
+
+
+/* ==========================================================
+   V34 — true document ending
+   Remove the viewport-sized minimum height that could leave a large empty
+   tail after the final CURRENT RESULT gallery. The case-study document now
+   ends at the actual last content pixel plus a small breathing space.
+   ========================================================== */
+html.workspace-open.case-study-open,
+body.workspace-open.case-study-open{
+  height:auto !important;
+  min-height:0 !important;
+}
+
+body.workspace-open.case-study-open .app{
+  height:auto !important;
+  min-height:0 !important;
+  overflow:visible;
+}
+
+body.workspace-open.case-study-open .workspace.case-study-mode{
+  height:auto !important;
+  min-height:0 !important;
+  padding-bottom:12px !important;
+}
+
+body.workspace-open.case-study-open .workspace.case-study-mode .workspace-shell,
+body.workspace-open.case-study-open .workspace.case-study-mode .content-pane,
+body.workspace-open.case-study-open .workspace.case-study-mode .content-inner,
+body.workspace-open.case-study-open .case-study{
+  height:auto !important;
+  min-height:0 !important;
+  margin-bottom:0 !important;
+}
+
+body.workspace-open.case-study-open .workspace.case-study-mode .content-inner{
+  padding-bottom:16px !important;
+}
+
+body.workspace-open.case-study-open .case-stage:last-child,
+body.workspace-open.case-study-open .case-stage:last-child > :last-child,
+body.workspace-open.case-study-open .case-media-result,
+body.workspace-open.case-study-open .case-media-result .case-media-grid,
+body.workspace-open.case-study-open .case-media-result .case-media-figure:last-child{
+  margin-bottom:0 !important;
+  padding-bottom:0 !important;
+}
+
+/* ==========================================================
+   V35 — prevent decorative layers from extending document scroll
+   The grid background used inset:-20%; once case-study pages switched the
+   app to overflow:visible, that decorative overscan could become root scroll
+   overflow in desktop browsers. Keep decorative layers viewport-bound so the
+   document ends at the actual portfolio content.
+   ========================================================== */
+body.workspace-open.case-study-open .grid-bg,
+body.workspace-open.section-page-open .grid-bg{
+  position:fixed !important;
+  inset:0 !important;
+}
+
+body.workspace-open.case-study-open .ambient,
+body.workspace-open.section-page-open .ambient{
+  position:fixed !important;
+}
+
+body.workspace-open.case-study-open .warp-layer,
+body.workspace-open.section-page-open .warp-layer{
+  position:fixed !important;
+  inset:0 !important;
+}
+
+
+/* ==========================================================
+   V36 — one scroll surface from the very first visible frame
+   The selected-project case study is prepared before `.workspace-open` is
+   applied during the folder transition. Previously the base `.content-inner`
+   could briefly keep `overflow:auto`, so the browser showed a root scrollbar
+   and an inner panel scrollbar at the same time. Make document-style modes
+   disable nested scrolling as soon as their mode class exists, even while the
+   workspace is still hidden/preparing.
+   ========================================================== */
+body.case-study-open .workspace.case-study-mode .workspace-shell,
+body.section-page-open .workspace.section-page-mode .workspace-shell{
+  height:auto !important;
+  min-height:0 !important;
+}
+
+body.case-study-open .workspace.case-study-mode .content-pane,
+body.section-page-open .workspace.section-page-mode .content-pane{
+  height:auto !important;
+  min-height:0 !important;
+  overflow:visible !important;
+}
+
+body.case-study-open .workspace.case-study-mode .content-inner,
+body.section-page-open .workspace.section-page-mode .content-inner{
+  position:relative !important;
+  inset:auto !important;
+  height:auto !important;
+  min-height:0 !important;
+  overflow:visible !important;
+  overscroll-behavior:auto;
+}
+
+/* During the folder depth transition the workspace is laid out but still
+   invisible. Keep the root locked until the document-scroll layout is ready. */
+html.workspace-preparing,
+body.workspace-preparing{
+  overflow:hidden !important;
+}
+
+
+/* Use exactly one document scroll owner. `html` owns vertical scrolling;
+   `body` is not a second scroll container. This also prevents a transient
+   double viewport/body scrollbar while the case-study layout settles. */
+html.workspace-open.case-study-open,
+html.workspace-open.section-page-open{
+  overflow-x:hidden !important;
+  overflow-y:auto !important;
+}
+
+body.workspace-open.case-study-open,
+body.workspace-open.section-page-open{
+  overflow:visible !important;
+}
+
+/* ==========================================================
+   V37 — center the selected-project document on the viewport
+   On wide desktop screens the large case-study panel is centered against
+   the browser viewport rather than against the space left after the index.
+   The small 01/02/03 index becomes an independent fixed rail further left.
+   ========================================================== */
+@media (min-width:1640px){
+  body.workspace-open.case-study-open .workspace.case-study-mode .workspace-shell{
+    display:block;
+    width:100%;
+    max-width:none;
+    margin:0;
+    transform:none !important;
+  }
+
+  body.workspace-open.case-study-open .workspace.case-study-mode .list-pane{
+    position:fixed;
+    top:82px;
+    left:clamp(28px,2.2vw,42px);
+    width:210px;
+    margin:0;
+    transform:none !important;
+    z-index:8;
+  }
+
+  body.workspace-open.case-study-open .workspace.case-study-mode .content-pane{
+    width:min(1320px,calc(100vw - 540px));
+    margin:0 auto;
+    transform:none !important;
+  }
+}
+
+/* ==========================================================
+   V38 — one centered document axis for all three Level-0 pages
+   Keep the selected-project document exactly centered. Restore the
+   tighter legacy gap by moving only the small index rail to the right.
+   Apply the same centered document + index relationship to Experience
+   and About so all three pages share one visual axis while scrolling.
+   ========================================================== */
+@media (min-width:1640px){
+  body.workspace-open.case-study-open .workspace.case-study-mode .workspace-shell,
+  body.workspace-open.section-page-open .workspace.section-page-mode .workspace-shell{
+    --v38-document-width:min(1320px,calc(100vw - 540px));
+    display:block;
+    width:100%;
+    max-width:none;
+    margin:0;
+    transform:none !important;
+  }
+
+  body.workspace-open.case-study-open .workspace.case-study-mode .list-pane,
+  body.workspace-open.section-page-open .workspace.section-page-mode .list-pane{
+    position:fixed;
+    top:82px;
+    left:calc((100vw - var(--v38-document-width)) / 2 - 230px);
+    width:210px;
+    margin:0;
+    transform:none !important;
+    z-index:8;
+  }
+
+  body.workspace-open.case-study-open .workspace.case-study-mode .content-pane,
+  body.workspace-open.section-page-open .workspace.section-page-mode .content-pane{
+    width:var(--v38-document-width);
+    margin:0 auto;
+    transform:none !important;
+  }
+}
+
+/* ==========================================================
+   V56 — restore compact panel ending + add OUTSIDE closing gap
+   The previous revisions enlarged `.content-inner`, which increased white
+   space inside the rounded document panel. Keep the panel ending compact
+   again, and place the deliberate closing space on the workspace itself so
+   the lavender page background remains visible below the white panel.
+   ========================================================== */
+body.workspace-open.case-study-open .workspace.case-study-mode{
+  padding-bottom:56px !important;
+}
+
+body.workspace-open.case-study-open .workspace.case-study-mode .content-inner{
+  padding-bottom:16px !important;
+}
+
+
+/* ==========================================================
+   V58 — frosted glass workspace theme refinement
+   Match landing folder with a calmer translucent blue system.
+   ========================================================== */
+
+.topbar .home-button{
+  color:#5a7390;
+}
+
+.list-pane,
+.content-pane{
+  background:linear-gradient(180deg,rgba(255,255,255,.50),rgba(247,251,255,.34));
+  border:1px solid rgba(255,255,255,.60);
+  box-shadow:
+    0 26px 60px rgba(105,130,154,.10),
+    inset 0 1px 0 rgba(255,255,255,.72);
+  -webkit-backdrop-filter:blur(28px) saturate(110%);
+  backdrop-filter:blur(28px) saturate(110%);
+}
+
+.list-item:hover,
+.stage-child:hover,
+.process-button:hover{
+  background:rgba(240,247,252,.84);
+}
+
+.list-item.active{
+  background:linear-gradient(135deg,rgba(171,216,243,.28),rgba(255,255,255,.28));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.56);
+}
+
+.list-no{
+  background:rgba(236,245,251,.88);
+  color:#6f89a2;
+}
+
+.list-item.active .list-no{
+  background:linear-gradient(135deg,#a7d7f3,#87c2e8);
+  color:#fff;
+}
+
+.list-copy span,
+.content-subtitle,
+.content-description,
+.case-section-heading p,
+.case-stage-subtitle,
+.case-stage-description,
+.case-process-subtitle,
+.case-process-description,
+.experience-project,
+.experience-scope,
+.section-page-mode .experience-list-wide .experience-project,
+.section-page-mode .experience-list-wide .experience-scope{
+  color:#718598;
+}
+
+.content-title,
+.case-hero-title,
+.case-section-heading h2,
+.case-stage-heading h2,
+.section-page-mode .content-title,
+.section-document-heading h2,
+.detail-block h3,
+.case-process-heading h3,
+.section-page-mode .experience-list-wide .experience-role{
+  color:#244057;
+}
+
+.content-eyebrow,
+.case-stage-kicker,
+.location-crumb.current,
+.case-pipeline-step,
+.tag,
+.project-open,
+button.location-crumb:hover,
+.stage-accordion.open .stage-trigger .stage-chevron{
+  color:#5f88a6;
+}
+
+button.location-crumb:hover{
+  background:rgba(239,247,252,.88);
+}
+
+.location-crumb.current{
+  background:linear-gradient(135deg,rgba(171,216,243,.22),rgba(255,255,255,.22));
+}
+
+.tag,
+.summary-card,
+.detail-block,
+.process-button,
+.workstyle-card,
+.project-composition-card,
+.case-pipeline-card,
+.case-summary-card,
+.case-bullet,
+.stage-summary-card,
+.section-page-mode .workstyle-card,
+.stage-child.active{
+  background:linear-gradient(180deg,rgba(247,251,255,.82),rgba(240,247,252,.78));
+  border:1px solid rgba(209,226,239,.78);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.70);
+}
+
+.case-pipeline-card:hover{
+  background:linear-gradient(180deg,rgba(247,251,255,.92),rgba(238,246,251,.86));
+  border-color:rgba(186,218,241,.92);
+}
+
+.case-stage-number{
+  color:rgba(146,187,215,.28);
+}
+
+.project-open{
+  background:linear-gradient(135deg,rgba(154,206,239,.92),rgba(128,188,227,.92));
+  box-shadow:0 10px 20px rgba(105,133,156,.10);
+}
+
+.visual-figure img,
+.case-hero-media img,
+.case-media-figure img,
+.workstyle-card-image,
+.project-composition-card-image,
+.case-pipeline-image{
+  background:#eef5fa;
+  border:1px solid rgba(212,226,237,.94);
+  box-shadow:0 16px 36px rgba(105,130,154,.08);
+}
+
+body.workspace-open.case-study-open .workspace.case-study-mode .topbar,
+body.workspace-open.section-page-open .workspace.section-page-mode .topbar{
+  background:linear-gradient(to bottom,rgba(244,249,253,.80),rgba(244,249,253,.54));
+  border-bottom:1px solid rgba(255,255,255,.52);
+  -webkit-backdrop-filter:blur(20px) saturate(108%);
+  backdrop-filter:blur(20px) saturate(108%);
+}
+
+
+/* ==========================================================
+   V76 — opaque workspace panels over isometric background
+   Keep the grid outside the workspace, but prevent it from showing
+   through the navigation/content panels after entering the portfolio.
+   ========================================================== */
+
+.list-pane,
+.content-pane{
+  background:linear-gradient(180deg,#fbfdff 0%,#f7fbff 100%);
+  border:1px solid rgba(205,222,237,.86);
+  box-shadow:
+    0 26px 60px rgba(91,119,145,.12),
+    inset 0 1px 0 rgba(255,255,255,.96);
+  -webkit-backdrop-filter:none;
+  backdrop-filter:none;
+}
+
+body.workspace-open.case-study-open .workspace.case-study-mode .content-pane,
+body.workspace-open.section-page-open .workspace.section-page-mode .content-pane,
+body.workspace-open.case-study-open .workspace.case-study-mode .list-pane,
+body.workspace-open.section-page-open .workspace.section-page-mode .list-pane{
+  background:linear-gradient(180deg,#fbfdff 0%,#f7fbff 100%);
+  -webkit-backdrop-filter:none;
+  backdrop-filter:none;
+}
+
+/* ==========================================================
+   V87 — 대표 프로젝트 하위, 번호 없는 "작업 모음" 사이드바 항목
+   1) list-group/list-item-sub/list-no-icon: 사이드바에서 "대표 프로젝트"
+      바로 밑에 붙는 하위 목차 행. 01/02/03과 같은 배지 크기·모양을
+      쓰되 숫자 대신 작은 그리드(썸네일 모음) 아이콘을 채워, 번호는
+      없지만 형제 항목들과 같은 언어로 읽히게 한다. 배지가 같은 34px
+      칸에 있으므로 텍스트도 자동으로 부모와 같은 x축에 정렬된다.
+      클릭하면 바로 작업 모음 그리드로 이동 — 별도 안내 화면 없이.
+   2) works-grid: 작업 모음의 액자식 썸네일 그리드. size 값에 따라
+      wide(2칸)/tall(2행)로 리듬을 준다.
+   3) work-detail: 작업 하나를 크게 보여주는 상세 화면. 기존
+      section-document/content-title 등 재사용, 이미지만 추가.
+   ========================================================== */
+
+.list-group{
+  display:grid;
+  gap:2px;
+}
+
+.list-item-sub{
+  /* Same 3-column template as .list-item (34px badge, text, arrow) so the
+     badge and text line up exactly under 대표 프로젝트's own badge/text —
+     a small margin-left nudges the whole row in as one unit, instead of
+     shifting just the text (which is what caused the earlier misalign). */
+  margin-left:8px;
+  min-height:52px;
+  padding:9px 12px;
+  border-radius:14px;
+}
+
+.list-item-sub:hover{
+  background:rgba(234,244,252,.6);
+  transform:translateX(2px);
+}
+
+.list-item-sub.active{
+  background:linear-gradient(135deg,rgba(81,164,232,.11),rgba(118,186,242,.07));
+}
+
+.list-no-icon{
+  width:28px;
+  height:28px;
+}
+
+.list-item-sub .list-copy strong{
+  font-size:11px;
+  margin-bottom:2px;
+}
+
+.list-item-sub .list-copy span{
+  font-size:8px;
+  -webkit-line-clamp:1;
+}
+
+.list-item-sub .list-arrow{
+  font-size:12px;
+}
+
+.works-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-auto-rows:200px;
+  gap:16px;
+}
+
+.works-grid-item{
+  position:relative;
+  display:block;
+  width:100%;
+  height:100%;
+  padding:0;
+  border:0;
+  border-radius:20px;
+  overflow:hidden;
+  cursor:pointer;
+  background:#e7eff5;
+  box-shadow:0 16px 36px rgba(48,78,102,.06);
+  transition:transform .3s cubic-bezier(.22,.72,.18,1),box-shadow .3s ease;
+}
+
+.works-grid-item:hover{
+  transform:translateY(-4px);
+  box-shadow:0 24px 48px rgba(48,90,130,.14);
+}
+
+.works-grid-item img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .5s cubic-bezier(.22,.72,.18,1);
+}
+
+.works-grid-item:hover img{
+  transform:scale(1.05);
+}
+
+.works-grid-item-wide{
+  grid-column:span 2;
+}
+
+.works-grid-item-tall{
+  grid-row:span 2;
+}
+
+.works-grid-empty{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  font-size:13px;
+  letter-spacing:.14em;
+  color:#9db2c4;
+  background:linear-gradient(160deg,#eef5fb,#e2edf6);
+}
+
+.works-grid-caption{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:14px 16px 12px;
+  background:linear-gradient(0deg,rgba(20,36,54,.72) 0%,rgba(20,36,54,.18) 68%,rgba(20,36,54,0) 100%);
+  color:#fff;
+}
+
+.works-grid-caption strong{
+  display:block;
+  font-size:13px;
+  letter-spacing:-.01em;
+  margin-bottom:3px;
+}
+
+.works-grid-caption small{
+  display:block;
+  font-size:10px;
+  opacity:.82;
+}
+
+.work-detail-credit{
+  margin-top:14px;
+  font-size:13px;
+  color:#7d93a6;
+}
+
+.work-detail-media{
+  display:grid;
+  gap:16px;
+}
+
+/* V88 — 절반 너비 미디어 2개가 연달아 오면 한 줄에 나란히 놓인다
+   (editor의 "레이아웃" 선택과 짝). */
+.work-detail-media-row-pair{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+/* V89 — 절반 너비인데 짝(다음 항목도 half)이 없는 경우: 그 자체로
+   폭 50%인 한 줄로 표시한다. 하나만 half로 지정해도 즉시 눈에 띄는
+   변화가 생기도록 — 짝을 맞춰야만 효과가 보이는 건 혼란스럽다는
+   피드백. */
+.work-detail-media-row-half{
+  width:50%;
+}
+
+.work-detail-figure{
+  margin:0;
+}
+
+.work-detail-figure img,
+.work-detail-figure .work-detail-video-wrap{
+  display:block;
+  width:100%;
+  border-radius:22px;
+  box-shadow:0 22px 52px rgba(48,78,102,.08);
+}
+
+.work-detail-figure img{
+  height:auto;
+}
+
+.work-detail-figure figcaption{
+  margin-top:10px;
+  font-size:12px;
+  color:#8da4b6;
+}
+
+/* V88 — 영상/GIF 히어로 미디어: 항상 자동 재생·반복(음소거 상태로
+   시작)되고, 오른쪽 아래 작은 원형 버튼으로 소리만 켜고 끌 수 있다. */
+.work-detail-video-wrap{
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+}
+
+.work-detail-video{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.work-detail-sound-toggle{
+  position:absolute;
+  right:14px;
+  bottom:14px;
+  width:34px;
+  height:34px;
+  border:0;
+  border-radius:999px;
+  background:rgba(20,32,48,.46);
+  color:#fff;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  -webkit-backdrop-filter:blur(6px);
+  backdrop-filter:blur(6px);
+  transition:background .2s ease,transform .2s ease;
+}
+
+.work-detail-sound-toggle:hover{
+  background:rgba(20,32,48,.62);
+  transform:scale(1.06);
+}
+
+@media(max-width:820px){
+  .work-detail-media-row-pair{
+    grid-template-columns:1fr;
+  }
+
+  .work-detail-media-row-half{
+    width:100%;
+  }
+}
+
+@media(max-width:820px){
+  .works-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-auto-rows:170px;
+    gap:12px;
+  }
+}
+
+/* Flexible project table of contents */
+.case-pipeline-grid{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}

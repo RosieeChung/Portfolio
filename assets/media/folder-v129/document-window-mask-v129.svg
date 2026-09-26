@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1254 1254" width="1254" height="1254">
+  <defs>
+    <linearGradient id="occlusion-fade" gradientUnits="userSpaceOnUse" x1="0" y1="633" x2="2.2" y2="642.75">
+      <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <path d="M0 0H1254V349.6L0 633Z" fill="#fff"/>
+  <path d="M0 633L1254 349.6V359.6L0 643Z" fill="url(#occlusion-fade)"/>
+</svg>
