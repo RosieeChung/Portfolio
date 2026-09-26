@@ -38,7 +38,7 @@ window.PORTFOLIO = {
         "text": "지형과 수계, 도로, 건물 등 다양한 공간 데이터를 정리해 설계의 기준이 되는 대상을 구축합니다.",
         "media": [
           {
-            "src": "assets/media/muiq88qp-c18b4fa8-작업방식-1.png",
+            "src": "assets/media/optimized/f4ccdeb295fecb11.webp",
             "alt": "작업방식 1",
             "caption": "",
             "layout": "full"
@@ -52,7 +52,7 @@ window.PORTFOLIO = {
         "text": "주변 환경과의 관계를 고려하여 형태와 연결 구조를 단계적으로 구체화합니다.",
         "media": [
           {
-            "src": "assets/media/muiq99bz-1db7e178-작업방식-2.png",
+            "src": "assets/media/optimized/e00d5eecdfb524c6.webp",
             "alt": "작업방식 2",
             "caption": "",
             "layout": "full"
@@ -66,7 +66,7 @@ window.PORTFOLIO = {
         "text": "재질과 조명을 테스트하며 장면의 완성도를 검증하고 최종 결과를 완성합니다.",
         "media": [
           {
-            "src": "assets/media/muipgsjp-21eb8b0b-작업방식-3.png",
+            "src": "assets/media/optimized/93daa99001b24af3.webp",
             "alt": "시각화 검증",
             "caption": "",
             "layout": "full"
@@ -150,21 +150,21 @@ window.PORTFOLIO = {
       "navSubtitle": "실사 환경 프로젝트",
       "heroMedia": [
         {
-          "src": "assets/media/mui6szmy-63ad73ae-S01-0065.png",
+          "src": "assets/media/optimized/ad6389fdf9b26c0f.webp",
           "alt": "김시민대교",
           "caption": "재질·식생·라이팅을 적용한 렌더",
           "layout": "full",
           "label": "Final"
         },
         {
-          "src": "assets/media/mui7iu6j-ac39f140-S01-LightingOnly-0068.png",
+          "src": "assets/media/optimized/6faa53b63fa97f5a.webp",
           "alt": "김시민대교 Lighting",
           "caption": "형태와 빛을 확인하는 라이팅 렌더",
           "layout": "full",
           "label": "Lighting"
         },
         {
-          "src": "assets/media/mui8j1yu-b43d95b6-S01-Wireframe-0071.png",
+          "src": "assets/media/optimized/467a8d46df2b6fc0.webp",
           "alt": "김시민대교 Wireframe",
           "caption": "메시 구성을 확인하는 와이어프레임 렌더",
           "layout": "full",
@@ -259,63 +259,63 @@ window.PORTFOLIO = {
       "pipelineMedia": [],
       "media": [
         {
-          "src": "assets/media/mui9tew9-11bf8b77-S01-0004.png",
+          "src": "assets/media/optimized/4492c71bb33edd88.webp",
           "alt": "김시민대교 Final",
           "caption": "재질·식생·라이팅을 적용한 렌더",
           "layout": "full",
           "label": "Final 1"
         },
         {
-          "src": "assets/media/mui9u0mk-78134516-S01-LightingOnly-0008.png",
+          "src": "assets/media/optimized/1b9aabc04d0ecae4.webp",
           "alt": "김시민대교 Lighting",
           "caption": "형태와 빛을 확인하는 라이팅 렌더",
           "layout": "full",
           "label": "Lighting 1"
         },
         {
-          "src": "assets/media/mui9xw8i-b27fa2ac-S01-Wireframe-0008.png",
+          "src": "assets/media/optimized/5661cbdefbb01b59.webp",
           "alt": "김시민대교 Wireframe 1",
           "caption": "메시 구성을 확인하는 와이어프레임 렌더",
           "layout": "full",
           "label": "Wireframe 1"
         },
         {
-          "src": "assets/media/mui9ul03-b7db853a-S01-0044.png",
+          "src": "assets/media/optimized/98a34c184df0ee4c.webp",
           "alt": "김시민대교 Final",
           "caption": "재질·식생·라이팅을 적용한 렌더",
           "layout": "full",
           "label": "Final 2"
         },
         {
-          "src": "assets/media/mui9v10i-2baa9e22-S01-LightingOnly-0048.png",
+          "src": "assets/media/optimized/50fb09473b512f22.webp",
           "alt": "김시민대교 Lighting",
           "caption": "형태와 빛을 확인하는 라이팅 렌더",
           "layout": "full",
           "label": "Lighting 2"
         },
         {
-          "src": "assets/media/mui9veax-1a078156-S01-Wireframe-0048.png",
+          "src": "assets/media/optimized/c602c0a623f3be61.webp",
           "alt": "김시민대교 Wireframe",
           "caption": "메시 구성을 확인하는 와이어프레임 렌더",
           "layout": "full",
           "label": "Wireframe 2"
         },
         {
-          "src": "assets/media/mui9vzo0-e7550502-S01-0064.png",
+          "src": "assets/media/optimized/7d29e0c1d4468d62.webp",
           "alt": "김시민대교 Final 3",
           "caption": "재질·식생·라이팅을 적용한 렌더",
           "layout": "full",
           "label": "Final 3"
         },
         {
-          "src": "assets/media/mui9w7iq-ea248ff3-S01-LightingOnly-0068.png",
+          "src": "assets/media/optimized/40257da35c845b9b.webp",
           "alt": "김시민대교 Lighting 3",
           "caption": "형태와 빛을 확인하는 라이팅 렌더",
           "layout": "full",
           "label": "Lighting 3"
         },
         {
-          "src": "assets/media/mui9wdwq-7b96b8ee-S01-Wireframe-0068.png",
+          "src": "assets/media/optimized/ed9d4a1a63bedcca.webp",
           "alt": "김시민대교 Wireframe 3",
           "caption": "메시 구성을 확인하는 와이어프레임 렌더",
           "layout": "full",
@@ -344,13 +344,13 @@ window.PORTFOLIO = {
       ],
       "media": [
         {
-          "src": "assets/media/muh5c209-ce1e7037-reference-004.png",
+          "src": "assets/media/optimized/5f4ea03bab7b0df2.webp",
           "alt": "reference 004",
           "caption": "",
           "layout": "full"
         },
         {
-          "src": "assets/media/muh4mieq-1b89dd41-reference-001.png",
+          "src": "assets/media/optimized/a30516845f623191.webp",
           "alt": "reference 001",
           "caption": "",
           "layout": "full"
@@ -376,7 +376,7 @@ window.PORTFOLIO = {
       ],
       "media": [
         {
-          "src": "assets/media/muh5fgnu-8cbe93ef-QGIS-001.png",
+          "src": "assets/media/optimized/ffb4b46f643ca7f6.webp",
           "alt": "QGIS 001",
           "caption": "",
           "layout": "full"
@@ -429,7 +429,7 @@ window.PORTFOLIO = {
       ],
       "media": [
         {
-          "src": "assets/media/mui9omv5-afb7b485-blender-002.png",
+          "src": "assets/media/optimized/4a19a07794b56d18.webp",
           "alt": "blender 002",
           "caption": "",
           "layout": "full"
@@ -454,7 +454,7 @@ window.PORTFOLIO = {
       ],
       "media": [
         {
-          "src": "assets/media/mui9osyx-4cc71f0c-blender-001.png",
+          "src": "assets/media/optimized/86ecfba6fea26922.webp",
           "alt": "blender 001",
           "caption": "",
           "layout": "full"
@@ -480,13 +480,13 @@ window.PORTFOLIO = {
       ],
       "media": [
         {
-          "src": "assets/media/mui9p7t9-29d56e91-blender-003.png",
+          "src": "assets/media/optimized/66cbbaac5e0489c2.webp",
           "alt": "blender 003",
           "caption": "",
           "layout": "full"
         },
         {
-          "src": "assets/media/mui9p33b-f1f66ae7-blender-004.png",
+          "src": "assets/media/optimized/e2b53489b7ac2f60.webp",
           "alt": "blender 004",
           "caption": "",
           "layout": "full"
@@ -512,7 +512,7 @@ window.PORTFOLIO = {
       ],
       "media": [
         {
-          "src": "assets/media/mui9pi87-cb310dd7-blender-005.png",
+          "src": "assets/media/optimized/cb8f0c417ee949af.webp",
           "alt": "blender 005",
           "caption": "",
           "layout": "full"
@@ -538,14 +538,14 @@ window.PORTFOLIO = {
       ],
       "media": [
         {
-          "src": "assets/media/muids8bq-e4504b4f-UN5_005.png",
+          "src": "assets/media/optimized/0ac6f6f23e16351f.webp",
           "alt": "교량 모델링",
           "caption": "",
           "layout": "full",
           "label": "교량 모델링"
         },
         {
-          "src": "assets/media/muick8pj-5de10c61-S01-2-0024.png",
+          "src": "assets/media/optimized/bb76122d9b281b59.webp",
           "alt": "김시민대교 Top view",
           "caption": "",
           "layout": "full",
@@ -572,7 +572,7 @@ window.PORTFOLIO = {
       ],
       "media": [
         {
-          "src": "assets/media/muickwy5-c47feae7-S01-2-0000.png",
+          "src": "assets/media/optimized/666e9d2bc81b4a9e.webp",
           "alt": "김시민대교 Foliage",
           "caption": "",
           "layout": "full",
@@ -599,7 +599,7 @@ window.PORTFOLIO = {
       ],
       "media": [
         {
-          "src": "assets/media/muicm5wr-dffdccb0-UN5_001.png",
+          "src": "assets/media/optimized/fefed2c72001dd11.webp",
           "alt": "Unreal Engine",
           "caption": "",
           "layout": "full",
