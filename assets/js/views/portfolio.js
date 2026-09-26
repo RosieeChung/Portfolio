@@ -42,7 +42,7 @@
       const school=String(item.school ?? (index===0 && timeline.title!=="작품 · 연구" ? timeline.title || "" : "")).trim();
       if(!school&&!title&&!period&&!url)return "";
       return `<li class="research-timeline-item">
-        <span class="research-timeline-school">${helpers.escapeHTML(school)}</span>
+        <span class="research-timeline-school">${school?`<svg class="research-timeline-school-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5L2 9Z"/><path d="M6 11v5c1.8 1.4 3.8 2 6 2s4.2-.6 6-2v-5M22 9v6"/></svg>`:""}${helpers.escapeHTML(school)}</span>
         <span class="research-timeline-marker" aria-hidden="true"></span>
         ${period?`<span class="research-timeline-period">${helpers.escapeHTML(period)}</span>`:""}
         ${title?`<span class="research-timeline-title">${helpers.escapeHTML(title)}</span>`:""}
