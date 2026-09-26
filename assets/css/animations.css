@@ -124,9 +124,9 @@
 
 @keyframes folderDepthRush{
   0%{transform:translateY(0) scale(1);filter:blur(0);opacity:1}
-  30%{transform:translateY(-5px) scale(1.025);filter:blur(0);opacity:1}
-  62%{transform:translateY(-9px) scale(1.07);filter:blur(.6px);opacity:.82}
-  100%{transform:translateY(-12px) scale(1.1);filter:blur(3px);opacity:0}
+  30%{transform:translateY(-10px) scale(1.08);filter:blur(.3px);opacity:1}
+  62%{transform:translateY(-6px) scale(1.68);filter:blur(2px);opacity:.98}
+  100%{transform:translateY(0) scale(3.4);filter:blur(13px);opacity:0}
 }
 
 @keyframes landingDepthFade{
