@@ -38,13 +38,13 @@
 .section-page-mode .experience-role-subtitle{margin:10px 0 20px;color:#70879c;font-size:14px;font-weight:500;line-height:1.6;letter-spacing:.01em;overflow-wrap:anywhere;white-space:pre-wrap}
 
 /* Each record owns its school label and centered node. Lines end at nodes. */
-.section-page-mode .research-timeline{margin-top:24px;min-width:0;overflow-x:auto;scrollbar-width:thin;scrollbar-color:#cbdce9 transparent}
+.section-page-mode .research-timeline{margin-top:0;min-width:0;overflow-x:auto;scrollbar-width:thin;scrollbar-color:#cbdce9 transparent}
 .section-page-mode .research-timeline-list{display:grid;grid-template-columns:repeat(var(--timeline-count),minmax(320px,1fr));list-style:none;margin:0 auto;padding:0 0 8px;width:100%;min-width:calc(var(--timeline-count) * 320px);max-width:1100px}
 .section-page-mode .research-timeline-item{position:relative;min-width:0;text-align:center;padding:0 16px;font-size:12px;line-height:1.7}
-.section-page-mode .research-timeline-school{display:block;position:relative;height:38px;color:#8395a6;font-size:12px;font-weight:550;white-space:nowrap}
+.section-page-mode .research-timeline-school{display:grid;grid-template-rows:26px 20px;align-content:center;justify-items:center;gap:4px;height:58px;color:#8395a6;font-size:12px;font-weight:550;white-space:nowrap}
 .section-page-mode .research-timeline-marker{display:block;position:relative;height:20px}
 .section-page-mode .research-timeline-marker:after{content:"";position:absolute;left:50%;top:2px;transform:translateX(-50%);width:7px;height:7px;border-radius:50%;background:#a7c3d8}
-.section-page-mode .research-timeline-item:not(:last-child):before{content:"";position:absolute;left:50%;width:100%;top:43px;height:1px;background:#e0e9f0}
+.section-page-mode .research-timeline-item:not(:last-child):before{content:"";position:absolute;left:50%;width:100%;top:63px;height:1px;background:#e0e9f0}
 .section-page-mode .research-timeline-period{display:block;margin-bottom:4px;color:#91a3b3;font-size:11px}
 .section-page-mode .research-timeline-title{display:block;color:#71889c;font-size:12px;font-weight:500;white-space:nowrap}
 .section-page-mode .research-timeline-item a{display:inline-flex;align-items:baseline;justify-content:center;gap:7px;margin-top:8px;max-width:100%;color:#548aae;font-size:11px;text-decoration:underline;text-decoration-color:#bacfdd;text-underline-offset:3px;overflow-wrap:anywhere}
@@ -53,4 +53,4 @@
 .section-page-mode .section-document-experience > .research-timeline + .section-document-block{padding-top:60px}
 @media(max-width:680px){.section-page-mode .research-timeline{margin-top:30px}}
 
-.section-page-mode .research-timeline-school-icon{position:absolute;left:50%;top:-34px;transform:translateX(-50%);box-sizing:border-box;width:26px;height:26px;padding:4px;border-radius:8px;background:#eaf3f9;color:#6e9cb9}
+.section-page-mode .research-timeline-school-icon{display:block;box-sizing:border-box;width:26px;height:26px;padding:4px;border-radius:8px;background:#eaf3f9;color:#6e9cb9}
