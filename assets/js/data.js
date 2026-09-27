@@ -321,6 +321,11 @@ window.PORTFOLIO = {
           "layout": "full",
           "label": "Wireframe 3"
         }
+      ],
+      "pipelineWorkLabels": [
+        "Final",
+        "Lighting",
+        "Wireframe"
       ]
     }
   ],
