@@ -176,7 +176,20 @@
     });
   }
 
+  function fitMobileFolder(){
+    // Preserve the 620px asset coordinate system at every motion preference.
+    const viewport = window.visualViewport;
+    const width = Math.min(document.documentElement.clientWidth, viewport?.width || window.innerWidth);
+    const height = viewport?.height || window.innerHeight;
+    const size = Math.min(width * .9, 460, height * .72);
+    document.documentElement.style.setProperty('--mobile-folder-scale', String(size / 620));
+    document.documentElement.style.setProperty('--mobile-folder-help', (size * .43) + 'px');
+  }
+
   function bind(){
+    fitMobileFolder();
+    window.addEventListener('resize', fitMobileFolder, {passive:true});
+    window.visualViewport?.addEventListener('resize', fitMobileFolder, {passive:true});
     refs.startFolder.addEventListener("click",openWorkspace);
 
     refs.startFolder.addEventListener("keydown",event => {
