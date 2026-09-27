@@ -50,7 +50,7 @@
       </li>`;
     }).filter(Boolean);
     if(!items.length)return "";
-    return `<section class="research-timeline" aria-label="선택 기록">
+    return `<section class="research-timeline" aria-label="학력 · 연구"><h2 class="career-group-heading">학력 · 연구</h2>
       <ol class="research-timeline-list" style="--timeline-count:${items.length}" tabindex="0" aria-label="작품과 연구 기록">${items.join("")}</ol>
     </section>`;
   }
@@ -237,7 +237,7 @@
           ${renderResearchTimeline(DATA.experienceTimeline)}
 
           <section class="section-document-block">
-            <div class="experience-list experience-list-wide">
+            <h2 class="career-group-heading">실무 경력</h2><div class="experience-list experience-list-wide">
               ${DATA.experience.map((x,index) => `
                 <div class="experience-row">
                   <div class="experience-period">
