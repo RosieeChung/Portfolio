@@ -176,7 +176,7 @@ window.PORTFOLIO = {
       "projectFlowStatement": "REAL-WORLD DATA → RESEARCH / GIS → 3D BUILD → MODELING → REAL-TIME ENVIRONMENT",
       "projectFacts": {
         "role": "3D Environment Design",
-        "scope": "GIS Data Processing · Terrain · Infrastructure Modeling · Material · Vegetation",
+        "scope": "GIS Data Processing · Terrain · Infrastructure Modeling · PBR Material · Vegetation",
         "tools": "QGIS · Blender · Unreal Engine",
         "data": "VWorld · 국토지리정보원",
         "status": "Work in Progress"
@@ -529,8 +529,8 @@ window.PORTFOLIO = {
       "stage": "environment",
       "no": "03-1",
       "label": "머티리얼",
-      "subtitle": "Realistic Material",
-      "description": "Unreal Engine에서 지형, 도로, 교량 등 각 요소의 재질을 실사화 방향에 맞게 구성하고 표면 반응을 조정합니다.",
+      "subtitle": "PBR Material · Lookdev",
+      "description": "Unreal Engine의 PBR 머티리얼을 기반으로 지형, 도로, 교량의 재질을 구성하고, 거칠기와 표면 디테일을 조정해 실제 환경에 가까운 표면 표현을 맞췄습니다.",
       "bullets": [
         "재질 기본값 설정",
         "거칠기와 표면 디테일 조정",
