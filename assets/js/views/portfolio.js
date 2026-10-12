@@ -26,7 +26,7 @@
       const description = String(link.description || "").trim();
       if(!title && !description && !url) return "";
       return `<li class="experience-link-item">
-        ${url ? `<a href="${helpers.escapeHTML(url)}" target="_blank" rel="noopener noreferrer"><svg class="experience-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 .1l3-3a5 5 0 0 0-7-7l-1.7 1.7M14 11a5 5 0 0 0-7-.1l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg><span>${helpers.escapeHTML(title || String(link.url).trim())}</span><span class="experience-external-mark" aria-hidden="true">↗</span></a>` : title ? `<span>${helpers.escapeHTML(title)}</span>` : ""}
+        ${url ? `<a href="${helpers.escapeHTML(url)}" target="_blank" rel="noopener noreferrer"><svg class="experience-link-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 .1l3-3a5 5 0 0 0-7-7l-1.7 1.7M14 11a5 5 0 0 0-7-.1l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg><span>${helpers.escapeHTML(title || String(link.url).trim())}</span><span class="experience-external-mark" aria-hidden="true">↗</span></a>` : title ? `<span>${helpers.escapeHTML(title)}</span>` : ""}
         ${description ? `<p>${helpers.escapeHTML(description)}</p>` : ""}
       </li>`;
     }).filter(Boolean);
@@ -34,7 +34,7 @@
   }
 
   function renderResearchTimeline(timeline){
-    if(!timeline || !Array.isArray(timeline.items))return "";
+    if(!timeline || timeline.published === false || !Array.isArray(timeline.items))return "";
     const items=timeline.items.map((item,index)=>{
       if(!item || typeof item!=="object")return "";
       const title=String(item.title || "").trim(),period=String(item.period || "").trim();
@@ -46,7 +46,7 @@
         <span class="research-timeline-marker" aria-hidden="true"></span>
         ${period?`<span class="research-timeline-period">${helpers.escapeHTML(period)}</span>`:""}
         ${title?`<span class="research-timeline-title">${helpers.escapeHTML(title)}</span>`:""}
-        ${url?`<a href="${helpers.escapeHTML(url)}" target="_blank" rel="noopener noreferrer"><svg class="experience-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 .1l3-3a5 5 0 0 0-7-7l-1.7 1.7M14 11a5 5 0 0 0-7-.1l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg><span>${helpers.escapeHTML(item.linkText?.trim() || "자료 보기")}</span><span aria-hidden="true">↗</span></a>`:""}
+        ${url?`<a href="${helpers.escapeHTML(url)}" target="_blank" rel="noopener noreferrer"><svg class="experience-link-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 .1l3-3a5 5 0 0 0-7-7l-1.7 1.7M14 11a5 5 0 0 0-7-.1l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg><span>${helpers.escapeHTML(item.linkText?.trim() || "자료 보기")}</span><span aria-hidden="true">↗</span></a>`:""}
       </li>`;
     }).filter(Boolean);
     if(!items.length)return "";

@@ -1,14 +1,18 @@
 (function(){
   const App = window.PortfolioApp;
   const {refs,state,runtime} = App;
+  let transitionVersion = 0;
 
   function openWorkspace(){
-    if(runtime.workspaceOpening || refs.workspace.classList.contains("show")) return;
+    if(runtime.workspaceOpening || runtime.workspaceClosing || refs.workspace.classList.contains("show")) return;
 
+    const version = ++transitionVersion;
     runtime.workspaceOpening = true;
     document.documentElement.classList.add("workspace-preparing");
     document.body.classList.add("workspace-preparing");
     App.Views.Portfolio.renderIndex();
+    refs.workspace.style.visibility = "";
+    refs.workspace.inert = false;
     refs.workspace.setAttribute("aria-hidden","false");
 
     refs.appRoot.classList.add("warping");
@@ -19,6 +23,7 @@
     refs.warpLayer.classList.add("active");
 
     setTimeout(() => {
+      if(version !== transitionVersion) return;
       document.documentElement.classList.add("workspace-open");
       document.body.classList.add("workspace-open");
       document.documentElement.classList.remove("workspace-preparing");
@@ -28,11 +33,14 @@
       // Let the browser commit the document-scroll layout before the workspace
       // fades in. This prevents a one-frame nested scrollbar flash.
       requestAnimationFrame(() => {
-        requestAnimationFrame(() => refs.workspace.classList.add("show"));
+        requestAnimationFrame(() => {
+          if(version === transitionVersion) refs.workspace.classList.add("show");
+        });
       });
     },330);
 
     setTimeout(() => {
+      if(version !== transitionVersion) return;
       refs.landing.style.display = "none";
       refs.landing.classList.remove("entering");
       refs.warpLayer.classList.remove("active");
@@ -44,23 +52,31 @@
   }
 
   function closeWorkspace(){
-    App.Views.Project?.deactivateCaseStudy?.();
-    App.Views.Portfolio?.deactivateSectionPageMode?.();
-    document.documentElement.classList.remove("workspace-preparing");
-    document.body.classList.remove("workspace-preparing");
-    document.documentElement.classList.remove("workspace-open");
-    document.body.classList.remove("workspace-open");
-    window.scrollTo(0,0);
+    if(runtime.workspaceClosing || (!runtime.workspaceOpening && !refs.workspace.classList.contains("show"))) return;
+    const version = ++transitionVersion;
+    runtime.workspaceClosing = true;
+    const wasVisible = refs.workspace.classList.contains("show");
     refs.workspace.classList.remove("show");
     refs.workspace.setAttribute("aria-hidden","true");
+    refs.workspace.inert = true;
     runtime.workspaceOpening = false;
 
+    // Keep the page layout and icon sizes intact until the fade has finished.
     setTimeout(() => {
+      if(version !== transitionVersion) return;
+      refs.workspace.style.visibility = "hidden";
+      App.Views.Project?.deactivateCaseStudy?.();
+      App.Views.Portfolio?.deactivateSectionPageMode?.();
+      document.documentElement.classList.remove("workspace-preparing","workspace-open");
+      document.body.classList.remove("workspace-preparing","workspace-open");
+      window.scrollTo(0,0);
       refs.landing.style.display = "grid";
       refs.landing.classList.remove("entering");
       refs.warpLayer.classList.remove("active");
       refs.appRoot.classList.remove("warping");
-    },470);
+      runtime.workspaceClosing = false;
+      refs.startFolder.focus({preventScroll:true});
+    },wasVisible ? 500 : 0);
   }
 
   function goBack(){
