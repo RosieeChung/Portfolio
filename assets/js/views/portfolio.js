@@ -50,7 +50,7 @@
       </li>`;
     }).filter(Boolean);
     if(!items.length)return "";
-    return `<section class="research-timeline" aria-label="학력 · 연구"><h2 class="career-group-heading">학력 · 연구</h2>
+    return `<section class="career-group research-timeline" aria-label="학력 · 연구"><h2 class="career-group-heading">학력 · 연구</h2>
       <ol class="research-timeline-list" style="--timeline-count:${items.length}" tabindex="0" aria-label="작품과 연구 기록">${items.join("")}</ol>
     </section>`;
   }
@@ -231,13 +231,14 @@
           <section class="section-document-hero">
             <div class="content-eyebrow">${App.renumberSectionEyebrow(item.eyebrow,item.id)}</div>
             <h1 class="content-title">${item.title}</h1>
-            <p class="content-description">${item.description}</p>
+            ${item.description?.trim() ? `<p class="content-description">${helpers.escapeHTML(item.description)}</p>` : ""}
           </section>
 
           ${renderResearchTimeline(DATA.experienceTimeline)}
 
-          <section class="section-document-block">
-            <h2 class="career-group-heading">실무 경력</h2><div class="experience-list experience-list-wide">
+          <section class="career-group professional-experience" aria-labelledby="professional-experience-heading">
+            <h2 class="career-group-heading" id="professional-experience-heading">실무 경력</h2>
+            <div class="experience-list experience-list-wide">
               ${DATA.experience.map((x,index) => `
                 <div class="experience-row">
                   <div class="experience-period">

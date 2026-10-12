@@ -1,14 +1,20 @@
-/* Separate education from professional records without competing with the work. */
-.section-document-experience .career-group-heading{font-size:13px;font-weight:650;color:#6689a4;letter-spacing:.06em;margin:0 0 24px;line-height:1.5}
-.section-page-mode .section-document-experience .research-timeline{padding:24px;border:1px solid #e0ebf3;border-radius:18px;background:#f2f8fc;margin-top:24px}
-.section-page-mode .section-document-experience>.research-timeline+.section-document-block{padding-top:36px}
-.section-page-mode .experience-list-wide{display:grid;gap:16px;border-bottom:0}
-.section-page-mode .experience-list-wide .experience-row,.section-page-mode .experience-list-wide .experience-row:first-child{padding:26px 24px;border:1px solid #dfebf3;border-radius:16px;background:rgba(255,255,255,.78);grid-template-columns:155px minmax(0,1fr);gap:26px}
-.section-page-mode .experience-list-wide .experience-period{border-right:1px solid #e5eef5;padding-right:20px}
-.section-page-mode .experience-list-wide .experience-role{margin-bottom:10px}
+/* Both career groups share a frame and flow; hidden groups leave no space. */
+.section-page-mode .section-document-experience{display:flex;flex-direction:column;gap:24px}
+.section-page-mode .section-document-experience>.section-document-hero{padding:4px 0 8px}
+.section-page-mode .section-document-experience>.career-group{min-width:0;margin:0;padding:24px;border:1px solid #e0ebf3;border-radius:18px;background:#f2f8fc}
+.section-document-experience .career-group-heading{margin:0 0 24px;font-size:13px;font-weight:650;line-height:1.5;letter-spacing:.06em;color:#6689a4}
+.section-page-mode .professional-experience .experience-list-wide{display:grid;gap:0;border:0}
+.section-page-mode .professional-experience .experience-row{grid-template-columns:155px minmax(0,1fr);gap:26px;padding:26px 0;border:0;border-radius:0;background:transparent}
+.section-page-mode .professional-experience .experience-row:first-child{padding-top:0}
+.section-page-mode .professional-experience .experience-row:last-child{padding-bottom:0}
+.section-page-mode .professional-experience .experience-row+.experience-row{border-top:1px solid #dce7ef}
+.section-page-mode .professional-experience .experience-period{border-right:1px solid #dce7ef;padding-right:20px}
+.section-page-mode .professional-experience .experience-role{margin-bottom:10px}
 @media(max-width:820px){
-.section-page-mode .section-document-experience .research-timeline{padding:20px 16px;margin-top:24px}
+.section-page-mode .section-document-experience{gap:20px}
+.section-page-mode .section-document-experience>.section-document-hero{padding-bottom:4px}
+.section-page-mode .section-document-experience>.career-group{padding:20px 16px}
 .section-document-experience .career-group-heading{margin-bottom:20px;font-size:12px}
-.section-page-mode .experience-list-wide .experience-row,.section-page-mode .experience-list-wide .experience-row:first-child{grid-template-columns:minmax(0,1fr);padding:20px 16px;gap:16px}
-.section-page-mode .experience-list-wide .experience-period{border-right:0;border-bottom:1px solid #e5eef5;padding:0 0 12px}
+.section-page-mode .professional-experience .experience-row{grid-template-columns:minmax(0,1fr);padding:22px 0;gap:16px}
+.section-page-mode .professional-experience .experience-period{border:0;padding:0}
 }
