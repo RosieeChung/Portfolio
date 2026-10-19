@@ -21,7 +21,7 @@ window.PORTFOLIO = {
       "bodyWeight": 400
     },
     "worksPublished": true,
-    "worksDescription": "과거 프로젝트, 개인 작업을 모은 목록입니다. 이미지를 누르면 자세한 내용을 볼 수 있습니다."
+    "worksDescription": "프로젝트, 개인 작업을 모은 목록입니다. 이미지를 누르면 자세한 내용을 볼 수 있습니다."
   },
   "profile": {
     "name": "정 두 휘",
