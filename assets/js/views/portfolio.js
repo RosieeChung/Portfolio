@@ -78,11 +78,11 @@
     return `
       <button class="list-item list-item-sub" type="button" data-id="selected-project-works">
         <span class="list-no list-no-icon" aria-hidden="true">
-          <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor">
-            <rect x="2" y="2" width="6.2" height="6.2" rx="1.6"></rect>
-            <rect x="11.8" y="2" width="6.2" height="6.2" rx="1.6"></rect>
-            <rect x="2" y="11.8" width="6.2" height="6.2" rx="1.6"></rect>
-            <rect x="11.8" y="11.8" width="6.2" height="6.2" rx="1.6"></rect>
+          <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 13.5V5a2.5 2.5 0 0 1 2.5-2.5H14"></path>
+            <rect x="6" y="6" width="11.5" height="11.5" rx="2.2"></rect>
+            <path d="m8.5 15 2.6-2.8 1.9 1.9 1.3-1.3 1.7 1.8"></path>
+            <circle cx="10" cy="9.6" r=".9" fill="currentColor" stroke="none"></circle>
           </svg>
         </span>
         <span class="list-copy">

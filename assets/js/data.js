@@ -3,7 +3,7 @@ window.PORTFOLIO = {
   "ui": {
     "homeLabel": "포트폴리오",
     "portfolioHeading": "포트폴리오",
-    "worksLabel": "작업모음",
+    "worksLabel": "프로젝트 모음",
     "typography": {
       "heroTitleSize": 40,
       "heroTitleWeight": 700,
@@ -20,7 +20,8 @@ window.PORTFOLIO = {
       "bodySize": 15,
       "bodyWeight": 400
     },
-    "worksPublished": false
+    "worksPublished": true,
+    "worksDescription": "과거 프로젝트, 개인 작업을 모은 목록입니다. 이미지를 누르면 자세한 내용을 볼 수 있습니다."
   },
   "profile": {
     "name": "정 두 휘",
@@ -184,7 +185,147 @@ window.PORTFOLIO = {
       "projectPipelineVersion": 33
     }
   ],
-  "works": [],
+  "works": [
+    {
+      "id": "work-02",
+      "title": "ORVETA",
+      "year": "2026",
+      "category": "Personal",
+      "role": "",
+      "tools": "After Effects, Blender, AI",
+      "size": "wide",
+      "description": "Orveta 라는 가상의 우주 산업체 홍보 영상. AI 활용하여 제작하였습니다.",
+      "credit": "",
+      "thumbnail": [
+        {
+          "src": "assets/media/mvf6um8p-dccca243-thumb-clip.mp4",
+          "alt": "",
+          "caption": "",
+          "layout": "full",
+          "clipStart": 0
+        }
+      ],
+      "fullVideo": {
+        "src": "https://drive.google.com/file/d/1tvqoAtiXgujV32-8yvzpCv7MZj6Bf2FH/view?usp=sharing",
+        "caption": ""
+      },
+      "body": [
+        {
+          "src": "assets/media/mvf9ah8u-a7d38827-image-40.png",
+          "alt": "Aqua (C)",
+          "caption": "",
+          "layout": "split-text-left",
+          "type": "image",
+          "textLabel": "",
+          "textTitle": "Aqua (C) NASA 3D resources ",
+          "text": "나사의 3D 리소스를 인공위성 모델로 사용"
+        }
+      ]
+    },
+    {
+      "id": "work-06",
+      "title": "20's",
+      "year": "2022",
+      "category": "Project",
+      "role": "",
+      "tools": "C4D (Octane Render)",
+      "size": "normal",
+      "description": "B사 20주년 외주 영상 모션그래픽 파트",
+      "credit": "",
+      "thumbnail": [
+        {
+          "src": "assets/media/mvf7pq87-b5bd9282-thumb-clip.mp4",
+          "alt": "",
+          "caption": "",
+          "layout": "full",
+          "clipStart": 0
+        }
+      ],
+      "fullVideo": {
+        "src": "https://drive.google.com/file/d/1EW_Rc1fdoyVXu_Dz54SVN-dpPcZdn1jX/view?usp=sharing",
+        "caption": ""
+      },
+      "body": []
+    },
+    {
+      "id": "work-04",
+      "title": "EG-BIM S/W 03.주요기능 소개",
+      "year": "2024.09",
+      "category": "Project",
+      "role": "",
+      "tools": "",
+      "size": "wide",
+      "description": "EG-BIM 소프트웨어 소개 : 03.주요기능 모션 영상입니다.\n\n",
+      "credit": "사용툴:  Adobe AE, Illustrator, Photoshop",
+      "thumbnail": [
+        {
+          "src": "https://cdn.eg-bim.com/main_3.mp4",
+          "alt": "",
+          "caption": "https://eg-bim.com/egbim/index.php",
+          "layout": "full",
+          "clipStart": 0,
+          "clipEnd": 23,
+          "label": "EG-BIM 3.주요기능 모션"
+        }
+      ],
+      "fullVideo": {
+        "src": "https://cdn.eg-bim.com/main_3.mp4",
+        "caption": "https://eg-bim.com/egbim/index.php"
+      },
+      "body": []
+    },
+    {
+      "id": "work-03",
+      "title": "Dr.Yellow Energy Sulfur soap bar",
+      "year": "2022",
+      "category": "Project",
+      "role": "",
+      "tools": "After Effects C4D (Octane Render)",
+      "size": "tall",
+      "description": "",
+      "credit": "",
+      "thumbnail": [
+        {
+          "src": "assets/media/mv6u5jf5-8f068daa-drive-video.mp4",
+          "alt": "",
+          "caption": "",
+          "layout": "full",
+          "clipStart": 2,
+          "clipEnd": 7
+        }
+      ],
+      "fullVideo": {
+        "src": "assets/media/mv6tb69n-13141718-drive-video.mp4",
+        "caption": ""
+      },
+      "body": []
+    },
+    {
+      "id": "work-05",
+      "title": "New Year",
+      "year": "2022",
+      "category": "Personal",
+      "role": "",
+      "tools": "C4D (Octane Render)",
+      "size": "normal",
+      "description": "전통적인 디자인을 주제로 검은호랑이 해를 모션그래픽으로 표현",
+      "credit": "",
+      "thumbnail": [
+        {
+          "src": "assets/media/mvf8ghhx-2e43ace2-thumb-clip.mp4",
+          "alt": "",
+          "caption": "",
+          "layout": "full",
+          "clipStart": 0
+        }
+      ],
+      "fullVideo": {
+        "src": "https://drive.google.com/file/d/1jepy-U-KxAHmFCJBVsHTjHUwXbtiMQsW/view?usp=sharing",
+        "caption": ""
+      },
+      "body": []
+    }
+  ],
   "stages": [
     {
       "id": "base-build",
