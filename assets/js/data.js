@@ -26,7 +26,7 @@ window.PORTFOLIO = {
   "profile": {
     "name": "정 두 휘",
     "role": "3D 디자이너",
-    "intro": "안녕하세요.\n형태, 재질, 조명과 제작 판단을 하나의 프로젝트 흐름 안에서 보여주는 3D 디자이너 포트폴리오입니다.",
+    "intro": "안녕하세요.\n형태, 재질, 조명 등 하나의 프로젝트 흐름 안에서 보여주는 3D 디자이너 포트폴리오입니다.",
     "disciplines": [
       "모델링",
       "Infrastructure Modeling",
@@ -36,7 +36,7 @@ window.PORTFOLIO = {
     "workStyleTitle": "작업 방식",
     "workStyleItems": [
       {
-        "text": "지형과 수계, 도로, 건물 등 다양한 공간 데이터를 정리해 설계의 기준이 되는 대상을 구축합니다.",
+        "text": "지형과 도로, 건물 등 다양한 공간 데이터를 정리해 설계의 기준이 되는 대상을 구축합니다.",
         "media": [
           {
             "src": "assets/media/optimized/f4ccdeb295fecb11.webp",
