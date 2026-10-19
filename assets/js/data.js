@@ -211,7 +211,7 @@ window.PORTFOLIO = {
       },
       "body": [
         {
-          "src": "assets/media/mvf9ah8u-a7d38827-image-40.png",
+          "src": "assets/media/mvfa8u8a-dedbc121-image-39.png",
           "alt": "Aqua (C)",
           "caption": "",
           "layout": "split-text-left",
