@@ -281,7 +281,7 @@ window.PORTFOLIO = {
       "category": "Project",
       "role": "",
       "tools": "After Effects C4D (Octane Render)",
-      "size": "tall",
+      "size": "normal",
       "description": "",
       "credit": "",
       "thumbnail": [
@@ -324,6 +324,38 @@ window.PORTFOLIO = {
         "caption": ""
       },
       "body": []
+    },
+    {
+      "id": "work-1",
+      "title": "Study on AR application contents of Korean Dishes menu",
+      "year": "2019",
+      "category": "Study",
+      "size": "normal",
+      "description": "유니티를 사용한 AR 애플리케이션 프로젝트",
+      "credit": "",
+      "thumbnail": [
+        {
+          "src": "assets/media/mvgl695u-d24e044c-thumb-clip.mp4",
+          "alt": "",
+          "caption": "",
+          "layout": "full",
+          "clipStart": 0
+        }
+      ],
+      "fullVideo": {
+        "src": "https://drive.google.com/file/d/17kOQrSvIvN7lPDvpTSVQWO86ekgP1aX4/view"
+      },
+      "body": [
+        {
+          "src": "assets/media/optimized/ec40665a913310e8.webp",
+          "alt": "Study on AR application contents of Korean Dishes menu",
+          "caption": "한식 메뉴보기의 AR 애플리케이션 콘텐츠 연구\n필경재 레스토랑 AR 메뉴판 콘텐츠화",
+          "layout": "wide",
+          "type": "image"
+        }
+      ],
+      "tools": "Unity 3D, C4D, Vuforia",
+      "role": ""
     }
   ],
   "stages": [
